@@ -4,6 +4,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "development", // or 'production'
   entry: "./src/index.js", // Entry point of your application
   output: {
     filename: "bundle.js", // Output bundle file name
@@ -12,7 +13,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html", // Path to your HTML file in src
-      filename: "index.html", // Output HTML file name
+      //filename: "index.html", // Output HTML file name
       // Other options if needed
     }),
   ],
@@ -27,7 +28,17 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"],
+        use: [
+          {
+            // loader: "file-loader",
+            type: "asset/resource",
+            options: {
+              // name: "[name].[contenthash].[ext]",
+              name: "[contenthash].[ext]",
+              outputPath: "images/", // This is where the images will be copied
+            },
+          },
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
