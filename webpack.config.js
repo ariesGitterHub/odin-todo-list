@@ -30,8 +30,8 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
-            // loader: "file-loader",
-            type: "asset/resource",
+            loader: "file-loader",
+            // type: "asset/resource",
             options: {
               // name: "[name].[contenthash].[ext]",
               name: "[contenthash].[ext]",

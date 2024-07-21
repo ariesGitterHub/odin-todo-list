@@ -21,7 +21,7 @@
 --font-hand: "Indie Flower", cursive;
 --font-plain:  "Questrial", sans-serif;
 
---font-title-1: 1.5rem;
+--font-title-1: 1.25rem;
 }
 
 * {
@@ -44,6 +44,7 @@ body {
 }
 
 header {
+    height: fit-content;
     /* background-color: var(--dark-3); */
     display: flex;
     justify-content: space-evenly;
@@ -54,41 +55,43 @@ header {
 }
 
 header img {
-    height: 2rem;
-    width: 2rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    align-self: baseline;
 }
 
 nav {
-    height: auto;
+    height: fit-content;
     width: auto;
     background-color: var(--dark-3);
-    /* border-top: 5px dashed var(--dark-4);
-    border-bottom: 5px dashed var(--dark-4); */
+    /* border-top: 5px dashed var(--dark-4);*/
+    border-bottom: 3px solid var(--dark-4); 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.25rem;
     font-size: var(--font-title-1);
-    padding: .5rem;
+    padding: .25rem;
 }
 
 nav button {
-    height: 3rem;
-    width: 3rem;
+    height: 2.5rem;
+    width: 2.5rem;
     background-color: inherit;
-    /* border: 1px solid var(--dark-2); */
-    border: none;
-    border-radius: 2rem;
+    border: 1px dashed var(--dark-2);
+    /* border: none; */
+    border-radius: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: none;
-    padding: 1rem;
+    /* outline: none; */
+    padding: .25rem;
 }
 
 nav button:hover, nav button:focus {
     background-color: var(--dark-4);
-    transform: scale(1.1);
+    border: 1px solid var(--dark-1);
+    /* transform: scale(1.1); */
 }
 
 nav button:active {
@@ -96,24 +99,32 @@ nav button:active {
 }
 
 nav button img {
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 #status-banner {
-    background-color: var(--dark-2);
+        height: fit-content;
+    background-color: var(--dark-3);
+    /* border-top: 1.5px solid var(--dark-4);  */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: .5rem; */
+    gap: .5rem;
     /* font-family: var(--font-hand); */
     /* font-size: 1.25rem; */
-    padding: .5rem;
+    padding: .25rem;
 }
 
-#top-status-btns {
+#status-banner.hidden {
+    display: none;
+}
+
+#top-status-btns, #bot-status-btns {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
     gap: .5rem;
 }
@@ -121,9 +132,9 @@ nav button img {
 #status-banner button {
     height: 2rem;
     width: fit-content;
-    background-color: var(--dark-sb);
+    background-color: inherit;
     /* border: 1px solid var(--dark-2); */
-    border: none;
+    border: 1px dashed var(--dark-2);
     border-radius: .5rem;
     color: var(--dark-1);
     display: flex;
@@ -135,15 +146,20 @@ nav button img {
     padding: .25rem;
 }
 
-#status-banner button img {
-    height: 1.25rem;
-    width: 1.25rem;
-    margin-right: .1rem;
+#status-banner button:hover, #status-banner button:focus {
+    background-color: var(--dark-4);
+    border: 1px solid var(--dark-1);
+    /* transform: scale(1.1); */
 }
 
-#status-banner button #show-all-img {
-    height: 1.5rem;
-    width: 1.5rem;
+#status-banner button:active {
+    transform: scale(.9);
+}
+
+#status-banner button img {
+    height: 1rem;
+    width: 1rem;
+    margin-right: .1rem;
 }
 
 #MMM {
