@@ -41,9 +41,9 @@
     font-style: normal;
     font-weight: normal;
     line-height: 1; */
-    -webkit-appearance: none;
+    /* -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
+    appearance: none; */
 }
 
 body {
@@ -129,8 +129,16 @@ nav #dark-light-btn {
 
 nav button:hover, nav button:focus {
     border: 1px solid var(--dark-1);
-    transform: scale(1.05);
+    outline: none;
+    transform: scale(1.15);
 }
+
+/* nav #status-btn:hover, nav #status-btn:focus {
+    background-color: #1e1d20;
+    border: 1px solid var(--dark-1);
+    outline: none;
+    transform: scale(1.15);
+} */
 
 
 nav button:active {
@@ -284,11 +292,49 @@ form input, form select {
     font-family: var(--font-plain);
     font-size: 1rem;
     padding: .25rem;
-    
 }
 
-form input:hover, form select:hover {
+form #due-date {
+    width: 16ch;
+}
+
+form label[for="priority-checkbox"], form #priority-checkbox {
+margin-left: -3.5rem;
+}
+
+
+/* form #priority-checkbox:checked {
+background-color: red;
+} */
+
+form input:hover, form input:focus, form select:hover, form select:focus {
     border: 2px dashed var(--dark-4);
+    outline: none;
+}
+
+form input::-webkit-input-placeholder {
+    color: inherit;
+    font-size: 1rem;
+}
+
+textarea {
+    height: 6rem;
+    width: 27ch;
+    background-color: var(--dark-1);
+    border: 2px solid var(--dark-1);
+    border-radius: .75rem;
+    font-family: var(--font-plain);
+    font-size: 1rem;
+    padding: .25rem;
+}
+
+textarea::placeholder {
+    color: inherit;
+}
+
+textarea:hover, textarea:focus {
+    border: 2px dashed var(--dark-4);
+    outline: none;
 }
 
 form input::-webkit-input-placeholder {
@@ -302,12 +348,27 @@ form input::-webkit-input-placeholder {
     align-items: center;
 }
 
+.lvl-row2 {
+    width: 27ch;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
 .lvl-col {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
 }
+
+.lvl-col2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 #MMM {
     display: flex;
