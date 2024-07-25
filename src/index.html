@@ -8,11 +8,12 @@
 </head>
 <body>
     <header>
-        <h1 id="app-name">Task <img id="crown-img" src="" alt=""> King</h1> 
-    </header>
+        <div id="app-title">
+            <h1 class="title-font">Task <img id="crown-img" src="" alt=""> King</h1>             
+        </div>
     <nav>
-        <button id="menu-btn">
-            <img id="menu-img" src="" alt="">
+        <button id="status-btn">
+            <img id="status-img" src="" alt="">
         </button>
         <button id="add-task-btn">
             <img id="add-task-img" src="" alt="">
@@ -28,6 +29,7 @@
             <!-- <img id="mode-lt-img" src="" alt=""> -->
         </button>
     </nav>
+
     <div id="status-banner">
         <div id="top-status-btns">
             <!-- <button id="show-all-btn">
@@ -70,7 +72,75 @@
 
     </div>
 
-    <div id="content"></div>
+        <form id="new-task-form">
+<!-- start changes... -->
+    <div class="lvl-row">
+        <img id="add-task-form-img" src="" alt="">
+        <p class="title-font">&nbsp;New Task</p>
+    </div>
+
+    <div class="lvl-col">
+        <label for="new-task-title">Task Title</label>
+        <input type="text" id="new-task-title" name="new-task-title" placeholder="Enter new task title" required>
+    </div>
+
+    <div class="lvl-col">
+        <label for="select-folder">Task Folder</label>              
+        <select id="select-folder" name="select-folder" required>
+            <option value="" disabled selected>Select a folder</option>
+            <option value="default">Default</option>
+            <option value="chores">Chores</option>
+            <option value="fitness">Fitness</option>
+        </select>   
+    </div>
+
+    <div class="lvl-col">
+        <label for="date-input">Due Date</label>
+        <input type="date" id="due-date" name="due-date">
+    </div>
+
+    <div class="lvl5">
+        
+    </div>
+
+
+
+            <!-- <br> -->
+         
+
+            <!-- <br> -->
+
+    </header>
+
+    <div id="content">
+
+        <!-- <section id="new-task-modal">
+            <div id="top-task-btns">
+                <button id="">A</button>
+                <button id="">B</button>
+                <button id="">C</button>
+                <button id="">D</button>
+            </div>
+            <label for="task-title">
+                Title             
+                <input type="text" id="task-title" name="task-title" placeholder="Enter task title" required>
+            </label>
+            <label for="folder-select">
+                Folder
+                <select id="folder-select" name="folder-select" required>
+                    <option value="" disabled selected>Select a folder</option>
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="projects">Projects</option>
+                </select>            
+            </label> -->
+
+
+
+
+        <!-- </section>
+        <div id="new-task-overlay"></div> -->
+    </div>
 
     <footer id="MMM">A Mad Muffin Man Design Studio, &#169;2024</footer>
 </body>
