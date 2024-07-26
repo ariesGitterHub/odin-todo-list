@@ -5,7 +5,7 @@ export const handleStatusBtn = (() => {
   if (statusBtn && statusBanner) {
     statusBtn.addEventListener("click", toggleStatusBanner);
   } else {
-    console.warn("Menu button or status banner not found.");
+    console.warn("Warning: statusBtn or statusBanner components missing.");
   }
 
   function toggleStatusBanner() {

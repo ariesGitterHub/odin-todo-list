@@ -5,3 +5,13 @@ import "./javascript/handleImages.js";  // FYI: importing IIFEs works a bit diff
 import "./javascript/handleStatusBtn.js";
 import "./javascript/handleAddTaskBtn.js";
 // import { createNewTask } from "./javascript/createNewTask.js";
+import priorityChecked from "./javascript/priorityChecked.js"
+
+
+// Call the function initially and set up event listener
+document.addEventListener('DOMContentLoaded', () => {
+  priorityChecked(); // Call the function initially to set the correct state
+
+  // Add event listener to the checkbox
+  document.querySelector("#priority-checkbox").addEventListener('change', priorityChecked);
+});

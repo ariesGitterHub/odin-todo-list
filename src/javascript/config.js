@@ -9,3 +9,5 @@ export const darkLightBtn = document.querySelector("#dark-light-btn");
 export const statusBanner = document.querySelector("#status-banner");
 export const newTaskForm = document.querySelector("#new-task-form");
 export const newFolderForm = document.querySelector("#new-folder-form");
+
+export const priorityTrue = document.querySelector("#priority-checkbox");

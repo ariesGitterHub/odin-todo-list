@@ -80,12 +80,12 @@
     </div>
 
     <div class="lvl-col">
-        <label for="new-task-title">Task Title</label>
+        <label class="form-field-title" for="new-task-title">Task Title</label>
         <input type="text" id="new-task-title" name="new-task-title" placeholder="Enter new task title" required>
     </div>
 
     <div class="lvl-col">
-        <label for="select-folder">Task Folder</label>              
+        <label class="form-field-title" for="select-folder">Task Folder</label>              
         <select id="select-folder" name="select-folder" required>
             <option value="" disabled selected>Select a folder</option>
             <option value="default">Default</option>
@@ -96,18 +96,28 @@
     </div>
 
     <div class="lvl-row2">
+
         <div class="lvl-col">
-            <label for="due-date">Due Date</label>
+            <label class="form-field-title" >Priority</label>
+            <!-- <input type="checkbox" id="priority-checkbox"  name="priority"> -->
+             <label class="switch" for="priority-checkbox">
+                <input type="checkbox" id="priority-checkbox"  name="priority">
+                <span class="slider round"></span>
+            </label>
+            
+        </div>
+
+        <div><img id="priority-true-img" src="" alt=""></div>
+
+        <div class="lvl-col">
+            <label class="form-field-title" for="due-date">Due Date</label>
             <input type="date" id="due-date" name="due-date">
         </div>
-        <div class="lvl-col2">
-            <label for="priority-checkbox">Priority</label>
-            <input type="checkbox" id="priority-checkbox"  name="priority">
-        </div>
+
     </div> 
 
     <div class="lvl-col">
-        <label for="new-task-description">Description (optional)</label>              
+        <label class="form-field-title" for="new-task-description">Description (optional)</label>              
           <textarea id="new-task-description" name="task-description" rows="" cols="" placeholder="Enter your description here..."></textarea>
     </div>
 

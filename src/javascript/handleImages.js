@@ -14,6 +14,8 @@ import priorityNumImage from "../assets/priority-dk.svg";
 import overdueNumImage from "../assets/overdue-dk.svg";
 import completedNumImage from "../assets/completed-dk.svg";
 
+// import { priorityTrue } from "./config";
+
 export const handleImages = (() => {
   const crownImg = document.querySelector("#crown-img");
   crownImg.src = crownImage;
@@ -53,4 +55,12 @@ export const handleImages = (() => {
 
   const addTaskFormImg = document.querySelector("#add-task-form-img");
   addTaskFormImg.src = addTaskImage
+
+  const priorityTrue = document.querySelector("#priority-checkbox");
+  const priorityTrueImg = document.querySelector("#priority-true-img");
+  if (!priorityTrue.checked) {
+    priorityTrueImg.src = "";
+  } else if (priorityTrue.checked) {
+    priorityTrueImg.src = priorityNumImage
+  }
 })()
