@@ -6,6 +6,9 @@
 
 
 /* ******* TABLE OF CONTENTS ******* */
+/* STATUS BANNER */
+/* ADD TASK FORM */
+/* ADD FOLDER FORM */
 
 /* ******* TABLE OF CONTENTS ******* */
 
@@ -59,6 +62,7 @@ header {
     height: fit-content;
         display: flex;
         flex-direction: column;
+    margin-top: .5rem;
 }
 
 .title-font {
@@ -390,6 +394,33 @@ form input::-webkit-input-placeholder {
 
 .cancel:active, .submit:active {
     transform: scale(.9);
+}
+
+#content {
+}
+
+.task {
+    border-top: 1px dashed var(--cp7);
+    border-bottom: 1px dashed var(--cp7);
+    color: var(--cp7);
+    font-family: var(--font-plain);
+    margin: .5rem;
+    padding: .5rem;
+}
+
+.task-notice {
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--dark-4);
+    border: 1px dashed var(--cp7);
+    border-radius: 1rem;
+}
+
+.lvl-row3 {
+    width: 27ch;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 #MMM {
