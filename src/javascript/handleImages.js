@@ -56,11 +56,7 @@ export const handleImages = (() => {
   const addTaskFormImg = document.querySelector("#add-task-form-img");
   addTaskFormImg.src = addTaskImage
 
-  const priorityTrue = document.querySelector("#priority-checkbox");
-  const priorityTrueImg = document.querySelector("#priority-true-img");
-  if (!priorityTrue.checked) {
-    priorityTrueImg.src = "";
-  } else if (priorityTrue.checked) {
-    priorityTrueImg.src = priorityNumImage
-  }
+  const addFolderFormImg = document.querySelector("#add-folder-form-img");
+  addFolderFormImg.src = addFolderImage;
+
 })()

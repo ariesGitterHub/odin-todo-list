@@ -11,7 +11,7 @@
         <div id="app-title">
             <h1 class="title-font">Task <img id="crown-img" src="" alt=""> King</h1>             
         </div>
-    <nav>
+        <nav>
         <button id="status-btn">
             <img id="status-img" src="" alt="">
         </button>
@@ -28,116 +28,104 @@
             <img id="mode-dk-img" src="" alt="">
             <!-- <img id="mode-lt-img" src="" alt=""> -->
         </button>
-    </nav>
-
-    <div id="status-banner">
-        <div id="top-status-btns">
-            <!-- <button id="show-all-btn">
-                <img id="show-all-img" src="" alt="">
-            </button> -->
-            <button id="task-num-btn">
-                <img id="task-num-img" src="" alt="">117
-            </button>
-             <!-- <button id="folder-num-btn">
-                <img id="folder-num-img" src="" alt="">5
-            </button> -->
-            <button id="priority-num-btn">
-                <img id="priority-num-img" src="" alt="">25
-            </button>
-            <button id="overdue-num-btn">
-                <img id="overdue-num-img" src="" alt="">40
-            </button>
-            <button id="completed-num-btn">
-                <img id="completed-num-img" src="" alt="">1254
-            </button>
-
-            <button id="folder-num-btn">
-                <img id="folder-num-img" src="" alt="">5
-            </button>
+        </nav>
+        <div id="status-banner">
+            <div id="status-btns">
+                <button id="task-num-btn">
+                    <img id="task-num-img" src="" alt="">117
+                </button>
+                <button id="priority-num-btn">
+                    <img id="priority-num-img" src="" alt="">25
+                </button>
+                <button id="overdue-num-btn">
+                    <img id="overdue-num-img" src="" alt="">40
+                </button>
+                <button id="completed-num-btn">
+                    <img id="completed-num-img" src="" alt="">1254
+                </button>
+                <button id="folder-num-btn">
+                    <img id="folder-num-img" src="" alt="">5
+                </button>
+            </div>
         </div>
-        
-        <!-- <div id="bot-status-btns">
-            <button id="priority-num-btn">
-                <img id="priority-num-img" src="" alt="">25
-            </button>
+        <form id="new-task-form" action="">
+            <div class="lvl-row">
+                <img id="add-task-form-img" src="" alt="">
+                <p class="title-font">&nbsp;New Task</p>
+            </div>
+            <div class="lvl-col">
+                <label class="form-field-title" for="new-task-title">Task Title</label>
+                <input type="text" id="new-task-title" name="new-task-title" placeholder="Enter new task title" required>
+            </div>
+            <div class="lvl-col">
+                <label class="form-field-title" for="select-folder">Task Folder</label>              
+                <select id="select-folder" name="select-folder" required>
+                    <option value="" disabled selected>Select a folder</option>
+                    <option value="default">Default</option>
+                    <option value="chores">Chores</option>
+                    <option value="fitness">Fitness</option>
+                    <option value="fitness">The Odin Project</option>
+                </select>   
+            </div>
+            <div class="lvl-row2">
+                <div class="lvl-col">
+                    <label class="form-field-title" >Priority</label>
+                    <!-- <input type="checkbox" id="priority-checkbox"  name="priority"> -->
+                    <label class="switch" for="priority-checkbox">
+                        <input type="checkbox" id="priority-checkbox"  name="priority">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div><img id="priority-true-img" src="" alt=""></div>
+                <div class="lvl-col">
+                    <label class="form-field-title" for="due-date">Due Date</label>
+                    <input type="date" id="due-date" name="due-date">
+                </div>
+            </div> 
 
-            <button id="overdue-num-btn">
-                <img id="overdue-num-img" src="" alt="">4
-            </button>
+            <div class="lvl-col">
+                <label class="form-field-title" for="new-task-description">Description (optional)</label>              
+                <textarea id="new-task-description" name="task-description" rows="" cols="" placeholder="Enter your description here..."></textarea>
+            </div>
 
-            <button id="completed-num-btn">
-                <img id="completed-num-img" src="" alt="">1254
-            </button>
-        </div> -->
+            <div class="lvl-row2">
+                <button class="cancel">Cancel</button>
+                <button class="submit">Submit</button>
+            </div>
 
-    </div>
+        </form>
+        <form id="new-folder-form" action="">
+            <div class="lvl-row">
+                <img id="add-folder-form-img" src="" alt="">
+                <p class="title-font">&nbsp;New Folder</p>
+            </div>
+            <div class="lvl-col">
+                <label class="form-field-title" for="new-folder-title">Folder Title</label>
+                <input type="text" id="new-folder-title" name="new-folder-title" placeholder="Enter new folder title" required>
+            </div>
 
-        <form id="new-task-form">
-<!-- start changes... -->
-    <div class="lvl-row">
-        <img id="add-task-form-img" src="" alt="">
-        <p class="title-font">&nbsp;New Task</p>
-    </div>
-
-    <div class="lvl-col">
-        <label class="form-field-title" for="new-task-title">Task Title</label>
-        <input type="text" id="new-task-title" name="new-task-title" placeholder="Enter new task title" required>
-    </div>
-
-    <div class="lvl-col">
-        <label class="form-field-title" for="select-folder">Task Folder</label>              
-        <select id="select-folder" name="select-folder" required>
-            <option value="" disabled selected>Select a folder</option>
-            <option value="default">Default</option>
-            <option value="chores">Chores</option>
-            <option value="fitness">Fitness</option>
-            <option value="fitness">The Odin Project</option>
-        </select>   
-    </div>
-
-    <div class="lvl-row2">
-
-        <div class="lvl-col">
-            <label class="form-field-title" >Priority</label>
-            <!-- <input type="checkbox" id="priority-checkbox"  name="priority"> -->
-             <label class="switch" for="priority-checkbox">
-                <input type="checkbox" id="priority-checkbox"  name="priority">
-                <span class="slider round"></span>
-            </label>
-            
-        </div>
-
-        <div><img id="priority-true-img" src="" alt=""></div>
-
-        <div class="lvl-col">
-            <label class="form-field-title" for="due-date">Due Date</label>
-            <input type="date" id="due-date" name="due-date">
-        </div>
-
-    </div> 
-
-    <div class="lvl-col">
-        <label class="form-field-title" for="new-task-description">Description (optional)</label>              
-          <textarea id="new-task-description" name="task-description" rows="" cols="" placeholder="Enter your description here..."></textarea>
-    </div>
-
-    <!-- <div class="lvl-row2">
-        <label for="priority-checkbox">Priority</label>
-        <input type="checkbox" id="priority-checkbox" name="priority">
-    </div>     -->
-
-
-    <div class="lvl5">
-        
-    </div>
-
-
-
-            <!-- <br> -->
-         
-
-            <!-- <br> -->
-
+                <div class="lvl-col">
+                    <label class="form-field-title" for="new-folder-border">Folder Border Color</label>
+                <div class="lvl-row2">
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                </div>
+                <div class="lvl-row2">
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                    <button class="border-color-picker"></button>
+                </div>
+            </div>
+            <div class="lvl-row2">
+                <button class="cancel">Cancel</button>
+                <button class="submit">Submit</button>
+            </div>
+        </form>
     </header>
 
     <div id="content">
@@ -162,12 +150,9 @@
                     <option value="projects">Projects</option>
                 </select>            
             </label> -->
-
-
-
-
         <!-- </section>
         <div id="new-task-overlay"></div> -->
+
     </div>
 
     <footer id="MMM">A Mad Muffin Man Design Studio, &#169;2024</footer>

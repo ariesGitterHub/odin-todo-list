@@ -19,7 +19,7 @@
 --dark-af: #153f50;
 --dark-dl: #211550;
 --dark-task: #9a3030;
---dark-priority: #aaff00;
+--dark-priority: #a7f706;
 --dark-2: #818FB4;
 
 --dark-1: #ffe606;
@@ -103,7 +103,7 @@ nav button {
     height: 2.5rem;
     width: 2.5rem;
     /* background-color: inherit; */
-    border: 1px dashed var(--dark-1);
+    border: 1px solid var(--dark-1);
     /* border: none; */
     border-radius: 2.5rem;
     display: flex;
@@ -130,9 +130,9 @@ nav #dark-light-btn {
 }
 
 nav button:hover, nav button:focus {
-    border: 1px solid var(--dark-1);
+    border: 1px dashed var(--dark-1);
     outline: none;
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 /* nav #status-btn:hover, nav #status-btn:focus {
@@ -153,9 +153,14 @@ nav button img {
     width: 1.5rem;
 }
 
-#status-banner.flex, #new-task-form.flex
+#status-banner.flex, #new-task-form.flex, #new-folder-form.flex
 {
     display: flex;
+}
+
+#status-banner.none, #new-task-form.none, #new-folder-form.none
+{
+    display: none;
 }
 
 #status-banner {
@@ -176,7 +181,7 @@ nav button img {
 /* Reminder: this means the CSS rule applies only to an element that has both the id="status-banner" and the class="hidden" or class="flex", depending if it is open by default. */
 
 
-#top-status-btns, #bot-status-btns {
+#status-btns {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -189,7 +194,7 @@ nav button img {
     width: fit-content;
     background-color: inherit;
     /* border: 1px solid var(--dark-2); */
-    border: 1px dashed var(--dark-1);
+    border: 1px solid var(--dark-1);
     border-radius: .5rem;
     color: var(--dark-1);
     display: flex;
@@ -203,8 +208,8 @@ nav button img {
 
 #status-banner button:hover, #status-banner button:focus {
     background-color: var(--dark-4);
-    border: 1px solid var(--dark-1);
-    /* transform: scale(1.1); */
+    border: 1px dashed var(--dark-1);
+    transform: scale(1.1);
 }
 
 #status-banner button:active {
@@ -254,12 +259,20 @@ display: none;
     display: flex;
 } */
 
+
 #new-task-form {
-    height: fit-content;
     background-color: var(--dark-at);
+}
+
+#new-folder-form {
+    background-color: var(--dark-af);
+}
+
+#new-task-form, #new-folder-form {
+    height: fit-content;
+    /* background-color: var(--dark-at); */
     /* border-top: 1.5px solid var(--dark-4);  */
     border: 1px solid var(--dark-4); 
-
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -271,15 +284,15 @@ display: none;
     padding: 1rem;
 }
 
-#new-task-form img {
+#new-task-form img, #new-folder-form img {
     height: 2rem;
 }
 
-#new-task-form p {
+#new-task-form p, #new-folder-form p {
     font-size: 2rem;
 }
 
-#new-task-form .form-field-title {
+#new-task-form .form-field-title, #new-folder-form .form-field-title {
     font-family: var(--font-hand);
     font-size: 1.25rem;
     margin-bottom: -.25rem;
@@ -371,6 +384,41 @@ form input::-webkit-input-placeholder {
     align-items: space-around;
 } */
 
+.border-color-picker {
+    height: 2.25rem;
+    width: 2.25rem;
+    border: 1px solid var(--dark-1);
+    border-radius: 3rem;
+    margin: .25rem;
+}
+
+.cancel, .submit {
+    height: 2rem;
+    width: 7rem;
+    background-color: inherit;
+    /* border: 1px solid var(--dark-2); */
+    border: 1px solid var(--dark-1);
+    border-radius: .5rem;
+    color: var(--dark-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      font-family: var(--font-plain);
+    font-size: 1rem;
+    outline: none;
+    margin-top: .25rem;
+    padding: .25rem;
+}
+
+.cancel:hover, .cancel:focus, .submit:hover, .submit:focus  {
+    /* background-color: var(--dark-4); */
+    border: 1px dashed var(--dark-1);
+    transform: scale(1.05);
+}
+
+.cancel:active, .submit:active {
+    transform: scale(.9);
+}
 
 #MMM {
     display: flex;
