@@ -3,158 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./styles/styles.css"> -->
     <title>Odin Todo List</title>
 </head>
 <body>
     <header>
         <div id="app-title">
-            <h1 class="title-font">Task <img id="crown-img" src="" alt=""> King</h1>             
+            <h1 class="title-font">
+                Task 
+                <img id="crown-img" src="" alt="">
+                 King
+            </h1>             
         </div>
         <nav>
-        <button id="status-btn">
-            <img id="status-img" src="" alt="">
-        </button>
-        <button id="add-task-btn">
-            <img id="add-task-img" src="" alt="">
-        </button>  
-        <button id="add-folder-btn">
-            <img id="add-folder-img" src="" alt="">
-        </button>  
-        <!-- <button id="status-btn">
-            <img id="status-img" src="" alt="">
-        </button>   -->
-        <button id="dark-light-btn">
-            <img id="mode-dk-img" src="" alt="">
-            <!-- <img id="mode-lt-img" src="" alt=""> -->
-        </button>
+            <button id="status-btn">
+                <img id="status-img" src="" alt="">
+            </button>
+            <button id="add-task-btn">
+                <img id="add-task-img" src="" alt="">
+            </button>  
+            <button id="add-folder-btn">
+                <img id="add-folder-img" src="" alt="">
+            </button>  
+            <button id="dark-light-btn">
+                <img id="mode-dk-img" src="" alt="">
+            </button>
         </nav>
         <div id="status-banner">
             <div id="status-btns">
                 <button id="task-num-btn">
-                    <img id="task-num-img" src="" alt="">117
+                    <img id="task-num-img" src="" alt="">
                 </button>
                 <button id="priority-num-btn">
-                    <img id="priority-num-img" src="" alt="">25
+                    <img id="priority-num-img" src="" alt="">
                 </button>
                 <button id="overdue-num-btn">
-                    <img id="overdue-num-img" src="" alt="">40
+                    <img id="overdue-num-img" src="" alt="">
                 </button>
                 <button id="completed-num-btn">
-                    <img id="completed-num-img" src="" alt="">1254
+                    <img id="completed-num-img" src="" alt="">
                 </button>
                 <button id="folder-num-btn">
-                    <img id="folder-num-img" src="" alt="">5
+                    <img id="folder-num-img" src="" alt="">
                 </button>
             </div>
         </div>
         <form id="new-task-form" action="">
             <div class="lvl-row">
                 <img id="add-task-form-img" src="" alt="">
-                <p class="title-font">&nbsp;New Task</p>
+                <p class="title-font">
+                    &nbsp;New Task
+                </p>
             </div>
             <div class="lvl-col">
-                <label class="form-field-title" for="new-task-title">Task Title</label>
+                <label class="form-field-title" for="new-task-title">
+                    Task Title
+                </label>
                 <input type="text" id="new-task-title" name="new-task-title" placeholder="Enter new task title" required>
             </div>
             <div class="lvl-col">
-                <label class="form-field-title" for="select-folder">Task Folder</label>              
+                <label class="form-field-title" for="select-folder">
+                    Task Folder
+                </label>              
                 <select id="select-folder" name="select-folder" required>
                     <option value="" disabled selected>Select a folder</option>
                     <option value="default">Default</option>
                     <option value="chores">Chores</option>
                     <option value="fitness">Fitness</option>
-                    <option value="fitness">The Odin Project</option>
+                    <option value="fitness">Home Repair</option>
                 </select>   
             </div>
             <div class="lvl-row2">
                 <div class="lvl-col">
-                    <label class="form-field-title" >Priority</label>
-                    <!-- <input type="checkbox" id="priority-checkbox"  name="priority"> -->
+                    <p class="form-field-title">
+                        Priority
+                    </p>
                     <label class="switch" for="priority-checkbox">
                         <input type="checkbox" id="priority-checkbox"  name="priority">
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <div><img id="priority-true-img" src="" alt=""></div>
+                <div>
+                    <img id="priority-true-img" src="" alt="">
+                </div>
                 <div class="lvl-col">
-                    <label class="form-field-title" for="due-date">Due Date</label>
+                    <label class="form-field-title" for="due-date">
+                        Due Date
+                    </label>
                     <input type="date" id="due-date" name="due-date">
                 </div>
             </div> 
-
             <div class="lvl-col">
-                <label class="form-field-title" for="new-task-description">Description (optional)</label>              
-                <textarea id="new-task-description" name="task-description" rows="" cols="" placeholder="Enter your description here..."></textarea>
+                <label class="form-field-title" for="new-task-description">
+                    Description (optional)
+                </label>              
+                <textarea id="new-task-description" name="new-task-description" rows="" cols="" placeholder="Enter your description here..."></textarea>
             </div>
-
             <div class="lvl-row2">
-                <button class="cancel">Cancel</button>
-                <button class="submit">Submit</button>
+                <button class="cancel">
+                    Cancel
+                </button>
+                <button class="submit">
+                    Submit
+                </button>
             </div>
-
         </form>
         <form id="new-folder-form" action="">
             <div class="lvl-row">
                 <img id="add-folder-form-img" src="" alt="">
-                <p class="title-font">&nbsp;New Folder</p>
+                <p class="title-font">
+                    &nbsp;New Folder
+                </p>
             </div>
             <div class="lvl-col">
-                <label class="form-field-title" for="new-folder-title">Folder Title</label>
+                <label class="form-field-title" for="new-folder-title">
+                    Folder Title
+                </label>
                 <input type="text" id="new-folder-title" name="new-folder-title" placeholder="Enter new folder title" required>
             </div>
-
                 <div class="lvl-col">
-                    <label class="form-field-title" for="new-folder-border">Folder Border Color</label>
-                <div class="lvl-row2">
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
+                    <p class="form-field-title">
+                        Choose Folder Color
+                    </p>
+                    <div class="lvl-row2 color-picker-cont">
+                        <button class="color-picker" id="cp1">1</button>
+                        <button class="color-picker" id="cp2">2</button>
+                        <button class="color-picker" id="cp3">3</button>
+                        <button class="color-picker" id="cp4">4</button>
+                        <button class="color-picker" id="cp5">5</button>
+                    </div>
+                    <div class="lvl-row2 color-picker-cont">
+                        <button class="color-picker" id="cp6">6</button>
+                        <button class="color-picker" id="cp7">7</button>
+                        <button class="color-picker" id="cp8">8</button>
+                        <button class="color-picker" id="cp9">9</button>
+                        <button class="color-picker" id="cp10">10</button>
+                    </div>
                 </div>
-                <div class="lvl-row2">
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
-                    <button class="border-color-picker"></button>
-                </div>
-            </div>
             <div class="lvl-row2">
-                <button class="cancel">Cancel</button>
-                <button class="submit">Submit</button>
+                <button class="cancel">
+                    Cancel
+                </button>
+                <button class="submit">
+                    Submit
+                </button>
             </div>
         </form>
     </header>
-
-    <div id="content">
-
-        <!-- <section id="new-task-modal">
-            <div id="top-task-btns">
-                <button id="">A</button>
-                <button id="">B</button>
-                <button id="">C</button>
-                <button id="">D</button>
-            </div>
-            <label for="task-title">
-                Title             
-                <input type="text" id="task-title" name="task-title" placeholder="Enter task title" required>
-            </label>
-            <label for="folder-select">
-                Folder
-                <select id="folder-select" name="folder-select" required>
-                    <option value="" disabled selected>Select a folder</option>
-                    <option value="work">Work</option>
-                    <option value="personal">Personal</option>
-                    <option value="projects">Projects</option>
-                </select>            
-            </label> -->
-        <!-- </section>
-        <div id="new-task-overlay"></div> -->
-
-    </div>
-
-    <footer id="MMM">A Mad Muffin Man Design Studio, &#169;2024</footer>
+    <div id="content"></div>
+    <footer id="MMM">
+        A Mad Muffin Man Design Studio, &#169;2024
+    </footer>
 </body>
 </html>
