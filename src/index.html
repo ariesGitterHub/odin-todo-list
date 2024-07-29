@@ -94,7 +94,7 @@
             </div> 
             <div class="lvl-col">
                 <label class="form-field-title" for="new-task-description">
-                    Description (optional)
+                    Brief Description (optional)
                 </label>              
                 <textarea id="new-task-description" name="new-task-description" rows="" cols="" placeholder="Enter your description here..."></textarea>
             </div>
@@ -151,18 +151,46 @@
     </header>
     <div id="content">
         <div class="task">
-            <h4>&nbsp;TAKE OUT TRASH</h4>
-            <div class="lvl-row2">
-                <div class="lvl-row3">
-                    <div class="task-notice tb-priority"></div> 
-                    <div class="task-notice tb-overdue"></div>
-                    <div class="task-notice tb-completed"></div>
-                </div>
-                <button>Completed</button>
-                <button>Information</button>
-                <div class="tb-due-date">4/1/1987</div>
-            </div>
+            <div class="lvl-row-start">
+                <!-- <div class="lvl-col-start-start">
+                    <div class="task-notice task-priority"></div> 
+                    
+                    <div class="task-notice task-completed"></div>
+                    <div class="task-notice task-folder"></div>
+                </div> -->
+                <div class="lvl-col">
+                    <p class="task-title">Take out the trash tonight!!!!.</p>
+                    <br>
+                    <div class="lvl-row">
+                        <img class="task-overdue-img" src="" alt="">
+                        <div class="task-due-date">&nbsp;Due: <span>2024 JUL 09</span></div>
+                    </div>
+                    <br>
+                    <div class="lvl-row2">
+                        <div class="lvl-col">
+                            <button class="task-priority-btn"><img class="task-priority-img" alt=""></button>
+                        </div>
+                        <div class="lvl-col">
+                            <button class="task-completed-btn"><img class="task-completed-img" alt=""></button>
+                        </div>
+                        <div class="lvl-row">
+                            <img class="task-folder-img" alt="">
+                            <select class="task-folder" name="select-folder">
+                                <option value="" disabled selected>Select a folder</option>
+                                <option value="default">Default</option>
+                                <option value="chores">Chores</option>
+                                <option value="fitness">Fitness</option>
+                                <option value="fitness">Home Repair</option>
+                            </select>  
+                        </div>
+                    </label>
+                    </div>
 
+
+                    <br>
+                    <div class="task-folder">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt aspernatur nulla distinctio ut dolorum illo ad temporibus beatae maiores magni recusandae modi dicta quae aperiam officia fugit quidem, nobis voluptas?</div>
+                </div>
+            </div>
 
 
 

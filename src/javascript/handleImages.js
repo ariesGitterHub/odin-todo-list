@@ -59,4 +59,16 @@ export const handleImages = (() => {
   const addFolderFormImg = document.querySelector("#add-folder-form-img");
   addFolderFormImg.src = addFolderImage;
 
+// Task Mock Ups...
+  const taskOverdueImg = document.querySelector(".task-overdue-img");
+  taskOverdueImg.src = overdueNumImage;
+
+  const taskPriorityImg = document.querySelector(".task-priority-img");
+  taskPriorityImg.src = priorityNumImage;
+
+  const taskCompletedImg = document.querySelector(".task-completed-img");
+  taskCompletedImg.src = completedNumImage;
+
+  const taskFolderImg = document.querySelector(".task-folder-img");
+  taskFolderImg.src = folderNumImage;
 })()

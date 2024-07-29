@@ -21,7 +21,7 @@
 --dark-af: #153f50;
 --dark-dl: #211550;
 --dark-task: #9a3030;
---dark-priority: #a7f706;
+--dark-priority: #a9fe00;
 --dark-2: #818FB4;
 --dark-1: #ffe606;
 
@@ -31,11 +31,11 @@
 
 --cp1: #f47f7f;
 --cp2: #f59f88;
---cp3: #ecdca9;
---cp4: #aaf884;
---cp5: #73dda7;
+--cp3: #b9b091;
+--cp4: #a4e385;
+--cp5: #6ac6af;
 --cp6: #78dfe8;
---cp7: #7c81df;
+--cp7: #8e9cce;
 --cp9: #b178e7;
 --cp8: #e978da;
 --cp10: #ea80a3;
@@ -407,13 +407,55 @@ form input::-webkit-input-placeholder {
     margin: .5rem;
     padding: .5rem;
 }
+.task-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
 
-.task-notice {
-    height: 1rem;
-    width: 1rem;
-    background-color: var(--dark-4);
+.task img {
+    height: 1.35rem;
+    width: 1.35rem;
+}
+
+.task button {
+    height: 2.25rem;
+    width: 2.25rem;
+    background-color: inherit;
+    border: 1px solid var(--cp7);
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .25rem;
+}
+
+.task button:hover, .task button:focus{
+    background-color: var(--dark-priority);
     border: 1px dashed var(--cp7);
-    border-radius: 1rem;
+    transform: scale(1.2);
+}
+
+.task button:active {
+    transform: scale(.9);
+}
+
+.task-folder-img {
+    margin-left: .5rem;
+    margin-right: .35rem;
+}
+.task select {
+    height: 2.25rem;
+    width: fit-content;
+    background-color: var(--dark-4);
+    border: 1px solid var(--cp7);
+        border-radius: 2rem;
+    color: var(--cp7);
+    text-align: center;
+}
+
+.task select:hover, .task select:focus{
+    border: 1px dashed var(--cp7);
+    outline: none;
 }
 
 .lvl-row3 {
@@ -421,6 +463,20 @@ form input::-webkit-input-placeholder {
     display: flex;
     justify-content: start;
     align-items: center;
+}
+
+.lvl-row-start {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.lvl-col-start-start {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: start; */
+    align-self: self-start;
 }
 
 #MMM {
