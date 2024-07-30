@@ -6,45 +6,51 @@
 
 
 /* ******* TABLE OF CONTENTS ******* */
-/* STATUS BANNER */
-/* ADD TASK FORM */
-/* ADD FOLDER FORM */
-
+/* ROOT/GLOBALS                      */
+/* HEADER                            */
+/* --> STATUS BANNER                 */
+/* --> ADD TASK FORM                 */
+/* --> ADD FOLDER FORM               */
+/* TASK VIEW                       */
+/* FOOTER                            */
 /* ******* TABLE OF CONTENTS ******* */
 
 
 :root {
---dark-4: #1e1d20;
---dark-3: #403c48;
---dark-sb: #501525;
---dark-at: #503715;
---dark-af: #153f50;
---dark-dl: #211550;
---dark-task: #9a3030;
---dark-priority: #a9fe00;
---dark-2: #818FB4;
---dark-1: #ffe606;
+/* Dark Mode Palette */
+--dark-bkgd: #1e1d20; /* background */
+/* --dark-3: #403c48;  */
+--dark-stba: #501525; /* status banner */
+--dark-adta: #503715; /* add task */
+--dark-adfo: #153f50; /* add folder */
+--dark-dklt: #211550; /* dark-light */
+/* --dark-task: #9a3030; */
+--dark-alert: #a9fe00; /*alert color that contrasts against background*/
+/* --dark-2: #818FB4; */
+--dark-contrast: #ffe606; /* contrast against background */
 
---base: #ffffff;
+/* --base: #ffffff; */
 
-/* border colors */
+/* Light Mode Palette */
 
---cp1: #f47f7f;
---cp2: #f59f88;
---cp3: #b9b091;
---cp4: #a4e385;
---cp5: #6ac6af;
---cp6: #78dfe8;
---cp7: #8e9cce;
---cp9: #b178e7;
---cp8: #e978da;
---cp10: #ea80a3;
+
+/* Folder Colors */
+--fc01: #f47e7e;
+--fc02: #f59f88;
+--fc03: #b9b091;
+--fc04: #a4e385;
+--fc05: #6ac6af;
+--fc06: #78dfe8;
+--fc07: #aebcea;
+--fc08: #c497ef;
+--fc09: #e978da;
+--fc10: #bd929f;
 
 --font-fancy: "Cabin Sketch", sans-serif;
 --font-hand: "Indie Flower", cursive;
 --font-plain:  "Questrial", sans-serif;
 
---font-title-1: 1.25rem;
+--font-title-size: 1.25rem;
 }
 
 * {
@@ -54,8 +60,8 @@
 }
 
 body {
-    background-color: var(--dark-4);
-    color: var(--dark-1);
+    background-color: var(--dark-bkgd);
+    color: var(--dark-contrast);
 }
 
 header {
@@ -65,7 +71,7 @@ header {
     margin-top: .5rem;
 }
 
-.title-font {
+.font-fancy {
     font-family: var(--font-fancy);
 }
 
@@ -74,7 +80,7 @@ header {
     display: flex;
         justify-content: space-evenly;
         align-items: center;
-    font-size: var(--font-title-1);
+    font-size: var(--font-title-size);
 }
 
 #app-title img {
@@ -87,7 +93,7 @@ nav {
     height: auto;
     width: auto;
     /* background-color: var(--dark-3); */
-    border: 1px solid var(--dark-4); 
+    border: 1px solid var(--dark-bkgd); 
     display: flex;
         justify-content: center;
         align-items: center;
@@ -100,7 +106,7 @@ nav {
 nav button {
     height: 2.5rem;
     width: 2.5rem;
-    border: 1px solid var(--dark-1);
+    border: 1px solid var(--dark-contrast);
     border-radius: 2.5rem;
     display: flex;
         justify-content: center;
@@ -109,15 +115,15 @@ nav button {
 }
 
 nav #status-btn{
-    background-color: var(--dark-sb);
+    background-color: var(--dark-stba);
 }
 
 nav #add-task-btn {
-    background-color: var(--dark-at);
+    background-color: var(--dark-adta);
 }
 
 nav #add-folder-btn {
-    background-color: var(--dark-af);
+    background-color: var(--dark-adfo);
 }
 
 nav #dark-light-btn {
@@ -125,7 +131,7 @@ nav #dark-light-btn {
 }
 
 nav button:hover, nav button:focus {
-    border: 1px dashed var(--dark-1);
+    border: 1px dashed var(--dark-contrast);
     outline: none;
     transform: scale(1.2);
 }
@@ -151,8 +157,8 @@ nav button img {
 
 #status-banner {
     height: fit-content;
-    background-color: var(--dark-sb);
-    border: 1px solid var(--dark-4); 
+    background-color: var(--dark-stba);
+    border: 1px solid var(--dark-bkgd); 
     display: none;
         flex-direction: column;
         justify-content: center;
@@ -173,9 +179,9 @@ nav button img {
     height: 2rem;
     width: fit-content;
     background-color: inherit;
-    border: 1px solid var(--dark-1);
+    border: 1px solid var(--dark-contrast);
     border-radius: .5rem;
-    color: var(--dark-1);
+    color: var(--dark-contrast);
     display: flex;
         justify-content: center;
         align-items: center;
@@ -186,8 +192,8 @@ nav button img {
 }
 
 #status-banner button:hover, #status-banner button:focus {
-    background-color: var(--dark-4);
-    border: 1px dashed var(--dark-1);
+    background-color: var(--dark-bkgd);
+    border: 1px dashed var(--dark-contrast);
     transform: scale(1.2);
 }
 
@@ -202,21 +208,21 @@ nav button img {
 }
 
 #new-task-form {
-    background-color: var(--dark-at);
+    background-color: var(--dark-adta);
 }
 
 #new-folder-form {
-    background-color: var(--dark-af);
+    background-color: var(--dark-adfo);
 }
 
 #new-task-form, #new-folder-form {
     height: fit-content;
-    border: 1px solid var(--dark-4); 
+    border: 1px solid var(--dark-bkgd); 
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: .25rem;
+    gap: .5rem;
     font-family: var(--font-plain);
     font-size: 1rem;
     padding: 1rem;
@@ -239,8 +245,8 @@ nav button img {
 form input, form select {
     height: 1.75rem;
     width: 27ch;
-    background-color: var(--dark-1);
-    border: 1px solid var(--dark-1);
+    background-color: var(--dark-contrast);
+    border: 1px solid var(--dark-contrast);
     border-radius: .75rem;
     font-family: var(--font-plain);
     font-size: 1rem;
@@ -252,7 +258,7 @@ form #due-date {
 }
 
 form input:hover, form input:focus, form select:hover, form select:focus {
-    border: 1px dashed var(--dark-4);
+    border: 1px dashed var(--dark-bkgd);
     outline: none;
 }
 
@@ -264,8 +270,8 @@ form input::-webkit-input-placeholder {
 textarea {
     height: 6rem;
     width: 27ch;
-    background-color: var(--dark-1);
-    border: 1px solid var(--dark-1);
+    background-color: var(--dark-contrast);
+    border: 1px solid var(--dark-contrast);
     border-radius: .75rem;
     font-family: var(--font-plain);
     font-size: 1rem;
@@ -277,7 +283,7 @@ textarea::placeholder {
 }
 
 textarea:hover, textarea:focus {
-    border: 1px dashed var(--dark-4);
+    border: 1px dashed var(--dark-bkgd);
     outline: none;
 }
 
@@ -295,8 +301,9 @@ form input::-webkit-input-placeholder {
 .lvl-row2 {
     width: 27ch;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+        justify-content: space-between;
+        align-items: center;
+        gap: .5rem
 }
 
 .lvl-col {
@@ -313,16 +320,16 @@ form input::-webkit-input-placeholder {
 .color-picker {
     height: 2.25rem;
     width: 2.25rem;
-    border: 1px solid var(--dark-1);
+    border: 1px solid var(--dark-contrast);
     border-radius: 3rem;
-    color: var(--dark-4);
+    color: var(--dark-bkgd);
     font-family: var(--font-hand);
     font-size: 1.5rem;
     margin: .25rem;
 }
 
 .color-picker:hover, .color-picker:focus {
-    border: 1px dashed var(--dark-4);
+    border: 1px dashed var(--dark-bkgd);
     transform: scale(1.2);
 }
 
@@ -330,53 +337,53 @@ form input::-webkit-input-placeholder {
     transform: scale(.9);
 }
 
-#cp1 {
-    background-color: var(--cp1);
+#fc01 {
+    background-color: var(--fc01);
 }
 
-#cp2 {
-    background-color: var(--cp2);    
+#fc02 {
+    background-color: var(--fc02);    
 }
 
-#cp3 {
-    background-color: var(--cp3);  
+#fc03 {
+    background-color: var(--fc03);  
 }
 
-#cp4 {
-    background-color: var(--cp4);  
+#fc04 {
+    background-color: var(--fc04);  
 }
 
-#cp5 {
-    background-color: var(--cp5);      
+#fc05 {
+    background-color: var(--fc05);      
 }
 
-#cp6 {
-    background-color: var(--cp6);      
+#fc06 {
+    background-color: var(--fc06);      
 }
 
-#cp7 {
-    background-color: var(--cp7);      
+#fc07 {
+    background-color: var(--fc07);      
 }
 
-#cp8 {
-    background-color: var(--cp8);      
+#fc08 {
+    background-color: var(--fc08);      
 }
 
-#cp9 {
-    background-color: var(--cp9);      
+#fc09 {
+    background-color: var(--fc09);      
 }
 
-#cp10 {
-    background-color: var(--cp10);      
+#fc10 {
+    background-color: var(--fc10);      
 }
 
 .cancel, .submit {
     height: 2rem;
     width: 7rem;
     background-color: inherit;
-    border: 1px solid var(--dark-1);
+    border: 1px solid var(--dark-contrast);
     border-radius: .5rem;
-    color: var(--dark-1);
+    color: var(--dark-contrast);
     display: flex;
         justify-content: center;
         align-items: center;
@@ -388,7 +395,7 @@ form input::-webkit-input-placeholder {
 }
 
 .cancel:hover, .cancel:focus, .submit:hover, .submit:focus  {
-    border: 1px dashed var(--dark-1);
+    border: 1px dashed var(--dark-contrast);
     transform: scale(1.2);
 }
 
@@ -400,28 +407,41 @@ form input::-webkit-input-placeholder {
 }
 
 .task {
-    border-top: 1px dashed var(--cp7);
-    border-bottom: 1px dashed var(--cp7);
-    color: var(--cp7);
+    border-top: 1px dashed var(--fc07);
+    border-bottom: 1px dashed var(--fc07);
+    color: var(--fc07);
     font-family: var(--font-plain);
     margin: .5rem;
     padding: .5rem;
 }
+
 .task-title {
     font-size: 1.25rem;
+    /* font-family: var(--font-fancy); */
+    /* font-style: italic; */
     font-weight: 800;
 }
 
-.task img {
-    height: 1.35rem;
-    width: 1.35rem;
+.task-due-date {
+    font-size: 1rem;
+    /* font-weight: 800; */
+}
+
+.task-overdue-img, .task-folder-img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.task-change-date-img, .task-priority-img, .task-completed-img {
+    height: 1.25rem;
+    width: 1.25rem;
 }
 
 .task button {
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2rem;
+    width: 2rem;
     background-color: inherit;
-    border: 1px solid var(--cp7);
+    border: 1px solid var(--fc07);
     border-radius: 2rem;
     display: flex;
     justify-content: center;
@@ -429,9 +449,13 @@ form input::-webkit-input-placeholder {
     padding: .25rem;
 }
 
+.task .task-change-date-btn {
+    margin-right: .5rem;
+}
+
 .task button:hover, .task button:focus{
-    background-color: var(--dark-priority);
-    border: 1px dashed var(--cp7);
+    /* background-color: var(--dark-yes); */
+    border: 1px dashed var(--fc07);
     transform: scale(1.2);
 }
 
@@ -440,22 +464,28 @@ form input::-webkit-input-placeholder {
 }
 
 .task-folder-img {
-    margin-left: .5rem;
-    margin-right: .35rem;
+    /* margin-left: .5rem; */
+    margin-right: .25rem;
 }
 .task select {
-    height: 2.25rem;
+    height: 2rem;
     width: fit-content;
-    background-color: var(--dark-4);
-    border: 1px solid var(--cp7);
-        border-radius: 2rem;
-    color: var(--cp7);
-    text-align: center;
+    background-color: var(--dark-bkgd);
+    border: 1px solid var(--fc07);
+    border-radius: 2rem;
+    color: var(--fc07);
+    font-size: 1rem;
+    /* text-align: center; */
 }
 
 .task select:hover, .task select:focus{
-    border: 1px dashed var(--cp7);
+    border: 1px dashed var(--fc07);
     outline: none;
+}
+
+.task-description {
+    height: fit-content;
+    width: fit-content;
 }
 
 .lvl-row3 {
@@ -513,8 +543,8 @@ form input::-webkit-input-placeholder {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--dark-1);
-    border: 1px solid var(--dark-1);
+    background-color: var(--dark-contrast);
+    border: 1px solid var(--dark-contrast);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -526,17 +556,17 @@ form input::-webkit-input-placeholder {
     width: 26px;
     left: 1px;
     bottom: 0px;
-    background-color: var(--dark-at);
+    background-color: var(--dark-adta);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked + .slider {
-    background-color: var(--dark-priority);
+    background-color: var(--dark-alert);
 }
 
 input:focus + .slider {
-    border: 1px dashed var(--dark-4);
+    border: 1px dashed var(--dark-bkgd);
 }
 
 input:checked + .slider:before {

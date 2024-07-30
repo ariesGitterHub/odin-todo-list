@@ -5,7 +5,12 @@ import {
   newTaskForm,
   addFolderBtn,
   newFolderForm,
+  darkLightBtn,
+  darkLightImg,
 } from "./config.js";
+
+import darkModeMoon from "../assets/moon-dk.svg";
+import lightModeSun from "../assets/sun.svg";
 
 export function handleStatusBtn() {
     if (statusBtn && statusBanner) {
@@ -69,3 +74,25 @@ export function handleAddFolderBtn() {
   }
 };
 
+export function handleDarkLightBtn() {
+
+  if (darkLightBtn) {
+    darkLightBtn.addEventListener("click", toggleModeColor);
+  } else {
+    console.warn("Warning: darkLightBtn components missing.");
+  }
+
+  function toggleModeColor() {
+    const dl = document.querySelector("#mode-dk-img");
+        if (darkLightBtn.value === "dark") {
+            darkLightBtn.value = "light";
+            darkLightBtn.style.backgroundColor = "var(--dark-contrast)";
+            dl.src = lightModeSun;
+ 
+        } else if (darkLightBtn.value === "light") {
+            darkLightBtn.value = "dark";
+            darkLightBtn.style.backgroundColor = "var(--dark-dklt)";
+            dl.src = darkModeMoon;
+        }
+  }
+};

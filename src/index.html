@@ -8,7 +8,7 @@
 <body>
     <header>
         <div id="app-title">
-            <h1 class="title-font">
+            <h1 class="font-fancy">
                 Task 
                 <img id="crown-img" src="" alt="">
                  King
@@ -24,33 +24,39 @@
             <button id="add-folder-btn">
                 <img id="add-folder-img" src="" alt="">
             </button>  
-            <button id="dark-light-btn">
-                <img id="mode-dk-img" src="" alt="">
+            <button id="dark-light-btn" value="dark">
+                <img id="dark-light-img" src="" alt="">
             </button>
         </nav>
         <div id="status-banner">
             <div id="status-btns">
                 <button id="task-num-btn">
                     <img id="task-num-img" src="" alt="">
+                    <p id="task-num-p"></p>
                 </button>
                 <button id="priority-num-btn">
                     <img id="priority-num-img" src="" alt="">
+                    <p id="priority-num-p"></p>
                 </button>
                 <button id="overdue-num-btn">
                     <img id="overdue-num-img" src="" alt="">
+                    <p id="overdue-num-p"></p>
                 </button>
                 <button id="completed-num-btn">
                     <img id="completed-num-img" src="" alt="">
+                    <p id="completed-num-p"></p>
                 </button>
                 <button id="folder-num-btn">
                     <img id="folder-num-img" src="" alt="">
+                    <p id="folder-num-p"></p>
                 </button>
             </div>
         </div>
         <form id="new-task-form" action="">
             <div class="lvl-row">
+                <!-- START HERE on WEDNESDAY. -->
                 <img id="add-task-form-img" src="" alt="">
-                <p class="title-font">
+                <p class="font-fancy">
                     &nbsp;New Task
                 </p>
             </div>
@@ -70,6 +76,7 @@
                     <option value="chores">Chores</option>
                     <option value="fitness">Fitness</option>
                     <option value="fitness">Home Repair</option>
+                    <option value="fitness">The Odin Project</option>
                 </select>   
             </div>
             <div class="lvl-row2">
@@ -110,7 +117,7 @@
         <form id="new-folder-form" action="">
             <div class="lvl-row">
                 <img id="add-folder-form-img" src="" alt="">
-                <p class="title-font">
+                <p class="font-fancy">
                     &nbsp;New Folder
                 </p>
             </div>
@@ -125,18 +132,18 @@
                         Folder Color
                     </p>
                     <div class="lvl-row2 color-picker-cont">
-                        <button class="color-picker" id="cp1">1</button>
-                        <button class="color-picker" id="cp2">2</button>
-                        <button class="color-picker" id="cp3">3</button>
-                        <button class="color-picker" id="cp4">4</button>
-                        <button class="color-picker" id="cp5">5</button>
+                        <button class="color-picker" id="fc01">1</button>
+                        <button class="color-picker" id="fc02">2</button>
+                        <button class="color-picker" id="fc03">3</button>
+                        <button class="color-picker" id="fc04">4</button>
+                        <button class="color-picker" id="fc05">5</button>
                     </div>
                     <div class="lvl-row2 color-picker-cont">
-                        <button class="color-picker" id="cp6">6</button>
-                        <button class="color-picker" id="cp7">7</button>
-                        <button class="color-picker" id="cp8">8</button>
-                        <button class="color-picker" id="cp9">9</button>
-                        <button class="color-picker" id="cp10">10</button>
+                        <button class="color-picker" id="fc06">6</button>
+                        <button class="color-picker" id="fc07">7</button>
+                        <button class="color-picker" id="fc08">8</button>
+                        <button class="color-picker" id="fc9">9</button>
+                        <button class="color-picker" id="fc10">10</button>
                     </div>
                 </div>
             <div class="lvl-row2">
@@ -152,27 +159,35 @@
     <div id="content">
         <div class="task">
             <div class="lvl-row-start">
-                <!-- <div class="lvl-col-start-start">
-                    <div class="task-notice task-priority"></div> 
-                    
-                    <div class="task-notice task-completed"></div>
-                    <div class="task-notice task-folder"></div>
-                </div> -->
                 <div class="lvl-col">
-                    <p class="task-title">Take out the trash tonight!!!!.</p>
+                    <p class="task-title">Take out the trash</p>
                     <br>
                     <div class="lvl-row">
+                        <div class="task-due-date">Due: <span>2024 JUL 09</span>&nbsp;</div>
                         <img class="task-overdue-img" src="" alt="">
-                        <div class="task-due-date">&nbsp;Due: <span>2024 JUL 09</span></div>
+                    </div>
+                    <br>
+                    <div class="lvl-row">
+                        <div class="lvl-col">
+                            <button class="task-priority-btn" value="normal"><img class="task-priority-img" alt=""></button>
+                        </div>
+                        <div class="lvl-col">
+                            <button class="task-completed-btn" value="incomplete"><img class="task-completed-img" alt=""></button>
+                        </div>
+                        <div class="lvl-col">
+                            <button class="task-change-date-btn"><img class="task-change-date-img" alt=""></button>
+                        </div>
+                        <!-- <div class="task-due-date">Due: <span>2024 JUL 09</span>&nbsp;</div>
+                        <img class="task-overdue-img" src="" alt=""> -->
                     </div>
                     <br>
                     <div class="lvl-row2">
-                        <div class="lvl-col">
-                            <button class="task-priority-btn"><img class="task-priority-img" alt=""></button>
+                        <!-- <div class="lvl-col">
+                            <button class="task-priority-btn" value="normal"><img class="task-priority-img" alt=""></button>
                         </div>
                         <div class="lvl-col">
-                            <button class="task-completed-btn"><img class="task-completed-img" alt=""></button>
-                        </div>
+                            <button class="task-completed-btn" value="incomplete"><img class="task-completed-img" alt=""></button>
+                        </div> -->
                         <div class="lvl-row">
                             <img class="task-folder-img" alt="">
                             <select class="task-folder" name="select-folder">
@@ -181,6 +196,7 @@
                                 <option value="chores">Chores</option>
                                 <option value="fitness">Fitness</option>
                                 <option value="fitness">Home Repair</option>
+                                <option value="fitness">The Odin Project</option>
                             </select>  
                         </div>
                     </label>
@@ -188,7 +204,11 @@
 
 
                     <br>
-                    <div class="task-folder">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt aspernatur nulla distinctio ut dolorum illo ad temporibus beatae maiores magni recusandae modi dicta quae aperiam officia fugit quidem, nobis voluptas?</div>
+                    <div class="task-description">
+                        Lorem ipsum <br>
+                        Consectetur adipisicing elit <br>
+                        modi dicta quae aperiam officia fugit quide
+                    </div>
                 </div>
             </div>
 

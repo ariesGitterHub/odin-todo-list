@@ -4,7 +4,7 @@ import addTaskImage from "../assets/add-task-dk.svg";
 import addFolderImage from "../assets/add-folder-dk.svg";
 // import statusImage from "../assets/grid-dk.svg";
 
-import modeDkImage from "../assets/moon-dk.svg";
+import darkLightImage from "../assets/moon-dk.svg";
 // import modeLtImage from "../assets/sun-lt.svg";
 
 // import showAllImage from "../assets/home-dk.svg";
@@ -13,6 +13,9 @@ import folderNumImage from "../assets/folder-dk.svg";
 import priorityNumImage from "../assets/priority-dk.svg";
 import overdueNumImage from "../assets/overdue-dk.svg";
 import completedNumImage from "../assets/completed-dk.svg";
+
+import taskChangeDateImage from "../assets/grid-dk.svg";
+import taskOverdueImage from "../assets/overdue-red.svg";
 
 // import { priorityTrue } from "./config";
 
@@ -32,8 +35,8 @@ export const handleImages = (() => {
   // const statusImg = document.querySelector("#status-img");
   // statusImg.src = statusImage;
 
-  const modeDkImg = document.querySelector("#mode-dk-img");
-  modeDkImg.src = modeDkImage;
+  const darkLightImg = document.querySelector("#dark-light-img");
+  darkLightImg.src = darkLightImage;
 
   // const showAllImg = document.querySelector("#show-all-img");
   // showAllImg.src = showAllImage;
@@ -60,11 +63,17 @@ export const handleImages = (() => {
   addFolderFormImg.src = addFolderImage;
 
 // Task Mock Ups...
-  const taskOverdueImg = document.querySelector(".task-overdue-img");
-  taskOverdueImg.src = overdueNumImage;
+  const taskChangeDateImg = document.querySelector(".task-change-date-img");
+  taskChangeDateImg.src = taskChangeDateImage;
 
   const taskPriorityImg = document.querySelector(".task-priority-img");
   taskPriorityImg.src = priorityNumImage;
+  
+  const taskOverdueImg = document.querySelector(".task-overdue-img");
+  taskOverdueImg.src = taskOverdueImage;
+
+  // const taskPriorityImg = document.querySelector(".task-priority-img");
+  // taskPriorityImg.src = priorityNumImage;
 
   const taskCompletedImg = document.querySelector(".task-completed-img");
   taskCompletedImg.src = completedNumImage;
