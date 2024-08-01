@@ -1,6 +1,8 @@
 // Add all classes and ids in order of use in index.html
 // DELETE WHATEVER IS NOT USED...???
 
+export const body = document.querySelector("body")
+
 // header
 export const crownImg = document.querySelector("#crown-img");
 
@@ -28,6 +30,10 @@ export const priorityNumBtn = document.querySelector("#priority-num-btn");
 export const priorityNumImg = document.querySelector("#priority-num-img");
 export const priorityNumP = document.querySelector("#priority-num-p");
 
+export const overdueNumBtn = document.querySelector("#overdue-num-btn");
+export const overdueNumImg = document.querySelector("#overdue-num-img");
+export const overdueNumP = document.querySelector("#overdue-num-p");
+
 export const completedNumBtn = document.querySelector("#completed-num-btn");
 export const completedNumImg = document.querySelector("#completed-num-img");
 export const completedNumP = document.querySelector("#completed-num-p");
@@ -37,13 +43,17 @@ export const folderNumImg = document.querySelector("#folder-num-img");
 export const folderNumP = document.querySelector("#folder-num-p");
 
 // new task form
-
 export const newTaskForm = document.querySelector("#new-task-form");
+
+export const newTaskImg = document.querySelector("#new-task-img");
+export const newTaskFlagImg = document.querySelector("#new-task-flag-img");
 
 // new folder form
 export const newFolderForm = document.querySelector("#new-folder-form");
 
-export const priorityTrue = document.querySelector("#priority-checkbox");
+export const newFolderImg = document.querySelector("#new-folder-img");
+
+// task content
 
 
-export const content = document.querySelector("#content");
+export const taskContent = document.querySelector("#task-content");

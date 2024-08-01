@@ -1,0 +1,35 @@
+--header-background-color: var(--dark-bkgd);
+--header-color: var(--dark-contrast);
+
+/* --nav-border: var(1px solid var(--dark-bkgd)); */
+
+--nav-button-border-color: var(--dark-contrast);
+
+--nav-status-btn-background-color: var(--dark-stba);
+--nav-add-task-btn-background-color: var(--dark-adta);
+--nav-add-folder-btn-background-color: var(--dark-adfo);
+--nav-dark-light-btn-background-color: var(--dark-dklt);
+
+--nav-button-hover-focus-border-color: var(--dark-contrast);
+
+--status-banner-background-color: var(--dark-stba);
+
+--status-banner-button-border-color: var(--dark-contrast);
+--status-banner-button-color: var(--dark-contrast);
+
+--status-banner-button-hover-focus-background-color: var(--dark-bkgd);
+--status-banner-button-hover-focus-border-color: var(--dark-contrast);
+
+--new-task-form-background-color: var(--dark-adta);
+
+--new-folder-form-background-color: var(--dark-adfo);
+
+
+/*  */
+--bkgd: var(--dark-bkgd);
+--stba: var(--dark-stba);
+--adta: var(--dark-adta);
+--adfo: var(--dark-adfo);
+--dklt: var(--dark-dklt);
+--alert: var(--dark-alert);
+--contrast: var(--dark-contrast)
