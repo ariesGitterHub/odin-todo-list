@@ -7,7 +7,6 @@ import {
   addFolderBtn,
   newFolderForm,
   darkLightBtn,
-
   crownImg,
   statusImg,
   addTaskImg,
@@ -19,9 +18,13 @@ import {
   completedNumImg,
   folderNumImg,
   newTaskImg,
-  newTaskFlagImg,
+  newTaskPriorityFlagImg,
   newFolderImg,
-
+  taskOverdueNoticeImg,
+  taskPriorityImg,
+  taskCompletedImg,
+  taskEditImg,
+  taskTrashImg,
 } from "./config.js";
 
 // Default Dark Mod
@@ -37,7 +40,11 @@ import dmOverdueImg from "../assets/dm-overdue.svg";
 import dmCompletedImg from "../assets/dm-completed.svg";
 import dmFolderImg from "../assets/dm-folder.svg";
 
-import dmNewTaskFlagImg from "../assets/o-priority-green.svg"
+// import dmnewTaskPriorityFlagImg from "../assets/dm-priority-adta.svg"
+
+import dmTaskOverdueNoticeImg from "../assets/dm-overdue-adta.svg";
+import dmEditImg from "../assets/dm-edit.svg";
+import dmTrashImg from "../assets/dm-trash.svg";
 
 // Default Lite Mod
 import lmCrownImg from "../assets/lm-crown.svg";
@@ -52,7 +59,11 @@ import lmOverdueImg from "../assets/lm-overdue.svg";
 import lmCompletedImg from "../assets/lm-completed.svg";
 import lmFolderImg from "../assets/lm-folder.svg";
 
-import lmNewTaskFlagImg from "../assets/o-priority-red.svg"
+// import lmNewTaskPriorityFlagImg from "../assets/lm-priority-adta.svg"
+
+import lmTaskOverdueNoticeImg from "../assets/lm-overdue-adta.svg";
+import lmEditImg from "../assets/lm-edit.svg";
+import lmTrashImg from "../assets/lm-trash.svg";
 
 export function handleStatusBtn() {
     if (statusBtn && statusBanner) {
@@ -145,8 +156,16 @@ export function handleDarkLightBtn() {
       folderNumImg.src = lmFolderImg;
 
       newTaskImg.src = lmAddTaskImg;
-      newTaskFlagImg.src = lmNewTaskFlagImg;
+      newTaskPriorityFlagImg.src = "";
+
       newFolderImg.src = lmAddFolderImg;
+
+      taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
+
+      taskPriorityImg.src = lmPriorityImg;
+      taskCompletedImg.src = lmCompletedImg;
+      taskEditImg.src = lmEditImg;
+      taskTrashImg.src = lmTrashImg;
 
     } else if (darkLightBtn.value === "lite") {
       darkLightBtn.value = "dark";
@@ -167,10 +186,16 @@ export function handleDarkLightBtn() {
       folderNumImg.src = dmFolderImg;
 
       newTaskImg.src = dmAddTaskImg;
-      newTaskFlagImg.src = dmNewTaskFlagImg;
+      newTaskPriorityFlagImg.src = "";
 
       newFolderImg.src = dmAddFolderImg;
 
+      taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
+
+      taskPriorityImg.src = dmPriorityImg;
+      taskCompletedImg.src = dmCompletedImg;
+      taskEditImg.src = dmEditImg;
+      taskTrashImg.src = dmTrashImg;
     }
   }
 };

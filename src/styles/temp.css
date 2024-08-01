@@ -32,4 +32,15 @@
 --adfo: var(--dark-adfo);
 --dklt: var(--dark-dklt);
 --alert: var(--dark-alert);
---contrast: var(--dark-contrast)
+--contrast: var(--dark-contrast);
+
+--fc01: var(--dmfc01);
+--fc02: var(--dmfc02);
+--fc03: var(--dmfc03);
+--fc04: var(--dmfc04);
+--fc05: var(--dmfc05);
+--fc06: var(--dmfc06);
+--fc07: var(--dmfc07);
+--fc08: var(--dmfc08);
+--fc09: var(--dmfc09);
+--fc10: var(--dmfc10);

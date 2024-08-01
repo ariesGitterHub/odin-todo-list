@@ -19,22 +19,16 @@
 
 :root {
 /* Dark Mode Palette */
-/* background */
---dark-bkgd: #1a1a1c; 
-/* status banner/btn */
---dark-stba: #531929; 
-/* add task/btn */
-/* --dark-adta: #4f2f12; */
---dark-adta: #16067e;
-/* add folder/btn */
---dark-adfo: #154a50;
-/* dark-light btn */
-/* --dark-dklt: #16067e; */
---dark-dklt: #4f2f12;
-/*alert color that contrasts against background*/
---dark-alert: #a9fe00; 
-/* contrast against background */
---dark-contrast: #f3e65c;
+/* --dark-bkgd: #1a1a1c; */
+--dark-bkgd: #29292d; /* background */
+--dark-stba: #5c2534; /* status banner/btn */
+--dark-adta: #3f385d; /* add task/btn */
+--dark-adfo: #154a50; /* add folder/btn */
+--dark-dklt: #784618; /* dark-light btn */
+--dark-alert: #a9fe00; /*alert color, contrasts  background*/
+/* --dark-contrast: #f3e65c; */
+--dark-contrast: #e0daa1; /* contrast against background */
+--dark-btn-active: #6c6c6f; /* btn activated*/
 
 /* Dark Mode Folder Colors */
 --dmfc01: #f47e7e;
@@ -49,22 +43,17 @@
 --dmfc10: #bd929f;
 
 /* Light Mode Palette */
-/* background */
---lite-bkgd: #f3e65c; 
-/* status banner/btn */
---lite-stba: #f0cad4; 
-/* add task/btn */
-/* --lite-adta: #e2cdb0;  */
---lite-adta: #c9c2f1; 
-/* add folder/btn */
---lite-adfo: #b6eae0; 
-/* dark-light btn */
-/* --lite-dklt: #c9c2f1;  */
---lite-dklt: #e2cdb0; 
-/*alert color that contrasts against background*/
---lite-alert: #fe01d5; 
- /* contrast against background */
---lite-contrast: #1a1a1c;
+
+/* --lite-bkgd: #f3e65c; */
+--lite-bkgd: #e0daa1; /* background */
+--lite-stba: #f1cace; /* status banner/btn */
+--lite-adta: #dedbed; /* add task/btn */
+--lite-adfo: #ccece5; /* add folder/btn */
+--lite-dklt: #decfbb; /* dark-light btn */
+--lite-alert: #bd33a6; /*alert color, contrasts background*/
+/* --lite-contrast: #1a1a1c;  */
+--lite-contrast: #29292d; /* contrast against background */
+--lite-btn-active: #999993; /* btn activated*/
 
 /* Lite Mode Folder Colors */
 --lmfc01: #834545;
@@ -101,6 +90,7 @@ body {
     --dklt: var(--dark-dklt);
     --alert: var(--dark-alert);
     --contrast: var(--dark-contrast);
+    --activated: var(--dark-btn-active);
 
     --fc01: var(--dmfc01);
     --fc02: var(--dmfc02);
@@ -121,7 +111,8 @@ body {
     --adfo: var(--lite-adfo);
     --dklt: var(--lite-dklt);
     --alert: var(--lite-alert);
-    --contrast: var(--lite-contrast);
+    --contrast: var(--lite-contrast);;
+    --activated: var(--lite-btn-active);
 
     --fc01: var(--lmfc01);
     --fc02: var(--lmfc02);
@@ -154,19 +145,26 @@ header {
     display: flex;
         justify-content: space-evenly;
         align-items: center;
-    font-size: var(--font-title-size);
+    /* font-size: var(--font-title-size); */
+    font-size: 1.5rem;
+    font-weight: 900;
 }
 
 #app-title img {
-    height: 1.75rem;
-    width: 1.75rem;
-    align-self: baseline;
+    height: 2rem;
+    width: auto;
+    /* align-self: baseline; */
+}
+
+#header-content {
+    border-top: 1px solid var(--contrast);
+    border-bottom: 1px solid var(--contrast);
 }
 
 nav {
     height: auto;
     width: auto;
-    border: 1px solid var(--bkgd); 
+    /* border: 1px solid var(--bkgd);  */
     display: flex;
         justify-content: center;
         align-items: center;
@@ -275,8 +273,8 @@ nav button img {
 }
 
 #status-banner button img {
-    height: 1rem;
-    width: 1rem;
+    height: 1.125rem;
+    width: auto;
     margin-right: .1rem;
 }
 
@@ -301,8 +299,9 @@ nav button img {
     padding: 1rem;
 }
 
-#new-task-form img, #new-folder-form img {
-    height: 2rem;
+#new-task-img, #new-folder-img {
+    height: 2.75rem;
+    width: auto;
 }
 
 #new-task-form p, #new-folder-form p {
@@ -327,7 +326,13 @@ form input, form select {
     padding: .25rem;
 }
 
-form #due-date {
+#new-task-priority-flag-img {
+    height: 1rem;
+    width: 1rem;
+    margin-bottom: -1rem;
+}
+
+form #new-task-due-date {
     width: 16ch;
 }
 
@@ -339,6 +344,10 @@ form input:hover, form input:focus, form select:hover, form select:focus {
 form input::-webkit-input-placeholder {
     color: inherit;
     font-size: 1rem;
+}
+
+form input [type="date"] {
+    color: var(--bkgd);
 }
 
 textarea {
@@ -367,13 +376,21 @@ form input::-webkit-input-placeholder {
     font-size: 1rem;
 }
 
+/* level rows and columns */
+
 .lvl-row {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.lvl-row2 {
+/* .lvl-row-start {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+} */
+
+.lvl-row-width {
     width: 27ch;
     display: flex;
         justify-content: space-between;
@@ -392,15 +409,24 @@ form input::-webkit-input-placeholder {
     margin-bottom: .5rem;
 }
 
+.color-picker-cont1, .color-picker-cont2 {
+    display: flex;
+    gap: .25rem;
+}
+
+.color-picker-cont1 {
+    margin-bottom: .5rem;
+}
+
 .color-picker {
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
     border: 1px solid var(--contrast);
-    border-radius: 3rem;
+    border-radius: 2.5rem;
     color: var(--bkgd);
     font-family: var(--font-hand);
-    font-size: 1.5rem;
-    margin: .25rem;
+    font-size: 1.25rem;
+    /* margin: .25rem; */
 }
 
 .color-picker:hover, .color-picker:focus {
@@ -483,13 +509,19 @@ form input::-webkit-input-placeholder {
     color: var(--contrast);
 }
 
+#padding {
+    height: 1rem;
+    background-color: var(--bkgd);
+}
+
 .task {
     border-top: 3px dashed var(--fc07);
     border-bottom: 3px dashed var(--fc07);
     color: var(--fc07);
     font-family: var(--font-plain);
     /* margin: .5rem; */
-    padding: 1rem;
+    /* TWEAK as needed */
+    padding: 1rem 1rem 1rem 1rem; 
 }
 
 .task-title {
@@ -499,24 +531,27 @@ form input::-webkit-input-placeholder {
     font-weight: 800;
 }
 
-.task-due-date {
+.task-due-date, .task-folder {
     font-size: 1rem;
     /* font-weight: 800; */
 }
 
-.task-overdue-img, .task-folder-img {
+.task-description {
+        font-size: .85rem;
+}
+
+.task-overdue-notice-img {
     height: 1.5rem;
     width: 1.5rem;
 }
 
-.task-change-date-img, .task-priority-img, .task-completed-img {
-    height: 1.25rem;
-    width: 1.25rem;
+.task-priority-img, .task-completed-img, .task-edit-img, .task-trash-img {
+height: 1.5rem;
 }
 
 .task button {
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     background-color: inherit;
     border: 1px solid var(--fc07);
     border-radius: 2rem;
@@ -526,8 +561,8 @@ form input::-webkit-input-placeholder {
     padding: .25rem;
 }
 
-.task .task-change-date-btn {
-    margin-right: .5rem;
+.task-btn-cont {
+    gap: 1.25rem;
 }
 
 .task button:hover, .task button:focus{
@@ -540,10 +575,7 @@ form input::-webkit-input-placeholder {
     transform: scale(.9);
 }
 
-.task-folder-img {
-    /* margin-left: .5rem; */
-    margin-right: .25rem;
-}
+
 .task select {
     height: 2rem;
     width: fit-content;
@@ -563,27 +595,6 @@ form input::-webkit-input-placeholder {
 .task-description {
     height: fit-content;
     width: fit-content;
-}
-
-.lvl-row3 {
-    width: 27ch;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.lvl-row-start {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.lvl-col-start-start {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center;
-    align-items: start; */
-    align-self: self-start;
 }
 
 footer {
@@ -626,7 +637,7 @@ footer {
     right: 0;
     bottom: 0;
     background-color: var(--contrast);
-    border: 1px solid var(--contrast);
+    border: 1px solid var(--adta);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -634,10 +645,10 @@ footer {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 1px;
-    bottom: 0px;
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    bottom: 2px;
     background-color: var(--adta);
     -webkit-transition: .4s;
     transition: .4s;
@@ -648,26 +659,21 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-    border: 1px dashed var(--bkgd);
+    border: 1px dashed var(--adta);
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(30px);
-    -ms-transform: translateX(30px);
-    transform: translateX(30px);
+    -webkit-transform: translateX(32px);
+    -ms-transform: translateX(32px);
+    transform: translateX(32px);
 }
 
 /* Rounded sliders */
 .slider.round {
-    border-radius: 26px;
+    border-radius: 22px;
 }
 
 .slider.round:before {
     border-radius: 26px;
 }
 
-#new-task-flag-img {
-    height: 1rem;
-    width: 1rem;
-    margin-bottom: -1.5rem;
-}

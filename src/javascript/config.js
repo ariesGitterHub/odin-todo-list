@@ -5,6 +5,7 @@ export const body = document.querySelector("body")
 
 // header
 export const crownImg = document.querySelector("#crown-img");
+export const headerContent = document.querySelector("#header-content");
 
 // nav
 export const statusBtn = document.querySelector("#status-btn");
@@ -46,7 +47,8 @@ export const folderNumP = document.querySelector("#folder-num-p");
 export const newTaskForm = document.querySelector("#new-task-form");
 
 export const newTaskImg = document.querySelector("#new-task-img");
-export const newTaskFlagImg = document.querySelector("#new-task-flag-img");
+export const newTaskPriorityToggle = document.querySelector("#new-task-priority-toggle");
+export const newTaskPriorityFlagImg = document.querySelector("#new-task-priority-flag-img");
 
 // new folder form
 export const newFolderForm = document.querySelector("#new-folder-form");
@@ -54,6 +56,23 @@ export const newFolderForm = document.querySelector("#new-folder-form");
 export const newFolderImg = document.querySelector("#new-folder-img");
 
 // task content
-
-
 export const taskContent = document.querySelector("#task-content");
+
+export const taskTitle = document.querySelector(".task-title");
+export const taskDueDate = document.querySelector(".task-due-date");
+export const taskFolder = document.querySelector(".task-folder");
+export const taskDescription = document.querySelector(".task-description")
+
+export const taskOverdueNoticeImg = document.querySelector(".task-overdue-notice-img");
+
+export const taskPriorityBtn = document.querySelector(".task-priority-btn");
+export const taskPriorityImg = document.querySelector(".task-priority-img");
+
+export const taskCompletedBtn = document.querySelector(".task-completed-btn");
+export const taskCompletedImg = document.querySelector(".task-completed-img");
+
+export const taskEditBtn = document.querySelector(".task-edit-btn");
+export const taskEditImg = document.querySelector(".task-edit-img");
+
+export const taskTrashBtn = document.querySelector(".task-trash-btn");
+export const taskTrashImg = document.querySelector(".task-trash-img");
