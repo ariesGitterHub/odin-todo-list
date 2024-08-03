@@ -1,5 +1,5 @@
 import {
-  darkLightBtn,
+  darkLiteBtn,
   newTaskPriorityToggle,
   newTaskPriorityFlagImg,
   taskTitle,
@@ -8,9 +8,9 @@ import {
   taskOverdueNoticeImg,
   taskDescription,
   taskPriorityBtn,
-//   taskPriorityImg,
+  //   taskPriorityImg,
   taskCompletedBtn,
-//   taskCompletedImg,
+  //   taskCompletedImg,
 } from "./config";
 
 import dmNewTaskPriorityFlagImg from "../assets/dm-priority-adta.svg";
@@ -21,9 +21,9 @@ import lmTaskOverdueNoticeImg from "../assets/lm-overdue-adta.svg";
 import lmOverdueBgImg from "../assets/lm-overdue-bg.svg";
 
 function newTaskPriorityChecked() {
-    if (newTaskPriorityToggle.checked && darkLightBtn.value === "dark") {
+    if (newTaskPriorityToggle.checked && darkLiteBtn.value === "dark") {
       newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImg;
-    } else if (newTaskPriorityToggle.checked && darkLightBtn.value === "lite") {
+    } else if (newTaskPriorityToggle.checked && darkLiteBtn.value === "lite") {
       newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImg;
     } else {
       newTaskPriorityFlagImg.src = "";
@@ -45,40 +45,52 @@ function priorityBtnClicked() {
 };
 
 function completedBtnClicked() {
-    if (taskCompletedBtn.value === "incomplete" && darkLightBtn.value === "dark") {
-        taskCompletedBtn.value = "completed";
-        taskCompletedBtn.style.backgroundColor = "var(--activated)";
-        taskTitle.style.textDecoration = "line-through";
-        taskDueDate.style.textDecoration = "line-through";
-        taskFolder.style.textDecoration = "line-through";
-        taskDescription.style.textDecoration = "line-through";
-        taskOverdueNoticeImg.src = dmOverdueBgImg;
+    if (
+      taskCompletedBtn.value === "incomplete" &&
+      darkLiteBtn.value === "dark"
+    ) {
+      taskCompletedBtn.value = "completed";
+      taskCompletedBtn.style.backgroundColor = "var(--activated)";
+      taskTitle.style.textDecoration = "line-through";
+      taskDueDate.style.textDecoration = "line-through";
+      taskFolder.style.textDecoration = "line-through";
+      taskDescription.style.textDecoration = "line-through";
+      taskOverdueNoticeImg.src = dmOverdueBgImg;
     } else if (
-        taskCompletedBtn.value === "completed" && darkLightBtn.value === "dark") {
-        taskCompletedBtn.value = "incomplete";
-        taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
-        taskTitle.style.textDecoration = "none";
-        taskDueDate.style.textDecoration = "none";
-        taskFolder.style.textDecoration = "none";
-        taskDescription.style.textDecoration = "none";
-        taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
-    } else if (taskCompletedBtn.value === "incomplete" && darkLightBtn.value === "lite") {
-        taskCompletedBtn.value = "completed";
-        taskCompletedBtn.style.backgroundColor = "var(--activated)";
-        taskTitle.style.textDecoration = "line-through";
-        taskDueDate.style.textDecoration = "line-through";
-        taskFolder.style.textDecoration = "line-through";
-        taskDescription.style.textDecoration = "line-through";
-        taskOverdueNoticeImg.src = lmOverdueBgImg;
-    } else if (taskCompletedBtn.value === "completed" && darkLightBtn.value === "lite") {
-        taskCompletedBtn.value = "incomplete";
-        taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
-        taskTitle.style.textDecoration = "none";
-        taskDueDate.style.textDecoration = "none";
-        taskFolder.style.textDecoration = "none";
-        taskDescription.style.textDecoration = "none";
-        taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
+      taskCompletedBtn.value === "completed" &&
+      darkLiteBtn.value === "dark"
+    ) {
+      taskCompletedBtn.value = "incomplete";
+      taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
+      taskTitle.style.textDecoration = "none";
+      taskDueDate.style.textDecoration = "none";
+      taskFolder.style.textDecoration = "none";
+      taskDescription.style.textDecoration = "none";
+      taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
+    } else if (
+      taskCompletedBtn.value === "incomplete" &&
+      darkLiteBtn.value === "lite"
+    ) {
+      taskCompletedBtn.value = "completed";
+      taskCompletedBtn.style.backgroundColor = "var(--activated)";
+      taskTitle.style.textDecoration = "line-through";
+      taskDueDate.style.textDecoration = "line-through";
+      taskFolder.style.textDecoration = "line-through";
+      taskDescription.style.textDecoration = "line-through";
+      taskOverdueNoticeImg.src = lmOverdueBgImg;
+    } else if (
+      taskCompletedBtn.value === "completed" &&
+      darkLiteBtn.value === "lite"
+    ) {
+      taskCompletedBtn.value = "incomplete";
+      taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
+      taskTitle.style.textDecoration = "none";
+      taskDueDate.style.textDecoration = "none";
+      taskFolder.style.textDecoration = "none";
+      taskDescription.style.textDecoration = "none";
+      taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
     }
+
 };
 
 

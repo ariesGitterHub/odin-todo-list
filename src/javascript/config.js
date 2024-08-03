@@ -17,8 +17,8 @@ export const addTaskImg = document.querySelector("#add-task-img");
 export const addFolderBtn = document.querySelector("#add-folder-btn");
 export const addFolderImg = document.querySelector("#add-folder-img");
 
-export const darkLightBtn = document.querySelector("#dark-light-btn");
-export const darkLightImg = document.querySelector("#dark-light-img");
+export const darkLiteBtn = document.querySelector("#dark-lite-btn");
+export const darkLiteImg = document.querySelector("#dark-lite-img");
 
 // status banner
 export const statusBanner = document.querySelector("#status-banner");

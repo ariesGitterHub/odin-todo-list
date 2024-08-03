@@ -24,7 +24,7 @@
 --dark-stba: #5c2534; /* status banner/btn */
 --dark-adta: #3f385d; /* add task/btn */
 --dark-adfo: #154a50; /* add folder/btn */
---dark-dklt: #784618; /* dark-light btn */
+--dark-dklt: #784618; /* dark-lite btn */
 --dark-alert: #a9fe00; /*alert color, contrasts  background*/
 /* --dark-contrast: #f3e65c; */
 --dark-contrast: #e0daa1; /* contrast against background */
@@ -49,7 +49,7 @@
 --lite-stba: #f1cace; /* status banner/btn */
 --lite-adta: #dedbed; /* add task/btn */
 --lite-adfo: #ccece5; /* add folder/btn */
---lite-dklt: #decfbb; /* dark-light btn */
+--lite-dklt: #decfbb; /* dark-lite btn */
 --lite-alert: #bd33a6; /*alert color, contrasts background*/
 /* --lite-contrast: #1a1a1c;  */
 --lite-contrast: #29292d; /* contrast against background */
@@ -197,7 +197,7 @@ nav #add-folder-btn {
     background-color: var(--adfo);
 }
 
-nav #dark-light-btn {
+nav #dark-lite-btn {
     background-color: var(--dklt);
 }
 

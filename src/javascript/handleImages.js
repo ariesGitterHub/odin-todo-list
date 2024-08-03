@@ -1,141 +1,172 @@
+// This js file downloads all dark mode (dm) images as the default.
+// It also handles dark and lite mode btn logic.
+
 import {
-  //   darkLightBtn,
-  crownImg,
-  statusImg,
-  addTaskImg,
-  addFolderImg,
-  darkLightImg,
-  taskNumImg,
-  priorityNumImg,
-  overdueNumImg,
-  completedNumImg,
-  folderNumImg,
-  newTaskImg,
-  //   newTaskPriorityFlagImg,
-  newFolderImg,
-  taskOverdueNoticeImg,
-  taskPriorityImg,
-  taskCompletedImg,
-  taskEditImg,
-  taskTrashImg,
+    body,
+    darkLiteBtn,
+
+    crownImg,
+    statusImg,
+    addTaskImg,
+    addFolderImg,
+    darkLiteImg,
+    taskNumImg,
+    priorityNumImg,
+    overdueNumImg,
+    completedNumImg,
+    folderNumImg,
+    newTaskImg,
+    newFolderImg,
+    newTaskPriorityFlagImg,
+    taskOverdueNoticeImg,
+    taskPriorityImg,
+    taskCompletedImg,
+    taskEditImg,
+    taskTrashImg,
 } from "./config.js";
 
-// Default Dark Mod
+// Default Dark Mode Import SVGs
+// app-title
 import dmCrownImg from "../assets/dm-crown.svg";
+// nav bar
 import dmStatusImg from "../assets/dm-status.svg";
 import dmAddTaskImg from "../assets/dm-add-task.svg";
 import dmAddFolderImg from "../assets/dm-add-folder.svg";
-import dmDarkLightImg from "../assets/dm-light-bulb.svg";
-
+import dmDarkLiteImg from "../assets/dm-light-bulb.svg";
+// status banner
 import dmTaskImg from "../assets/dm-task.svg"
 import dmPriorityImg from "../assets/dm-priority.svg";
 import dmOverdueImg from "../assets/dm-overdue.svg";
 import dmCompletedImg from "../assets/dm-completed.svg";
 import dmFolderImg from "../assets/dm-folder.svg";
-
+// new task form
+// already have dmAddTask
 // import dmNewTaskPriorityFlagImg from "../assets/dm-priority-adta.svg";
-
+// new folder form
+// already have dmAddFolder
+// task content
 import dmTaskOverdueNoticeImg from "../assets/dm-overdue-adta.svg";
+// already have dmPriorityImg above
+// already have dmCompletedImg above
 import dmEditImg from "../assets/dm-edit.svg";
 import dmTrashImg from "../assets/dm-trash.svg";
 
-// Default Lite Mod
-// import lmCrownImg from "../assets/lm-crown.svg";
-// import lmStatusImg from "../assets/lm-status.svg";
-// import lmAddTaskImg from "../assets/lm-add-task.svg";
-// import lmAddFolderImg from "../assets/lm-add-folder.svg";
-// import lmDarkLightImg from "../assets/lm-light-bulb.svg";
-
-// import lmTaskImg from "../assets/lm-task.svg"
-// import lmPriorityImg from "../assets/lm-priority.svg";
-// import lmOverdueImg from "../assets/lm-overdue.svg";
-// import lmCompletedImg from "../assets/lm-completed.svg";
-// import lmFolderImg from "../assets/lm-folder.svg";
-
+//Lite Mode SVGs that correspond to above Dark Mode SVGs
+import lmCrownImg from "../assets/lm-crown.svg";
+import lmStatusImg from "../assets/lm-status.svg";
+import lmAddTaskImg from "../assets/lm-add-task.svg";
+import lmAddFolderImg from "../assets/lm-add-folder.svg";
+import lmDarkLiteImg from "../assets/lm-light-bulb.svg";
+import lmTaskImg from "../assets/lm-task.svg";
+import lmPriorityImg from "../assets/lm-priority.svg";
+import lmOverdueImg from "../assets/lm-overdue.svg";
+import lmCompletedImg from "../assets/lm-completed.svg";
+import lmFolderImg from "../assets/lm-folder.svg";
 // import lmNewTaskPriorityFlagImg from "../assets/lm-priority-adta.svg"
+import lmTaskOverdueNoticeImg from "../assets/lm-overdue-adta.svg";
+import lmEditImg from "../assets/lm-edit.svg";
+import lmTrashImg from "../assets/lm-trash.svg";
 
-// export const handleImages = (() => {
-
-export const handleImages = (() => {
-  //   if (darkLightBtn.value === "dark") {
+export function defaultImages() {
+  // app-title
   crownImg.src = dmCrownImg;
 
+  // nav bar
   statusImg.src = dmStatusImg;
   addTaskImg.src = dmAddTaskImg;
   addFolderImg.src = dmAddFolderImg;
-  darkLightImg.src = dmDarkLightImg;
+  darkLiteImg.src = dmDarkLiteImg;
 
+  // status banner
   taskNumImg.src = dmTaskImg;
   priorityNumImg.src = dmPriorityImg;
   overdueNumImg.src = dmOverdueImg;
   completedNumImg.src = dmCompletedImg;
   folderNumImg.src = dmFolderImg;
 
+  // new task form
   newTaskImg.src = dmAddTaskImg;
-  // newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImg;
 
+  // new task form
   newFolderImg.src = dmAddFolderImg;
 
+  // task content
   taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
-
   taskPriorityImg.src = dmPriorityImg;
   taskCompletedImg.src = dmCompletedImg;
   taskEditImg.src = dmEditImg;
   taskTrashImg.src = dmTrashImg;
+};
 
-  //   } else if (darkLightBtn.value === "lite") {
-  //     crownImg.src = lmCrownImg;
+export function handleDarkLiteBtn() {
 
-  //     statusImg.src = lmStatusImg;
-  //     addTaskImg.src = lmAddTaskImg;
-  //     addFolderImg.src = lmAddFolderImg;
-  //     darkLightImg.src = lmDarkLightImg;
+  if (darkLiteBtn) {
+    darkLiteBtn.addEventListener("click", toggle);
+  } else {
+    console.warn("Warning: darkLiteBtn components missing.");
+  }
 
-  //     taskNumImg.src = lmTaskImg;
-  //     priorityNumImg.src = lmPriorityImg;
-  //     overdueNumImg.src = lmOverdueImg;
-  //     completedNumImg.src = lmCompletedImg;
-  //     folderNumImg.src = lmFolderImg;
+  function toggle() {
 
-  //     newTaskImg.src = lmAddTaskImg;
-  //     newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImg;
-  //     newFolderImg.src = lmAddFolderImg;
-  //   }
+    if (darkLiteBtn.value === "dark") {
+      darkLiteBtn.value = "lite";
 
-  // const taskNumImg = document.querySelector("#task-num-img");
-  // taskNumImg.src = taskNumImage;
+      body.classList.add("lite-mode");
 
-  // const folderNumImg = document.querySelector("#folder-num-img");
-  // folderNumImg.src = folderNumImage;
+      crownImg.src = lmCrownImg;
 
-  // const priorityNumImg = document.querySelector("#priority-num-img");
-  // priorityNumImg.src = priorityNumImage;
+      statusImg.src = lmStatusImg;
+      addTaskImg.src = lmAddTaskImg;
+      addFolderImg.src = lmAddFolderImg;
+      darkLiteImg.src = lmDarkLiteImg;
 
-  // const overdueNumImg = document.querySelector("#overdue-num-img");
-  // overdueNumImg.src = overdueNumImage;
+      taskNumImg.src = lmTaskImg;
+      priorityNumImg.src = lmPriorityImg;
+      overdueNumImg.src = lmOverdueImg;
+      completedNumImg.src = lmCompletedImg;
+      folderNumImg.src = lmFolderImg;
 
-  // const completedNumImg = document.querySelector("#completed-num-img");
-  // completedNumImg.src = completedNumImage;
+      newTaskImg.src = lmAddTaskImg;
+      newTaskPriorityFlagImg.src = "";
 
-  // const addTaskFormImg = document.querySelector("#add-task-form-img");
-  // addTaskFormImg.src = addTaskImage
+      newFolderImg.src = lmAddFolderImg;
 
-  // const addFolderFormImg = document.querySelector("#add-folder-form-img");
-  // addFolderFormImg.src = addFolderImage;
+      taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
 
-  // Task Mock Ups...
-  // const taskChangeDateImg = document.querySelector(".task-change-date-img");
-  // taskChangeDateImg.src = taskChangeDateImage;
+      taskPriorityImg.src = lmPriorityImg;
+      taskCompletedImg.src = lmCompletedImg;
+      taskEditImg.src = lmEditImg;
+      taskTrashImg.src = lmTrashImg;
 
-  // const taskPriorityImg = document.querySelector(".task-priority-img");
-  // taskPriorityImg.src = priorityNumImage;
+    } else if (darkLiteBtn.value === "lite") {
+      darkLiteBtn.value = "dark";
 
-  // const taskOverdueImg = document.querySelector(".task-overdue-img");
-  // taskOverdueImg.src = taskOverdueImage;
+      body.classList.remove("lite-mode");
 
-  // const taskCompletedImg = document.querySelector(".task-completed-img");
-  // taskCompletedImg.src = completedNumImage;
+      crownImg.src = dmCrownImg;
 
-  // const taskFolderImg = document.querySelector(".task-folder-img");
-  // taskFolderImg.src = folderNumImage;
-})();
+      statusImg.src = dmStatusImg;
+      addTaskImg.src = dmAddTaskImg;
+      addFolderImg.src = dmAddFolderImg;
+      darkLiteImg.src = dmDarkLiteImg;
+
+      taskNumImg.src = dmTaskImg;
+      priorityNumImg.src = dmPriorityImg;
+      overdueNumImg.src = dmOverdueImg;
+      completedNumImg.src = dmCompletedImg;
+      folderNumImg.src = dmFolderImg;
+
+      newTaskImg.src = dmAddTaskImg;
+      newTaskPriorityFlagImg.src = "";
+
+      newFolderImg.src = dmAddFolderImg;
+
+      taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
+
+      taskPriorityImg.src = dmPriorityImg;
+      taskCompletedImg.src = dmCompletedImg;
+      taskEditImg.src = dmEditImg;
+      taskTrashImg.src = dmTrashImg;
+    }
+  }
+};
