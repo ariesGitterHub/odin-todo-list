@@ -90,7 +90,6 @@ function completedBtnClicked() {
       taskDescription.style.textDecoration = "none";
       taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
     }
-
 };
 
 

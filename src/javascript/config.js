@@ -1,11 +1,36 @@
 // Add all classes and ids in order of use in index.html
 // DELETE WHATEVER IS NOT USED...???
 
+// imageImports.js
+
+// For header.js
+import dmCrownImg from "../assets/dm-crown.svg";
+import dmStatusImg from "../assets/dm-status.svg";
+import dmNewTaskImg from "../assets/dm-new-task.svg";
+import dmNewFolderImg from "../assets/dm-new-folder.svg";
+import dmDarkLiteImg from "../assets/dm-light-bulb.svg";
+
+export { dmCrownImg, dmStatusImg, dmNewTaskImg, dmNewFolderImg, dmDarkLiteImg };
+
+// For headerContent.js
+import dmTaskImg from "../assets/dm-task.svg";
+import dmPriorityImg from "../assets/dm-priority.svg";
+import dmOverdueImg from "../assets/dm-overdue.svg";
+import dmCompletedImg from "../assets/dm-completed.svg";
+import dmFolderImg from "../assets/dm-folder.svg";
+
+export { dmTaskImg, dmPriorityImg, dmOverdueImg, dmCompletedImg, dmFolderImg };
+
+export const header = document.querySelector("header");
+export const headerContent = document.querySelector("#header-content");
+
+
+
 export const body = document.querySelector("body")
 
 // header
 export const crownImg = document.querySelector("#crown-img");
-export const headerContent = document.querySelector("#header-content");
+// export const headerContent = document.querySelector("#header-content");
 
 // nav
 export const statusBtn = document.querySelector("#status-btn");
@@ -20,8 +45,8 @@ export const addFolderImg = document.querySelector("#add-folder-img");
 export const darkLiteBtn = document.querySelector("#dark-lite-btn");
 export const darkLiteImg = document.querySelector("#dark-lite-img");
 
-// status banner
-export const statusBanner = document.querySelector("#status-banner");
+// status bar
+export const statusBar = document.querySelector("#status-bar");
 
 export const taskNumBtn = document.querySelector("#task-num-btn");
 export const taskNumImg = document.querySelector("#task-num-img");

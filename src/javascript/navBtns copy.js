@@ -1,5 +1,82 @@
+import {
+  // body,
+  // headerContent,
+  statusBtn,
+  statusBanner,
+  addTaskBtn,
+  newTaskForm,
+  addFolderBtn,
+  newFolderForm,
+  // darkLiteBtn,
+  // crownImg,
+  // statusImg,
+  // addTaskImg,
+  // addFolderImg,
+  // darkLiteImg,
+  // taskNumImg,
+  // priorityNumImg,
+  // overdueNumImg,
+  // completedNumImg,
+  // folderNumImg,
+  // newTaskImg,
+  // newTaskPriorityFlagImg,
+  // newFolderImg,
+  // taskOverdueNoticeImg,
+  // taskPriorityImg,
+  // taskCompletedImg,
+  // taskEditImg,
+  // taskTrashImg,
+} from "./config.js";
+
+// Dark Mode Import svgs
+// app-title
+// import dmCrownImg from "../assets/dm-crown.svg";
+
+// nav bar
+// import dmStatusImg from "../assets/dm-status.svg";
+// import dmAddTaskImg from "../assets/dm-add-task.svg";
+// import dmAddFolderImg from "../assets/dm-add-folder.svg";
+// import dmDarkLiteImg from "../assets/dm-light-bulb.svg";
+
+// status banner
+// import dmTaskImg from "../assets/dm-task.svg"
+// import dmPriorityImg from "../assets/dm-priority.svg";
+// import dmOverdueImg from "../assets/dm-overdue.svg";
+// import dmCompletedImg from "../assets/dm-completed.svg";
+// import dmFolderImg from "../assets/dm-folder.svg";
+
+// new task form
+// already have dmAddTask
+
+// new folder form
+// already have dmAddFolder
+
+// task content
+// import dmTaskOverdueNoticeImg from "../assets/dm-overdue-adta.svg";
+// already have dmPriorityImg above
+// already have dmCompletedImg above
+// import dmEditImg from "../assets/dm-edit.svg";
+// import dmTrashImg from "../assets/dm-trash.svg";
+
+// Default Lite Mod
+// import lmCrownImg from "../assets/lm-crown.svg";
+// import lmStatusImg from "../assets/lm-status.svg";
+// import lmAddTaskImg from "../assets/lm-add-task.svg";
+// import lmAddFolderImg from "../assets/lm-add-folder.svg";
+// import lmDarkLiteImg from "../assets/lm-light-bulb.svg";
+// import lmTaskImg from "../assets/lm-task.svg"
+// import lmPriorityImg from "../assets/lm-priority.svg";
+// import lmOverdueImg from "../assets/lm-overdue.svg";
+// import lmCompletedImg from "../assets/lm-completed.svg";
+// import lmFolderImg from "../assets/lm-folder.svg";
+
+// import lmNewTaskPriorityFlagImg from "../assets/lm-priority-adta.svg"
+
+// import lmTaskOverdueNoticeImg from "../assets/lm-overdue-adta.svg";
+// import lmEditImg from "../assets/lm-edit.svg";
+// import lmTrashImg from "../assets/lm-trash.svg";
+
 export function handleStatusBtn() {
-  
     if (statusBtn && statusBanner) {
         statusBtn.addEventListener("click", toggle);
     } else {

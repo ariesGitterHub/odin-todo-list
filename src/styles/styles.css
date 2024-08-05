@@ -10,8 +10,8 @@
 /* HEADER                            */
 /* HEADER CONTENT                    */
 /* --> STATUS BANNER                 */
-/* --> ADD TASK FORM                 */
-/* --> ADD FOLDER FORM               */
+/* --> NEW TASK FORM                 */
+/* --> NEW FOLDER FORM               */
 /* TASK CONTENT                      */
 /* FOOTER                            */
 /* ******* TABLE OF CONTENTS ******* */
@@ -22,8 +22,8 @@
 /* --dark-bkgd: #1a1a1c; */
 --dark-bkgd: #29292d; /* background */
 --dark-stba: #5c2534; /* status banner/btn */
---dark-adta: #3f385d; /* add task/btn */
---dark-adfo: #154a50; /* add folder/btn */
+--dark-adta: #3f385d; /* new task/btn */
+--dark-adfo: #154a50; /* new folder/btn */
 --dark-dklt: #784618; /* dark-lite btn */
 --dark-alert: #a9fe00; /*alert color, contrasts  background*/
 /* --dark-contrast: #f3e65c; */
@@ -47,8 +47,8 @@
 /* --lite-bkgd: #f3e65c; */
 --lite-bkgd: #e0daa1; /* background */
 --lite-stba: #f1cace; /* status banner/btn */
---lite-adta: #dedbed; /* add task/btn */
---lite-adfo: #ccece5; /* add folder/btn */
+--lite-adta: #dedbed; /* new task/btn */
+--lite-adfo: #ccece5; /* new folder/btn */
 --lite-dklt: #decfbb; /* dark-lite btn */
 --lite-alert: #bd33a6; /*alert color, contrasts background*/
 /* --lite-contrast: #1a1a1c;  */
@@ -140,7 +140,7 @@ header {
     font-family: var(--font-fancy);
 }
 
-#app-title {
+#app-title-cont {
     height: fit-content;
     display: flex;
         justify-content: space-evenly;
@@ -150,7 +150,7 @@ header {
     font-weight: 900;
 }
 
-#app-title img {
+#app-title-cont img {
     height: 2rem;
     width: auto;
     /* align-self: baseline; */
@@ -189,11 +189,11 @@ nav #status-btn{
     background-color: var(--stba);
 }
 
-nav #add-task-btn {
+nav #new-task-btn {
     background-color: var(--adta);
 }
 
-nav #add-folder-btn {
+nav #new-folder-btn {
     background-color: var(--adfo);
 }
 
@@ -216,21 +216,21 @@ nav button img {
     width: 1.5rem;
 }
 
-#status-banner.flex, #new-task-form.flex, #new-folder-form.flex
+/* #status-bar.flex, #new-task-form.flex, #new-folder-form.flex
 {
     display: flex;
-}
+} */
 
-/* #status-banner.none, #new-task-form.none, #new-folder-form.none
+/* #status-bar.none, #new-task-form.none, #new-folder-form.none
 {
     display: none;
 } */
 
-#status-banner {
+#status-bar {
     height: fit-content;
     background-color: var(--stba);
     border: 1px solid var(--bkgd); 
-    display: none;
+    display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -238,7 +238,7 @@ nav button img {
     padding: .5rem;
 }
 
-#status-btns {
+#status-bar-btns {
     display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -246,7 +246,7 @@ nav button img {
         gap: .5rem;
 }
 
-#status-banner button {
+#status-bar button {
     height: 2rem;
     width: fit-content;
     background-color: inherit;
@@ -262,17 +262,17 @@ nav button img {
     padding: .25rem;
 }
 
-#status-banner button:hover, #status-banner button:focus {
+#status-bar button:hover, #status-bar button:focus {
     background-color: var(--bkgd);
     border: 1px dashed var(--contrast);
     transform: scale(1.2);
 }
 
-#status-banner button:active {
+#status-bar button:active {
     transform: scale(.9);
 }
 
-#status-banner button img {
+#status-bar button img {
     height: 1.125rem;
     width: auto;
     margin-right: .1rem;
