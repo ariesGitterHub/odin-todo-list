@@ -1,20 +1,22 @@
 import {
-    header,
-    headerContent,
     dmTaskImg,
     dmPriorityImg,
     dmOverdueImg,
     dmCompletedImg,
     dmFolderImg,
-} from "./config.js";
-
-const taskNumBtnImgSrc = dmTaskImg;
-const priorityNumBtnImgSrc = dmPriorityImg;
-const overdueNumBtnImgSrc = dmOverdueImg;
-const completedNumBtnImgSrc = dmCompletedImg;
-const folderNumBtnImgSrc = dmFolderImg;
+} from "./imageExporter.js";
 
 export function createStatusBar() {
+
+    const taskNumBtnImgSrc = dmTaskImg;
+    const priorityNumBtnImgSrc = dmPriorityImg;
+    const overdueNumBtnImgSrc = dmOverdueImg;
+    const completedNumBtnImgSrc = dmCompletedImg;
+    const folderNumBtnImgSrc = dmFolderImg;
+
+    const header = document.querySelector("header");
+    const headerContent= document.querySelector("#header-content")
+    
     const statusBar = document.createElement("div");
     statusBar.id = "status-bar";
 
@@ -90,5 +92,5 @@ export function createStatusBar() {
     overdueNumBtn.append(overdueNumBtnImg, overdueNumBtnP);
     completedNumBtn.append(completedNumBtnImg, completedNumBtnP);
     folderNumBtn.append(folderNumBtnImg, folderNumBtnP);
-    statusBarBtns.append(taskNumBtn, priorityNumBtn, overdueNumBtn, completedNumBtn, folderNumBtn)
+    statusBarBtns.append(taskNumBtn, priorityNumBtn, overdueNumBtn, completedNumBtn, folderNumBtn)   
 }

@@ -1,65 +1,72 @@
+// const statusBtn = document.querySelector("#status-btn");
+// const statusBar = document.querySelector("#status-bar");
+// const newTaskBtn = document.querySelector("#new-task-btn");
+// const newTaskForm = document.querySelector("#new-task-form");
+// const newFolderBtn = document.querySelector("#new-folder-btn");
+// const newFolderForm = document.querySelector("#new-folder-form");
+
 export function handleStatusBtn() {
-  
-    if (statusBtn && statusBanner) {
-        statusBtn.addEventListener("click", toggle);
-    } else {
-        console.warn("Warning: statusBtn or statusBanner components missing.");
-    }
+    const statusBar = document.querySelector("#status-bar");
+    const newTaskForm = document.querySelector("#new-task-form");
+    const newFolderForm = document.querySelector("#new-folder-form");
 
-  function toggle() {
-    if (newTaskForm.classList.contains("flex")) {
-      newTaskForm.classList.toggle("flex"); //Toggles this off...
-      statusBanner.classList.toggle("flex");
-    } else if (newFolderForm.classList.contains("flex")) {
-      newFolderForm.classList.toggle("flex"); //Toggles this off...
-      statusBanner.classList.toggle("flex");
+    if (statusBar) {
+        if (newTaskForm && newTaskForm.classList.contains("flex")) {
+        newTaskForm.classList.toggle("flex");
+        statusBar.classList.toggle("flex");
+        } else if (newFolderForm && newFolderForm.classList.contains("flex")) {
+        newFolderForm.classList.toggle("flex");
+        statusBar.classList.toggle("flex");
+        } else {
+        statusBar.classList.toggle("flex");
+        }
     } else {
-      statusBanner.classList.toggle("flex");
+        console.warn("statusBar is null or not found in the DOM.");
     }
-  }
-};
+}
 
-export function handleAddTaskBtn() {
-    if (addTaskBtn && newTaskForm) {
-        addTaskBtn.addEventListener("click", toggle);
-  } else {
-        console.warn("Warning: addTaskBtn or newTaskForm components missing.");
-  }
+export function handleNewTaskBtn() {
+    const statusBar = document.querySelector("#status-bar");
+    const newTaskForm = document.querySelector("#new-task-form");
+    const newFolderForm = document.querySelector("#new-folder-form");
 
-  function toggle() {
-    if (newFolderForm.classList.contains("flex")) {
-      newFolderForm.classList.toggle("flex"); //Toggles this off...
-      newTaskForm.classList.toggle("flex");
-    } else if (statusBanner.classList.contains("flex")) {
-      statusBanner.classList.toggle("flex");
-      newTaskForm.classList.toggle("flex");
+    if (newTaskForm) {
+        if (statusBar && statusBar.classList.contains("flex")) {
+        statusBar.classList.toggle("flex");
+        newTaskForm.classList.toggle("flex");
+        } else if (
+        newFolderForm &&
+        newFolderForm.classList.contains("flex")
+        ) {
+        newFolderForm.classList.toggle("flex");
+        newTaskForm.classList.toggle("flex");
+        } else {
+        newTaskForm.classList.toggle("flex");
+        }
     } else {
-      newTaskForm.classList.toggle("flex");
+        console.warn("newTaskForm is null or not found in the DOM.");
     }
-  }
-};
+}
 
-export function handleAddFolderBtn() {
-    if (addFolderBtn && newFolderForm) {
-        addFolderBtn.addEventListener("click", toggle);
-    } else {
-        console.warn(
-        "Warning: addFolderBtn or newFolderForm components missing."
-      );
-    }
+export function handleNewFolderBtn() {
+    const statusBar = document.querySelector("#status-bar");
+    const newTaskForm = document.querySelector("#new-task-form");
+    const newFolderForm = document.querySelector("#new-folder-form");
 
-  function toggle() {
-    if (newTaskForm.classList.contains("flex")) {
-      newTaskForm.classList.toggle("flex"); //Toggles this off...
-      newFolderForm.classList.toggle("flex");
-    } else if (statusBanner.classList.contains("flex")) {
-      statusBanner.classList.toggle("flex"); //Toggles this off...
-      newTaskForm.classList.toggle("flex");
+    if (newFolderForm) {
+      if (statusBar && statusBar.classList.contains("flex")) {
+        statusBar.classList.toggle("flex");
+        newFolderForm.classList.toggle("flex");
+      } else if (newTaskForm && newTaskForm.classList.contains("flex")) {
+        newTaskForm.classList.toggle("flex");
+        newFolderForm.classList.toggle("flex");
+      } else {
+        newFolderForm.classList.toggle("flex");
+      }
     } else {
-      newFolderForm.classList.toggle("flex");
+      console.warn("newFolderForm is null or not found in the DOM.");
     }
-  }
-};
+}
 
 // export function handleDarkLiteBtn() {
 

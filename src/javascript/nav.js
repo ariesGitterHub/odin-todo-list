@@ -1,17 +1,20 @@
 import { 
-    header, 
+    // header, 
     dmStatusImg, 
     dmNewTaskImg, 
     dmNewFolderImg, 
     dmDarkLiteImg 
-} from "./config.js";
-
-const statusImgSrc = dmStatusImg;
-const newTaskImgSrc = dmNewTaskImg;
-const newFolderImgSrc = dmNewFolderImg;
-const darkLiteImgSrc = dmDarkLiteImg;
+} from "./imageExporter.js";
 
 export function createNav() {
+
+    const statusImgSrc = dmStatusImg;
+    const newTaskImgSrc = dmNewTaskImg;
+    const newFolderImgSrc = dmNewFolderImg;
+    const darkLiteImgSrc = dmDarkLiteImg;
+
+    const header = document.querySelector("header");
+
     const nav = document.createElement("nav");
 
     const statusBtn = document.createElement("button");

@@ -216,10 +216,10 @@ nav button img {
     width: 1.5rem;
 }
 
-/* #status-bar.flex, #new-task-form.flex, #new-folder-form.flex
+#status-bar.flex, #new-task-form.flex, #new-folder-form.flex
 {
     display: flex;
-} */
+}
 
 /* #status-bar.none, #new-task-form.none, #new-folder-form.none
 {
@@ -230,7 +230,7 @@ nav button img {
     height: fit-content;
     background-color: var(--stba);
     border: 1px solid var(--bkgd); 
-    display: flex;
+    display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -302,6 +302,7 @@ nav button img {
 #new-task-img, #new-folder-img {
     height: 2.75rem;
     width: auto;
+    margin-right: .5rem;
 }
 
 #new-task-form p, #new-folder-form p {
@@ -637,7 +638,7 @@ footer {
     right: 0;
     bottom: 0;
     background-color: var(--contrast);
-    border: 1px solid var(--adta);
+    border: 1px solid var(--contrast);
     -webkit-transition: .4s;
     transition: .4s;
 }

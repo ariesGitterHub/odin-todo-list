@@ -1,16 +1,7 @@
 import {
-    taskContent,
-    darkLiteBtn,
-    taskTitle,
-    taskDueDate,
-    taskFolder,
     taskOverdueNoticeImg,
-    taskDescription,
-    taskPriorityBtn,
-    taskCompletedBtn,
-    // taskEditBtn,
-    // taskTrashBtn,
-} from "./config.js";
+ 
+} from "./imageExporter.js";
 
 import dmTaskOverdueNoticeImg from "../assets/dm-overdue-adta.svg";
 import dmOverdueBgImg from "../assets/dm-overdue-bg.svg";
@@ -29,14 +20,6 @@ import lmEditImg from "../assets/lm-edit.svg";
 import lmTrashImg from "../assets/lm-trash.svg";
 
 import { Task, Folder } from "./classes.js";
-
-// let currentImages = {
-//   taskOverdueNoticeImgSrc: dmTaskOverdueNoticeImg,
-//   taskPriorityImgSrc: dmPriorityImg,
-//   taskCompletedImgSrc: dmCompletedImg,
-//   taskEditImgSrc: dmEditImg,
-//   taskTrashImgSrc: dmTrashImg,
-// };
 
 export function appData() {
 const initialTasks = [

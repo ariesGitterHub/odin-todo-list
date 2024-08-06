@@ -1,63 +1,25 @@
 import "./styles/styles.css";
 
 import { createTitle } from "./javascript/title.js";
-createTitle();
-
 import { createNav } from "./javascript/nav.js";
-createNav();
-
 import { createStatusBar } from "./javascript/statusBar.js";
+import { handleStatusBtn, handleNewTaskBtn, handleNewFolderBtn } from "./javascript/navBtns.js";
+import { createNewTaskForm } from "./javascript/newTaskForm.js";
+import { createNewFolderForm } from "./javascript/newFolderForm.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+createTitle();
+createNav();
 createStatusBar();
+createNewTaskForm();
+createNewFolderForm();
 
+const statusBtn = document.querySelector("#status-btn");
+statusBtn.addEventListener("click", handleStatusBtn);
 
-// import {
-//   priorityBtnClicked,
-//   completedBtnClicked,
-//   appData,
-//   renderTasks,
-// } from "./javascript/taskContent.js";
+const newTaskBtn = document.querySelector("#new-task-btn");
+newTaskBtn.addEventListener("click", handleNewTaskBtn);   
 
-// import { defaultImages, handleDarkLiteBtn } from "./javascript/handleImages.js";
-
-// import {
-//   handleStatusBtn,
-//   handleAddTaskBtn,
-//   handleAddFolderBtn,
-//   // handleDarkLiteBtn, // Moved to handleImages
-// } from "./javascript/navBtns.js";
-
-// import { newTaskPriorityChecked } from "./javascript/newTaskForm.js";
-
-
-
-// import "./javascript/handleImages.js";  // FYI: importing IIFEs works a bit differently, this syntax import shown here is all that is needed to automatically invoke the IIFE in handleImage.js
-
-//No longer an IIFE, I moved handleDarkLiteBtn to handleImages
-
-// handleStatusBtn();
-// handleAddTaskBtn();
-// handleAddFolderBtn();
-
-// appData();
-// newTaskPriorityChecked();
-
-
-
-// handleDarkLiteBtn();
-
-// renderTasks();
-
-// priorityBtnClicked();
-// completedBtnClicked();
-
-// defaultImages();
-
-
-
-
-
-
-
-
-
-
+const newFolderBtn = document.querySelector("#new-folder-btn");
+newFolderBtn.addEventListener("click", handleNewFolderBtn); 
+});
