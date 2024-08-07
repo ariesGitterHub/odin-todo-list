@@ -7,13 +7,6 @@ import {
 } from "./imageExporter.js";
 
 export function createStatusBar() {
-
-    const taskNumBtnImgSrc = dmTaskImg;
-    const priorityNumBtnImgSrc = dmPriorityImg;
-    const overdueNumBtnImgSrc = dmOverdueImg;
-    const completedNumBtnImgSrc = dmCompletedImg;
-    const folderNumBtnImgSrc = dmFolderImg;
-
     const header = document.querySelector("header");
     const headerContent= document.querySelector("#header-content")
     
@@ -28,7 +21,7 @@ export function createStatusBar() {
 
     const taskNumBtnImg = document.createElement("img");
     taskNumBtnImg.id = "task-num-btn-img";
-    taskNumBtnImg.src = taskNumBtnImgSrc;
+    taskNumBtnImg.src = dmTaskImg;
     taskNumBtnImg.alt = "";
 
     const taskNumBtnP = document.createElement("p");
@@ -40,7 +33,7 @@ export function createStatusBar() {
 
     const priorityNumBtnImg = document.createElement("img");
     priorityNumBtnImg.id = "priority-num-btn-img";
-    priorityNumBtnImg.src = priorityNumBtnImgSrc;
+    priorityNumBtnImg.src = dmPriorityImg;
     priorityNumBtnImg.alt = "";
 
     const priorityNumBtnP = document.createElement("p");
@@ -52,7 +45,7 @@ export function createStatusBar() {
 
     const overdueNumBtnImg = document.createElement("img");
     overdueNumBtnImg.id = "overdue-num-btn-img";
-    overdueNumBtnImg.src = overdueNumBtnImgSrc;
+    overdueNumBtnImg.src = dmOverdueImg;
     overdueNumBtnImg.alt = "";
 
     const overdueNumBtnP = document.createElement("p");
@@ -64,7 +57,7 @@ export function createStatusBar() {
 
     const completedNumBtnImg = document.createElement("img");
     completedNumBtnImg.id = "completed-num-btn-img";
-    completedNumBtnImg.src = completedNumBtnImgSrc;
+    completedNumBtnImg.src = dmCompletedImg;
     completedNumBtnImg.alt = "";
 
     const completedNumBtnP = document.createElement("p");
@@ -76,7 +69,7 @@ export function createStatusBar() {
 
     const folderNumBtnImg = document.createElement("img");
     folderNumBtnImg.id = "folder-num-btn-img";
-    folderNumBtnImg.src = folderNumBtnImgSrc;
+    folderNumBtnImg.src = dmFolderImg;
     folderNumBtnImg.alt = "";
 
     const folderNumBtnP = document.createElement("p");

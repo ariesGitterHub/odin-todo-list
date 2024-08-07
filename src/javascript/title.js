@@ -2,10 +2,7 @@ import {
   dmCrownImg,
 } from "./imageExporter.js";
 
-export function createTitle() {
-
-    const crownImgSrc = dmCrownImg;   
-
+export function createTitle() { 
     const header = document.querySelector("header");
 
     const appTitleCont = document.createElement("div");
@@ -15,7 +12,7 @@ export function createTitle() {
     appTitle.textContent = "Task ";
     const crownImg = document.createElement("img");
     crownImg.id = "crown-img";
-    crownImg.src = crownImgSrc;
+    crownImg.src = dmCrownImg;
     crownImg.alt = "Crown icon";
 
     header.appendChild(appTitleCont);

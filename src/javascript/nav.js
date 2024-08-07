@@ -1,5 +1,4 @@
 import { 
-    // header, 
     dmStatusImg, 
     dmNewTaskImg, 
     dmNewFolderImg, 
@@ -7,12 +6,6 @@ import {
 } from "./imageExporter.js";
 
 export function createNav() {
-
-    const statusImgSrc = dmStatusImg;
-    const newTaskImgSrc = dmNewTaskImg;
-    const newFolderImgSrc = dmNewFolderImg;
-    const darkLiteImgSrc = dmDarkLiteImg;
-
     const header = document.querySelector("header");
 
     const nav = document.createElement("nav");
@@ -22,7 +15,7 @@ export function createNav() {
 
     const statusBtnImg = document.createElement("img");
     statusBtnImg.id = "status-btn-img";
-    statusBtnImg.src = statusImgSrc;
+    statusBtnImg.src = dmStatusImg;
     statusBtnImg.alt = "";
 
     const newTaskBtn = document.createElement("button");
@@ -30,7 +23,7 @@ export function createNav() {
 
     const newTaskBtnImg = document.createElement("img");
     newTaskBtnImg.id = "new-task-btn-img";
-    newTaskBtnImg.src = newTaskImgSrc;
+    newTaskBtnImg.src = dmNewTaskImg;
     newTaskBtnImg.alt = "";
 
     const newFolderBtn = document.createElement("button");
@@ -38,7 +31,7 @@ export function createNav() {
 
     const newFolderBtnImg = document.createElement("img");
     newFolderBtnImg.id = "new-folder-btn-img";
-    newFolderBtnImg.src = newFolderImgSrc;
+    newFolderBtnImg.src = dmNewFolderImg;
     newFolderBtnImg.alt = "";
 
     const darkLiteBtn = document.createElement("button");
@@ -47,7 +40,7 @@ export function createNav() {
     const darkLiteBtnImg = document.createElement("img");
     darkLiteBtnImg.id = "dark-lite-btn-img";
     darkLiteBtn.value = "dark";
-    darkLiteBtnImg.src = darkLiteImgSrc;
+    darkLiteBtnImg.src = dmDarkLiteImg;
     darkLiteBtnImg.alt = "";
 
     header.appendChild(nav);

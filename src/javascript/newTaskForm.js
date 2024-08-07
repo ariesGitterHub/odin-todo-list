@@ -1,9 +1,6 @@
 import { dmNewTaskImg } from "./imageExporter.js";
 
 export function createNewTaskForm() {
-
-    const newTaskImgSrc = dmNewTaskImg;
-
     const header = document.querySelector("header");
     const headerContent = document.querySelector("#header-content");
 
@@ -16,7 +13,7 @@ export function createNewTaskForm() {
 
     const newTaskImg = document.createElement("img");
     newTaskImg.id = "new-task-img";
-    newTaskImg.src = newTaskImgSrc;
+    newTaskImg.src = dmNewTaskImg;
     newTaskImg.alt = "";
 
     const newTaskFormTitle = document.createElement("p");

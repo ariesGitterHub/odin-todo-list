@@ -546,7 +546,7 @@ form input::-webkit-input-placeholder {
     width: 1.5rem;
 }
 
-.task-priority-img, .task-completed-img, .task-edit-img, .task-trash-img {
+.task-priority-btn-img, .task-completed-btn-img, .task-edit-btn-img, .task-trash-btn-img {
 height: 1.5rem;
 }
 
