@@ -156,6 +156,19 @@ header {
     /* align-self: baseline; */
 }
 
+#app-date {
+    height: 1.25rem;
+    width: 100vw;
+    background-color: var(--contrast);
+    color: var(--bkgd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-plain);
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
 #header-content {
     border-top: 1px solid var(--contrast);
     border-bottom: 1px solid var(--contrast);
@@ -510,15 +523,17 @@ form input::-webkit-input-placeholder {
     color: var(--contrast);
 }
 
-#padding {
-    height: 1rem;
+.section-bot-pad {
+    height: .5rem;
+    width: 100vw;
     background-color: var(--bkgd);
 }
 
 .task {
-    border-top: 3px dashed var(--fc07);
-    border-bottom: 3px dashed var(--fc07);
-    color: var(--fc07);
+    border-top: 3px dashed;
+    border-bottom: 3px dashed;
+    /* border-color: var(--fc01); */
+    /* color: var(--fc01); */
     font-family: var(--font-plain);
     /* margin: .5rem; */
     /* TWEAK as needed */
@@ -526,7 +541,7 @@ form input::-webkit-input-placeholder {
 }
 
 .task-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     /* font-family: var(--font-fancy); */
     /* font-style: italic; */
     font-weight: 800;
@@ -544,6 +559,7 @@ form input::-webkit-input-placeholder {
 .task-overdue-notice-img {
     height: 1.5rem;
     width: 1.5rem;
+    margin-left: .25rem;
 }
 
 .task-priority-btn-img, .task-completed-btn-img, .task-edit-btn-img, .task-trash-btn-img {
@@ -554,7 +570,8 @@ height: 1.5rem;
     height: 2.5rem;
     width: 2.5rem;
     background-color: inherit;
-    border: 1px solid var(--fc07);
+    border: 1px solid;
+    /* border-color: var(--fc01); */
     border-radius: 2rem;
     display: flex;
     justify-content: center;
@@ -568,7 +585,8 @@ height: 1.5rem;
 
 .task button:hover, .task button:focus{
     /* background-color: var(--dark-yes); */
-    border: 1px dashed var(--fc07);
+    border: 1px dashed;
+    /* border-color: var(--fc01); */
     transform: scale(1.2);
 }
 
@@ -577,7 +595,7 @@ height: 1.5rem;
 }
 
 
-.task select {
+/* .task select {
     height: 2rem;
     width: fit-content;
     background-color: var(--bkgd);
@@ -585,13 +603,13 @@ height: 1.5rem;
     border-radius: 2rem;
     color: var(--fc07);
     font-size: 1rem;
-    /* text-align: center; */
-}
 
-.task select:hover, .task select:focus{
+} */
+
+/* .task select:hover, .task select:focus{
     border: 1px dashed var(--fc07);
     outline: none;
-}
+} */
 
 .task-description {
     height: fit-content;

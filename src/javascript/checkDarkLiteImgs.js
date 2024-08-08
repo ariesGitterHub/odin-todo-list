@@ -14,6 +14,8 @@ import {
     dmEditImg,
     dmTrashImg,
 
+    dmTaskOverdueNoticeImg,
+
     lmCrownImg,
     lmStatusImg,
     lmNewTaskImg,
@@ -28,6 +30,8 @@ import {
 
     lmEditImg,
     lmTrashImg,
+
+    lmTaskOverdueNoticeImg,
 
 } from "./imageExporter.js";
 
@@ -48,11 +52,13 @@ export function changeDarkLiteImgs() {
 
     const newTaskImg = document.querySelector("#new-task-img");
     const newFolderImg = document.querySelector("#new-folder-img");
+    
+    const taskPriorityBtnImg = document.querySelectorAll(".task-priority-btn-img");
+    const taskCompletedBtnImg = document.querySelectorAll(".task-completed-btn-img");
+    const taskEditBtnImg = document.querySelectorAll(".task-edit-btn-img");
+    const taskTrashBtnImg = document.querySelectorAll(".task-trash-btn-img");
 
-    const taskPriorityBtnImg = document.querySelector(".task-priority-btn-img");
-    const taskCompletedBtnImg = document.querySelector(".task-completed-btn-img");
-    const taskEditBtnImg = document.querySelector(".task-edit-btn-img");
-    const taskTrashBtnImg = document.querySelector(".task-trash-btn-img");
+    const taskOverdueNoticeImg = document.querySelectorAll(".task-overdue-notice-img");
 
     if (darkLiteBtn) {
         if (darkLiteBtn.value === "dark") {
@@ -71,10 +77,17 @@ export function changeDarkLiteImgs() {
             newTaskImg.src = dmNewTaskImg;
             newFolderImg.src = dmNewFolderImg;
 
-            taskPriorityBtnImg.src = dmPriorityImg;
-            taskCompletedBtnImg.src = dmCompletedImg;
-            taskEditBtnImg.src = dmEditImg;
-            taskTrashBtnImg.src = dmTrashImg;
+            // taskPriorityBtnImg.src = dmPriorityImg;
+            // taskCompletedBtnImg.src = dmCompletedImg;
+            // taskEditBtnImg.src = dmEditImg;
+            // taskTrashBtnImg.src = dmTrashImg;
+
+            taskPriorityBtnImg.forEach(function (image) {image.src = dmPriorityImg});
+            taskCompletedBtnImg.forEach(function (image) {image.src = dmCompletedImg;});
+            taskEditBtnImg.forEach(function (image) {image.src = dmEditImg;});
+            taskTrashBtnImg.forEach(function (image) {image.src = dmTrashImg;});
+
+            // taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
 
         } else if (darkLiteBtn.value === "lite") {
             crownImg.src = lmCrownImg;
@@ -92,10 +105,17 @@ export function changeDarkLiteImgs() {
             newTaskImg.src = lmNewTaskImg;
             newFolderImg.src = lmNewFolderImg;
 
-            taskPriorityBtnImg.src = lmPriorityImg;
+            taskPriorityBtnImg.forEach(function (image) {image.src = lmPriorityImg});
+            taskCompletedBtnImg.forEach(function (image) {image.src = lmCompletedImg;});
+            taskEditBtnImg.forEach(function (image) {image.src = lmEditImg;});
+            taskTrashBtnImg.forEach(function (image) {image.src = lmTrashImg;});
+
+
             taskCompletedBtnImg.src = lmCompletedImg;
             taskEditBtnImg.src = lmEditImg;
             taskTrashBtnImg.src = lmTrashImg;
+
+            taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
         } 
     } else {
         console.warn("darkLiteBtn is null or not found in the DOM."); 

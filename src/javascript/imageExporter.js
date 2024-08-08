@@ -27,7 +27,7 @@ import dmNewTaskPriorityFlagImg from "../assets/dm-priority-adta.svg";
 
 // For taskContent.js 
 import dmTaskOverdueNoticeImg from "../assets/dm-overdue-adta.svg";
-import dmOverdueBgImg from "../assets/dm-overdue-bg.svg";
+import dmTaskOverdueBgImg from "../assets/dm-overdue-bg.svg";
 import dmEditImg from "../assets/dm-edit.svg";
 import dmTrashImg from "../assets/dm-trash.svg";
 
@@ -39,7 +39,7 @@ export {
   dmFolderImg,
   dmNewTaskPriorityFlagImg,
   dmTaskOverdueNoticeImg,
-  dmOverdueBgImg,
+  dmTaskOverdueBgImg,
   dmEditImg,
   dmTrashImg,
 };
@@ -54,7 +54,7 @@ import lmNewTaskPriorityFlagImg from "../assets/lm-priority-adta.svg";
 
 // For taskContent.js 
 import lmTaskOverdueNoticeImg from "../assets/lm-overdue-adta.svg";
-import lmOverdueBgImg from "../assets/lm-overdue-bg.svg";
+import lmTaskOverdueBgImg from "../assets/lm-overdue-bg.svg";
 import lmEditImg from "../assets/lm-edit.svg"
 import lmTrashImg from "../assets/lm-trash.svg";
 
@@ -66,7 +66,10 @@ export {
   lmFolderImg,
   lmNewTaskPriorityFlagImg,
   lmTaskOverdueNoticeImg,
-  lmOverdueBgImg,
+  lmTaskOverdueBgImg,
   lmEditImg,
   lmTrashImg,
 };
+
+import redOverdueImg from "../assets/u-overdue.svg";
+export { redOverdueImg };

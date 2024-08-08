@@ -37,8 +37,10 @@ export function defaultData() {
   // console.log(initialTasks);
 
   const initialFolders = [
-    new Folder("f0", "Default", "#ffffff"),
-    new Folder("f1", "Chores", "fffffff"),
+    new Folder("f0", "Default", "--fc07"),
+    new Folder("f1", "Chores", "--fc05"),
+    new Folder("f2", "Fitness", "--fc01"),
+    new Folder("f3", "Repair", "--fc10"),
   ];
 
   // console.log(initialFolders);

@@ -13,7 +13,7 @@ import { createNewTaskForm } from "./javascript/newTaskForm.js";
 import { createNewFolderForm } from "./javascript/newFolderForm.js";
 import { changeDarkLiteImgs } from "./javascript/checkDarkLiteImgs.js";
 import { newTaskPriorityChecked } from "./javascript/miscBtns.js";
-import { createTasks } from "./javascript/taskContent.js";
+import { createTasks, createTaskColors } from "./javascript/taskContent.js";
 // import { defaultData } from "./javascript/defaultData.js";
 import { Task, Folder } from "./javascript/classes.js";
 
@@ -22,7 +22,7 @@ import { Task, Folder } from "./javascript/classes.js";
       "t0",
       "Take out the trash",
       "overdue",
-      "2024 JUL 29",
+      "07/29/2024",
       "high",
       "incomplete",
       "Chores",
@@ -32,7 +32,7 @@ import { Task, Folder } from "./javascript/classes.js";
       "t1",
       "Grocery Store",
       "overdue",
-      "2024 AUG 01",
+      "08/01/2024",
       "normal",
       "incomplete",
       "Chores",
@@ -40,15 +40,64 @@ import { Task, Folder } from "./javascript/classes.js";
     ),
     new Task(
       "t2",
-      "Do Laundry",
+      "Run 5k Course",
       "overdue",
-      "2024 AUG 05",
+      "08/05/2024",
       "normal",
       "incomplete",
-      "Chores",
+      "Fitness",
+      ""
+    ),
+    new Task(
+      "t3",
+      "Find Zen",
+      "overdue",
+      "08/15/1996",
+      "normal",
+      "incomplete",
+      "Test",
       ""
     ),
   ];
+
+    const initialFolders = [
+      new Folder("f0", "Default", "--fc07"),
+      new Folder("f1", "Chores", "--fc05"),
+      new Folder("f2", "Fitness", "--fc01"),
+      new Folder("f3", "Repair", "--fc10"),
+      new Folder("f4", "Test", "--fc09"),
+    ];
+
+//   function convertToFormattedDate() {
+//     const arrayDate = in;
+
+//     // Get year, month, day
+//     const year = date.getFullYear();
+
+//     const monthNames = [
+//       "JAN",
+//       "FEB",
+//       "MAR",
+//       "APR",
+//       "MAY",
+//       "JUN",
+//       "JUL",
+//       "AUG",
+//       "SEP",
+//       "OCT",
+//       "NOV",
+//       "DEC",
+//     ];
+//     const month = monthNames[date.getMonth()];
+
+//     const day = date.getDate().toString().padStart(2, "0");
+
+//     // Get day of the week
+//     const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+//     const dayOfWeek = dayNames[date.getDay()];
+
+//     return `${year} ${month} ${day} (${dayOfWeek})`;
+//   }
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -78,4 +127,8 @@ newTaskPriorityToggle.addEventListener("change", newTaskPriorityChecked);
 // defaultData();
 
   createTasks(initialTasks);
+  createTaskColors(initialFolders);
 });
+
+
+

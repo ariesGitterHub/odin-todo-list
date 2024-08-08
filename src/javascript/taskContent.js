@@ -1,30 +1,12 @@
 // remove dmTaskOverdueNoticeImg oafter making a function that renders this only if the date is past due
 import {
   dmTaskOverdueNoticeImg,
+  redOverdueImg,
   dmPriorityImg,
   dmCompletedImg,
   dmEditImg,
   dmTrashImg,
 } from "./imageExporter.js";
-
-// import { Task, Folder } from "./classes.js";
-
-// export function defaultData() {
-//   const initialTasks = [
-//     new Task("t0", "Take out the trash", "overdue", "2024 JUL 29", "high", "incomplete", "Chores", ""),
-//     new Task("t1", "Grocery Store", "overdue", "2024 AUG 01", "normal", "incomplete", "Chores", "Buy: milk, bread, eggs."),
-//     new Task("t2", "Do Laundry", "overdue", "2024 AUG 05", "normal", "incomplete", "Chores", ""),
-//   ];
-  // initialTasks.forEach((task) => console.log(task.getTaskDetails()));
-//   console.log(initialTasks);
-
-//   const initialFolders = [
-//     new Folder("f0", "Default", "#ffffff"),
-//     new Folder("f1", "Chores", "fffffff"),
-//   ];
-
-//   console.log(initialFolders);
-// }
 
 export function createTasks(tasks) {
     const taskContent = document.querySelector("#task-content");
@@ -33,28 +15,22 @@ export function createTasks(tasks) {
     tasks.forEach(taskItem => {
         const task = document.createElement("div");
         task.classList.add("task");
-        taskContent.appendChild(task);
 
         const mainCol = document.createElement("div");
         mainCol.classList.add("lvl-col");
-        task.appendChild(mainCol);
 
         const taskTitle = document.createElement("p");
         taskTitle.classList.add("task-title");
         taskTitle.textContent = `${taskItem.taskName}`;
-        mainCol.appendChild(taskTitle);
 
         const br1 = document.createElement("br");
-        mainCol.appendChild(br1);
 
         const lvlRow1 = document.createElement("div");
         lvlRow1.classList.add("lvl-row");
-        mainCol.appendChild(lvlRow1);
 
         const taskDueDate = document.createElement("div");
         taskDueDate.classList.add("task-due-date");
-        taskDueDate.textContent = `Due: ${taskItem.taskName}`;
-        lvlRow1.appendChild(taskDueDate);
+        taskDueDate.textContent = `Due: ${taskItem.dueByDate}`;
 
         // const span = document.createElement("span");
         // span.classList.add("date-holder");
@@ -64,9 +40,9 @@ export function createTasks(tasks) {
         const taskOverdueNoticeImg = document.createElement("img");
         taskOverdueNoticeImg.classList.add("task-overdue-notice-img");
         // taskOverdueNoticeImg.src = "";
-        taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
+        // taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
+        taskOverdueNoticeImg.src = redOverdueImg;
         taskOverdueNoticeImg.alt = "Date is overdue icon";
-        lvlRow1.appendChild(taskOverdueNoticeImg);
 
         // const lvlRow2 = document.createElement("div");
         // lvlRow2.classList.add("lvl-row");
@@ -75,86 +51,171 @@ export function createTasks(tasks) {
         const taskFolder = document.createElement("div");
         taskFolder.classList.add("task-folder");
         taskFolder.textContent = `${taskItem.folderLocation}`;
-        mainCol.appendChild(taskFolder);
 
         const br2 = document.createElement("br");
-        mainCol.appendChild(br2);
-
+      
         const taskDescription = document.createElement("div");
         taskDescription.classList.add("task-description");
         taskDescription.textContent = `${taskItem.descriptionText}`;
-        mainCol.appendChild(taskDescription);
-
+   
         const br3 = document.createElement("br");
-        task.appendChild(br3);
 
         const taskBtnCont = document.createElement("div");
         taskBtnCont.classList.add("lvl-row", "task-btn-cont");
-        task.appendChild(taskBtnCont);
-
+   
         const taskBtnCol1 = document.createElement("div");
         taskBtnCol1.classList.add("lvl-col");
-        taskBtnCont.appendChild(taskBtnCol1);
-
+      
         const taskPriorityBtn = document.createElement("button");
         taskPriorityBtn.classList.add("task-priority-btn");
         taskPriorityBtn.value = "normal";
-        taskBtnCol1.appendChild(taskPriorityBtn);
 
         const taskPriorityBtnImg = document.createElement("img");
         taskPriorityBtnImg.classList.add("task-priority-btn-img");
         taskPriorityBtnImg.src = dmPriorityImg;
         taskPriorityBtnImg.alt = "Priority task icon";
-        taskPriorityBtn.appendChild(taskPriorityBtnImg);
 
         const taskBtnCol2 = document.createElement("div");
         taskBtnCol2.classList.add("lvl-col");
-        taskBtnCont.appendChild(taskBtnCol2);
-
+     
         const taskCompletedBtn = document.createElement("button");
         taskCompletedBtn.classList.add("task-completed-btn");
         taskCompletedBtn.value = "incomplete";
-        taskBtnCol2.appendChild(taskCompletedBtn);
 
         const taskCompletedBtnImg = document.createElement("img");
         taskCompletedBtnImg.classList.add("task-completed-btn-img");
         taskCompletedBtnImg.src = dmCompletedImg;
-
         taskCompletedBtnImg.alt = "Completed task icon";
-        taskCompletedBtn.appendChild(taskCompletedBtnImg);
-
+   
         const taskBtnCol3 = document.createElement("div");
         taskBtnCol3.classList.add("lvl-col");
-        taskBtnCont.appendChild(taskBtnCol3);
 
         const taskEditBtn = document.createElement("button");
         taskEditBtn.classList.add("task-edit-btn");
         taskEditBtn.value = "off";
-        taskBtnCol3.appendChild(taskEditBtn);
 
         const taskEditBtnImg = document.createElement("img");
         taskEditBtnImg.classList.add("task-edit-btn-img");
         taskEditBtnImg.src = dmEditImg;
         taskEditBtnImg.alt = "Edit task icon";
-        taskEditBtn.appendChild(taskEditBtnImg);
 
         const taskBtnCol4 = document.createElement("div");
         taskBtnCol4.classList.add("lvl-col");
-        taskBtnCont.appendChild(taskBtnCol4);
 
         const taskTrashBtn = document.createElement("button");
         taskTrashBtn.classList.add("task-trash-btn");
-        taskBtnCol4.appendChild(taskTrashBtn);
-
+   
         const taskTrashBtnImg = document.createElement("img");
         taskTrashBtnImg.classList.add("task-trash-btn-img");
         taskTrashBtnImg.src = dmTrashImg;
         taskTrashBtnImg.alt = "Trash task icon";
-        taskTrashBtn.appendChild(taskTrashBtnImg);
-            
+    
+        const sectionBotPad = document.createElement("div");
+        sectionBotPad.classList.add("section-bot-pad");
+
+        taskContent.append(task, sectionBotPad);
+        task.append(mainCol, br3, taskBtnCont);
+        mainCol.append(
+          taskTitle,
+          br1,
+          lvlRow1,
+          taskFolder,
+          br2,
+          taskDescription
+        );
+        lvlRow1.append(taskDueDate, taskOverdueNoticeImg);
+        taskBtnCont.append(
+          taskBtnCol1,
+          taskBtnCol2,
+          taskBtnCol3,
+          taskBtnCol4
+        );
+        taskBtnCol1.append(taskPriorityBtn);
+        taskPriorityBtn.append(taskPriorityBtnImg);
+        taskBtnCol2.append(taskCompletedBtn);
+        taskCompletedBtn.append(taskCompletedBtnImg);
+        taskBtnCol3.append(taskEditBtn);
+        taskEditBtn.append(taskEditBtnImg);
+        taskBtnCol4.append(taskTrashBtn);
+        taskTrashBtn.append(taskTrashBtnImg);
     })
                    
 };
+
+// export function createTaskColors(folders) {
+//     let foundFolder
+//     const taskFolder = document.querySelectorAll(".task-folder");
+//     taskFolder.forEach(target => {
+//         foundFolder = target.innerText;
+//         console.log(foundFolder);
+        
+
+//     // })
+
+//         if (foundFolder === folders.folderName) {
+
+//           const task = document.querySelectorAll(".task");
+//           task.forEach((item) => {
+//             item.style.borderColor = `var(${folders.folderColor})`;
+//             item.style.color = `var(${folders.folderColor})`;
+//           });
+//           // task.style.borderColor = `var(${folders.folderColor})`
+//           // task.style.color = `var(${folders.folderColor})`;
+
+//           const taskBtns = document.querySelectorAll(".task button");
+//           taskBtns.forEach((item) => {
+//             item.style.borderColor = `var(${folders.folderColor})`;
+//           });
+//           // taskBtns.style.borderColor = `var(${folders.folderColor})`;
+
+//           const taskBtnsHover = document.querySelectorAll(".task button:hover");
+//           taskBtnsHover.forEach((item) => {
+//             item.style.borderColor = `var(${folders.folderColor})`;
+//           });
+
+//           const taskBtnsFocus = document.querySelectorAll(".task button:focus");
+//           taskBtnsFocus.forEach((item) => {
+//             item.style.borderColor = `var(${folders.folderColor})`;
+//           });
+//           // taskBtnsFocus.style.borderColor = `var(${folders.folderColor})`;
+//         } else {
+//             console.warn("No folders found.")
+//         }
+        
+//     })
+
+// };
+// RE-EXAMINE THIS CLOSELY!!!! This was a bit beyond me to finish 100% correctly...
+export function createTaskColors(folders) {
+  const taskFolderElements = document.querySelectorAll(".task-folder");
+
+  taskFolderElements.forEach((taskFolderElement) => {
+    const folderName = taskFolderElement.innerText;
+    const matchingFolder = folders.find(
+      (folder) => folder.folderName === folderName
+    );
+
+    if (matchingFolder) {
+      const task = taskFolderElement.closest(".task"); // Find the parent .task element
+
+      // Apply styles to the task
+      task.style.borderColor = `var(${matchingFolder.folderColor})`;
+      task.style.color = `var(${matchingFolder.folderColor})`;
+
+      // Apply styles to the buttons inside the task
+      const taskBtns = task.querySelectorAll("button");
+      taskBtns.forEach((button) => {
+        button.style.borderColor = `var(${matchingFolder.folderColor})`;
+      });
+
+      // Optional: Apply styles for hover and focus states (CSS would be better for this)
+      // You can create CSS classes dynamically and apply them
+    } else {
+      console.warn(`No matching folder found for ${folderName}.`);
+    }
+  });
+}
+
 
 // export function priorityBtnClicked() {
 //     if (taskPriorityBtn) {
