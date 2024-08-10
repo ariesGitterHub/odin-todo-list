@@ -28,7 +28,7 @@
 --dark-alert: #a9fe00; /*alert color, contrasts  background*/
 /* --dark-contrast: #f3e65c; */
 --dark-contrast: #e0daa1; /* contrast against background */
---dark-btn-active: #6c6c6f; /* btn activated*/
+--dark-btn-active: #5e5e66; /* btn activated*/
 
 /* Dark Mode Folder Colors */
 --dmfc01: #f47e7e;
@@ -53,10 +53,10 @@
 --lite-alert: #bd33a6; /*alert color, contrasts background*/
 /* --lite-contrast: #1a1a1c;  */
 --lite-contrast: #29292d; /* contrast against background */
---lite-btn-active: #999993; /* btn activated*/
+--lite-btn-active: #9d9d8d; /* btn activated*/
 
 /* Lite Mode Folder Colors */
---lmfc01: #834545;
+--lmfc01: #6c3c3c;
 --lmfc02: #8f5e51;
 --lmfc03: #625937;
 --lmfc04: #445d37;
@@ -170,14 +170,14 @@ header {
 }
 
 #header-content {
-    border-top: 1px solid var(--contrast);
-    border-bottom: 1px solid var(--contrast);
+    border-top: 1.5px solid var(--contrast);
+    border-bottom: 1.5px solid var(--contrast);
 }
 
 nav {
     height: auto;
     width: auto;
-    /* border: 1px solid var(--bkgd);  */
+    /* border: 1.5px solid var(--bkgd);  */
     display: flex;
         justify-content: center;
         align-items: center;
@@ -190,7 +190,7 @@ nav {
 nav button {
     height: 2.5rem;
     width: 2.5rem;
-    border: 1px solid var(--contrast);
+    border: 1.5px solid var(--contrast);
     border-radius: 2.5rem;
     display: flex;
         justify-content: center;
@@ -215,7 +215,7 @@ nav #dark-lite-btn {
 }
 
 nav button:hover, nav button:focus {
-    border: 1px dashed var(--contrast);
+    border: 1.5px dashed var(--contrast);
     outline: none;
     transform: scale(1.2);
 }
@@ -242,7 +242,7 @@ nav button img {
 #status-bar {
     height: fit-content;
     background-color: var(--stba);
-    border: 1px solid var(--bkgd); 
+    border: 1.5px solid var(--bkgd); 
     display: none;
         flex-direction: column;
         justify-content: center;
@@ -263,7 +263,7 @@ nav button img {
     height: 2rem;
     width: fit-content;
     background-color: inherit;
-    border: 1px solid var(--contrast);
+    border: 1.5px solid var(--contrast);
     border-radius: .5rem;
     color: var(--contrast);
     display: flex;
@@ -277,7 +277,7 @@ nav button img {
 
 #status-bar button:hover, #status-bar button:focus {
     background-color: var(--bkgd);
-    border: 1px dashed var(--contrast);
+    border: 1.5px dashed var(--contrast);
     transform: scale(1.2);
 }
 
@@ -301,7 +301,7 @@ nav button img {
 
 #new-task-form, #new-folder-form {
     height: fit-content;
-    border: 1px solid var(--bkgd); 
+    border: 1.5px solid var(--bkgd); 
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -332,7 +332,7 @@ form input, form select {
     height: 1.75rem;
     width: 27ch;
     background-color: var(--contrast);
-    border: 1px solid var(--contrast);
+    border: 1.5px solid var(--contrast);
     border-radius: .75rem;
     color: var(--bkgd);
     font-family: var(--font-plain);
@@ -351,7 +351,7 @@ form #new-task-due-date {
 }
 
 form input:hover, form input:focus, form select:hover, form select:focus {
-    border: 1px dashed var(--bkgd);
+    border: 1.5px dashed var(--bkgd);
     outline: none;
 }
 
@@ -368,7 +368,7 @@ textarea {
     height: 6rem;
     width: 27ch;
     background-color: var(--contrast);
-    border: 1px solid var(--contrast);
+    border: 1.5px solid var(--contrast);
     border-radius: .75rem;
     color: var(--bkgd);
     font-family: var(--font-plain);
@@ -381,7 +381,7 @@ textarea::placeholder {
 }
 
 textarea:hover, textarea:focus {
-    border: 1px dashed var(--bkgd);
+    border: 1.5px dashed var(--bkgd);
     outline: none;
 }
 
@@ -435,7 +435,7 @@ form input::-webkit-input-placeholder {
 .color-picker {
     height: 2.5rem;
     width: 2.5rem;
-    border: 1px solid var(--contrast);
+    border: 1.5px solid var(--contrast);
     border-radius: 2.5rem;
     color: var(--bkgd);
     font-family: var(--font-hand);
@@ -444,7 +444,7 @@ form input::-webkit-input-placeholder {
 }
 
 .color-picker:hover, .color-picker:focus {
-    border: 1px dashed var(--bkgd);
+    border: 1.5px dashed var(--bkgd);
     transform: scale(1.2);
 }
 
@@ -496,7 +496,7 @@ form input::-webkit-input-placeholder {
     height: 2rem;
     width: 7rem;
     background-color: inherit;
-    border: 1px solid var(--contrast);
+    border: 1.5px solid var(--contrast);
     border-radius: .5rem;
     color: var(--contrast);
     display: flex;
@@ -510,7 +510,7 @@ form input::-webkit-input-placeholder {
 }
 
 .cancel:hover, .cancel:focus, .submit:hover, .submit:focus  {
-    border: 1px dashed var(--contrast);
+    border: 1.5px dashed var(--contrast);
     transform: scale(1.2);
 }
 
@@ -530,8 +530,8 @@ form input::-webkit-input-placeholder {
 }
 
 .task {
-    border-top: 3px dashed;
-    border-bottom: 3px dashed;
+    border-top: 4px dashed;
+    border-bottom: 4px dashed;
     /* border-color: var(--fc01); */
     /* color: var(--fc01); */
     font-family: var(--font-plain);
@@ -545,6 +545,10 @@ form input::-webkit-input-placeholder {
     /* font-family: var(--font-fancy); */
     /* font-style: italic; */
     font-weight: 800;
+    
+    border-bottom: 4px solid;
+    border-color: var(--bkgd);
+    /* padding: .25rem; */
 }
 
 .task-due-date, .task-folder {
@@ -557,9 +561,15 @@ form input::-webkit-input-placeholder {
 }
 
 .task-overdue-notice-img {
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-left: .25rem;
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-left: .5rem;
+    margin-right: .15rem;
+}
+
+.task-overdue-notice-p {
+    color: var(--alert);
+    font-size: 2rem;
 }
 
 .task-priority-btn-img, .task-completed-btn-img, .task-edit-btn-img, .task-trash-btn-img {
@@ -570,7 +580,7 @@ height: 1.5rem;
     height: 2.5rem;
     width: 2.5rem;
     background-color: inherit;
-    border: 1px solid;
+    border: 1.5px solid;
     /* border-color: var(--fc01); */
     border-radius: 2rem;
     display: flex;
@@ -585,7 +595,7 @@ height: 1.5rem;
 
 .task button:hover, .task button:focus{
     /* background-color: var(--dark-yes); */
-    border: 1px dashed;
+    border: 1.5px dashed;
     /* border-color: var(--fc01); */
     transform: scale(1.2);
 }
@@ -599,7 +609,7 @@ height: 1.5rem;
     height: 2rem;
     width: fit-content;
     background-color: var(--bkgd);
-    border: 1px solid var(--fc07);
+    border: 1.5px solid var(--fc07);
     border-radius: 2rem;
     color: var(--fc07);
     font-size: 1rem;
@@ -607,7 +617,7 @@ height: 1.5rem;
 } */
 
 /* .task select:hover, .task select:focus{
-    border: 1px dashed var(--fc07);
+    border: 1.5px dashed var(--fc07);
     outline: none;
 } */
 
@@ -615,6 +625,7 @@ height: 1.5rem;
     height: fit-content;
     width: fit-content;
 }
+
 
 footer {
     background-color: var(--bkgd);
@@ -656,7 +667,7 @@ footer {
     right: 0;
     bottom: 0;
     background-color: var(--contrast);
-    border: 1px solid var(--contrast);
+    border: 1.5px solid var(--contrast);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -666,8 +677,8 @@ footer {
     content: "";
     height: 22px;
     width: 22px;
-    left: 2px;
-    bottom: 2px;
+    left: 1.5px;
+    bottom: 1.5px;
     background-color: var(--adta);
     -webkit-transition: .4s;
     transition: .4s;
@@ -678,7 +689,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-    border: 1px dashed var(--adta);
+    border: 1.5px dashed var(--adta);
 }
 
 input:checked + .slider:before {

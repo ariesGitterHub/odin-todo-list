@@ -1,7 +1,9 @@
 // remove dmTaskOverdueNoticeImg oafter making a function that renders this only if the date is past due
 import {
-  dmTaskOverdueNoticeImg,
-  redOverdueImg,
+//   dmTaskOverdueNoticeImg,
+//   lmTaskOverdueNoticeImg,
+  dmTaskOverdueBgImg,
+  //   redOverdueImg,
   dmPriorityImg,
   dmCompletedImg,
   dmEditImg,
@@ -32,21 +34,14 @@ export function createTasks(tasks) {
         taskDueDate.classList.add("task-due-date");
         taskDueDate.textContent = `Due: ${taskItem.dueByDate}`;
 
-        // const span = document.createElement("span");
-        // span.classList.add("date-holder");
-        // span.textContent = "00/00/0000";
-        // taskDueDate.appendChild(span);
-
         const taskOverdueNoticeImg = document.createElement("img");
         taskOverdueNoticeImg.classList.add("task-overdue-notice-img");
-        // taskOverdueNoticeImg.src = "";
-        // taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
-        taskOverdueNoticeImg.src = redOverdueImg;
+        taskOverdueNoticeImg.src = dmTaskOverdueBgImg;
         taskOverdueNoticeImg.alt = "Date is overdue icon";
 
-        // const lvlRow2 = document.createElement("div");
-        // lvlRow2.classList.add("lvl-row");
-        // mainCol.appendChild(XXXXXXXXX);
+        const taskOverdueNoticeP = document.createElement("p");
+        taskOverdueNoticeImg.classList.add("task-overdue-notice-p");
+        taskOverdueNoticeP.textContent = "";
 
         const taskFolder = document.createElement("div");
         taskFolder.classList.add("task-folder");
@@ -123,7 +118,7 @@ export function createTasks(tasks) {
           br2,
           taskDescription
         );
-        lvlRow1.append(taskDueDate, taskOverdueNoticeImg);
+        lvlRow1.append(taskDueDate, taskOverdueNoticeImg, taskOverdueNoticeP);
         taskBtnCont.append(
           taskBtnCol1,
           taskBtnCol2,
@@ -142,51 +137,8 @@ export function createTasks(tasks) {
                    
 };
 
-// export function createTaskColors(folders) {
-//     let foundFolder
-//     const taskFolder = document.querySelectorAll(".task-folder");
-//     taskFolder.forEach(target => {
-//         foundFolder = target.innerText;
-//         console.log(foundFolder);
-        
-
-//     // })
-
-//         if (foundFolder === folders.folderName) {
-
-//           const task = document.querySelectorAll(".task");
-//           task.forEach((item) => {
-//             item.style.borderColor = `var(${folders.folderColor})`;
-//             item.style.color = `var(${folders.folderColor})`;
-//           });
-//           // task.style.borderColor = `var(${folders.folderColor})`
-//           // task.style.color = `var(${folders.folderColor})`;
-
-//           const taskBtns = document.querySelectorAll(".task button");
-//           taskBtns.forEach((item) => {
-//             item.style.borderColor = `var(${folders.folderColor})`;
-//           });
-//           // taskBtns.style.borderColor = `var(${folders.folderColor})`;
-
-//           const taskBtnsHover = document.querySelectorAll(".task button:hover");
-//           taskBtnsHover.forEach((item) => {
-//             item.style.borderColor = `var(${folders.folderColor})`;
-//           });
-
-//           const taskBtnsFocus = document.querySelectorAll(".task button:focus");
-//           taskBtnsFocus.forEach((item) => {
-//             item.style.borderColor = `var(${folders.folderColor})`;
-//           });
-//           // taskBtnsFocus.style.borderColor = `var(${folders.folderColor})`;
-//         } else {
-//             console.warn("No folders found.")
-//         }
-        
-//     })
-
-// };
 // RE-EXAMINE THIS CLOSELY!!!! This was a bit beyond me to finish 100% correctly...
-export function createTaskColors(folders) {
+export function createTaskColor(folders) {
   const taskFolderElements = document.querySelectorAll(".task-folder");
 
   taskFolderElements.forEach((taskFolderElement) => {
@@ -196,20 +148,16 @@ export function createTaskColors(folders) {
     );
 
     if (matchingFolder) {
-      const task = taskFolderElement.closest(".task"); // Find the parent .task element
+        const task = taskFolderElement.closest(".task"); // Finds the parent .task element
 
-      // Apply styles to the task
-      task.style.borderColor = `var(${matchingFolder.folderColor})`;
-      task.style.color = `var(${matchingFolder.folderColor})`;
+            task.style.borderColor = `var(${matchingFolder.folderColor})`;
+            task.style.color = `var(${matchingFolder.folderColor})`;
 
-      // Apply styles to the buttons inside the task
-      const taskBtns = task.querySelectorAll("button");
-      taskBtns.forEach((button) => {
-        button.style.borderColor = `var(${matchingFolder.folderColor})`;
-      });
+            const taskBtns = task.querySelectorAll("button");
+            taskBtns.forEach((button) => {
+                button.style.borderColor = `var(${matchingFolder.folderColor})`;
+            });
 
-      // Optional: Apply styles for hover and focus states (CSS would be better for this)
-      // You can create CSS classes dynamically and apply them
     } else {
       console.warn(`No matching folder found for ${folderName}.`);
     }
@@ -218,79 +166,66 @@ export function createTaskColors(folders) {
 
 
 // export function priorityBtnClicked() {
+//   const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
+//   const taskTitles = document.querySelectorAll(".task-title");
+
+//   taskPriorityBtns.forEach((index) => {
+//     // Ensure you are matching the corresponding button to the task
+//     const taskPriorityBtn = taskPriorityBtns[index];
+//     const taskTitle = taskTitles[index];
+
 //     if (taskPriorityBtn) {
-//       taskPriorityBtn.addEventListener("click", handleClick);
-//     } else {
-//       console.warn(
-//         "Warning: taskPriorityBtn or taskContent components missing."
-//       );
-//     }
-
-//     function handleClick() {
-//         if (taskPriorityBtn.value === "normal") {
+//       if (taskPriorityBtn.value === "normal") {
 //         taskPriorityBtn.value = "high";
-
 //         taskPriorityBtn.style.borderColor = "var(--alert)";
-//         taskTitle.style.color = "var(--alert)";
-//         } else if (taskPriorityBtn.value === "high") {
+//         taskTitle.style.borderColor = "var(--alert)";
+
+//       } else if (task.priorityFlag === "high") {
 //         taskPriorityBtn.value = "normal";
-//         taskPriorityBtn.style.borderColor = "var(--fc07)";
-//         taskTitle.style.color = "var(--fc07)";
-//         }
+//       }
 //     }
-// };
+//   });
 
-// export function completedBtnClicked() {
-//     if (taskCompletedBtn) {
-//       taskCompletedBtn.addEventListener("click", handleClick);
-//     } else {
-//       console.warn(
-//         "Warning: taskCompletedBtn or taskContent components missing."
-//       );
-//     }
+export function priorityBtnClicked(index) {
+  const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
+  const taskTitles = document.querySelectorAll(".task-title");
 
-//     function handleClick() {
-//         if (taskCompletedBtn.value === "incomplete" && darkLiteBtn.value === "dark") {
-//         taskCompletedBtn.value = "completed";
-//         taskCompletedBtn.style.backgroundColor = "var(--activated)";
-//         taskTitle.style.textDecoration = "line-through";
-//         taskDueDate.style.textDecoration = "line-through";
-//         taskFolder.style.textDecoration = "line-through";
-//         taskDescription.style.textDecoration = "line-through";
-//         taskOverdueNoticeImg.src = dmOverdueBgImg;
-//         } else if (
-//         taskCompletedBtn.value === "completed" &&
-//         darkLiteBtn.value === "dark"
-//         ) {
-//         taskCompletedBtn.value = "incomplete";
-//         taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
-//         taskTitle.style.textDecoration = "none";
-//         taskDueDate.style.textDecoration = "none";
-//         taskFolder.style.textDecoration = "none";
-//         taskDescription.style.textDecoration = "none";
-//         taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
-//         } else if (
-//         taskCompletedBtn.value === "incomplete" &&
-//         darkLiteBtn.value === "lite"
-//         ) {
-//         taskCompletedBtn.value = "completed";
-//         taskCompletedBtn.style.backgroundColor = "var(--activated)";
-//         taskTitle.style.textDecoration = "line-through";
-//         taskDueDate.style.textDecoration = "line-through";
-//         taskFolder.style.textDecoration = "line-through";
-//         taskDescription.style.textDecoration = "line-through";
-//         taskOverdueNoticeImg.src = lmOverdueBgImg;
-//         } else if (
-//         taskCompletedBtn.value === "completed" &&
-//         darkLiteBtn.value === "lite"
-//         ) {
-//         taskCompletedBtn.value = "incomplete";
-//         taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
-//         taskTitle.style.textDecoration = "none";
-//         taskDueDate.style.textDecoration = "none";
-//         taskFolder.style.textDecoration = "none";
-//         taskDescription.style.textDecoration = "none";
-//         taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
-//         }
-//     }
-// };
+  const taskPriorityBtn = taskPriorityBtns[index];
+  const taskTitle = taskTitles[index];
+
+  if (taskPriorityBtn) {
+    if (taskPriorityBtn.value === "normal") {
+      taskPriorityBtn.value = "high";
+      taskPriorityBtn.style.backgroundColor = "var(--activated)";
+      taskTitle.style.borderColor = "var(--alert)";
+    } else if (taskPriorityBtn.value === "high") {
+      taskPriorityBtn.value = "normal";
+      taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
+      taskTitle.style.borderColor = "var(--bkgd)"; // Reset to default
+    }
+  } else {
+    console.warn("taskPriorityBtn is null or not found in the DOM.");
+  }
+}
+
+export function completedBtnClicked(index) {
+  const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
+  const taskTiles = document.querySelectorAll(".task");
+
+  const taskCompletedBtn = taskCompletedBtns[index];
+  const taskTile = taskTiles[index];
+
+  if (taskCompletedBtn) {
+    if (taskCompletedBtn.value === "incomplete") {
+      taskCompletedBtn.value = "completed";
+      taskTile.style.textDecoration = "line-through";
+      taskCompletedBtn.style.backgroundColor = "var(--activated)";
+    } else if (taskCompletedBtn.value === "completed") {
+      taskCompletedBtn.value = "incomplete";
+      taskTile.style.textDecoration = "none";
+      taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
+    }
+  } else {
+    console.warn("taskCompletedBtn is null or not found in the DOM.");
+  }
+}

@@ -2,7 +2,7 @@ export class Task {
   constructor(
     taskId,
     taskName,
-    overdueStatus,
+    // overdueStatus,
     dueByDate,
     priorityFlag,
     completedCheck,
@@ -11,7 +11,7 @@ export class Task {
   ) {
     this.taskId = taskId;
     this.taskName = taskName;
-    this.overdueStatus = overdueStatus;
+    // this.overdueStatus = overdueStatus;
     this.dueByDate = dueByDate;
     this.priorityFlag = priorityFlag;
     this.completedCheck = completedCheck;

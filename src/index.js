@@ -11,9 +11,19 @@ import {
 } from "./javascript/navBtns.js";
 import { createNewTaskForm } from "./javascript/newTaskForm.js";
 import { createNewFolderForm } from "./javascript/newFolderForm.js";
-import { changeDarkLiteImgs } from "./javascript/checkDarkLiteImgs.js";
+// import { changeDarkLiteImgs } from "./javascript/checkDarkLiteImgs.js";
+import {
+  changeDarkLiteImgs,
+  checkPriorityStatus,
+  checkCompletedStatus,
+} from "./javascript/checkStatus.js";
 import { newTaskPriorityChecked } from "./javascript/miscBtns.js";
-import { createTasks, createTaskColors } from "./javascript/taskContent.js";
+import {
+  createTasks,
+  createTaskColor,
+  priorityBtnClicked,
+  completedBtnClicked,
+} from "./javascript/taskContent.js";
 // import { defaultData } from "./javascript/defaultData.js";
 import { Task, Folder } from "./javascript/classes.js";
 
@@ -21,7 +31,7 @@ import { Task, Folder } from "./javascript/classes.js";
     new Task(
       "t0",
       "Take out the trash",
-      "overdue",
+    //   "overdue",
       "07/29/2024",
       "high",
       "incomplete",
@@ -31,31 +41,31 @@ import { Task, Folder } from "./javascript/classes.js";
     new Task(
       "t1",
       "Grocery Store",
-      "overdue",
+    //   "overdue",
       "08/01/2024",
       "normal",
       "incomplete",
       "Chores",
-      "Buy: milk, bread, eggs."
+      "*Buy: milk, bread, eggs."
     ),
     new Task(
       "t2",
       "Run 5k Course",
-      "overdue",
+    //   "overdue",
       "08/05/2024",
       "normal",
-      "incomplete",
+      "completed",
       "Fitness",
       ""
     ),
     new Task(
       "t3",
       "Find Zen",
-      "overdue",
+    //   "overdue",
       "08/15/1996",
-      "normal",
+      "high",
       "incomplete",
-      "Test",
+      "Default",
       ""
     ),
   ];
@@ -127,7 +137,27 @@ newTaskPriorityToggle.addEventListener("change", newTaskPriorityChecked);
 // defaultData();
 
   createTasks(initialTasks);
-  createTaskColors(initialFolders);
+  createTaskColor(initialFolders);
+  checkPriorityStatus(initialTasks);
+  checkCompletedStatus(initialTasks);
+
+
+const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
+taskPriorityBtns.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    priorityBtnClicked(index);
+    console.log([index]);
+    
+  });
+});
+  const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
+taskCompletedBtns.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    completedBtnClicked(index);
+    console.log([index]);
+  });
+});
+
 });
 
 
