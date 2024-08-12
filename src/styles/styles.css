@@ -545,31 +545,36 @@ form input::-webkit-input-placeholder {
     /* font-family: var(--font-fancy); */
     /* font-style: italic; */
     font-weight: 800;
-    
-    border-bottom: 4px solid;
+    background-color: var(--bkgd);
+    border:2px solid;
     border-color: var(--bkgd);
-    /* padding: .25rem; */
+    border-radius: 1rem;
+    padding: .25rem .5rem .25rem .5rem;
 }
 
 .task-due-date, .task-folder {
     font-size: 1rem;
+    padding: .25rem .25rem .25rem .75rem;
+
     /* font-weight: 800; */
 }
 
 .task-description {
-        font-size: .85rem;
+    font-size: .85rem;
+    padding-left: .75rem;
 }
 
 .task-overdue-notice-img {
-    height: 1.25rem;
-    width: 1.25rem;
-    margin-left: .5rem;
+    height: 1rem;
+    width: 1rem;
+    margin-left: .75rem;
     margin-right: .15rem;
 }
 
 .task-overdue-notice-p {
     color: var(--alert);
-    font-size: 2rem;
+    font-family: var(--font-plain);
+    font-size: 1rem;
 }
 
 .task-priority-btn-img, .task-completed-btn-img, .task-edit-btn-img, .task-trash-btn-img {

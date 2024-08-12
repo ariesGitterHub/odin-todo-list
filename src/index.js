@@ -1,3 +1,11 @@
+// import { format, parseISO } from "date-fns";
+
+// const date = parseISO("2024-08-11");
+// console.log("Parsed Date:", date);
+
+// const formattedDate = format(date, "MMMM dd, yyyy");
+// console.log("Formatted Date:", formattedDate);
+
 import "./styles/styles.css";
 
 import { createTitle } from "./javascript/title.js";
@@ -16,6 +24,7 @@ import {
   changeDarkLiteImgs,
   checkPriorityStatus,
   checkCompletedStatus,
+  checkIfOverdue,
 } from "./javascript/checkStatus.js";
 import { newTaskPriorityChecked } from "./javascript/miscBtns.js";
 import {
@@ -23,60 +32,61 @@ import {
   createTaskColor,
   priorityBtnClicked,
   completedBtnClicked,
+  
 } from "./javascript/taskContent.js";
 // import { defaultData } from "./javascript/defaultData.js";
 import { Task, Folder } from "./javascript/classes.js";
 
-  const initialTasks = [
-    new Task(
-      "t0",
-      "Take out the trash",
+const initialTasks = [
+  new Task(
+    "t0",
+    "Take out the trash",
     //   "overdue",
-      "07/29/2024",
-      "high",
-      "incomplete",
-      "Chores",
-      ""
-    ),
-    new Task(
-      "t1",
-      "Grocery Store",
+    "07/29/2024",
+    "high",
+    "incomplete",
+    "Chores Folder",
+    ""
+  ),
+  new Task(
+    "t1",
+    "Grocery Store",
     //   "overdue",
-      "08/01/2024",
-      "normal",
-      "incomplete",
-      "Chores",
-      "*Buy: milk, bread, eggs."
-    ),
-    new Task(
-      "t2",
-      "Run 5k Course",
+    "08/10/2024",
+    "normal",
+    "incomplete",
+    "Chores  Folder",
+    "*Buy: milk, bread, eggs."
+  ),
+  new Task(
+    "t2",
+    "Run 5k Course",
     //   "overdue",
-      "08/05/2024",
-      "normal",
-      "completed",
-      "Fitness",
-      ""
-    ),
-    new Task(
-      "t3",
-      "Find Zen",
+    "08/15/2024",
+    "normal",
+    "incomplete",
+    "Fitness Folder",
+    ""
+  ),
+  new Task(
+    "t3",
+    "Find zen in the elongated, perpetual now that is always fleeting",
     //   "overdue",
-      "08/15/1996",
-      "high",
-      "incomplete",
-      "Default",
-      ""
-    ),
-  ];
+    "08/15/1996",
+    "high",
+    "incomplete",
+    "Default Folder",
+    ""
+  ),
+];
 
-    const initialFolders = [
-      new Folder("f0", "Default", "--fc07"),
-      new Folder("f1", "Chores", "--fc05"),
-      new Folder("f2", "Fitness", "--fc01"),
-      new Folder("f3", "Repair", "--fc10"),
-      new Folder("f4", "Test", "--fc09"),
-    ];
+const initialFolders = [
+  new Folder("f0", "Default Folder", "--fc07"),
+  new Folder("f1", "Chores Folder", "--fc05"),
+  new Folder("f2", "Fitness Folder", "--fc01"),
+  new Folder("f3", "Repair Folder", "--fc10"),
+  new Folder("f4", "Test Folder", "--fc09"),
+];
 
 //   function convertToFormattedDate() {
 //     const arrayDate = in;
@@ -109,56 +119,55 @@ import { Task, Folder } from "./javascript/classes.js";
 //     return `${year} ${month} ${day} (${dayOfWeek})`;
 //   }
 
-
 document.addEventListener("DOMContentLoaded", () => {
-createTitle();
-createNav();
-createStatusBar();
-createNewTaskForm();
-createNewFolderForm();
+  createTitle();
+  createNav();
+  createStatusBar();
+  createNewTaskForm();
+  createNewFolderForm();
 
-const statusBtn = document.querySelector("#status-btn");
-statusBtn.addEventListener("click", handleStatusBtn);
+  const statusBtn = document.querySelector("#status-btn");
+  statusBtn.addEventListener("click", handleStatusBtn);
 
-const newTaskBtn = document.querySelector("#new-task-btn");
-newTaskBtn.addEventListener("click", handleNewTaskBtn);   
+  const newTaskBtn = document.querySelector("#new-task-btn");
+  newTaskBtn.addEventListener("click", handleNewTaskBtn);
 
-const newFolderBtn = document.querySelector("#new-folder-btn");
-newFolderBtn.addEventListener("click", handleNewFolderBtn); 
+  const newFolderBtn = document.querySelector("#new-folder-btn");
+  newFolderBtn.addEventListener("click", handleNewFolderBtn);
 
-const darkLiteBtn = document.querySelector("#dark-lite-btn");
-darkLiteBtn.addEventListener("click", handleDarkLiteBtn); 
-darkLiteBtn.addEventListener("click", changeDarkLiteImgs); 
+  const darkLiteBtn = document.querySelector("#dark-lite-btn");
+  darkLiteBtn.addEventListener("click", handleDarkLiteBtn);
+  darkLiteBtn.addEventListener("click", changeDarkLiteImgs);
 
-const newTaskPriorityToggle = document.querySelector("#new-task-priority-toggle");
-darkLiteBtn.addEventListener("click", newTaskPriorityChecked);
-newTaskPriorityToggle.addEventListener("change", newTaskPriorityChecked);
+  const newTaskPriorityToggle = document.querySelector(
+    "#new-task-priority-toggle"
+  );
+  darkLiteBtn.addEventListener("click", newTaskPriorityChecked);
+  newTaskPriorityToggle.addEventListener("change", newTaskPriorityChecked);
 
-// defaultData();
+  // defaultData();
 
   createTasks(initialTasks);
   createTaskColor(initialFolders);
   checkPriorityStatus(initialTasks);
   checkCompletedStatus(initialTasks);
 
-
-const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
-taskPriorityBtns.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    priorityBtnClicked(index);
-    console.log([index]);
-    
+  const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
+  taskPriorityBtns.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      priorityBtnClicked(index);
+      console.log([index]);
+    });
   });
-});
   const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
-taskCompletedBtns.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    completedBtnClicked(index);
-    console.log([index]);
+  taskCompletedBtns.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      completedBtnClicked(index);
+      console.log([index]);
+    });
   });
+
+checkIfOverdue(initialTasks);
+
+
 });
-
-});
-
-
-

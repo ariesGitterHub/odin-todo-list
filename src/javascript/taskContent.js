@@ -1,8 +1,8 @@
 // remove dmTaskOverdueNoticeImg oafter making a function that renders this only if the date is past due
 import {
-//   dmTaskOverdueNoticeImg,
+  dmTaskOverdueNoticeImg,
 //   lmTaskOverdueNoticeImg,
-  dmTaskOverdueBgImg,
+  // dmTaskOverdueBgImg,
   //   redOverdueImg,
   dmPriorityImg,
   dmCompletedImg,
@@ -10,7 +10,10 @@ import {
   dmTrashImg,
 } from "./imageExporter.js";
 
-export function createTasks(tasks) {
+import { reformatDate } from "./checkStatus.js";
+
+
+export function createTasks(tasks) { 
     const taskContent = document.querySelector("#task-content");
     // taskContent.innerHTML = "";
 
@@ -25,22 +28,30 @@ export function createTasks(tasks) {
         taskTitle.classList.add("task-title");
         taskTitle.textContent = `${taskItem.taskName}`;
 
-        const br1 = document.createElement("br");
+        // const br1 = document.createElement("br");
+
+        const taskDueDate = document.createElement("div");
+        taskDueDate.classList.add("task-due-date");
+        taskDueDate.dataset.date = `${taskItem.dueByDate}`
+        taskDueDate.textContent = `Due: ${reformatDate(taskItem.dueByDate)}`; 
+
 
         const lvlRow1 = document.createElement("div");
         lvlRow1.classList.add("lvl-row");
 
-        const taskDueDate = document.createElement("div");
-        taskDueDate.classList.add("task-due-date");
-        taskDueDate.textContent = `Due: ${taskItem.dueByDate}`;
+        // const taskDueDate = document.createElement("div");
+        // taskDueDate.classList.add("task-due-date");
+        // taskDueDate.textContent = `Due: ${reformatDate(
+        //   taskItem.dueByDate
+        // )}`;              
 
         const taskOverdueNoticeImg = document.createElement("img");
         taskOverdueNoticeImg.classList.add("task-overdue-notice-img");
-        taskOverdueNoticeImg.src = dmTaskOverdueBgImg;
+        taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
         taskOverdueNoticeImg.alt = "Date is overdue icon";
 
         const taskOverdueNoticeP = document.createElement("p");
-        taskOverdueNoticeImg.classList.add("task-overdue-notice-p");
+        taskOverdueNoticeP.classList.add("task-overdue-notice-p");
         taskOverdueNoticeP.textContent = "";
 
         const taskFolder = document.createElement("div");
@@ -112,13 +123,18 @@ export function createTasks(tasks) {
         task.append(mainCol, br3, taskBtnCont);
         mainCol.append(
           taskTitle,
-          br1,
+          // br1,
+          taskDueDate,
           lvlRow1,
           taskFolder,
           br2,
           taskDescription
         );
-        lvlRow1.append(taskDueDate, taskOverdueNoticeImg, taskOverdueNoticeP);
+        lvlRow1.append(
+          // taskDueDate,
+          taskOverdueNoticeImg,
+          taskOverdueNoticeP
+        );
         taskBtnCont.append(
           taskBtnCol1,
           taskBtnCol2,
@@ -164,28 +180,6 @@ export function createTaskColor(folders) {
   });
 }
 
-
-// export function priorityBtnClicked() {
-//   const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
-//   const taskTitles = document.querySelectorAll(".task-title");
-
-//   taskPriorityBtns.forEach((index) => {
-//     // Ensure you are matching the corresponding button to the task
-//     const taskPriorityBtn = taskPriorityBtns[index];
-//     const taskTitle = taskTitles[index];
-
-//     if (taskPriorityBtn) {
-//       if (taskPriorityBtn.value === "normal") {
-//         taskPriorityBtn.value = "high";
-//         taskPriorityBtn.style.borderColor = "var(--alert)";
-//         taskTitle.style.borderColor = "var(--alert)";
-
-//       } else if (task.priorityFlag === "high") {
-//         taskPriorityBtn.value = "normal";
-//       }
-//     }
-//   });
-
 export function priorityBtnClicked(index) {
   const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
   const taskTitles = document.querySelectorAll(".task-title");
@@ -198,10 +192,18 @@ export function priorityBtnClicked(index) {
       taskPriorityBtn.value = "high";
       taskPriorityBtn.style.backgroundColor = "var(--activated)";
       taskTitle.style.borderColor = "var(--alert)";
+      // Append "!!!" to the task title if not already present
+      if (!taskTitle.textContent.includes("!!!")) {
+        taskTitle.textContent += " !!!";
+      }
     } else if (taskPriorityBtn.value === "high") {
       taskPriorityBtn.value = "normal";
       taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
       taskTitle.style.borderColor = "var(--bkgd)"; // Reset to default
+      const titleText = taskTitle.textContent;
+      if (titleText.includes("!!!")) {
+        taskTitle.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
+      }
     }
   } else {
     console.warn("taskPriorityBtn is null or not found in the DOM.");
@@ -229,3 +231,7 @@ export function completedBtnClicked(index) {
     console.warn("taskCompletedBtn is null or not found in the DOM.");
   }
 }
+
+function checkDateForOverdue() {
+let today = new Date
+};

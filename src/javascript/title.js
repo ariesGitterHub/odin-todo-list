@@ -2,73 +2,10 @@ import {
   dmCrownImg,
 } from "./imageExporter.js";
 
-// let today = new Date().toISOString().slice(0, 10);
+import { reformatDate } from "./checkStatus.js";
 
-function getTodayFormattedDate() {
-  const date = new Date();
-
-  // Get year, month, day
-  const year = date.getFullYear();
-
-  const monthNames = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC",
-  ];
-  const month = monthNames[date.getMonth()];
-
-  const day = date.getDate().toString().padStart(2, "0");
-
-  // Get day of the week
-  const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  const dayOfWeek = dayNames[date.getDay()];
-
-  return `${year} ${month} ${day} (${dayOfWeek})`;
-}
-
-const today = getTodayFormattedDate();
-
-console.log(today);
-
-function convertToFormattedDate() {
-  const arrayDate = new Date();
-
-  // Get year, month, day
-  const year = date.getFullYear();
-
-  const monthNames = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC",
-  ];
-  const month = monthNames[date.getMonth()];
-
-  const day = date.getDate().toString().padStart(2, "0");
-
-  // Get day of the week
-  const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  const dayOfWeek = dayNames[date.getDay()];
-
-  return `${year} ${month} ${day} (${dayOfWeek})`;
-}
+// Get the current date
+const today = new Date();
 
 export function createTitle() { 
     const header = document.querySelector("header");
@@ -91,7 +28,7 @@ export function createTitle() {
 
     const appDate = document.createElement("p");
     appDate.id = "app-date";
-    appDate.textContent = `Today is ${today}`;
+    appDate.textContent = `Today is ${reformatDate(today)}`;
 
     // header.appendChild(appTitleCont);
     header.appendChild(appTitleCont);
