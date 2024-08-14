@@ -24,17 +24,18 @@ export function createNewFolderForm() {
     const lvlCol1 = document.createElement("div");
     lvlCol1.classList.add("lvl-col");
 
-    const newTaskTitleLabel = document.createElement("label");
-    newTaskTitleLabel.classList.add("form-field-title");
-    newTaskTitleLabel.for = "new-task-title";
-    newTaskTitleLabel.textContent = "Task Title";
+    const newFolderNameLabel = document.createElement("label");
+    newFolderNameLabel.classList.add("form-field-title");
+    newFolderNameLabel.setAttribute("for", "new-folder-name");
+    newFolderNameLabel.textContent = "Folder Name";
 
-    const newTaskTitleInput = document.createElement("input");
-    newTaskTitleInput.type = "text";
-    newTaskTitleInput.id = "new-task-title";
-    newTaskTitleInput.name = "new-task-title";
-    newTaskTitleInput.placeholder = "Enter new task title";
-    newTaskTitleInput.required;
+    const newFolderNameInput = document.createElement("input");
+    newFolderNameInput.type = "text";
+    newFolderNameInput.id = "new-folder-name";
+    newFolderNameInput.name = "new-folder-name";
+    newFolderNameInput.placeholder = "Enter new folder name...";
+    newFolderNameInput.autocomplete = "off";
+    newFolderNameInput.required = "true";
 
     const lvlCol2 = document.createElement("div");
     lvlCol2.classList.add("lvl-col");
@@ -104,19 +105,19 @@ export function createNewFolderForm() {
 
     const newFolderCancelBtn = document.createElement("button");
     newFolderCancelBtn.classList.add("cancel");
-    newFolderCancelBtn.id = "new-task-cancel";
+    newFolderCancelBtn.id = "new-folder-cancel-btn";
     newFolderCancelBtn.textContent = "Cancel";
 
     const newFolderSubmitBtn = document.createElement("button");
     newFolderSubmitBtn.classList.add("submit");
-    newFolderSubmitBtn.id = "new-task-submit";
+    newFolderSubmitBtn.id = "new-folder-submit-btn";
     newFolderSubmitBtn.textContent = "Submit";
 
     header.appendChild(headerContent);
     headerContent.appendChild(newFolderForm);
     newFolderForm.append(lvlRow1, lvlCol1, lvlCol2, lvlRowWidth1);
     lvlRow1.append(newFolderImg, newFolderFormTitle);
-    lvlCol1.append(newTaskTitleLabel, newTaskTitleInput);
+    lvlCol1.append(newFolderNameLabel, newFolderNameInput);
     lvlCol2.append(newFolderColorP, newFolderColorBtns1, newFolderColorBtns2);
     newFolderColorBtns1.append(
     btnFC01,

@@ -1,4 +1,12 @@
-import { dmNewTaskImg } from "./imageExporter.js";
+import {
+  dmNewTaskImg,
+  dmNewTaskPriorityFlagImg,
+  lmNewTaskPriorityFlagImg,
+} from "./imageExporter.js";
+
+import { Task, Folder } from "./classes.js";
+
+import { addTask, workingTasks } from "./storageAndData.js";
 
 export function createNewTaskForm() {
     const header = document.querySelector("header");
@@ -23,34 +31,38 @@ export function createNewTaskForm() {
     const lvlCol1 = document.createElement("div");
     lvlCol1.classList.add("lvl-col");
 
-    const newTaskTitleLabel = document.createElement("label");
-    newTaskTitleLabel.classList.add("form-field-title");
-    newTaskTitleLabel.for = "new-task-title";
-    newTaskTitleLabel.textContent = "Task Title";
+    const newTaskNameLabel = document.createElement("label");
+    newTaskNameLabel.classList.add("form-field-title");
+    newTaskNameLabel.setAttribute("for", "new-task-name");
+    newTaskNameLabel.textContent = "Task Name";
 
-    const newTaskTitleInput = document.createElement("input");
-    newTaskTitleInput.type = "text";
-    newTaskTitleInput.id = "new-task-title";
-    newTaskTitleInput.name = "new-task-title";
-    newTaskTitleInput.placeholder = "Enter new task title";
-    newTaskTitleInput.required;
+    const newTaskNameInput = document.createElement("input");
+    newTaskNameInput.type = "text";
+    newTaskNameInput.id = "new-task-name";
+    newTaskNameInput.name = "new-task-name";
+    newTaskNameInput.placeholder = "Enter new task name...";
+    newTaskNameInput.autocomplete = "off";
+    newTaskNameInput.required = "true";
 
     const lvlCol2 = document.createElement("div");
     lvlCol2.classList.add("lvl-col");
 
     const newTaskFolderLabel = document.createElement("label");
     newTaskFolderLabel.classList.add("form-field-title");
-    newTaskFolderLabel.for = "new-task-folder";
+    newTaskFolderLabel.setAttribute("for", "new-task-folder");
     newTaskFolderLabel.textContent = "Task Folder";
 
     const newTaskFolderSelect = document.createElement("select");
     newTaskFolderSelect.id = "new-task-folder";
     newTaskFolderSelect.name = "new-task-folder";
-    newTaskFolderSelect.required;
+    newTaskFolderSelect.value = "";
+    newTaskFolderSelect.required = "true";
 
     // ADD OPTIONS?
     // const newTaskFolderOption = document.createElement("option");
-    // newTaskFolderOption;
+    // newTaskFolderOption.classList.add("new-task-form-options")
+    // newTaskFolderOption.value = "";
+    // newTaskFolderOption.textContent = "";
 
     // TOGGLE SWITCH    
     const lvlRowWidth1 = document.createElement("div");
@@ -65,12 +77,14 @@ export function createNewTaskForm() {
 
     const taskToggleLabel = document.createElement("label");
     taskToggleLabel.classList.add("switch");
-    taskToggleLabel.for = "new-task-priority-toggle";
+    taskToggleLabel.setAttribute("for","new-task-priority-toggle");
 
     const taskToggleInput = document.createElement("input");
     taskToggleInput.type = "checkbox";
     taskToggleInput.id = "new-task-priority-toggle";
     taskToggleInput.name = "new-task-priority-toggle";
+    taskToggleInput.checked = false;
+    taskToggleInput.dataset.value = "normal";
 
     const span1 = document.createElement("span");
     span1.classList.add("slider", "round");
@@ -85,21 +99,21 @@ export function createNewTaskForm() {
 
     const newTaskDueDateLabel = document.createElement("label");
     newTaskDueDateLabel.classList.add("form-field-title");
-    newTaskDueDateLabel.for = "new-task-due-date";
+    newTaskDueDateLabel.setAttribute("for", "new-task-due-date");
     newTaskDueDateLabel.textContent = "Due Date";
 
     const newTaskDueDateInput = document.createElement("input");
     newTaskDueDateInput.type = "date";
     newTaskDueDateInput.id = "new-task-due-date";
     newTaskDueDateInput.name = "new-task-due-date";
-    newTaskDueDateInput.required;
+    newTaskDueDateInput.required = "true";
 
     const lvlCol5 = document.createElement("div");
     lvlCol5.classList.add("lvl-col");
 
     const newTaskDescriptionLabel = document.createElement("label");
     newTaskDescriptionLabel.classList.add("form-field-title");
-    newTaskDescriptionLabel.for = "new-task-description";
+    newTaskDescriptionLabel.setAttribute("for", "new-task-description");
     newTaskDescriptionLabel.textContent = "Brief Description (optional)";
 
     const textArea = document.createElement("textarea");
@@ -107,19 +121,19 @@ export function createNewTaskForm() {
     textArea.name = "new-task-description";
     textArea.rows = "";
     textArea.cols = "";
-    textArea.placeholder = "Enter your description here...";
+    textArea.placeholder = "Enter additional details here...";
 
     const lvlRowWidth2 = document.createElement("div");
     lvlRowWidth2.classList.add("lvl-row-width");
 
     const newTaskCancelBtn = document.createElement("button");
     newTaskCancelBtn.classList.add("cancel");
-    newTaskCancelBtn.id = "new-task-cancel";
+    newTaskCancelBtn.id = "new-task-cancel-btn";
     newTaskCancelBtn.textContent = "Cancel";
 
     const newTaskSubmitBtn = document.createElement("button");
     newTaskSubmitBtn.classList.add("submit");
-    newTaskSubmitBtn.id = "new-task-submit";
+    newTaskSubmitBtn.id = "new-task-submit-btn";
     newTaskSubmitBtn.textContent = "Submit";
 
     header.appendChild(headerContent);
@@ -133,8 +147,9 @@ export function createNewTaskForm() {
     lvlRowWidth2,
     );
     lvlRow1.append(newTaskImg, newTaskFormTitle);
-    lvlCol1.append(newTaskTitleLabel, newTaskTitleInput);
+    lvlCol1.append(newTaskNameLabel, newTaskNameInput);
     lvlCol2.append(newTaskFolderLabel, newTaskFolderSelect);
+    // newTaskFolderSelect.append(newTaskFolderOption);
     lvlRowWidth1.append(
     lvlCol3,
     newTaskPriorityFlagImg,
@@ -145,4 +160,92 @@ export function createNewTaskForm() {
     lvlCol5.append(newTaskDescriptionLabel, textArea);
     taskToggleLabel.append(taskToggleInput, span1);
     lvlRowWidth2.append(newTaskCancelBtn, newTaskSubmitBtn);
+}
+
+export function populateNewTaskFormFolderOptions(folders) {
+  const newTaskFolderSelect = document.querySelector("#new-task-folder");
+  folders.forEach(folderItem => {
+    const folderOption = document.createElement("option");
+    folderOption.classList.add(".new-task-folder-option");
+    folderOption.value = `${folderItem.folderName}`
+    folderOption.textContent = `${folderItem.folderName}`;
+
+    newTaskFolderSelect.appendChild(folderOption);
+  })
+}
+
+export function newTaskPriorityChecked() {
+	const darkLiteBtn = document.querySelector("#dark-lite-btn");		
+  	const newTaskPriorityToggle = document.querySelector("#new-task-priority-toggle");
+  	const newTaskPriorityFlagImg = document.querySelector("#new-task-priority-flag-img");
+    if (newTaskPriorityToggle) {
+        if (newTaskPriorityToggle.checked && darkLiteBtn.value === "dark") {
+            newTaskPriorityToggle.dataset.value = "high";
+            newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImg;
+        } else if (newTaskPriorityToggle.checked && darkLiteBtn.value === "lite") {
+            newTaskPriorityToggle.dataset.value = "high";
+            newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImg;
+        } else {
+            newTaskPriorityToggle.dataset.value = "normal";
+            newTaskPriorityFlagImg.src = "";
+        }     
+    } else {
+        console.warn("newTaskPriorityToggle is null or not found in the DOM.");
+    }
+};
+
+
+
+
+
+function getFormData() {
+  return {
+    taskName: document.querySelector("#new-task-name").value,
+    folderLocation: document.querySelector("#new-task-folder").value,
+    priorityFlag: document.querySelector("#new-task-priority-toggle").dataset
+      .value,
+    dueByDate: document.querySelector("#new-task-due-date").value,
+    descriptionText: document.querySelector("#new-task-description").value,
+    // taskId: Date.now(),
+    taskId:`t${workingTasks.length + 1}`,
+    completedCheck: "incomplete",
+  };
+}
+
+
+function createNewTask(formData) {
+  return new Task(
+    formData.taskId,
+    formData.taskName,
+    formData.dueByDate,
+    formData.priorityFlag,
+    formData.completedCheck,
+    formData.folderLocation,
+    formData.descriptionText
+  );
+}
+
+export function submitNewTask() {
+  const newTaskSubmitBtn = document.querySelector("#new-task-submit-btn");
+  const newTaskForm = document.querySelector("#new-task-form");
+
+  if (newTaskSubmitBtn && newTaskForm) {
+    newTaskSubmitBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      // Extract data from form...
+      const formData = getFormData();
+
+      // Create new task
+      const newTask = createNewTask(formData);
+
+      // Add task
+      addTask(newTask);
+      window.location.reload();
+    });
+  } else {
+    console.warn(
+      "newTaskSubmitBtn or newTaskForm is null or not found in the DOM."
+    );
+  }
 }

@@ -33,7 +33,7 @@ import {
   // lmTaskOverdueBgImg,
 } from "./imageExporter.js";
 
-import { format, getDay, isBefore, formatDistanceToNowStrict } from "date-fns";
+import { format, getDay, isBefore, formatDistanceToNow } from "date-fns";
 
 export function changeDarkLiteImgs() {
   const darkLiteBtn = document.querySelector("#dark-lite-btn");
@@ -144,29 +144,30 @@ export function changeDarkLiteImgs() {
 
 export function checkPriorityStatus(tasks) {
   const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
-    const taskTitles = document.querySelectorAll(".task-title");
+    const taskNames = document.querySelectorAll(".task-name");
 
   tasks.forEach((task, index) => {
     // Ensure you are matching the corresponding button to the task
     const taskPriorityBtn = taskPriorityBtns[index];
-      const taskTitle = taskTitles[index];
+      const taskName = taskNames[index];
 
     if (taskPriorityBtn) {
-      if (task.priorityFlag === "high" && !taskTitle.textContent.includes("!!!")) {
+      if (
+        task.priorityFlag === "high" &&
+        !taskName.textContent.includes("!!!")
+      ) {
         taskPriorityBtn.value = "high";
         taskPriorityBtn.style.backgroundColor = "var(--activated)";
-        taskTitle.style.borderColor = "var(--alert)"
-        
-
-        taskTitle.textContent += " !!!";
+        taskName.style.border = "2px solid var(--alert)";
+        taskName.textContent += " !!!";
       }
 
         console.log(`Priority set to high for task ${task.taskName}.`);
       } else {
         taskPriorityBtn.value = "normal";
-      const titleText = taskTitle.textContent;
+      const titleText = taskName.textContent;
       if (titleText.includes("!!!")) {
-        taskTitle.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
+        taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
 
       }
     }
@@ -176,16 +177,19 @@ export function checkPriorityStatus(tasks) {
 export function checkCompletedStatus(tasks) {
   const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
   const taskTiles = document.querySelectorAll(".task");
-
+  const taskNames = document.querySelectorAll(".task-title");
   tasks.forEach((task, index) => {
     const taskCompletedBtn = taskCompletedBtns[index];
     const taskTile = taskTiles[index];
-
+  const taskName = taskNames[index];
     if (taskCompletedBtn) {
       if (task.completedCheck === "completed") {
         taskCompletedBtn.value = "completed";
-        taskTile.style.textDecoration = "line-through";
         taskCompletedBtn.style.backgroundColor = "var(--activated)";
+        taskTile.style.textDecoration = "line-through";
+        taskTile.style.textDecorationThickness = "3px";
+        taskTile.style.backgroundColor = "var(--activated)";
+        taskName.style.backgroundColor = "var(--activated)";
         console.log(`Task ${task.taskName} is completed.`);
       } else {
         taskCompletedBtn.value = "incomplete";
@@ -244,7 +248,7 @@ export function checkIfOverdue(tasks) {
       const isOverdue = isBefore(readDueDate, today);
       console.log(isOverdue);
 
-      const timeOverdue = formatDistanceToNowStrict(readDueDate, today);
+      const timeOverdue = formatDistanceToNow(readDueDate, today);
       console.log(timeOverdue);
 
       if (isOverdue) {
@@ -277,3 +281,26 @@ export function checkIfOverdue(tasks) {
  
 
     // }
+
+    export function checkDescriptionStatus(tasks) {
+      const taskDescriptions = document.querySelectorAll(
+        ".task-description");
+        const br2s = document.querySelectorAll(".task-description-remove2");
+        const br3s = document.querySelectorAll(".task-description-remove3");
+    //   const taskTiles = document.querySelectorAll(".task");
+
+      tasks.forEach((task, index) => {
+        const taskDescription = taskDescriptions[index];
+        const br2 = br2s[index];
+        const br3 = br3s[index];
+        // const taskTile = taskTiles[index];
+
+        if (taskDescription) {
+          if (task.descriptionText === "") {
+            taskDescription.remove();
+            br2.remove();
+            br3.remove();
+          } 
+        }
+      });
+    }

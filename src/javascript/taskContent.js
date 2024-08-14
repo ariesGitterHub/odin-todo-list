@@ -12,6 +12,8 @@ import {
 
 import { reformatDate } from "./checkStatus.js";
 
+import { removeTask, workingTasks } from "./storageAndData.js";
+
 
 export function createTasks(tasks) { 
     const taskContent = document.querySelector("#task-content");
@@ -20,13 +22,14 @@ export function createTasks(tasks) {
     tasks.forEach(taskItem => {
         const task = document.createElement("div");
         task.classList.add("task");
+        task.dataset.id = `${taskItem.taskId}`;
 
         const mainCol = document.createElement("div");
         mainCol.classList.add("lvl-col");
 
-        const taskTitle = document.createElement("p");
-        taskTitle.classList.add("task-title");
-        taskTitle.textContent = `${taskItem.taskName}`;
+        const taskName = document.createElement("p");
+        taskName.classList.add("task-name");
+        taskName.textContent = `${taskItem.taskName}`;
 
         // const br1 = document.createElement("br");
 
@@ -34,7 +37,6 @@ export function createTasks(tasks) {
         taskDueDate.classList.add("task-due-date");
         taskDueDate.dataset.date = `${taskItem.dueByDate}`
         taskDueDate.textContent = `Due: ${reformatDate(taskItem.dueByDate)}`; 
-
 
         const lvlRow1 = document.createElement("div");
         lvlRow1.classList.add("lvl-row");
@@ -56,15 +58,18 @@ export function createTasks(tasks) {
 
         const taskFolder = document.createElement("div");
         taskFolder.classList.add("task-folder");
-        taskFolder.textContent = `${taskItem.folderLocation}`;
+        taskFolder.dataset.folder = `${taskItem.folderLocation}`;
+        taskFolder.textContent = `Folder: ${taskItem.folderLocation}`;
 
         const br2 = document.createElement("br");
+        br2.classList.add("task-description-remove2");
       
         const taskDescription = document.createElement("div");
         taskDescription.classList.add("task-description");
         taskDescription.textContent = `${taskItem.descriptionText}`;
    
         const br3 = document.createElement("br");
+        br3.classList.add("task-description-remove3");
 
         const taskBtnCont = document.createElement("div");
         taskBtnCont.classList.add("lvl-row", "task-btn-cont");
@@ -122,7 +127,7 @@ export function createTasks(tasks) {
         taskContent.append(task, sectionBotPad);
         task.append(mainCol, br3, taskBtnCont);
         mainCol.append(
-          taskTitle,
+          taskName,
           // br1,
           taskDueDate,
           lvlRow1,
@@ -158,7 +163,7 @@ export function createTaskColor(folders) {
   const taskFolderElements = document.querySelectorAll(".task-folder");
 
   taskFolderElements.forEach((taskFolderElement) => {
-    const folderName = taskFolderElement.innerText;
+    const folderName = taskFolderElement.dataset.folder;
     const matchingFolder = folders.find(
       (folder) => folder.folderName === folderName
     );
@@ -182,27 +187,27 @@ export function createTaskColor(folders) {
 
 export function priorityBtnClicked(index) {
   const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
-  const taskTitles = document.querySelectorAll(".task-title");
+  const taskNames = document.querySelectorAll(".task-name");
 
   const taskPriorityBtn = taskPriorityBtns[index];
-  const taskTitle = taskTitles[index];
+  const taskName = taskNames[index];
 
   if (taskPriorityBtn) {
     if (taskPriorityBtn.value === "normal") {
       taskPriorityBtn.value = "high";
       taskPriorityBtn.style.backgroundColor = "var(--activated)";
-      taskTitle.style.borderColor = "var(--alert)";
+        taskName.style.border = "2px solid var(--alert)";
       // Append "!!!" to the task title if not already present
-      if (!taskTitle.textContent.includes("!!!")) {
-        taskTitle.textContent += " !!!";
+      if (!taskName.textContent.includes("!!!")) {
+        taskName.textContent += " !!!";
       }
     } else if (taskPriorityBtn.value === "high") {
       taskPriorityBtn.value = "normal";
       taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
-      taskTitle.style.borderColor = "var(--bkgd)"; // Reset to default
-      const titleText = taskTitle.textContent;
+      taskName.style.border = "none"; // Reset to default
+      const titleText = taskName.textContent;
       if (titleText.includes("!!!")) {
-        taskTitle.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
+        taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
       }
     }
   } else {
@@ -213,25 +218,41 @@ export function priorityBtnClicked(index) {
 export function completedBtnClicked(index) {
   const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
   const taskTiles = document.querySelectorAll(".task");
-
+  const taskNames = document.querySelectorAll(".task-name");
   const taskCompletedBtn = taskCompletedBtns[index];
   const taskTile = taskTiles[index];
-
+  const taskName = taskNames[index];
   if (taskCompletedBtn) {
     if (taskCompletedBtn.value === "incomplete") {
       taskCompletedBtn.value = "completed";
-      taskTile.style.textDecoration = "line-through";
       taskCompletedBtn.style.backgroundColor = "var(--activated)";
+      taskTile.style.textDecoration = "line-through";
+      taskTile.style.textDecorationThickness = "3px";
+      taskTile.style.backgroundColor = "var(--activated)";
+      taskName.style.backgroundColor = "var(--activated)";
+      // taskName.style.borderColor = "var(--activated)";
     } else if (taskCompletedBtn.value === "completed") {
       taskCompletedBtn.value = "incomplete";
-      taskTile.style.textDecoration = "none";
       taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
+      taskTile.style.textDecoration = "none";
+      taskTile.style.backgroundColor = "var(--bkgd)";
+      taskName.style.backgroundColor = "var(--bkgd)";
+      // taskName.style.borderColor = "inherit";
     }
   } else {
     console.warn("taskCompletedBtn is null or not found in the DOM.");
   }
 }
-
-function checkDateForOverdue() {
-let today = new Date
-};
+//task-trash-btn
+export function trashBtnClicked(index) {
+    const taskTrashBtns = document.querySelectorAll(".task-trash-btn");
+    const taskTiles = document.querySelectorAll(".task");
+      const taskTrashBtn = taskTrashBtns[index];
+      const taskTile = taskTiles[index];
+  if (taskTrashBtn) {
+removeTask(taskTile.dataset.id);
+      window.location.reload();
+  } else {
+    console.warn("taskTrashBtn is null or not found in the DOM.");
+  }
+}
