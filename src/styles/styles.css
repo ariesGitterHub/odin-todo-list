@@ -35,9 +35,9 @@
 --dmfc02: #ce9a8b;
 --dmfc03: #d8b949;
 --dmfc04: #689b4f;
---dmfc05: #6ac6af;
---dmfc06: #3cb7c2;
---dmfc07: #a5afd0;
+--dmfc05: #5ee2c1;
+--dmfc06: #29a9b4;
+--dmfc07: #7890d1;
 --dmfc08: #ad94c4;
 --dmfc09: #bc67b0;
 --dmfc10: #bd929f;
@@ -64,7 +64,7 @@
 --lmfc07: #3e4b70;
 --lmfc08: #4d3168;
 --lmfc09: #5c2054;
---lmfc10: #563c44;
+--lmfc10: #4d3b40;
 
 /* Font Families */
 --font-fancy: "Cabin Sketch", sans-serif;
@@ -420,16 +420,34 @@ form input::-webkit-input-placeholder {
     margin-bottom: .5rem;
 }
 
-.color-picker-cont1, .color-picker-cont2 {
+#new-folder-color-picked {
+    height: 1.75rem;
+    width: 15.5ch;
+    background-color: none;
+    border: 2px solid var(--contrast);
+    border-radius: .75rem;
+    color: var(--contrast);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-plain);
+  font-size: 1rem;
+        margin-left: .25rem;
+    padding: .25rem;
+}
+
+.color-picker-btn-cont1, .color-picker-btn-cont2 {
     display: flex;
     gap: .25rem;
 }
 
-.color-picker-cont1 {
+.color-picker-btn-cont1 {
+        margin-top: .25rem;
     margin-bottom: .5rem;
+
 }
 
-.color-picker {
+.color-picker-btn {
     height: 2.5rem;
     width: 2.5rem;
     border: 2.5px solid var(--contrast);
@@ -440,12 +458,12 @@ form input::-webkit-input-placeholder {
     /* margin: .25rem; */
 }
 
-.color-picker:hover, .color-picker:focus {
+.color-picker-btn:hover, .color-picker-btn:focus {
     border: 2.5px dashed var(--bkgd);
     transform: scale(1.2);
 }
 
-.color-picker:active {
+.color-picker-btn:active {
     transform: scale(.9);
 }
 

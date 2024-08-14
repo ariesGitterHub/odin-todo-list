@@ -33,7 +33,14 @@ import {
   // lmTaskOverdueBgImg,
 } from "./imageExporter.js";
 
-import { format, getDay, isBefore, formatDistanceToNow } from "date-fns";
+import {
+  format,
+  getDay,
+  isEqual,
+  startOfDay, 
+  isBefore,
+  formatDistanceToNow,
+} from "date-fns";
 
 export function changeDarkLiteImgs() {
   const darkLiteBtn = document.querySelector("#dark-lite-btn");
@@ -222,18 +229,7 @@ export function checkIfOverdue(tasks) {
 
     const today = new Date();
     console.log(`Today: ${today}`);
-   
-    // tasks.forEach(taskItem => {
-    //   let taskDueByDate = taskItem.dueByDate;
-    //   console.log(`Date from array: ${taskDueByDate}`);
-    //   let reformatTaskDueByDate = new Date(taskDueByDate);
-    //   console.log(`Reformatted date from array: ${reformatTaskDueByDate}`);
-    //   const result = isAfter(reformatTaskDueByDate, today)
-    //   console.log(result);
-    //   const distance = formatDistanceToNow(reformatTaskDueByDate, today);
-    //   console.log(distance);
-
-   
+      
     taskTiles.forEach((taskTile, index) => {
       const taskOverdueNoticeImg = taskOverdueNoticeImgs[index];
       const taskOverdueNoticeP = taskOverdueNoticePs[index];
@@ -245,42 +241,28 @@ export function checkIfOverdue(tasks) {
       let readDueDate = new Date(dueDateStr);
       console.log(readDueDate);
 
+      const isToday = isEqual(startOfDay(readDueDate), startOfDay(today));
+      console.log(isToday);
+
       const isOverdue = isBefore(readDueDate, today);
       console.log(isOverdue);
 
       const timeOverdue = formatDistanceToNow(readDueDate, today);
       console.log(timeOverdue);
 
-      if (isOverdue) {
+      if (isToday) {
+      taskOverdueNoticeImg.remove();
+      taskOverdueNoticeP.style.marginLeft = ".75rem";
+      taskOverdueNoticeP.textContent = "This is due today.";
+      } else if (isOverdue) {
       taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
-      taskOverdueNoticeP.textContent = `Overdue: ${timeOverdue}`;  
+      taskOverdueNoticeP.textContent = `This is overdue for ${timeOverdue}.`;  
       } else {
       taskOverdueNoticeImg.remove();
       taskOverdueNoticeP.remove(); 
       }
     })
 }
-
-
-
-  // function setOverdue() {
-  // const taskTiles = document.querySelectorAll(".task");
-
-  // const taskOverdueNoticeImgs = document.querySelectorAll(".task-overdue-notice-img");
-  // const taskOverdueNoticePs = document.querySelectorAll(".task-overdue-notice-p");
-  
-  // taskTiles.forEach((taskTileItem, index) => {
-  //   const taskOverdueNoticeImg = taskOverdueNoticeImgs[index];
-  //   const taskOverdueNoticeP = taskOverdueNoticePs[index];
-
-  // })
-
-      // const taskTile = taskTiles[index];
-
-
- 
-
-    // }
 
     export function checkDescriptionStatus(tasks) {
       const taskDescriptions = document.querySelectorAll(

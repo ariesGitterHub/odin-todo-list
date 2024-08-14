@@ -15,6 +15,7 @@ import {
   createNewTaskForm,
   populateNewTaskFormFolderOptions,
   newTaskPriorityChecked,
+  clearNewTaskForm,
   submitNewTask,
 } from "./javascript/newTaskForm.js";
 
@@ -152,6 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 checkIfOverdue(workingTasks);
-
+clearNewTaskForm();
 submitNewTask();
 });

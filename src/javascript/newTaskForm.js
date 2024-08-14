@@ -127,11 +127,13 @@ export function createNewTaskForm() {
     lvlRowWidth2.classList.add("lvl-row-width");
 
     const newTaskCancelBtn = document.createElement("button");
+    newTaskCancelBtn.type = "button";
     newTaskCancelBtn.classList.add("cancel");
     newTaskCancelBtn.id = "new-task-cancel-btn";
     newTaskCancelBtn.textContent = "Cancel";
 
     const newTaskSubmitBtn = document.createElement("button");
+    newTaskSubmitBtn.type = "submit";
     newTaskSubmitBtn.classList.add("submit");
     newTaskSubmitBtn.id = "new-task-submit-btn";
     newTaskSubmitBtn.textContent = "Submit";
@@ -194,8 +196,55 @@ export function newTaskPriorityChecked() {
     }
 };
 
+/***************** */
 
+// export function clearNewTaskForm() {
+// const newTaskForm = document.querySelector("#new-task-form");
+// const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
 
+//     if (newTaskCancelBtn && newTaskForm) {
+//         newTaskSubmitBtn.addEventListener("click", function () {
+
+//         // Reset form fields
+//         newTaskForm.reset();
+        
+//         // Optionally, remove validation messages or states
+//         document.querySelectorAll("`${newTaskForm}` input select").forEach(input => {
+//         input.setCustomValidity('');});
+//     }) 
+//     } else {
+//         console.warn("newTaskCancelBtn or newTaskForm is null or not found in the DOM.");
+//     }
+// }
+
+export function clearNewTaskForm() {
+  const newTaskForm = document.querySelector("#new-task-form");
+  const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
+  	const newTaskPriorityToggle = document.querySelector(
+      "#new-task-priority-toggle"
+    );
+      	const newTaskPriorityFlagImg = document.querySelector(
+          "#new-task-priority-flag-img"
+        );
+  if (newTaskCancelBtn && newTaskForm) {
+    newTaskCancelBtn.addEventListener("click", function () {
+window.location.reload();
+    // newTaskPriorityToggle.checked = false;
+    // newTaskPriorityFlagImg.src = "";
+    // const formElements = newTaskForm.querySelectorAll(
+    //     "input, select, textarea"
+    //   );
+    //     formElements.forEach((formItem) => {
+    //     formItem.value = "";
+    // });
+    // newTaskForm.classList.toggle("flex");
+    });
+  } else {
+    console.warn(
+      "newTaskCancelBtn or newTaskForm is null or not found in the DOM."
+    );
+  }
+}
 
 
 function getFormData() {
@@ -212,7 +261,6 @@ function getFormData() {
   };
 }
 
-
 function createNewTask(formData) {
   return new Task(
     formData.taskId,
@@ -228,21 +276,32 @@ function createNewTask(formData) {
 export function submitNewTask() {
   const newTaskSubmitBtn = document.querySelector("#new-task-submit-btn");
   const newTaskForm = document.querySelector("#new-task-form");
+  const newTaskNameInput = document.querySelector("#new-task-name");
+  const newTaskDueDateInput = document.querySelector("#new-task-due-date");
 
-  if (newTaskSubmitBtn && newTaskForm) {
-    newTaskSubmitBtn.addEventListener("click", function (event) {
-      event.preventDefault();
+  if (
+    newTaskSubmitBtn &&
+    newTaskForm 
+    // &&
+    // newTaskNameInput.value &&
+    // newTaskDueDateInput.value
+  ) {
+    // newTaskSubmitBtn.addEventListener("submit", function (event) {
+    //   event.preventDefault();
 
-      // Extract data from form...
-      const formData = getFormData();
+        newTaskForm.addEventListener("submit", function (event) {
+          event.preventDefault();
 
-      // Create new task
-      const newTask = createNewTask(formData);
+          // Extract data from form...
+          const formData = getFormData();
 
-      // Add task
-      addTask(newTask);
-      window.location.reload();
-    });
+          // Create new task
+          const newTask = createNewTask(formData);
+
+          // Add task
+          addTask(newTask);
+          window.location.reload();
+        });
   } else {
     console.warn(
       "newTaskSubmitBtn or newTaskForm is null or not found in the DOM."

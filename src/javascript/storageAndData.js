@@ -14,7 +14,7 @@ const defaultTasks = [
     "08/12/2024",
     "high",
     "incomplete",
-    "Default",
+    "Chores",
     "Don't forget to empty the upstairs trash cans!"
   ),
   new Task(
@@ -35,16 +35,16 @@ const defaultTasks = [
   //   "Fitness",
   //   "Try to go later in the evening, around sunset."
   // ),
-  // new Task(
-  //   "t3",
-  //   "Write that novel about that thing.",
-  //   //   "overdue",
-  //   "11/05/2012",
-  //   "normal",
-  //   "incomplete",
-  //   "Default",
-  //   ""
-  // ),
+  new Task(
+    "t3",
+    "Write that novel about that thing.",
+    //   "overdue",
+    "11/05/2012",
+    "normal",
+    "incomplete",
+    "Default",
+    ""
+  ),
   // new Task(
   //   "t4",
   //   "Fix the sharks with the frickin' laser beams on their heads.",
@@ -77,10 +77,15 @@ export function addFolder(folder) {
   saveFolders();
 }
 
-export function removeFolder(checkId) {
-  workingFolders = workingFolders.filter(
-    (folder) => folder.folderId !== checkId
-  );
+// export function removeFolder(checkId) {
+//   workingFolders = workingFolders.filter(
+//     (folder) => folder.folderId !== checkId
+//   );
+//   saveFolders();
+// }
+
+export function removeFolder(dataId) {
+  workingFolders = workingFolders.filter((folder) => folder.folderId !== dataId);
   saveFolders();
 }
 
