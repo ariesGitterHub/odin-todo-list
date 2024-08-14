@@ -1,4 +1,6 @@
 import { dmNewFolderImg } from "./imageExporter.js";
+import { Folder } from "./classes.js";
+import { addFolder, workingFolders } from "./storageAndData.js";
 
 const btnConfigs1 = [
   { id: "fc01", text: "1" },
@@ -80,6 +82,7 @@ export function createNewFolderForm() {
     const newFolderColorPicked = document.createElement("span");
     newFolderColorPicked.id = "new-folder-color-picked";
     newFolderColorPicked.textContent = "Click on a color...";
+    newFolderColorPicked.dataset.value = "";
 
     const newFolderColorBtns1 = document.createElement("div");
     newFolderColorBtns1.classList.add("lvl-row-width", "color-picker-btn-cont1");
@@ -108,8 +111,6 @@ export function createNewFolderForm() {
     // btnFC05.id = "fc05";
     // btnFC05.classList.add("color-picker-btn");
     // btnFC05.textContent = "5";
-
-
 
     const newFolderColorBtns2 = document.createElement("div");
     newFolderColorBtns2.classList.add("lvl-row-width", "color-picker-btn-cont2");
@@ -161,6 +162,7 @@ export function createNewFolderForm() {
     lvlCol1.append(newFolderNameLabel, newFolderNameInput);
     lvlCol2.append(lvlRow2, newFolderColorBtns1, newFolderColorBtns2);
     lvlRow2.append(newFolderColorP, newFolderColorPicked);
+
     // newFolderColorBtns1.append(
     // btnFC01,
     // btnFC02,
@@ -168,7 +170,6 @@ export function createNewFolderForm() {
     // btnFC04,
     // btnFC05
     // );
-
 
     buttonSet1.forEach((button) => newFolderColorBtns1.append(button));
 
@@ -187,16 +188,70 @@ export function createNewFolderForm() {
     colorBtnClicked();
 }
 
-
 function colorBtnClicked() {
 const colorPickerBtns = document.querySelectorAll(".color-picker-btn");
 const newFolderColorPicked = document.querySelector("#new-folder-color-picked");
 colorPickerBtns.forEach(button => {
     button.addEventListener("click", () => {
         button.value = `--${button.id}`;
+        newFolderColorPicked.dataset.value = `${button.value}`;
         newFolderColorPicked.style.backgroundColor = `var(${button.value})`;
         newFolderColorPicked.style.color = "var(--bkgd)";
         newFolderColorPicked.textContent = `"Number ${button.textContent}"`;     
     } )
 })
+}
+
+export function clearNewFolderForm() {
+  const newFolderForm = document.querySelector("#new-folder-form");
+  const newFolderCancelBtn = document.querySelector("#new-folder-cancel-btn");
+
+  if (newFolderCancelBtn && newFolderForm) {
+    newFolderCancelBtn.addEventListener("click", function () {
+      window.location.reload();
+    });
+  } else {
+    console.warn(
+      "newFolderCancelBtn or newFolderForm is null or not found in the DOM."
+    );
+  }
+}
+
+function getFolderFormData() {
+  return {
+    folderName: document.querySelector("#new-folder-name").value,
+    folderColor: document.querySelector("#new-folder-color-picked").dataset.value,
+    folderId: `f${workingFolders.length + 1}`,
+  };
+}
+
+function createNewFolder(formData) {
+  return new Folder(
+    formData.folderId,
+    formData.folderName,
+    formData.folderColor
+  );
+}
+
+export function submitNewFolder() {
+  const newFolderSubmitBtn = document.querySelector("#new-folder-submit-btn");
+  const newFolderForm = document.querySelector("#new-folder-form");
+
+  if (newFolderSubmitBtn && newFolderForm) {
+
+    newFolderForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = getFolderFormData();
+
+      const newFolder = createNewFolder(formData);
+
+      addFolder(newFolder);
+      window.location.reload();
+    });
+  } else {
+    console.warn(
+      "newFolderSubmitBtn or newFolderForm is null or not found in the DOM."
+    );
+  }
 }

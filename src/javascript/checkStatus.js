@@ -256,7 +256,7 @@ export function checkIfOverdue(tasks) {
       taskOverdueNoticeP.textContent = "This is due today.";
       } else if (isOverdue) {
       taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
-      taskOverdueNoticeP.textContent = `This is overdue for ${timeOverdue}.`;  
+      taskOverdueNoticeP.textContent = `Overdue for ${timeOverdue}.`;  
       } else {
       taskOverdueNoticeImg.remove();
       taskOverdueNoticeP.remove(); 

@@ -16,10 +16,15 @@ import {
   populateNewTaskFormFolderOptions,
   newTaskPriorityChecked,
   clearNewTaskForm,
+
   submitNewTask,
 } from "./javascript/newTaskForm.js";
 
-import { createNewFolderForm } from "./javascript/newFolderForm.js";
+import {
+  createNewFolderForm,
+  clearNewFolderForm,
+  submitNewFolder,
+} from "./javascript/newFolderForm.js";
 
 import { changeDarkLiteImgs, checkPriorityStatus, checkCompletedStatus, checkIfOverdue, checkDescriptionStatus } from "./javascript/checkStatus.js";
 
@@ -99,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createStatusBar();
   createNewTaskForm();
   createNewFolderForm();
-  populateNewTaskFormFolderOptions(workingFolders);
+  
 
   const statusBtn = document.querySelector("#status-btn");
   statusBtn.addEventListener("click", handleStatusBtn);
@@ -154,5 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 checkIfOverdue(workingTasks);
 clearNewTaskForm();
+clearNewFolderForm();
 submitNewTask();
+submitNewFolder();
+populateNewTaskFormFolderOptions(workingFolders);
 });

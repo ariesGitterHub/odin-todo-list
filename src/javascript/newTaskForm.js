@@ -4,7 +4,7 @@ import {
   lmNewTaskPriorityFlagImg,
 } from "./imageExporter.js";
 
-import { Task, Folder } from "./classes.js";
+import { Task } from "./classes.js";
 
 import { addTask, workingTasks } from "./storageAndData.js";
 
@@ -220,24 +220,16 @@ export function newTaskPriorityChecked() {
 export function clearNewTaskForm() {
   const newTaskForm = document.querySelector("#new-task-form");
   const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
-  	const newTaskPriorityToggle = document.querySelector(
-      "#new-task-priority-toggle"
-    );
+  	// const newTaskPriorityToggle = document.querySelector(
+    //   "#new-task-priority-toggle"
+    // );
       	const newTaskPriorityFlagImg = document.querySelector(
           "#new-task-priority-flag-img"
         );
   if (newTaskCancelBtn && newTaskForm) {
     newTaskCancelBtn.addEventListener("click", function () {
 window.location.reload();
-    // newTaskPriorityToggle.checked = false;
-    // newTaskPriorityFlagImg.src = "";
-    // const formElements = newTaskForm.querySelectorAll(
-    //     "input, select, textarea"
-    //   );
-    //     formElements.forEach((formItem) => {
-    //     formItem.value = "";
-    // });
-    // newTaskForm.classList.toggle("flex");
+
     });
   } else {
     console.warn(
@@ -247,7 +239,7 @@ window.location.reload();
 }
 
 
-function getFormData() {
+function getTaskFormData() {
   return {
     taskName: document.querySelector("#new-task-name").value,
     folderLocation: document.querySelector("#new-task-folder").value,
@@ -276,8 +268,8 @@ function createNewTask(formData) {
 export function submitNewTask() {
   const newTaskSubmitBtn = document.querySelector("#new-task-submit-btn");
   const newTaskForm = document.querySelector("#new-task-form");
-  const newTaskNameInput = document.querySelector("#new-task-name");
-  const newTaskDueDateInput = document.querySelector("#new-task-due-date");
+//   const newTaskNameInput = document.querySelector("#new-task-name");
+//   const newTaskDueDateInput = document.querySelector("#new-task-due-date");
 
   if (
     newTaskSubmitBtn &&
@@ -293,7 +285,7 @@ export function submitNewTask() {
           event.preventDefault();
 
           // Extract data from form...
-          const formData = getFormData();
+          const formData = getTaskFormData();
 
           // Create new task
           const newTask = createNewTask(formData);
