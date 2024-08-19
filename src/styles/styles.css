@@ -30,7 +30,8 @@
 
 /* Dark Mode Folder Colors */
 /* --dmfc00: var(--dark-contrast); */
---dmfc00: #e9e8dd;
+/* --dmfc00: #c8c7b8; */
+--dmfc00: var(--dark-contrast);
 --dmfc01: #bc6a6a;
 --dmfc02: #ce9a8b;
 --dmfc03: #d8b949;
@@ -54,7 +55,8 @@
 
 /* Lite Mode Folder Colors */
 /* --lmfc00: var(--lite-contrast); */
---lmfc00: #161617;
+/* --lmfc00: #383841; */
+--lmfc00: var(--lite-contrast);
 --lmfc01: #6b1919;
 --lmfc02: #8f5e51;
 --lmfc03: #59533c;
@@ -82,6 +84,7 @@
 }
 
 body {
+
     --bkgd: var(--dark-bkgd);
     --stba: var(--dark-stba);
     --adta: var(--dark-adta);
@@ -136,6 +139,35 @@ header {
     /* padding-top: .5rem; */
 }
 
+/* ++++++++++++++++ */
+/* #header-ctrl-cont {
+    max-width: 500px;
+    display: block;
+
+    margin: auto;
+} */
+
+/* .sticky {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 75px;
+    width: 100vw;
+    max-width: 100%;
+    background: var(--life-jacket);
+    border-top: var(--border-px) solid var(--white);
+    border-bottom: var(--border-px) solid var(--white); */
+
+    /* CSS below was placed in a media query */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 110px; */
+
+    /* z-index: 9; */
+/* } */
+
 .font-fancy {
     font-family: var(--font-fancy);
 }
@@ -151,6 +183,9 @@ header {
 #app-title-cont img {
     height: 2.25rem;
     width: auto;
+    margin-left: .35rem;
+    margin-right: .35rem;
+    /* padding-bottom: 1rem; */
 }
 
 #app-date {
@@ -224,6 +259,14 @@ nav button img {
     height: 1.5rem;
     width: 1.5rem;
 }
+
+/* #crown-img {
+    display: flex;
+}
+
+#coffee-img {
+    display: none;
+} */
 
 #status-bar.flex, #new-task-form.flex, #new-folder-form.flex
 {
@@ -546,6 +589,11 @@ form input::-webkit-input-placeholder {
     margin:0;
 }
 
+#no-current-task-msg {
+    font-family: var(--font-hand);
+    padding: 1rem;
+}
+
 .task {
     /* background-color: var(--alert); */
     border-top: 4px dashed;
@@ -616,7 +664,7 @@ height: 1.5rem;
     width: 2.5rem;
     background-color: var(--bkgd);
     border: 2.5px solid;
-    /* border-color: var(--fc01); */
+    border-color: var(--contrast);
     border-radius: 2.5rem;
     display: flex;
     justify-content: center;

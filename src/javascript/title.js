@@ -1,5 +1,5 @@
 import {
-  dmCrownImg,
+  dmCrownImg, dmCoffeeImg
 } from "./imageExporter.js";
 
 import { reformatDate } from "./checkStatus.js";
@@ -15,13 +15,20 @@ export function createTitle() {
     appTitleCont.id = "app-title-cont";
 
     const appTitle = document.createElement("h1");
-    appTitle.classList.add("font-fancy");
-    appTitle.textContent = "Task ";
+    appTitle.classList.add(
+      // "lvl-row",
+       "font-fancy");
+    appTitle.textContent = "Task";
 
-    const crownImg = document.createElement("img");
-    crownImg.id = "crown-img";
-    crownImg.src = dmCrownImg;
-    crownImg.alt = "Crown icon";
+    const titleImg = document.createElement("img");
+    titleImg.id = "title-img";
+    titleImg.src = dmCrownImg;
+    titleImg.alt = "Crown icon";
+
+    // const coffeeImg = document.createElement("img");
+    // coffeeImg.id = "coffee-img";
+    // coffeeImg.src = dmCoffeeImg;
+    // coffeeImg.alt = "Coffee icon";
 
     // const appDateCont = document.querySelector("div");
     // appDateCont.id = "app-date-cont";
@@ -35,6 +42,17 @@ export function createTitle() {
     appTitleCont.appendChild(appTitle);
     appTitleCont.appendChild(appDate);
 
-    appTitle.append(crownImg, " King");
+    appTitle.append(titleImg, 
+      // coffeeImg,
+       "King");
 }
+
+
+// export function toggleSticky() {
+//   const headerCtrlCont = document.querySelector("#header-ctrl-cont");
+//   const sticky = headerCtrlCont.offsetTop;
+//   const scrollPosition = window.scrollY;
+
+//   headerCtrlCont.classList.toggle("sticky", scrollPosition > sticky);
+//   }
 

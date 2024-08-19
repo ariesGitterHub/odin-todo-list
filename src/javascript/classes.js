@@ -1,3 +1,9 @@
+export class Theme {
+  constructor(mode) {
+    this.mode = mode;
+  }
+}
+
 export class Folder {
   constructor(folderId, folderName, folderColor) {
     this.folderId = folderId;

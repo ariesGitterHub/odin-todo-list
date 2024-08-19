@@ -1,15 +1,29 @@
 import "./styles/styles.css";
 // import { Task, Folder } from "./javascript/classes.js";
-import { workingFolders, workingTasks } from "./javascript/storageAndData.js"
+import {
+  workingFolders,
+  workingTasks,
+  workingTheme,
+  loadTheme,
+  saveTheme
+  // updateTheme,
+} from "./javascript/storageAndData.js";
 
 
-import { createTitle } from "./javascript/title.js";
+import { createTitle, 
+  // toggleSticky 
+} from "./javascript/title.js";
 
 import { createNav } from "./javascript/nav.js";
 
 import { createStatusBar } from "./javascript/statusBar.js";
 
-import { handleStatusBtn, handleNewTaskBtn, handleNewFolderBtn, handleDarkLiteBtn } from "./javascript/navBtns.js";
+import { 
+  handleStatusBtn,
+  handleNewTaskBtn,
+  handleNewFolderBtn,
+  handleDarkLiteBtn
+} from "./javascript/navBtns.js";
 
 import {
   createNewTaskForm,
@@ -26,9 +40,15 @@ import {
   submitNewFolder,
 } from "./javascript/newFolderForm.js";
 
-import { changeDarkLiteImgs, checkPriorityStatus, checkCompletedStatus, checkIfOverdue, checkDescriptionStatus } from "./javascript/checkStatus.js";
-
-// import {  } from "./javascript/miscBtns.js";
+import {
+  // changeDarkLiteImgs,
+  checkPriorityStatus,
+  checkCompletedStatus,
+  checkIfOverdue,
+  checkDescriptionStatus,
+  checkIfNoTasks,
+  // checkDarkLiteStatus,
+} from "./javascript/checkStatus.js";
 
 import {
   createTasks,
@@ -38,68 +58,24 @@ import {
   trashBtnClicked,
 } from "./javascript/taskContent.js";
 
-// const defaultTasks = [
-//   new Task(
-//     "t0",
-//     "Take out the trash",
-//     "08/12/2024",
-//     "high",
-//     "incomplete",
-//     "Folder: Chores",
-//     "Don't forget to empty the upstairs trash cans!"
-//   ),
-//   new Task(
-//     "t1",
-//     "Grocery Store",
-//     "08/14/2024",
-//     "normal",
-//     "incomplete",
-//     "Folder: Chores",
-//     "Buy: apples, potatoes, carrots, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, frozen blueberries."
-//   ),
-//   new Task(
-//     "t2",
-//     "Run my usual 5k course",
-//     "08/12/2024",
-//     "normal",
-//     "completed",
-//     "Folder: Fitness",
-//     "Try to go later in the evening, around sunset."
-//   ),
-//   new Task(
-//     "t3",
-//     "Write that novel about that thing.",
-//     //   "overdue",
-//     "11/05/2012",
-//     "normal",
-//     "incomplete",
-//     "Folder: Default",
-//     ""
-//   ),
-//   new Task(
-//     "t4",
-//     "Fix the sharks with the frickin' laser beams on their heads.",
-//     "04/01/2054",
-//     "high",
-//     "incomplete",
-//     "Folder: Repair",
-//     "Mind the radioactive squid, too."
-//   ),
-// ];
-
-// const workingTasks = [];
-
-// const defaultFolders = [
-//   new Folder("f0", "Folder: Default", "--fc07"),
-//   new Folder("f1", "Folder: Chores", "--fc06"),
-//   new Folder("f2", "Folder: Fitness", "--fc01"),
-//   new Folder("f3", "Folder: Repair", "--fc06"),
-// ];
-
-// const workingFolders = [];
+import { toggleDarkLiteMode } from "./javascript/toggleDarkLiteMode.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+   toggleDarkLiteMode(workingTheme);
   createTitle();
+
+// function debounce(func, delay) {
+//   let timer;
+//   return function () {
+//     clearTimeout(timer);
+//     timer = setTimeout(func, delay);
+//   };
+// }
+
+// Add event listener for scroll event with debouncing
+// window.addEventListener("scroll", debounce(toggleSticky, 10));
+
+
   createNav();
   createStatusBar();
   createNewTaskForm();
@@ -114,10 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const newFolderBtn = document.querySelector("#new-folder-btn");
   newFolderBtn.addEventListener("click", handleNewFolderBtn);
+  
+saveTheme();
+loadTheme();
+// checkDarkLiteStatus(workingTheme);
+// toggleDarkLiteMode();
 
+  
   const darkLiteBtn = document.querySelector("#dark-lite-btn");
   darkLiteBtn.addEventListener("click", handleDarkLiteBtn);
-  darkLiteBtn.addEventListener("click", changeDarkLiteImgs);
+  darkLiteBtn.addEventListener("click", toggleDarkLiteMode(workingTheme));
+
 
   const newTaskPriorityToggle = document.querySelector(
     "#new-task-priority-toggle"
@@ -163,4 +146,5 @@ clearNewFolderForm();
 submitNewTask();
 submitNewFolder();
 populateNewTaskFormFolderOptions(workingFolders);
+checkIfNoTasks();
 });

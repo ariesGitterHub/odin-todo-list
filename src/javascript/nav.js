@@ -5,6 +5,8 @@ import {
     dmDarkLiteImg 
 } from "./imageExporter.js";
 
+import { workingTheme } from "./storageAndData.js";
+
 export function createNav() {
     const header = document.querySelector("header");
 
@@ -39,7 +41,7 @@ export function createNav() {
 
     const darkLiteBtnImg = document.createElement("img");
     darkLiteBtnImg.id = "dark-lite-btn-img";
-    darkLiteBtn.value = "dark";
+    darkLiteBtn.value = `${workingTheme[0].mode}`;
     darkLiteBtnImg.src = dmDarkLiteImg;
     darkLiteBtnImg.alt = "";
 

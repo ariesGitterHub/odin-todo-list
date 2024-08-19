@@ -1,24 +1,92 @@
 // remove dmTaskOverdueNoticeImg oafter making a function that renders this only if the date is past due
 import {
   dmTaskOverdueNoticeImg,
-//   lmTaskOverdueNoticeImg,
-  // dmTaskOverdueBgImg,
-  //   redOverdueImg,
   dmPriorityImg,
   dmCompletedImg,
   dmEditImg,
   dmTrashImg,
+  lmTaskOverdueNoticeImg,
+  lmPriorityImg,
+  lmCompletedImg,
+  lmEditImg,
+  lmTrashImg,
 } from "./imageExporter.js";
 
 import { reformatDate } from "./checkStatus.js";
 
-import { removeTask, workingTasks } from "./storageAndData.js";
+import {
+  updatePriorityStatus, 
+  updateCompleteStatus,
+  removeTask,
+  workingTheme,
+  // saveTheme
+} from "./storageAndData.js";
+
+// import { toggleDarkLiteMode } from "./toggleDarkLiteMode.js";
+
+// function defaultTaskBtnImgs() {
+//   if (workingTheme[0].mode === "dark") {
+//         taskOverdueNoticeImg.src: dmTaskOverdueNoticeImg,
+//         taskPriorityBtnImg.src: dmPriorityImg,
+//         taskCompletedBtnImg.src: dmCompletedImg,
+//         taskEditBtnImg.src: dmEditImg,
+//         taskTrashBtnImg.src: dmTrashImg
+//   } else if (workingTheme[0].mode === "lite") {
+//         taskOverdueNoticeImg.src: lmTaskOverdueNoticeImg,
+//         taskPriorityBtnImg.src: lmPriorityImg,
+//         taskCompletedBtnImg.src: lmCompletedImg,
+//         taskEditBtnImg.src: lmEditImg,
+//         taskTrashBtnImg.src: lmTrashImg
+//   }
+// }
+
+// function defaultTaskBtnImgs() {
+//   // Check the current theme
+//   if (workingTheme[0].mode === "dark") {
+//     // Update image sources for dark mode
+//     taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
+//     taskPriorityBtnImg.src = dmPriorityImg;
+//     taskCompletedBtnImg.src = dmCompletedImg;
+//     taskEditBtnImg.src = dmEditImg;
+//     taskTrashBtnImg.src = dmTrashImg;
+//   } else if (workingTheme[0].mode === "lite") {
+//     // Update image sources for lite mode
+//     taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
+//     taskPriorityBtnImg.src = lmPriorityImg;
+//     taskCompletedBtnImg.src = lmCompletedImg;
+//     taskEditBtnImg.src = lmEditImg;
+//     taskTrashBtnImg.src = lmTrashImg;
+//   }
+// }
+
+
+function defaultTaskBtnImgs() {
+  if (workingTheme[0].mode === "dark") {
+    return {
+      overdueNotice: dmTaskOverdueNoticeImg,
+      priority: dmPriorityImg,
+      completed: dmCompletedImg,
+      edit: dmEditImg,
+      trash: dmTrashImg,
+    };
+  } else if (workingTheme[0].mode === "lite") {
+    return {
+      overdueNotice: lmTaskOverdueNoticeImg,
+      priority: lmPriorityImg,
+      completed: lmCompletedImg,
+      edit: lmEditImg,
+      trash: lmTrashImg,
+    };
+  }
+}
 
 
 export function createTasks(tasks) { 
     const taskContent = document.querySelector("#task-content");
     // taskContent.innerHTML = "";
 
+    const imgUrls = defaultTaskBtnImgs();
+    
     tasks.forEach(taskItem => {
         const task = document.createElement("div");
         task.classList.add("task");
@@ -35,8 +103,10 @@ export function createTasks(tasks) {
 
         const taskDueDate = document.createElement("div");
         taskDueDate.classList.add("task-due-date");
-        taskDueDate.dataset.date = `${taskItem.dueByDate}`
-        taskDueDate.textContent = `Due: ${reformatDate(taskItem.dueByDate)}`; 
+        taskDueDate.dataset.date = `${taskItem.dueByDate.replace(/-/g, "/")}`;
+        taskDueDate.textContent = `Due: ${reformatDate(
+          taskItem.dueByDate.replace(/-/g, "/")
+        )}`; 
 
         const lvlRow1 = document.createElement("div");
         lvlRow1.classList.add("lvl-row");
@@ -49,7 +119,7 @@ export function createTasks(tasks) {
 
         const taskOverdueNoticeImg = document.createElement("img");
         taskOverdueNoticeImg.classList.add("task-overdue-notice-img");
-        taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
+        taskOverdueNoticeImg.src = imgUrls.overdueNotice;
         taskOverdueNoticeImg.alt = "Date is overdue icon";
 
         const taskOverdueNoticeP = document.createElement("p");
@@ -83,7 +153,7 @@ export function createTasks(tasks) {
 
         const taskPriorityBtnImg = document.createElement("img");
         taskPriorityBtnImg.classList.add("task-priority-btn-img");
-        taskPriorityBtnImg.src = dmPriorityImg;
+        taskPriorityBtnImg.src = imgUrls.priority;;
         taskPriorityBtnImg.alt = "Priority task icon";
 
         const taskBtnCol2 = document.createElement("div");
@@ -95,8 +165,8 @@ export function createTasks(tasks) {
 
         const taskCompletedBtnImg = document.createElement("img");
         taskCompletedBtnImg.classList.add("task-completed-btn-img");
-        taskCompletedBtnImg.src = dmCompletedImg;
-        taskCompletedBtnImg.alt = "Completed task icon";
+        taskCompletedBtnImg.src = imgUrls.completed;
+          taskCompletedBtnImg.alt = "Completed task icon";
    
         const taskBtnCol3 = document.createElement("div");
         taskBtnCol3.classList.add("lvl-col");
@@ -107,7 +177,7 @@ export function createTasks(tasks) {
 
         const taskEditBtnImg = document.createElement("img");
         taskEditBtnImg.classList.add("task-edit-btn-img");
-        taskEditBtnImg.src = dmEditImg;
+        taskEditBtnImg.src = imgUrls.edit;
         taskEditBtnImg.alt = "Edit task icon";
 
         const taskBtnCol4 = document.createElement("div");
@@ -118,7 +188,7 @@ export function createTasks(tasks) {
    
         const taskTrashBtnImg = document.createElement("img");
         taskTrashBtnImg.classList.add("task-trash-btn-img");
-        taskTrashBtnImg.src = dmTrashImg;
+        taskTrashBtnImg.src = imgUrls.trash;
         taskTrashBtnImg.alt = "Trash task icon";
     
         const sectionBotPad = document.createElement("div");
@@ -158,6 +228,8 @@ export function createTasks(tasks) {
                    
 };
 
+
+
 // RE-EXAMINE THIS CLOSELY!!!! This was a bit beyond me to finish 100% correctly...
 export function createTaskColor(folders) {
   const taskFolderElements = document.querySelectorAll(".task-folder");
@@ -187,9 +259,11 @@ export function createTaskColor(folders) {
 
 export function priorityBtnClicked(index) {
   const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
+    const taskTiles = document.querySelectorAll(".task");
   const taskNames = document.querySelectorAll(".task-name");
 
   const taskPriorityBtn = taskPriorityBtns[index];
+   const taskTile = taskTiles[index];
   const taskName = taskNames[index];
 
   if (taskPriorityBtn) {
@@ -197,6 +271,7 @@ export function priorityBtnClicked(index) {
       taskPriorityBtn.value = "high";
       taskPriorityBtn.style.backgroundColor = "var(--activated)";
         taskName.style.border = "2px solid var(--alert)";
+        updatePriorityStatus(taskTile.dataset.id);
       // Append "!!!" to the task title if not already present
       if (!taskName.textContent.includes("!!!")) {
         taskName.textContent += " !!!";
@@ -205,6 +280,7 @@ export function priorityBtnClicked(index) {
       taskPriorityBtn.value = "normal";
       taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
       taskName.style.border = "none"; // Reset to default
+      updatePriorityStatus(taskTile.dataset.id);
       const titleText = taskName.textContent;
       if (titleText.includes("!!!")) {
         taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
@@ -231,6 +307,9 @@ export function completedBtnClicked(index) {
       taskTile.style.backgroundColor = "var(--activated)";
       taskName.style.backgroundColor = "var(--activated)";
       // taskName.style.borderColor = "var(--activated)";
+      updateCompleteStatus(taskTile.dataset.id);
+      console.log(`taskTiles ID = ${taskTile.dataset.id}`);
+      
     } else if (taskCompletedBtn.value === "completed") {
       taskCompletedBtn.value = "incomplete";
       taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
@@ -238,6 +317,7 @@ export function completedBtnClicked(index) {
       taskTile.style.backgroundColor = "var(--bkgd)";
       taskName.style.backgroundColor = "var(--bkgd)";
       // taskName.style.borderColor = "inherit";
+            updateCompleteStatus(taskTile.dataset.id);
     }
   } else {
     console.warn("taskCompletedBtn is null or not found in the DOM.");
@@ -251,7 +331,7 @@ export function trashBtnClicked(index) {
       const taskTile = taskTiles[index];
   if (taskTrashBtn) {
 removeTask(taskTile.dataset.id);
-      window.location.reload();
+
   } else {
     console.warn("taskTrashBtn is null or not found in the DOM.");
   }

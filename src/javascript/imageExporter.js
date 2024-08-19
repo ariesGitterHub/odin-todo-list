@@ -1,19 +1,35 @@
 // For header.js
 import dmCrownImg from "../assets/dm-crown.svg";
+import dmCoffeeImg from "../assets/dm-coffee.svg";
 import dmStatusImg from "../assets/dm-status.svg";
 import dmNewTaskImg from "../assets/dm-new-task.svg"; // Also new task form
 import dmNewFolderImg from "../assets/dm-new-folder.svg"; // Also new folder form
 import dmDarkLiteImg from "../assets/dm-light-bulb.svg";
 
-export { dmCrownImg, dmStatusImg, dmNewTaskImg, dmNewFolderImg, dmDarkLiteImg };
+export {
+  dmCrownImg,
+  dmCoffeeImg, 
+  dmStatusImg,
+  dmNewTaskImg,
+  dmNewFolderImg,
+  dmDarkLiteImg,
+};
 
 import lmCrownImg from "../assets/lm-crown.svg";
+import lmCoffeeImg from "../assets/lm-coffee.svg";
 import lmStatusImg from "../assets/lm-status.svg";
 import lmNewTaskImg from "../assets/lm-new-task.svg"; // Also new task form
 import lmNewFolderImg from "../assets/lm-new-folder.svg"; // Also new folder form
 import lmDarkLiteImg from "../assets/lm-light-bulb.svg";
 
-export { lmCrownImg, lmStatusImg, lmNewTaskImg, lmNewFolderImg, lmDarkLiteImg };
+export {
+  lmCrownImg,
+  lmCoffeeImg, 
+  lmStatusImg,
+  lmNewTaskImg,
+  lmNewFolderImg,
+  lmDarkLiteImg,
+};
 
 
 // For headerContent.js
