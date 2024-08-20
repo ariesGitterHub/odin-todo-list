@@ -1,17 +1,4 @@
-// const statusBtn = document.querySelector("#status-btn");
-// const statusBar = document.querySelector("#status-bar");
-// const newTaskBtn = document.querySelector("#new-task-btn");
-// const newTaskForm = document.querySelector("#new-task-form");
-// const newFolderBtn = document.querySelector("#new-folder-btn");
-// const newFolderForm = document.querySelector("#new-folder-form");
-
-// import { theme } from "./storageAndData";
-
-import { 
-    workingTheme,
-    //  loadTheme,
-    saveTheme 
-} from "./storageAndData";
+import { workingTheme, saveTheme } from "./storageAndData";
 
 import { toggleDarkLiteMode } from "./toggleDarkLiteMode.js";
 
@@ -39,7 +26,6 @@ export function handleNewTaskBtn() {
     const statusBar = document.querySelector("#status-bar");
     const newTaskForm = document.querySelector("#new-task-form");
     const newFolderForm = document.querySelector("#new-folder-form");
-
     if (newTaskForm) {
         if (statusBar && statusBar.classList.contains("flex")) {
         statusBar.classList.toggle("flex");
@@ -128,29 +114,24 @@ export function handleNewFolderBtn() {
 //     }
 // }
 
-
 export function handleDarkLiteBtn() {
-  const darkLiteBtn = document.querySelector("#dark-lite-btn");
-  const currentMode = workingTheme[0].mode;
+    const darkLiteBtn = document.querySelector("#dark-lite-btn");
+    const currentMode = workingTheme[0].mode;
+    if (darkLiteBtn) {
+        if (currentMode === "dark") {
+            workingTheme[0].mode = "lite";
+            darkLiteBtn.value = "lite";
+        } else if (currentMode === "lite") {
+            workingTheme[0].mode = "dark";
+            darkLiteBtn.value = "dark";
+        }
 
-  if (darkLiteBtn) {
-    // Toggle the mode
-    if (currentMode === "dark") {
-      workingTheme[0].mode = "lite";
-      darkLiteBtn.value = "lite";
-    } else if (currentMode === "lite") {
-      workingTheme[0].mode = "dark";
-      darkLiteBtn.value = "dark";
-    }
+        saveTheme();
+        toggleDarkLiteMode(workingTheme);
 
-    // Save the new theme to localStorage
-    saveTheme();
+        console.log(`Theme switched to: ${darkLiteBtn.value}`);
 
-    // Update the UI based on the new theme
-    toggleDarkLiteMode(workingTheme); // Update the UI dynamically
-
-    console.log(`Theme switched to: ${darkLiteBtn.value}`);
-  } else {
+    } else {
     console.warn("darkLiteBtn is null or not found in the DOM.");
-  }
+    }
 }

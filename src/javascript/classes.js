@@ -1,37 +1,35 @@
 export class Theme {
-  constructor(mode) {
-    this.mode = mode;
-  }
+	constructor(mode) {
+	this.mode = mode;
+	}
 }
 
 export class Folder {
-  constructor(folderId, folderName, folderColor) {
-    this.folderId = folderId;
-    this.folderName = folderName;
-    this.folderColor = folderColor;
-  }
+	constructor(folderId, folderName, folderColor) {
+	this.folderId = folderId;
+	this.folderName = folderName;
+	this.folderColor = folderColor;
+	}
 }
 
 export class Task {
-  constructor(
-    taskId,
-    taskName,
-    dueByDate,
-    priorityFlag,
-    completedCheck,
-    folderLocation,
-    descriptionText
-  ) {
-    this.taskId = taskId;
-    this.taskName = taskName;
-    this.dueByDate = dueByDate;
-    this.priorityFlag = priorityFlag;
-    this.completedCheck = completedCheck;
-    this.folderLocation = folderLocation;
-    this.descriptionText = descriptionText;
-  }
-
-  //   getTaskDetails() {
-  //     return `Task Id: ${this.taskId}, Task: ${this.taskName}, Overdue: ${this.overdueStatus ? "YES!" : ""}, Due by ${this.dueByDate}, Priority: ${this.priorityFlag ? "High" : "Normal"}, Folder: ${this.folderLocation}, Details: ${this.descriptionText}.`;
-  //   }
+	constructor(
+		taskId,
+		taskName,
+		dueByDate,
+		overdueFlag,
+		priorityFlag,
+		completedFlag,
+		folderLocation,
+		descriptionText
+	) {
+		this.taskId = taskId;
+		this.taskName = taskName;
+		this.dueByDate = dueByDate;
+		this.overdueFlag = overdueFlag;
+		this.priorityFlag = priorityFlag;
+		this.completedFlag = completedFlag;
+		this.folderLocation = folderLocation;
+		this.descriptionText = descriptionText;
+	}
 }

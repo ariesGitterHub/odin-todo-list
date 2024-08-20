@@ -1,25 +1,23 @@
-// remove dmTaskOverdueNoticeImg oafter making a function that renders this only if the date is past due
 import {
-  dmTaskOverdueNoticeImg,
-  dmPriorityImg,
-  dmCompletedImg,
-  dmEditImg,
-  dmTrashImg,
-  lmTaskOverdueNoticeImg,
-  lmPriorityImg,
-  lmCompletedImg,
-  lmEditImg,
-  lmTrashImg,
+    dmTaskOverdueNoticeImg,
+    dmPriorityImg,
+    dmCompletedImg,
+    dmEditImg,
+    dmTrashImg,
+    lmTaskOverdueNoticeImg,
+    lmPriorityImg,
+    lmCompletedImg,
+    lmEditImg,
+    lmTrashImg,
 } from "./imageExporter.js";
 
 import { reformatDate } from "./checkStatus.js";
 
 import {
-  updatePriorityStatus, 
-  updateCompleteStatus,
-  removeTask,
-  workingTheme,
-  // saveTheme
+    updatePriorityStatus, 
+    updateCompleteStatus,
+    removeTask,
+    workingTheme,
 } from "./storageAndData.js";
 
 // import { toggleDarkLiteMode } from "./toggleDarkLiteMode.js";
@@ -59,27 +57,25 @@ import {
 //   }
 // }
 
-
 function defaultTaskBtnImgs() {
-  if (workingTheme[0].mode === "dark") {
-    return {
-      overdueNotice: dmTaskOverdueNoticeImg,
-      priority: dmPriorityImg,
-      completed: dmCompletedImg,
-      edit: dmEditImg,
-      trash: dmTrashImg,
-    };
-  } else if (workingTheme[0].mode === "lite") {
-    return {
-      overdueNotice: lmTaskOverdueNoticeImg,
-      priority: lmPriorityImg,
-      completed: lmCompletedImg,
-      edit: lmEditImg,
-      trash: lmTrashImg,
-    };
-  }
+    if (workingTheme[0].mode === "dark") {
+        return {
+            overdueNotice: dmTaskOverdueNoticeImg,
+            priority: dmPriorityImg,
+            completed: dmCompletedImg,
+            edit: dmEditImg,
+            trash: dmTrashImg,
+        };
+    } else if (workingTheme[0].mode === "lite") {
+        return {
+            overdueNotice: lmTaskOverdueNoticeImg,
+            priority: lmPriorityImg,
+            completed: lmCompletedImg,
+            edit: lmEditImg,
+            trash: lmTrashImg,
+        };
+    }
 }
-
 
 export function createTasks(tasks) { 
     const taskContent = document.querySelector("#task-content");
@@ -197,24 +193,24 @@ export function createTasks(tasks) {
         taskContent.append(task, sectionBotPad);
         task.append(mainCol, br3, taskBtnCont);
         mainCol.append(
-          taskName,
-          // br1,
-          taskDueDate,
-          lvlRow1,
-          taskFolder,
-          br2,
-          taskDescription
+            taskName,
+            // br1,
+            taskDueDate,
+            lvlRow1,
+            taskFolder,
+            br2,
+            taskDescription
         );
         lvlRow1.append(
-          // taskDueDate,
-          taskOverdueNoticeImg,
-          taskOverdueNoticeP
+            // taskDueDate,
+            taskOverdueNoticeImg,
+            taskOverdueNoticeP
         );
         taskBtnCont.append(
-          taskBtnCol1,
-          taskBtnCol2,
-          taskBtnCol3,
-          taskBtnCol4
+            taskBtnCol1,
+            taskBtnCol2,
+            taskBtnCol3,
+            taskBtnCol4
         );
         taskBtnCol1.append(taskPriorityBtn);
         taskPriorityBtn.append(taskPriorityBtnImg);
@@ -228,29 +224,23 @@ export function createTasks(tasks) {
                    
 };
 
-
-
 // RE-EXAMINE THIS CLOSELY!!!! This was a bit beyond me to finish 100% correctly...
 export function createTaskColor(folders) {
-  const taskFolderElements = document.querySelectorAll(".task-folder");
+    const taskFolderElements = document.querySelectorAll(".task-folder");
 
-  taskFolderElements.forEach((taskFolderElement) => {
+    taskFolderElements.forEach((taskFolderElement) => {
     const folderName = taskFolderElement.dataset.folder;
-    const matchingFolder = folders.find(
-      (folder) => folder.folderName === folderName
-    );
+    const matchingFolder = folders.find((folder) => folder.folderName === folderName);
 
     if (matchingFolder) {
         const task = taskFolderElement.closest(".task"); // Finds the parent .task element
+        task.style.borderColor = `var(${matchingFolder.folderColor})`;
+        task.style.color = `var(${matchingFolder.folderColor})`;
 
-            task.style.borderColor = `var(${matchingFolder.folderColor})`;
-            task.style.color = `var(${matchingFolder.folderColor})`;
-
-            const taskBtns = task.querySelectorAll("button");
-            taskBtns.forEach((button) => {
-                button.style.borderColor = `var(${matchingFolder.folderColor})`;
-            });
-
+        const taskBtns = task.querySelectorAll("button");
+        taskBtns.forEach((button) => {
+            button.style.borderColor = `var(${matchingFolder.folderColor})`;
+        });
     } else {
       console.warn(`No matching folder found for ${folderName}.`);
     }
@@ -258,81 +248,80 @@ export function createTaskColor(folders) {
 }
 
 export function priorityBtnClicked(index) {
-  const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
+    const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
     const taskTiles = document.querySelectorAll(".task");
-  const taskNames = document.querySelectorAll(".task-name");
+    const taskNames = document.querySelectorAll(".task-name");
 
-  const taskPriorityBtn = taskPriorityBtns[index];
-   const taskTile = taskTiles[index];
-  const taskName = taskNames[index];
+    const taskPriorityBtn = taskPriorityBtns[index];
+    const taskTile = taskTiles[index];
+    const taskName = taskNames[index];
 
-  if (taskPriorityBtn) {
-    if (taskPriorityBtn.value === "normal") {
-      taskPriorityBtn.value = "high";
-      taskPriorityBtn.style.backgroundColor = "var(--activated)";
-        taskName.style.border = "2px solid var(--alert)";
-        updatePriorityStatus(taskTile.dataset.id);
-      // Append "!!!" to the task title if not already present
-      if (!taskName.textContent.includes("!!!")) {
-        taskName.textContent += " !!!";
-      }
-    } else if (taskPriorityBtn.value === "high") {
-      taskPriorityBtn.value = "normal";
-      taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
-      taskName.style.border = "none"; // Reset to default
-      updatePriorityStatus(taskTile.dataset.id);
-      const titleText = taskName.textContent;
-      if (titleText.includes("!!!")) {
-        taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
-      }
-    }
-  } else {
+    if (taskPriorityBtn) {
+        if (taskPriorityBtn.value === "normal") {
+            taskPriorityBtn.value = "high";
+            taskPriorityBtn.style.backgroundColor = "var(--activated)";
+            taskName.style.border = "2px solid var(--alert)";
+            updatePriorityStatus(taskTile.dataset.id);
+            // Append "!!!" to the task title if not already present
+            if (!taskName.textContent.includes("!!!")) {
+            taskName.textContent += " !!!";
+            }
+        } else if (taskPriorityBtn.value === "high") {
+            taskPriorityBtn.value = "normal";
+            taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
+            taskName.style.border = "none"; // Reset to default
+            updatePriorityStatus(taskTile.dataset.id);
+            const titleText = taskName.textContent;
+            if (titleText.includes("!!!")) {
+            taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
+            }
+        }
+    } else {
     console.warn("taskPriorityBtn is null or not found in the DOM.");
-  }
+    }
 }
 
 export function completedBtnClicked(index) {
-  const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
-  const taskTiles = document.querySelectorAll(".task");
-  const taskNames = document.querySelectorAll(".task-name");
-  const taskCompletedBtn = taskCompletedBtns[index];
-  const taskTile = taskTiles[index];
-  const taskName = taskNames[index];
-  if (taskCompletedBtn) {
-    if (taskCompletedBtn.value === "incomplete") {
-      taskCompletedBtn.value = "completed";
-      taskCompletedBtn.style.backgroundColor = "var(--activated)";
-      taskTile.style.textDecoration = "line-through";
-      taskTile.style.textDecorationThickness = "3px";
-      taskTile.style.backgroundColor = "var(--activated)";
-      taskName.style.backgroundColor = "var(--activated)";
-      // taskName.style.borderColor = "var(--activated)";
-      updateCompleteStatus(taskTile.dataset.id);
-      console.log(`taskTiles ID = ${taskTile.dataset.id}`);
-      
-    } else if (taskCompletedBtn.value === "completed") {
-      taskCompletedBtn.value = "incomplete";
-      taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
-      taskTile.style.textDecoration = "none";
-      taskTile.style.backgroundColor = "var(--bkgd)";
-      taskName.style.backgroundColor = "var(--bkgd)";
-      // taskName.style.borderColor = "inherit";
+    const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
+    const taskTiles = document.querySelectorAll(".task");
+    const taskNames = document.querySelectorAll(".task-name");
+    const taskCompletedBtn = taskCompletedBtns[index];
+    const taskTile = taskTiles[index];
+    const taskName = taskNames[index];
+    if (taskCompletedBtn) {
+        if (taskCompletedBtn.value === "incomplete") {
+            taskCompletedBtn.value = "completed";
+            taskCompletedBtn.style.backgroundColor = "var(--activated)";
+            taskTile.style.textDecoration = "line-through";
+            taskTile.style.textDecorationThickness = "3px";
+            taskTile.style.backgroundColor = "var(--activated)";
+            taskName.style.backgroundColor = "var(--activated)";
+            // taskName.style.borderColor = "var(--activated)";
             updateCompleteStatus(taskTile.dataset.id);
-    }
-  } else {
+            console.log(`taskTiles ID = ${taskTile.dataset.id}`);
+            
+        } else if (taskCompletedBtn.value === "completed") {
+            taskCompletedBtn.value = "incomplete";
+            taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
+            taskTile.style.textDecoration = "none";
+            taskTile.style.backgroundColor = "var(--bkgd)";
+            taskName.style.backgroundColor = "var(--bkgd)";
+            // taskName.style.borderColor = "inherit";
+                updateCompleteStatus(taskTile.dataset.id);
+        }
+    } else {
     console.warn("taskCompletedBtn is null or not found in the DOM.");
-  }
+    }
 }
-//task-trash-btn
+
 export function trashBtnClicked(index) {
     const taskTrashBtns = document.querySelectorAll(".task-trash-btn");
     const taskTiles = document.querySelectorAll(".task");
-      const taskTrashBtn = taskTrashBtns[index];
-      const taskTile = taskTiles[index];
-  if (taskTrashBtn) {
-removeTask(taskTile.dataset.id);
-
-  } else {
-    console.warn("taskTrashBtn is null or not found in the DOM.");
-  }
+    const taskTrashBtn = taskTrashBtns[index];
+    const taskTile = taskTiles[index];
+    if (taskTrashBtn) {
+        removeTask(taskTile.dataset.id);
+    } else {
+        console.warn("taskTrashBtn is null or not found in the DOM.");
+    }
 }

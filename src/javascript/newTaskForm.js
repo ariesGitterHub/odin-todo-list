@@ -249,7 +249,7 @@ function getTaskFormData() {
     descriptionText: document.querySelector("#new-task-description").value,
     // taskId: Date.now(),
     taskId:`t${workingTasks.length + 1}`,
-    completedCheck: "incomplete",
+    completedFlag: "incomplete",
   };
 }
 
@@ -259,7 +259,7 @@ function createNewTask(formData) {
     formData.taskName,
     formData.dueByDate,
     formData.priorityFlag,
-    formData.completedCheck,
+    formData.completedFlag,
     formData.folderLocation,
     formData.descriptionText
   );

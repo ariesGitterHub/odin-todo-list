@@ -26,7 +26,7 @@ export function createStatusBar() {
 
     const taskNumBtnP = document.createElement("p");
     taskNumBtnP.id = "task-num-btn-p";
-    taskNumBtnP.textContent = "X";
+    taskNumBtnP.textContent = "0";
 
     const priorityNumBtn = document.createElement("button");
     priorityNumBtn.id = "priority-num-btn";
@@ -38,7 +38,7 @@ export function createStatusBar() {
 
     const priorityNumBtnP = document.createElement("p");
     priorityNumBtnP.id = "priority-num-btn-p";
-    priorityNumBtnP.textContent = "X";
+    priorityNumBtnP.textContent = "0";
 
     const overdueNumBtn = document.createElement("button");
     overdueNumBtn.id = "overdue-num-btn"; 
@@ -50,7 +50,7 @@ export function createStatusBar() {
 
     const overdueNumBtnP = document.createElement("p");
     overdueNumBtnP.id = "overdue-num-btn-p";
-    overdueNumBtnP.textContent = "X";
+    overdueNumBtnP.textContent = "0";
 
     const completedNumBtn = document.createElement("button");
     completedNumBtn.id = "completed-num-btn";
@@ -62,7 +62,7 @@ export function createStatusBar() {
 
     const completedNumBtnP = document.createElement("p");
     completedNumBtnP.id = "completed-num-btn-p";
-    completedNumBtnP.textContent = "X";
+    completedNumBtnP.textContent = "0";
 
     const folderNumBtn = document.createElement("button");
     folderNumBtn.id = "folder-num-btn";
@@ -74,7 +74,7 @@ export function createStatusBar() {
 
     const folderNumBtnP = document.createElement("p");
     folderNumBtnP.id = "folder-num-btn-p";
-    folderNumBtnP.textContent = "X";
+    folderNumBtnP.textContent = "0";
 
     header.appendChild(headerContent)
     headerContent.appendChild(statusBar);
