@@ -26,7 +26,7 @@
 --dark-dklt: #784618; /* dark-lite btn */
 --dark-alert: #a9fe00; /*alert color, contrasts  background*/
 --dark-contrast: #e0daa1; /* contrast against background */
---dark-btn-active: #3b3b56; /* btn activated*/
+--dark-btn-active: #474759; /* btn activated*/
 
 /* Dark Mode Folder Colors */
 /* --dmfc00: var(--dark-contrast); */
@@ -268,8 +268,7 @@ nav button img {
     display: none;
 } */
 
-#status-bar.flex, #new-task-form.flex, #new-folder-form.flex
-{
+#status-bar.flex, #new-task-form.flex, #new-folder-form.flex {
     display: flex;
 }
 
@@ -277,6 +276,10 @@ nav button img {
 {
     display: none;
 } */
+
+.task.none {
+    display: none;
+}
 
 #status-bar {
     height: fit-content;
@@ -600,6 +603,7 @@ form input::-webkit-input-placeholder {
     border-bottom: 4px dashed;
     /* border-color: var(--fc01); */
     /* color: var(--fc01); */
+    display: block;
     font-family: var(--font-plain);
     font-weight: 800;
     /* margin: .5rem; */

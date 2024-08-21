@@ -76,14 +76,109 @@ export function countFolders(folders) {
   //   console.log(
   //     `This is the current list of tasks: ${JSON.stringify(folders, null, 2)}`);
 
-  const folderNumBtnP = document.querySelector("#folder-num-btn-p");
+    const folderNumBtnP = document.querySelector("#folder-num-btn-p");
 
-  if (folders) {
-    const totalFolderCount = folders.length;
-    console.log(`Array length/total # folders = ${totalFolderCount}`);
-    folderNumBtnP.textContent = totalFolderCount;
+    if (folders) {
+        const totalFolderCount = folders.length;
+        console.log(`Array length/total # folders = ${totalFolderCount}`);
+        folderNumBtnP.textContent = totalFolderCount;
 
-  } else {
-    console.warn(`${folders} array is empty or missing from the DOM`);
-  }
+    } else {
+        console.warn(`${folders} array is empty or missing from the DOM`);
+    }
+}
+
+// export function showPriorityView() {
+//     // const taskContent = document.querySelector("#task-content");
+//     const taskTiles = document.querySelectorAll(".task");
+//     const taskTile = taskTiles[index];
+//     const taskPriorityBtn = document.querySelector(".task-priority-btn")
+
+//     taskTiles.forEach(index => {
+//         if (taskPriorityBtn.value === "normal") {
+//           taskTile[index].classList.toggle("none")
+//         }
+//     })
+// }
+// export function showPriorityView() {
+//   // Get all task elements
+//   const taskTiles = document.querySelectorAll(".task");
+//   // Get the priority button
+//   const taskPriorityBtn = document.querySelector(".task-priority-btn");
+
+//   // Get the value of the priority button
+//   const priorityValue = taskPriorityBtn.value;
+
+//   // Iterate over each task tile
+//   taskTiles.forEach((taskTile) => {
+//     // Check if the button's value is "normal"
+//     if (priorityValue === "normal") {
+//       // Toggle the "none" class based on the priority
+//       taskTile.classList.toggle("none");
+//     }
+//   });
+// }
+
+// export function showPriorityView(tasks) {
+//     console.log("I AM A FUNC...");
+
+//     const taskTiles = document.querySelectorAll(".task");
+
+//         taskTiles.forEach(taskTile => {
+//         if (taskTile.dataset.id === tasks.taskId) {
+//             if (tasks.priorityFlag === "normal") {
+//                 taskTile.classList.add("hide-task");
+//                 taskTile.classList.toggle("none");
+//             } 
+//         }   
+//     })
+// }
+
+export function showAllTaskView() {
+  console.log("Show all view...");
+
+  const taskTiles = document.querySelectorAll(".task");
+
+  taskTiles.forEach((taskTile) => {
+    if (taskTile.classList.contains("none")) {
+        taskTile.classList.toggle("none");
+        }
+  });
+}
+    
+export function showPriorityView() {
+    console.log("Priority view...");
+
+    const taskTiles = document.querySelectorAll(".task");
+showAllTaskView();
+    taskTiles.forEach((taskTile) => {
+      const taskPriorityBtn = taskTile.querySelector(".task-priority-btn"); //OOOF! FORGOT ABOUT USING THIS TYPE OF SYNTAX...
+      if (taskPriorityBtn && taskPriorityBtn.value === "normal") {
+        taskTile.classList.add("none");
+      }
+    });
+}
+
+export function showOverdueView() {
+  console.log("Overdue view...");
+  const taskTiles = document.querySelectorAll(".task");
+showAllTaskView();
+  taskTiles.forEach((taskTile) => {
+    const taskOverdueNoticeImg = taskTile.querySelector(".task-overdue-notice-img");
+    if (!taskOverdueNoticeImg) {
+      taskTile.classList.add("none");
+    }
+  });
+}
+
+export function showCompletedView() {
+  console.log("Completed view...");
+  const taskTiles = document.querySelectorAll(".task");
+showAllTaskView();
+  taskTiles.forEach((taskTile) => {
+    const taskCompletedBtn = taskTile.querySelector(".task-completed-btn");
+    if (taskCompletedBtn && taskCompletedBtn.value === "incomplete") {
+      taskTile.classList.add("none");
+    }
+  });
 }

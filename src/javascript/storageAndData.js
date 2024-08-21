@@ -25,7 +25,7 @@ localStorage.setItem("theme", JSON.stringify(workingTheme));
 }
 
 const defaultFolders = [
-    new Folder("f0", "Default", "--fc00"),
+    new Folder("f0", "*Default", "--fc00"),
     new Folder("f1", "Chores", "--fc06"),
     new Folder("f2", "Fitness", "--fc01"),
     new Folder("f3", "Repair", "--fc03"),
@@ -66,27 +66,27 @@ const index = workingFolders.findIndex((folder) => folder.folderId === updatedFo
 }
 
 const defaultTasks = [
-  new Task(
+    new Task(
     "t0",
     "Take out the trash",
-    "2024-08-19",
-    "",
-    "high",
-    "incomplete",
-    "Chores",
-    "Don't forget to empty the upstairs trash cans!"
-  ),
-  new Task(
-    "t1",
-    "Grocery Store",
-    "2024-08-17",
+    "2024-08-01",
     "",
     "normal",
     "incomplete",
     "Chores",
+    "Don't forget to empty the upstairs trash cans!"
+    ),
+    new Task(
+    "t1",
+    "Grocery Store",
+    "2024-08-31",
+    "",
+    "high",
+    "incomplete",
+    "Chores",
     "Buy: apples, potatoes, carrots, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, frozen blueberries."
-  ),
-  new Task(
+    ),
+    new Task(
     "t2",
     "Run my usual 5k course",
     "2024-08-12",
@@ -95,29 +95,29 @@ const defaultTasks = [
     "incomplete",
     "Fitness",
     "Try to go later in the evening, around sunset."
-  ),
-  new Task(
-  "t3",
-  "Write that novel about that thing.",
-  //   "overdue",
-  "2015-11-05",
-  "",
-  "normal",
-  "incomplete",
-  "Default",
-  ""
-  ),
-  new Task(
-  "t4",
-  "Fix the sharks with the frickin' laser beams on their heads.",
-  "2054-04-01",
-  "",
-  "high",
-  "incomplete",
-  "Repair",
-  "Mind the radioactive squid, too."
-  ),
-];
+    ),
+    new Task(
+    "t3",
+    "Write that novel about that thing.",
+    //   "overdue",
+    "2030-11-05",
+    "",
+    "normal",
+    "completed",
+    "*Default",
+    ""
+    ),
+    // new Task(
+    // "t4",
+    // "Fix the sharks with the frickin' laser beams on their heads.",
+    // "2054-04-01",
+    // "",
+    // "high",
+    // "incomplete",
+    // "Repair",
+    // "Mind the radioactive squid, too."
+    // ),
+    ];
 
 export function loadTasks() {
     const savedTasks = localStorage.getItem("tasks");

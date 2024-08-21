@@ -59,7 +59,14 @@ import {
 
 import { toggleDarkLiteMode } from "./javascript/toggleDarkLiteMode.js";
 
-import { countTaskTypes, countFolders } from "./javascript/statusBarBtns.js";
+import {
+  countTaskTypes,
+  countFolders,
+  showAllTaskView,
+  showPriorityView,
+  showOverdueView,
+  showCompletedView,
+} from "./javascript/statusBarBtns.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 createTitle();
@@ -116,6 +123,18 @@ createTitle();
     const newTaskPriorityToggle = document.querySelector("#new-task-priority-toggle");
     darkLiteBtn.addEventListener("click", newTaskPriorityChecked);
     newTaskPriorityToggle.addEventListener("change", newTaskPriorityChecked);
+
+    const taskNumBtn = document.querySelector("#task-num-btn");
+    taskNumBtn.addEventListener("click", showAllTaskView);
+
+    const priorityNumBtn = document.querySelector("#priority-num-btn");
+    priorityNumBtn.addEventListener("click", showPriorityView);
+
+    const overdueNumBtn = document.querySelector("#overdue-num-btn");
+    overdueNumBtn.addEventListener("click", showOverdueView);
+
+    const completedNumBtn = document.querySelector("#completed-num-btn");
+    completedNumBtn.addEventListener("click", showCompletedView);
 
     const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
     taskPriorityBtns.forEach((button, index) => {

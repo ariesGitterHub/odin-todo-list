@@ -258,6 +258,7 @@ function createNewTask(formData) {
     formData.taskId,
     formData.taskName,
     formData.dueByDate,
+    formData.overdueFlag,
     formData.priorityFlag,
     formData.completedFlag,
     formData.folderLocation,
