@@ -231,7 +231,7 @@ export function checkIfOverdue(tasks) {
     if (dueDate < today) {
         task.overdueFlag = "overdue";
     } else {
-        task.overdueFlag = "normal";
+        task.overdueFlag = "on-time";
     }
     });
 
@@ -241,13 +241,13 @@ export function checkIfOverdue(tasks) {
         const taskDueDate = taskDueDates[index];
 
         let dueDateStr = taskDueDate.dataset.date;
-        console.log(`dueDateStr: ${dueDateStr}`);
+        // console.log(`dueDateStr: ${dueDateStr}`);
 
         let readDueDate = new Date(dueDateStr);
-        console.log(`readDueDate: ${readDueDate}`);
+        // console.log(`readDueDate: ${readDueDate}`);
 
         const isToday = isEqual(startOfDay(readDueDate), startOfDay(today));
-        console.log(`isToday? ${isToday}`);
+        // console.log(`isToday? ${isToday}`);
 
         const isOverdue = isBefore(endOfDay(readDueDate), endOfDay(today));
         // console.log(`isOverdue? ${isOverdue}`);
@@ -299,5 +299,46 @@ export function checkIfNoTasks() {
         noCurrentTaskMsg.textContent = msg;
         taskContent.appendChild(noCurrentTaskMsg);
     }
+}
+
+// export function checkFolderStatusAddClass(folders) {
+//     const taskTiles = document.querySelectorAll(".task");
+//     let folderClass = "";
+//     taskTiles.forEach((taskTile) => {
+
+//         const taskFolder = taskTile.querySelector(".task-folder");
+
+//         let folder = taskFolder.dataset.folder;
+
+        
+
+//         })
+  
+// }
+
+// export function checkFolderAddClass(folders) {
+//     const taskTiles = document.querySelectorAll(".task");
+//         taskTiles.forEach((taskTile) => {
+//         const taskFolder = taskTile.querySelector(".task-folder");
+//         let folderName = taskFolder.dataset.folder;
+//         console.log(`THIS FOLDER NAME is... ${folderName}`);
+
+//         })
+// }
+export function checkFolderAddClass() {
+  const taskTiles = document.querySelectorAll(".task");
+
+  taskTiles.forEach((taskTile) => {
+    const taskFolder = taskTile.querySelector(".task-folder");
+
+    if (taskFolder) {
+      const folderNameData = taskFolder.dataset.folder;
+
+      // Sanitize folder name to avoid spacing issue in class
+      const sanitizedClassName = folderNameData.replace(/\s+/g, "-");
+
+      taskTile.classList.add(sanitizedClassName);
+    }
+  });
 }
 

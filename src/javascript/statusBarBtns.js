@@ -37,7 +37,7 @@ export function countTaskTypes(tasks) {
     if (tasks) {
       // Total number of tasks
       const totalTaskCount = tasks.length;
-      console.log(`Array length/total # tasks = ${totalTaskCount}`);
+      // console.log(`Array length/total # tasks = ${totalTaskCount}`);
       taskNumBtnP.textContent = totalTaskCount;
 
       // Total number of priority tasks
@@ -45,7 +45,7 @@ export function countTaskTypes(tasks) {
         if (task.priorityFlag === "high") {
           totalPriorityCount += 1;
           priorityNumBtnP.textContent = totalPriorityCount;
-          console.log(`Priority tasks = ${totalPriorityCount}`);
+          // console.log(`Priority tasks = ${totalPriorityCount}`);
         }
       });
 
@@ -54,7 +54,7 @@ export function countTaskTypes(tasks) {
             if (task.overdueFlag === "overdue") {
             totalOverdueCount += 1;
             overdueNumBtnP.textContent = totalOverdueCount;
-            console.log(`Priority tasks = ${totalOverdueCount}`);
+            // console.log(`Priority tasks = ${totalOverdueCount}`);
             }
         });
 
@@ -63,7 +63,7 @@ export function countTaskTypes(tasks) {
         if (task.completedFlag === "completed") {
           totalCompletedCount += 1;
           completedNumBtnP.textContent = totalCompletedCount;
-          console.log(`Completed tasks = ${totalCompletedCount}`);
+          // console.log(`Completed tasks = ${totalCompletedCount}`);
         }
       });
     } else {
@@ -80,7 +80,7 @@ export function countFolders(folders) {
 
     if (folders) {
         const totalFolderCount = folders.length;
-        console.log(`Array length/total # folders = ${totalFolderCount}`);
+        // console.log(`Array length/total # folders = ${totalFolderCount}`);
         folderNumBtnP.textContent = totalFolderCount;
 
     } else {
@@ -135,7 +135,7 @@ export function countFolders(folders) {
 // }
 
 export function showAllTaskView() {
-  console.log("Show all view...");
+  // console.log("Show all view...");
 
   const taskTiles = document.querySelectorAll(".task");
 
@@ -147,7 +147,7 @@ export function showAllTaskView() {
 }
     
 export function showPriorityView() {
-    console.log("Priority view...");
+    // console.log("Priority view...");
 
     const taskTiles = document.querySelectorAll(".task");
 showAllTaskView();
@@ -160,7 +160,7 @@ showAllTaskView();
 }
 
 export function showOverdueView() {
-  console.log("Overdue view...");
+  // console.log("Overdue view...");
   const taskTiles = document.querySelectorAll(".task");
 showAllTaskView();
   taskTiles.forEach((taskTile) => {
@@ -172,7 +172,7 @@ showAllTaskView();
 }
 
 export function showCompletedView() {
-  console.log("Completed view...");
+  // console.log("Completed view...");
   const taskTiles = document.querySelectorAll(".task");
 showAllTaskView();
   taskTiles.forEach((taskTile) => {
@@ -182,3 +182,40 @@ showAllTaskView();
     }
   });
 }
+
+export function showFolderView() {
+    // console.log(`clicked on FOLDER NUM BTNS...`);
+    const folderContent = document.querySelector("#folder-content");
+    const taskContent = document.querySelector("#task-content");
+    // folderContent.classList.add("none");
+    // taskContent.classList.add("flex");
+    if (!taskContent.classList.contains("none")) {
+      taskContent.classList.toggle("none");
+      folderContent.classList.toggle("none");
+    } else if (taskContent.classList.contains("none")) {
+      taskContent.classList.toggle("none");
+      folderContent.classList.toggle("none");
+    }
+
+
+}
+//ADD TO ABOVE....
+
+// export function handleNewTaskBtn() {
+//   const statusBar = document.querySelector("#status-bar");
+//   const newTaskForm = document.querySelector("#new-task-form");
+//   const newFolderForm = document.querySelector("#new-folder-form");
+//   if (newTaskForm) {
+//     if (statusBar && statusBar.classList.contains("flex")) {
+//       statusBar.classList.toggle("flex");
+//       newTaskForm.classList.toggle("flex");
+//     } else if (newFolderForm && newFolderForm.classList.contains("flex")) {
+//       newFolderForm.classList.toggle("flex");
+//       newTaskForm.classList.toggle("flex");
+//     } else {
+//       newTaskForm.classList.toggle("flex");
+//     }
+//   } else {
+//     console.warn("newTaskForm is null or not found in the DOM.");
+//   }
+// }

@@ -57,7 +57,7 @@ import {
 //   }
 // }
 
-function defaultTaskBtnImgs() {
+export function defaultTaskBtnImgs() {
     if (workingTheme[0].mode === "dark") {
         return {
             overdueNotice: dmTaskOverdueNoticeImg,
@@ -79,6 +79,7 @@ function defaultTaskBtnImgs() {
 
 export function createTasks(tasks) { 
     const taskContent = document.querySelector("#task-content");
+    // taskContent.classList.add("flex");
     // taskContent.innerHTML = "";
 
     const imgUrls = defaultTaskBtnImgs();
@@ -122,6 +123,8 @@ export function createTasks(tasks) {
         taskOverdueNoticeP.classList.add("task-overdue-notice-p");
         taskOverdueNoticeP.textContent = "";
 
+        // const sanitizedTaskFolderDataset = folderItem.folderName.replace(/\s+/g, "-");
+
         const taskFolder = document.createElement("div");
         taskFolder.classList.add("task-folder");
         taskFolder.dataset.folder = `${taskItem.folderLocation}`;
@@ -149,7 +152,7 @@ export function createTasks(tasks) {
 
         const taskPriorityBtnImg = document.createElement("img");
         taskPriorityBtnImg.classList.add("task-priority-btn-img");
-        taskPriorityBtnImg.src = imgUrls.priority;;
+        taskPriorityBtnImg.src = imgUrls.priority;
         taskPriorityBtnImg.alt = "Priority task icon";
 
         const taskBtnCol2 = document.createElement("div");

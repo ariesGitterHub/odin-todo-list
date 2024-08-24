@@ -7,15 +7,17 @@
 
 /* ******* TABLE OF CONTENTS ******* */
 /* ROOT/GLOBALS                      */
-/* HEADER                            */
-/* HEADER CONTENT                    */
+/* HEADER AND NAV                    */
 /* --> STATUS BANNER                 */
 /* --> NEW TASK FORM                 */
 /* --> NEW FOLDER FORM               */
+/* FOLDER CONTENT                    */
 /* TASK CONTENT                      */
 /* FOOTER                            */
 /* ******* TABLE OF CONTENTS ******* */
 
+
+/* ROOT/GLOBALS                      */
 
 :root {
 /* Dark Mode Palette */
@@ -73,6 +75,9 @@
 --font-hand: "Indie Flower", cursive;
 --font-plain:  "Questrial", sans-serif;
 
+--btn-scale-bg: 1.1;
+--btn-scale-sm: .9;
+
 /* Sizing Values */
 /* --font-title-size: 1.25rem; */
 }
@@ -129,6 +134,9 @@ body {
     --fc09: var(--lmfc09);
     --fc10: var(--lmfc10);
 }
+
+
+/* HEADER AND NAV                    */
 
 header {
     height: fit-content;
@@ -248,11 +256,11 @@ nav #dark-lite-btn {
 nav button:hover, nav button:focus {
     border: 2.5px dashed var(--contrast);
     outline: none;
-    transform: scale(1.2);
+    transform: scale(var(--btn-scale-bg));
 }
 
 nav button:active {
-    transform: scale(.9);
+    transform: scale(var(--btn-scale-sm));
 }
 
 nav button img {
@@ -277,9 +285,6 @@ nav button img {
     display: none;
 } */
 
-.task.none {
-    display: none;
-}
 
 #status-bar {
     height: fit-content;
@@ -320,11 +325,11 @@ nav button img {
 #status-bar button:hover, #status-bar button:focus {
     background-color: var(--bkgd);
     border: 2px dashed var(--contrast);
-    transform: scale(1.2);
+    transform: scale(var(--btn-scale-bg));
 }
 
 #status-bar button:active {
-    transform: scale(.9);
+    transform: scale(var(--btn-scale-sm));
 }
 
 #status-bar button img {
@@ -447,6 +452,13 @@ form input::-webkit-input-placeholder {
     align-items: center;
 } */
 
+.lvl-row-spaced {
+    display: flex;
+        justify-content: start;
+        align-items: center;
+        /* gap: .5rem */
+}
+
 .lvl-row-width {
     width: 27ch;
     display: flex;
@@ -506,11 +518,11 @@ form input::-webkit-input-placeholder {
 
 .color-picker-btn:hover, .color-picker-btn:focus {
     border: 2.5px dashed var(--bkgd);
-    transform: scale(1.2);
+    transform: scale(var(--btn-scale-bg));
 }
 
 .color-picker-btn:active {
-    transform: scale(.9);
+    transform: scale(var(--btn-scale-sm));
 }
 
 #fc01 {
@@ -572,18 +584,104 @@ form input::-webkit-input-placeholder {
 
 .cancel:hover, .cancel:focus, .submit:hover, .submit:focus  {
     border: 2px dashed var(--contrast);
-    transform: scale(1.2);
+    transform: scale(var(--btn-scale-bg));
 }
 
 .cancel:active, .submit:active {
-    transform: scale(.9);
+    transform: scale(var(--btn-scale-sm));
 }
 
-#task-content {
+#task-content, #folder-content {
     background-color: var(--bkgd);
     color: var(--contrast);
     /* margin: 0; */
 }
+
+/* #task-content.flex {
+    display: flex;
+    flex-direction: column;
+} */
+
+#folder-content.none {
+    display: none;
+}
+
+.folder {
+    height: fit-content;
+    /* border-color: var(--bkgd); */
+        border: 2.5px solid;
+            border-color: var(--bkgd);
+    border-radius: 2rem;
+    color: var(--bkgd);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-plain);
+    font-size: 1.25rem;
+    font-weight: 800;
+    /* margin: .5rem; */
+    /* TWEAK as needed */
+    margin: 0 5px 0 5px;
+    padding: 5px; 
+}
+
+
+.folder-task-btn, .folder-edit-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--bkgd);
+    border: 2.5px solid;
+    border-color: var(--bkgd);
+    border-radius: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: .25rem; */
+}
+
+.folder-task-btn:hover, .folder-task-btn:focus, .folder-edit-btn:hover, .folder-edit-btn:focus{
+    /* background-color: var(--dark-yes); */
+    border: 2.5px dashed;
+    border-color: var(--bkgd);
+    transform: scale(var(--btn-scale-bg));
+}
+
+.folder-task-btn:active, .folder-edit-btn:active {
+    transform: scale(var(--btn-scale-sm));
+}
+
+/* DELETE trash btn img ref if I do not use it */
+.folder-task-btn-img, .folder-folder-img, .folder-edit-btn-img, .folder-trash-btn-img {
+height: 1.5rem;
+/* background-color: var(--bkgd); */
+}
+
+.folder-folder-img {
+margin: 0 .25rem 0 .5rem;
+}
+
+.folder-task-field {
+
+}
+
+.task-folder-p {
+    font-family: var(--font-plain);
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 1rem;
+    padding: .25rem;
+}
+
+.task-folder-p.none {
+    display: none;
+}
+
+#task-content.none {
+    display: none;
+}
+
+
+
 
 .section-bot-pad {
     height: .5rem;
@@ -611,6 +709,11 @@ form input::-webkit-input-placeholder {
     margin:0;
     padding: 1rem; 
 }
+
+.task.none {
+    display: none;
+}
+
 
 .task-name {
     font-size: 1.5rem;
@@ -663,6 +766,8 @@ form input::-webkit-input-placeholder {
 height: 1.5rem;
 }
 
+
+
 .task button {
     height: 2.5rem;
     width: 2.5rem;
@@ -676,6 +781,8 @@ height: 1.5rem;
     /* padding: .25rem; */
 }
 
+
+
 .task-btn-cont {
     gap: 1.25rem;
     /* padding-top: .5rem; */
@@ -686,11 +793,11 @@ height: 1.5rem;
     /* background-color: var(--dark-yes); */
     border: 2.5px dashed;
     /* border-color: var(--fc01); */
-    transform: scale(1.2);
+    transform: scale(var(--btn-scale-bg));
 }
 
 .task button:active {
-    transform: scale(.9);
+    transform: scale(var(--btn-scale-sm));
 }
 
 

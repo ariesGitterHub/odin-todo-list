@@ -47,7 +47,14 @@ import {
     checkIfOverdue,
     checkDescriptionStatus,
     checkIfNoTasks,
+    checkFolderAddClass
 } from "./javascript/checkStatus.js";
+
+import {
+  createFolders,
+  folderTaskBtnClicked,
+//   colorFolderText,
+} from "./javascript/folderContent.js";
 
 import {
     createTasks,
@@ -66,6 +73,7 @@ import {
   showPriorityView,
   showOverdueView,
   showCompletedView,
+  showFolderView,
 } from "./javascript/statusBarBtns.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -90,6 +98,8 @@ createTitle();
     // saveTheme();
     checkAndOrganizeByDate(workingTasks)
     checkAndOrganizeByName(workingFolders);
+    createFolders(workingFolders);
+    // colorFolderText(workingFolders, workingTasks);
     createTasks(workingTasks);
     createTaskColor(workingFolders);
     checkPriorityStatus(workingTasks);
@@ -136,12 +146,27 @@ createTitle();
     const completedNumBtn = document.querySelector("#completed-num-btn");
     completedNumBtn.addEventListener("click", showCompletedView);
 
+    const folderNumBtn = document.querySelector("#folder-num-btn");
+    folderNumBtn.addEventListener("click", showFolderView);
+
+    const folderTaskBtns = document.querySelectorAll(".folder-task-btn");
+    folderTaskBtns.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        folderTaskBtnClicked(index);
+        // window.location.reload();
+        // console.log([index]);
+      });
+    });
+
+
+
+
     const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
     taskPriorityBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         priorityBtnClicked(index);
         window.location.reload();
-        console.log([index]);
+        // console.log([index]);
         });
     });
 
@@ -150,7 +175,7 @@ createTitle();
         button.addEventListener("click", () => {
         completedBtnClicked(index);
         window.location.reload();
-        console.log([index]);
+        // console.log([index]);
         });
     });
 
@@ -158,11 +183,11 @@ createTitle();
     taskTrashBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         trashBtnClicked(index);
-        console.log([index]);
+        // console.log([index]);
         });
     });
 
     countTaskTypes(workingTasks);  
     countFolders(workingFolders); 
-
+    checkFolderAddClass();
 });

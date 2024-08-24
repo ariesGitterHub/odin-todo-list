@@ -133,6 +133,11 @@ export function toggleDarkLiteMode(theme) {
     const folderNumBtnImg = document.querySelector("#folder-num-btn-img");
     const newTaskImg = document.querySelector("#new-task-img");
     const newFolderImg = document.querySelector("#new-folder-img");
+
+    const folderTaskBtnImg = document.querySelectorAll(".folder-task-btn-img");
+    const folderFolderImg = document.querySelectorAll(".folder-folder-img")
+    const folderEditBtnImg = document.querySelectorAll(".folder-edit-btn-img");
+
     const taskPriorityBtnImg = document.querySelectorAll(".task-priority-btn-img");
     const taskCompletedBtnImg = document.querySelectorAll(".task-completed-btn-img");
     const taskEditBtnImg = document.querySelectorAll(".task-edit-btn-img");
@@ -154,6 +159,20 @@ export function toggleDarkLiteMode(theme) {
         folderNumBtnImg.src = dmFolderImg;
         newTaskImg.src = dmNewTaskImg;
         newFolderImg.src = dmNewFolderImg;
+
+        folderTaskBtnImg.forEach(function (image) {
+            image.src = lmTaskImg;
+        });
+
+        folderFolderImg.forEach(function (image) {
+            image.src = lmFolderImg;
+        });
+
+        folderEditBtnImg.forEach(function (image) {
+          image.src = lmEditImg;
+        });
+
+
 
         taskPriorityBtnImg.forEach(function (image) {
             image.src = dmPriorityImg;
@@ -184,6 +203,19 @@ export function toggleDarkLiteMode(theme) {
         folderNumBtnImg.src = lmFolderImg;
         newTaskImg.src = lmNewTaskImg;
         newFolderImg.src = lmNewFolderImg;
+
+        folderTaskBtnImg.forEach(function (image) {
+            image.src = dmTaskImg;
+        });
+        folderFolderImg.forEach(function (image) {
+            image.src = dmFolderImg;
+        });
+
+        folderEditBtnImg.forEach(function (image) {
+          image.src = dmEditImg;
+        });
+
+
 
         taskPriorityBtnImg.forEach(function (image) {
             image.src = lmPriorityImg;

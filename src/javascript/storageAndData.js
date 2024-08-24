@@ -26,9 +26,11 @@ localStorage.setItem("theme", JSON.stringify(workingTheme));
 
 const defaultFolders = [
     new Folder("f0", "*Default", "--fc00"),
-    new Folder("f1", "Chores", "--fc06"),
+    new Folder("f1", "Chores", "--fc09"),
     new Folder("f2", "Fitness", "--fc01"),
     new Folder("f3", "Repair", "--fc03"),
+    new Folder("f4", "Social", "--fc04"),
+    new Folder("f5", "Travel", "--fc06"),
 ];
 
 export function loadFolders() {
@@ -100,23 +102,23 @@ const defaultTasks = [
     "t3",
     "Write that novel about that thing.",
     //   "overdue",
-    "2030-11-05",
+    "2000-11-05",
     "",
     "normal",
-    "completed",
+    "incomplete",
     "*Default",
     ""
     ),
-    // new Task(
-    // "t4",
-    // "Fix the sharks with the frickin' laser beams on their heads.",
-    // "2054-04-01",
-    // "",
-    // "high",
-    // "incomplete",
-    // "Repair",
-    // "Mind the radioactive squid, too."
-    // ),
+    new Task(
+    "t4",
+    "Fix the sharks with the frickin' laser beams on their heads",
+    "2054-04-01",
+    "",
+    "high",
+    "incomplete",
+    "Repair",
+    "Mind the radioactive squid, too."
+    ),
     ];
 
 export function loadTasks() {
