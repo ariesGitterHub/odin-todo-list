@@ -661,15 +661,18 @@ margin: 0 .25rem 0 .5rem;
 }
 
 .folder-task-field {
-
+/* line-height: 2px; */
+    /* margin: 1rem;
+    padding: .25rem; */
 }
 
 .task-folder-p {
     font-family: var(--font-plain);
     font-size: 1rem;
     font-weight: 800;
-    margin: 1rem;
-    padding: .25rem;
+    margin: 0 1.25rem 0 1.25rem;
+    /* padding: .15rem .25rem .05rem .25rem;  */
+    padding: 0.2rem;
 }
 
 .task-folder-p.none {

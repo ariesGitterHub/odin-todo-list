@@ -73,7 +73,7 @@ const defaultTasks = [
     "Take out the trash",
     "2024-08-01",
     "",
-    "normal",
+    "low",
     "incomplete",
     "Chores",
     "Don't forget to empty the upstairs trash cans!"
@@ -93,7 +93,7 @@ const defaultTasks = [
     "Run my usual 5k course",
     "2024-08-12",
     "",
-    "normal",
+    "low",
     "incomplete",
     "Fitness",
     "Try to go later in the evening, around sunset."
@@ -104,7 +104,7 @@ const defaultTasks = [
     //   "overdue",
     "2000-11-05",
     "",
-    "normal",
+    "low",
     "incomplete",
     "*Default",
     ""
@@ -154,7 +154,7 @@ export function updatePriorityStatus(dataId) {
     tasks = tasks.map((task) => {
         if (task.taskId === dataId) {
         // Toggle the status
-        task.priorityFlag = task.priorityFlag === "normal" ? "high" : "normal";
+        task.priorityFlag = task.priorityFlag === "low" ? "high" : "low";
         }
         return task;
     });

@@ -148,7 +148,7 @@ export function createTasks(tasks) {
       
         const taskPriorityBtn = document.createElement("button");
         taskPriorityBtn.classList.add("task-priority-btn");
-        taskPriorityBtn.value = "normal";
+        taskPriorityBtn.value = "low";
 
         const taskPriorityBtnImg = document.createElement("img");
         taskPriorityBtnImg.classList.add("task-priority-btn-img");
@@ -260,7 +260,7 @@ export function priorityBtnClicked(index) {
     const taskName = taskNames[index];
 
     if (taskPriorityBtn) {
-        if (taskPriorityBtn.value === "normal") {
+        if (taskPriorityBtn.value === "low") {
             taskPriorityBtn.value = "high";
             taskPriorityBtn.style.backgroundColor = "var(--activated)";
             taskName.style.border = "2px solid var(--alert)";
@@ -270,7 +270,7 @@ export function priorityBtnClicked(index) {
             taskName.textContent += " !!!";
             }
         } else if (taskPriorityBtn.value === "high") {
-            taskPriorityBtn.value = "normal";
+            taskPriorityBtn.value = "low";
             taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
             taskName.style.border = "none"; // Reset to default
             updatePriorityStatus(taskTile.dataset.id);

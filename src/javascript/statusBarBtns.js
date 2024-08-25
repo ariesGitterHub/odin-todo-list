@@ -153,7 +153,7 @@ export function showPriorityView() {
 showAllTaskView();
     taskTiles.forEach((taskTile) => {
       const taskPriorityBtn = taskTile.querySelector(".task-priority-btn"); //OOOF! FORGOT ABOUT USING THIS TYPE OF SYNTAX...
-      if (taskPriorityBtn && taskPriorityBtn.value === "normal") {
+      if (taskPriorityBtn && taskPriorityBtn.value === "low") {
         taskTile.classList.add("none");
       }
     });

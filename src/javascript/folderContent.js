@@ -73,6 +73,7 @@ export function createFolders(folders) {
 
   const imgUrls = defaultFolderBtnImgs();
 
+
   folders.forEach((folderItem) => {
 
     const folder = document.createElement("div");
@@ -128,23 +129,34 @@ export function createFolders(folders) {
       (task) => task.folderLocation === folderItem.folderName
       );
 
+
+
     matchingTasks.forEach((task) => {
-
     const sanitizedTaskFolderP = folderItem.folderName.replace(/\s+/g, "-");
+    const taskFolderPName = document.createElement("p");
+    const taskFolderPDate = document.createElement("p");
+    const taskFolderPCOP = document.createElement("p");
+    const taskFolderBreak = document.createElement("br");
+        // taskFolderP.classList.add("task-folder-p", sanitizedTaskFolderP);
+    taskFolderPName.classList.add("task-folder-p", sanitizedTaskFolderP);
+    taskFolderPDate.classList.add("task-folder-p", sanitizedTaskFolderP);
+    taskFolderPCOP.classList.add("task-folder-p", sanitizedTaskFolderP);
+    taskFolderPName.textContent = `${task.taskName.toUpperCase()}`;
+    taskFolderPDate.textContent = `Due by ${reformatDate(
+    task.dueByDate.replace(/-/g, "/")
+    )}; ${task.overdueFlag}`;
+    taskFolderPCOP.textContent = `Status: ${task.completedFlag}, ${task.priorityFlag} priority`;
 
-      const taskFolderP = document.createElement("p");
-    //   taskFolderP.classList.add(
-    //     "task-folder-p",
-    //     `${task.folderLocation}.replace(/\s+/g, '-')`
-    //   );
+    folderTaskField.append(
+        taskFolderPName,
+        taskFolderPDate,
+        taskFolderPCOP,
+        taskFolderBreak
+    );
+    folderTaskField.style.color = `var(${folderTaskField.dataset.color})`;
+});
 
-    taskFolderP.classList.add("task-folder-p", sanitizedTaskFolderP);
-
-      taskFolderP.textContent = `"${
-        task.taskName.toUpperCase()}" (Due ${task.dueByDate}; Status: ${task.overdueFlag}; Priority: ${task.priorityFlag})`; // Assuming each task has a taskName property
-      folderTaskField.appendChild(taskFolderP);
-            taskFolderP.style.color = `var(${folderTaskField.dataset.color})`;
-    });
+    
 
       // const folderTrashBtn = document.createElement("button");
     // folderTrashBtn.classList.add("folder-trash-btn");

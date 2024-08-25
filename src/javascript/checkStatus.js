@@ -172,7 +172,7 @@ export function checkPriorityStatus(tasks) {
                 taskName.textContent += " !!!";
             }
         } else {
-            taskPriorityBtn.value = "normal";
+            taskPriorityBtn.value = "low";
             const titleText = taskName.textContent;
             if (titleText.includes("!!!")) {
             taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
