@@ -40,6 +40,7 @@ import dmCompletedImg from "../assets/dm-completed.svg"; // Also in taskContent
 import dmFolderImg from "../assets/dm-folder.svg";
 
 import dmNewTaskPriorityFlagImg from "../assets/dm-priority-adta.svg";
+import dmNewTaskPriorityFlagImgBG from "../assets/dm-priority-adta-bg.svg";
 
 // For taskContent.js 
 import dmTaskOverdueNoticeImg from "../assets/dm-overdue-adta.svg";
@@ -55,6 +56,7 @@ export {
   dmCompletedImg,
   dmFolderImg,
   dmNewTaskPriorityFlagImg,
+  dmNewTaskPriorityFlagImgBG,
   dmTaskOverdueNoticeImg,
   dmTaskOverdueBgImg,
   dmEditImg,
@@ -68,6 +70,7 @@ import lmCompletedImg from "../assets/lm-completed.svg"; // Also in taskContent
 import lmFolderImg from "../assets/lm-folder.svg";
 
 import lmNewTaskPriorityFlagImg from "../assets/lm-priority-adta.svg";
+import lmNewTaskPriorityFlagImgBG from "../assets/lm-priority-adta-bg.svg";
 
 // For taskContent.js 
 import lmTaskOverdueNoticeImg from "../assets/lm-overdue-adta.svg";
@@ -83,6 +86,7 @@ export {
   lmCompletedImg,
   lmFolderImg,
   lmNewTaskPriorityFlagImg,
+  lmNewTaskPriorityFlagImgBG,
   lmTaskOverdueNoticeImg,
   lmTaskOverdueBgImg,
   lmEditImg,

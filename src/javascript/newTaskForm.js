@@ -1,7 +1,9 @@
 import {
   dmNewTaskImg,
   dmNewTaskPriorityFlagImg,
+  dmNewTaskPriorityFlagImgBG,
   lmNewTaskPriorityFlagImg,
+  lmNewTaskPriorityFlagImgBG,
 } from "./imageExporter.js";
 
 import { Task } from "./classes.js";
@@ -184,13 +186,17 @@ export function newTaskPriorityChecked() {
         if (newTaskPriorityToggle.checked && darkLiteBtn.value === "dark") {
             newTaskPriorityToggle.dataset.value = "high";
             newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImg;
+        } else if (!newTaskPriorityToggle.checked && darkLiteBtn.value === "dark") {
+            newTaskPriorityToggle.dataset.value = "low";
+            newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImgBG;
         } else if (newTaskPriorityToggle.checked && darkLiteBtn.value === "lite") {
             newTaskPriorityToggle.dataset.value = "high";
             newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImg;
-        } else {
+        } else if (!newTaskPriorityToggle.checked && darkLiteBtn.value === "lite") {
             newTaskPriorityToggle.dataset.value = "low";
-            newTaskPriorityFlagImg.src = "";
-        }     
+            newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImgBG;
+        }
+  
     } else {
         console.warn("newTaskPriorityToggle is null or not found in the DOM.");
     }
