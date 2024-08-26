@@ -93,7 +93,7 @@ export function createNewTaskForm() {
 
     const newTaskPriorityFlagImg = document.createElement("img");
     newTaskPriorityFlagImg.id = "new-task-priority-flag-img";
-    newTaskPriorityFlagImg.src = "";
+    newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImgBG;
     newTaskPriorityFlagImg.alt = "";
 
     const lvlCol4 = document.createElement("div");
@@ -196,7 +196,14 @@ export function newTaskPriorityChecked() {
             newTaskPriorityToggle.dataset.value = "low";
             newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImgBG;
         }
-  
+        
+        
+        
+        
+        // else {
+        //     newTaskPriorityToggle.dataset.value = "low";
+        //     newTaskPriorityFlagImg.src = "";
+        // }     
     } else {
         console.warn("newTaskPriorityToggle is null or not found in the DOM.");
     }
