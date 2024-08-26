@@ -144,8 +144,11 @@ export function toggleDarkLiteMode(theme) {
     const taskTrashBtnImg = document.querySelectorAll(".task-trash-btn-img");
     const taskOverdueNoticeImg = document.querySelectorAll(".task-overdue-notice-img");
 
+
+
     if (darkLiteBtn) {
         if (theme[0].mode === "dark") {
+        titleImg.classList.toggle("flip");            
         body.classList.remove("lite-mode");
         titleImg.src = dmCrownImg;
         statusBtnImg.src = dmStatusImg;
@@ -190,6 +193,7 @@ export function toggleDarkLiteMode(theme) {
             image.src = dmTaskOverdueNoticeImg;
         });
     } else if (theme[0].mode === "lite") {
+        titleImg.classList.toggle("flip"); 
         body.classList.add("lite-mode");
         titleImg.src = lmCoffeeImg;
         statusBtnImg.src = lmStatusImg;

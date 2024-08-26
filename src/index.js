@@ -149,14 +149,14 @@ createTitle();
     const folderNumBtn = document.querySelector("#folder-num-btn");
     folderNumBtn.addEventListener("click", showFolderView);
 
-    const folderTaskBtns = document.querySelectorAll(".folder-task-btn");
-    folderTaskBtns.forEach((button, index) => {
-      button.addEventListener("click", () => {
-        folderTaskBtnClicked(index);
-        // window.location.reload();
-        // console.log([index]);
-      });
-    });
+    // const folderTaskBtns = document.querySelectorAll(".folder-task-btn");
+    // folderTaskBtns.forEach((button, index) => {
+    //   button.addEventListener("click", () => {
+    //     folderTaskBtnClicked(index);
+    //     // window.location.reload();
+    //     // console.log([index]);
+    //   });
+    // });
 
 
 

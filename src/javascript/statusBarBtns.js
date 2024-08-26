@@ -145,12 +145,14 @@ export function showAllTaskView() {
         }
   });
 }
-    
+
+
 export function showPriorityView() {
     // console.log("Priority view...");
 
     const taskTiles = document.querySelectorAll(".task");
 showAllTaskView();
+removeFolderView();
     taskTiles.forEach((taskTile) => {
       const taskPriorityBtn = taskTile.querySelector(".task-priority-btn"); //OOOF! FORGOT ABOUT USING THIS TYPE OF SYNTAX...
       if (taskPriorityBtn && taskPriorityBtn.value === "low") {
@@ -163,6 +165,7 @@ export function showOverdueView() {
   // console.log("Overdue view...");
   const taskTiles = document.querySelectorAll(".task");
 showAllTaskView();
+removeFolderView();
   taskTiles.forEach((taskTile) => {
     const taskOverdueNoticeImg = taskTile.querySelector(".task-overdue-notice-img");
     if (!taskOverdueNoticeImg) {
@@ -175,6 +178,7 @@ export function showCompletedView() {
   // console.log("Completed view...");
   const taskTiles = document.querySelectorAll(".task");
 showAllTaskView();
+removeFolderView();
   taskTiles.forEach((taskTile) => {
     const taskCompletedBtn = taskTile.querySelector(".task-completed-btn");
     if (taskCompletedBtn && taskCompletedBtn.value === "incomplete") {
@@ -183,16 +187,31 @@ showAllTaskView();
   });
 }
 
+export function removeFolderView() {
+      const folderContent = document.querySelector("#folder-content");
+      const taskContent = document.querySelector("#task-content");
+
+      if (!folderContent.classList.contains("none")) {
+        folderContent.classList.toggle("none");
+		taskContent.classList.toggle("none");
+		showAllTaskView();
+      } 
+}
+    
+
 export function showFolderView() {
     // console.log(`clicked on FOLDER NUM BTNS...`);
     const folderContent = document.querySelector("#folder-content");
     const taskContent = document.querySelector("#task-content");
+    // showAllTaskView();
+	// removeFolderView();
     // folderContent.classList.add("none");
     // taskContent.classList.add("flex");
     if (!taskContent.classList.contains("none")) {
       taskContent.classList.toggle("none");
       folderContent.classList.toggle("none");
-    } else if (taskContent.classList.contains("none")) {
+    } 
+	else if (taskContent.classList.contains("none")) {
       taskContent.classList.toggle("none");
       folderContent.classList.toggle("none");
     }

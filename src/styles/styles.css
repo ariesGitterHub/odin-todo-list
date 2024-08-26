@@ -89,7 +89,6 @@
 }
 
 body {
-
     --bkgd: var(--dark-bkgd);
     --stba: var(--dark-stba);
     --adta: var(--dark-adta);
@@ -110,6 +109,8 @@ body {
     --fc08: var(--dmfc08);
     --fc09: var(--dmfc09);
     --fc10: var(--dmfc10);
+
+        background-color: var(--bkgd);
 }
 
 .lite-mode {
@@ -145,6 +146,7 @@ header {
     background-color: var(--bkgd);
     color: var(--contrast);
     /* padding-top: .5rem; */
+
 }
 
 /* ++++++++++++++++ */
@@ -187,6 +189,10 @@ header {
         align-items: center;
     font-size: 1.5rem;
 }
+/* #app-title-cont h1 {
+    margin: 0;
+    padding: 0;
+} */
 
 #app-title-cont img {
     height: 2.25rem;
@@ -194,6 +200,27 @@ header {
     margin-left: .35rem;
     margin-right: .35rem;
     /* padding-bottom: 1rem; */
+}
+
+.flipImg {
+    width: 200px;
+    height: auto;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+#MMM {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-hand);
+    font-size: 1rem;
+    margin: -.25rem 0 .25rem 0;
+    padding: 0;
 }
 
 #app-date {
@@ -822,20 +849,22 @@ height: 1.5rem;
 
 
 
-footer {
+/* footer {
     background-color: var(--bkgd);
         border-top: 4px solid var(--contrast);
     color: var(--contrast);
-}
+} */
 
-#MMM {
+/* #MMM {
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--font-hand);
     font-size: 1rem;
     padding: 1rem;
-}
+} */
+
+
 
 /* The switch - the box around the slider */
 .switch {

@@ -22,6 +22,7 @@ export function createTitle() {
 
     const titleImg = document.createElement("img");
     titleImg.id = "title-img";
+    titleImg.classList.add("flipImg")
     titleImg.src = dmCrownImg;
     titleImg.alt = "Crown icon";
 
@@ -33,6 +34,10 @@ export function createTitle() {
     // const appDateCont = document.querySelector("div");
     // appDateCont.id = "app-date-cont";
 
+    const appMMM = document.createElement("p");
+    appMMM.id = "MMM";
+    appMMM.textContent = "A Mad Muffin Man Design Studio, ©2024";
+
     const appDate = document.createElement("p");
     appDate.id = "app-date";
     appDate.textContent = `Today is ${reformatDate(today)}`;
@@ -40,6 +45,7 @@ export function createTitle() {
     // header.appendChild(appTitleCont);
     header.appendChild(appTitleCont);
     appTitleCont.appendChild(appTitle);
+    appTitleCont.appendChild(appMMM);
     appTitleCont.appendChild(appDate);
 
     appTitle.append(titleImg, 
