@@ -138,7 +138,7 @@ export function showAllTaskView() {
   // console.log("Show all view...");
 
   const taskTiles = document.querySelectorAll(".task");
-
+removeFolderView();
   taskTiles.forEach((taskTile) => {
     if (taskTile.classList.contains("none")) {
         taskTile.classList.toggle("none");

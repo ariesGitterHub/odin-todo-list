@@ -146,7 +146,6 @@ header {
     background-color: var(--bkgd);
     color: var(--contrast);
     /* padding-top: .5rem; */
-
 }
 
 /* ++++++++++++++++ */
@@ -195,7 +194,7 @@ header {
 } */
 
 #app-title-cont img {
-    height: 2.25rem;
+    height: 2.35rem;
     width: auto;
     margin-left: .35rem;
     margin-right: .35rem;
@@ -224,7 +223,7 @@ header {
 }
 
 #app-date {
-    height: 1.5rem;
+    height: 1.75rem;
     width: 100vw;
     background-color: var(--contrast);
     color: var(--bkgd);
@@ -254,10 +253,10 @@ nav {
 }
 
 nav button {
-    height: 2.5rem;
-    width: 2.5rem;
-    border: 2.5px solid var(--contrast);
-    border-radius: 2.5rem;
+    height: 2.75rem;
+    width: 2.75rem;
+    border: 2.75px solid var(--contrast);
+    border-radius: 2.75rem;
     display: flex;
         justify-content: center;
         align-items: center;
@@ -291,8 +290,8 @@ nav button:active {
 }
 
 nav button img {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.75rem;
+    width: 1.75rem;
 }
 
 /* #crown-img {
@@ -334,7 +333,7 @@ nav button img {
 }
 
 #status-bar button {
-    height: 2rem;
+    height: 2.25rem;
     width: fit-content;
     background-color: inherit;
     border: 2px solid var(--contrast);
@@ -344,7 +343,7 @@ nav button img {
         justify-content: center;
         align-items: center;
     font-family: var(--font-plain);
-    font-size: 1rem;
+    font-size: 1.25rem;
     outline: none;
     padding: .25rem;
 }
@@ -360,7 +359,7 @@ nav button img {
 }
 
 #status-bar button img {
-    height: 1.125rem;
+    height: 1.5rem;
     width: auto;
     margin-right: .1rem;
 }
@@ -403,7 +402,7 @@ nav button img {
 }
 
 form input, form select {
-    height: 1.75rem;
+    height: 2rem;
     width: 27ch;
     background-color: var(--contrast);
     border: 2px solid var(--contrast);
@@ -417,7 +416,8 @@ form input, form select {
 #new-task-priority-flag-img {
     height: 1rem;
     width: 1rem;
-    margin-bottom: -1rem;
+    align-self: center;
+    margin-bottom: -1.5rem;
 }
 
 form #new-task-due-date {
@@ -506,7 +506,7 @@ form input::-webkit-input-placeholder {
 }
 
 #new-folder-color-picked {
-    height: 1.75rem;
+    height: 2rem;
     width: 15.5ch;
     background-color: none;
     border: 2px solid var(--contrast);
@@ -533,18 +533,22 @@ form input::-webkit-input-placeholder {
 }
 
 .color-picker-btn {
-    height: 2.5rem;
-    width: 2.5rem;
-    border: 2.5px solid var(--contrast);
-    border-radius: 2.5rem;
+    height: 2.75rem;
+    width: 2.75rem;
+    border: 2.75px solid var(--contrast);
+    border-radius: 2.75rem;
     color: var(--bkgd);
+    display: flex;
+        justify-content: center;
+        align-items: center;
     font-family: var(--font-hand);
     font-size: 1.5rem;
     /* margin: .25rem; */
+    padding: .25rem;
 }
 
 .color-picker-btn:hover, .color-picker-btn:focus {
-    border: 2.5px dashed var(--bkgd);
+    border: 2.75px dashed var(--bkgd);
     transform: scale(var(--btn-scale-bg));
 }
 
@@ -593,7 +597,7 @@ form input::-webkit-input-placeholder {
 }
 
 .cancel, .submit {
-    height: 2rem;
+    height: 2.75rem;
     width: 7rem;
     background-color: inherit;
     border: 2px solid var(--contrast);
@@ -636,7 +640,7 @@ form input::-webkit-input-placeholder {
 .folder {
     height: fit-content;
     /* border-color: var(--bkgd); */
-        border: 2.5px solid;
+        border: 2.75px solid;
             border-color: var(--bkgd);
     border-radius: 2rem;
     color: var(--bkgd);
@@ -654,12 +658,12 @@ form input::-webkit-input-placeholder {
 
 
 .folder-task-btn, .folder-edit-btn {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2.75rem;
+    width: 2.75rem;
     background-color: var(--bkgd);
-    border: 2.5px solid;
+    border: 2.75px solid;
     border-color: var(--bkgd);
-    border-radius: 2.5rem;
+    border-radius: 2.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -799,12 +803,12 @@ height: 1.5rem;
 
 
 .task button {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2.75rem;
+    width: 2.75rem;
     background-color: var(--bkgd);
-    border: 2.5px solid;
+    border: 2.75px solid;
     border-color: var(--contrast);
-    border-radius: 2.5rem;
+    border-radius: 2.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -821,7 +825,7 @@ height: 1.5rem;
 
 .task button:hover, .task button:focus{
     /* background-color: var(--dark-yes); */
-    border: 2.5px dashed;
+    border: 2.75px dashed;
     /* border-color: var(--fc01); */
     transform: scale(var(--btn-scale-bg));
 }
@@ -868,7 +872,7 @@ height: 1.5rem;
 
 /* The switch - the box around the slider */
 .switch {
-    height: 1.75rem;
+    height: 2rem;
     width: 3.75rem;
     position: relative;
     display: flex;
@@ -902,8 +906,8 @@ height: 1.5rem;
     content: "";
     height: 22px;
     width: 22px;
-    left: 1.5px;
-    bottom: 1.5px;
+    left: 2px;
+    bottom: 3px;
     background-color: var(--adta);
     -webkit-transition: .4s;
     transition: .4s;
@@ -918,9 +922,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(32px);
-    -ms-transform: translateX(32px);
-    transform: translateX(32px);
+    -webkit-transform: translateX(29px);
+    -ms-transform: translateX(29px);
+    transform: translateX(29px);
 }
 
 /* Rounded sliders */

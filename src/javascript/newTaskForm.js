@@ -84,7 +84,7 @@ export function createNewTaskForm() {
     taskToggleInput.id = "new-task-priority-toggle";
     taskToggleInput.name = "new-task-priority-toggle";
     taskToggleInput.checked = false;
-    taskToggleInput.dataset.value = "normal";
+    taskToggleInput.dataset.value = "low";
 
     const span1 = document.createElement("span");
     span1.classList.add("slider", "round");
@@ -188,7 +188,7 @@ export function newTaskPriorityChecked() {
             newTaskPriorityToggle.dataset.value = "high";
             newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImg;
         } else {
-            newTaskPriorityToggle.dataset.value = "normal";
+            newTaskPriorityToggle.dataset.value = "low";
             newTaskPriorityFlagImg.src = "";
         }     
     } else {
