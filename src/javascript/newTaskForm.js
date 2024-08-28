@@ -8,11 +8,26 @@ import {
 
 import { Task } from "./classes.js";
 
-import { addTask, workingTasks } from "./storageAndData.js";
+import { workingTheme, addTask, workingTasks } from "./storageAndData.js";
+
+function defaultNewFormFlagImgs() {
+  if (workingTheme[0].mode === "dark") {
+    return {
+      priorityFlag: dmNewTaskPriorityFlagImgBG,
+    };
+  } else if (workingTheme[0].mode === "lite") {
+    return {
+      priorityFlag: lmNewTaskPriorityFlagImgBG,
+    };
+  }
+}
 
 export function createNewTaskForm() {
+
     const header = document.querySelector("header");
     const headerContent = document.querySelector("#header-content");
+
+    const imgUrls = defaultNewFormFlagImgs();
 
     const newTaskForm = document.createElement("form");
     newTaskForm.id = "new-task-form";
@@ -93,7 +108,7 @@ export function createNewTaskForm() {
 
     const newTaskPriorityFlagImg = document.createElement("img");
     newTaskPriorityFlagImg.id = "new-task-priority-flag-img";
-    newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImgBG;
+    newTaskPriorityFlagImg.src = imgUrls.priorityFlag;
     newTaskPriorityFlagImg.alt = "";
 
     const lvlCol4 = document.createElement("div");

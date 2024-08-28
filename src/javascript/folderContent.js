@@ -353,12 +353,8 @@ export function countTasksByFolder() {
 const folderTiles = document.querySelectorAll(".folder");
 
     folderTiles.forEach(folderTile => {
-        const folderName = folderTile.querySelector(".folder-name");
         const taskFolderPs = folderTile.querySelectorAll(".task-folder-p");
         const taskCount = taskFolderPs.length / 3;
-
-        console.log(`The ${folderName} has ${taskCount} tasks in it.`);
-
         const folderTaskNum = folderTile.querySelector(".folder-task-num");
 
         if (taskCount === 1) {

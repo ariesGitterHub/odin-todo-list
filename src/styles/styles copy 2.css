@@ -75,25 +75,8 @@
 --font-hand: "Indie Flower", cursive;
 --font-plain:  "Questrial", sans-serif;
 
---font-basic-size: 1rem;
---font-size-mid: 1.25rem;
---title-font-size: 1.5rem;
---title-img-size: 2.35rem;
---btn-img-basic-size: 1.5rem;
---status-btn-img-size: 1.25rem;
---priority-flag-overdue-triangle: 1rem;
-
-/* Below value is also used as the border-radius of circular btns */
---btn-round-hw: 2.75rem; 
---btn-status-bar-h: 2.25rem;
-
---border-size: 2.75px;
---border-radius-squarish: .75rem;
-
 --btn-scale-bg: 1.1;
 --btn-scale-sm: .9;
-
---gap-basic: .5rem;
 
 /* Sizing Values */
 /* --font-title-size: 1.25rem; */
@@ -203,19 +186,24 @@ header {
     display: flex;
         justify-content: space-evenly;
         align-items: center;
-    font-size: var(--title-font-size);
+    font-size: 1.5rem;
 }
+/* #app-title-cont h1 {
+    margin: 0;
+    padding: 0;
+} */
 
 #app-title-cont img {
-    height: var(--title-img-size);
+    height: 2.35rem;
     width: auto;
-    margin-left: .25rem;
-    margin-right: .25rem;
+    margin-left: .35rem;
+    margin-right: .35rem;
+    /* padding-bottom: 1rem; */
 }
 
 .flipImg {
-    /* width: 200px;
-    height: auto; */
+    width: 200px;
+    height: auto;
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
@@ -229,13 +217,13 @@ header {
     justify-content: center;
     align-items: center;
     font-family: var(--font-hand);
-    font-size: var(--font-basic-size);
-    margin: -0.25rem 0 0.25rem 0;
+    font-size: 1rem;
+    margin: -.25rem 0 .25rem 0;
     padding: 0;
 }
 
 #app-date {
-    height: calc(var(--font-size-mid) * 1.5);
+    height: 1.75rem;
     width: 100vw;
     background-color: var(--contrast);
     color: var(--bkgd);
@@ -243,7 +231,7 @@ header {
         justify-content: center;
         align-items: center;
     font-family: var(--font-plain);
-    font-size: var(--font-size-mid);
+    font-size: 1.25rem;
     margin: 0;
     padding: 1rem;
 }
@@ -259,16 +247,16 @@ nav {
     display: flex;
         justify-content: center;
         align-items: center;
-        gap: calc(var(--gap-basic) * 2.5);
+        gap: 1.25rem;
     font-size: var(--font-title-1);
     margin: 1rem 0 1rem 0;
 }
 
 nav button {
-    height: var(--btn-round-hw);
-    width: var(--btn-round-hw);
-    border: var(--border-size) solid var(--contrast);
-    border-radius: var(--btn-round-hw);
+    height: 2.75rem;
+    width: 2.75rem;
+    border: 2.75px solid var(--contrast);
+    border-radius: 2.75rem;
     display: flex;
         justify-content: center;
         align-items: center;
@@ -292,7 +280,7 @@ nav #dark-lite-btn {
 }
 
 nav button:hover, nav button:focus {
-    border: var(--border-size) dashed var(--contrast);
+    border: 2.75px dashed var(--contrast);
     outline: none;
     transform: scale(var(--btn-scale-bg));
 }
@@ -302,23 +290,37 @@ nav button:active {
 }
 
 nav button img {
-    height: var(--btn-img-basic-size);
-
+    height: 1.75rem;
+    width: 1.75rem;
 }
+
+/* #crown-img {
+    display: flex;
+}
+
+#coffee-img {
+    display: none;
+} */
 
 #status-bar.flex, #new-task-form.flex, #new-folder-form.flex {
     display: flex;
 }
 
+/* #status-bar.none, #new-task-form.none, #new-folder-form.none
+{
+    display: none;
+} */
+
+
 #status-bar {
     height: fit-content;
     background-color: var(--stba);
-    border: var(--border-size) solid var(--bkgd); 
+    border: 2px solid var(--bkgd); 
     display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: var(--gap-basic);
+        gap: .5rem;
     padding: .5rem;
 }
 
@@ -327,28 +329,28 @@ nav button img {
         justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
-        gap: var(--gap-basic);
+        gap: .5rem;
 }
 
 #status-bar button {
-    height: var(--btn-status-bar-h);
+    height: 2.25rem;
     width: fit-content;
     background-color: inherit;
-    border: var(--border-size) solid var(--contrast);
-    border-radius: var(--border-radius-squarish);
+    border: 2px solid var(--contrast);
+    border-radius: .75rem;
     color: var(--contrast);
     display: flex;
         justify-content: center;
         align-items: center;
     font-family: var(--font-plain);
-    font-size: var(--font-size-mid);
+    font-size: 1.125rem;
     outline: none;
     padding: .25rem;
 }
 
 #status-bar button:hover, #status-bar button:focus {
     background-color: var(--bkgd);
-    border: var(--border-size) dashed var(--contrast);
+    border: 2px dashed var(--contrast);
     transform: scale(var(--btn-scale-bg));
 }
 
@@ -357,7 +359,7 @@ nav button img {
 }
 
 #status-bar button img {
-    height: var(--status-btn-img-size);
+    height: 1.25rem;
     width: auto;
     margin-right: .25rem;
 }
@@ -372,19 +374,19 @@ nav button img {
 
 #new-task-form, #new-folder-form {
     height: fit-content;
-    border: var(--border-size) solid var(--bkgd); 
+    border: 2px solid var(--bkgd); 
     display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: var(--gap-basic);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
     font-family: var(--font-plain);
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
     padding: 1rem;
 }
 
 #new-task-img, #new-folder-img {
-    height: var(--btn-round-hw);
+    height: 2.75rem;
     width: auto;
     margin-right: .5rem;
 }
@@ -395,7 +397,7 @@ nav button img {
 
 #new-task-form .form-field-title, #new-folder-form .form-field-title {
     font-family: var(--font-hand);
-    font-size: var(--font-size-mid);
+    font-size: 1.25rem;
     margin-bottom: -.25rem;
 }
 
@@ -403,17 +405,17 @@ form input, form select {
     height: 2rem;
     width: 27ch;
     background-color: var(--contrast);
-    border: var(--border-size) solid var(--contrast);
-    border-radius: var(--border-radius-squarish);
+    border: 2px solid var(--contrast);
+    border-radius: .75rem;
     color: var(--bkgd);
     font-family: var(--font-plain);
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
     padding: .25rem;
 }
 
 #new-task-priority-flag-img {
-    height: var(--priority-flag-overdue-triangle);
-
+    height: 1rem;
+    width: 1rem;
     align-self: center;
     margin-bottom: -1.5rem;
 }
@@ -424,13 +426,13 @@ form #new-task-due-date {
 
 form input:hover, form input:focus, form select:hover, form select:focus {
     background-color: var(--contrast);
-    border: var(--border-size) dashed var(--bkgd);
+    border: 2px dashed var(--bkgd);
     outline: none;
 }
 
 form input::-webkit-input-placeholder {
     color: inherit;
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
 }
 
 form input [type="date"] {
@@ -441,11 +443,11 @@ textarea {
     height: 6rem;
     width: 27ch;
     background-color: var(--contrast);
-    border: var(--border-size) solid var(--contrast);
-    border-radius: var(--border-radius-squarish);
+    border: 2px solid var(--contrast);
+    border-radius: .75rem;
     color: var(--bkgd);
     font-family: var(--font-plain);
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
     padding: .25rem;
 }
 
@@ -454,13 +456,13 @@ textarea::placeholder {
 }
 
 textarea:hover, textarea:focus {
-    border: var(--border-size) dashed var(--bkgd);
+    border: 2px dashed var(--bkgd);
     outline: none;
 }
 
 form input::-webkit-input-placeholder {
     color: inherit;
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
 }
 
 /* level rows and columns */
@@ -489,7 +491,7 @@ form input::-webkit-input-placeholder {
     display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: var(--gap-basic);
+        gap: .5rem
 }
 
 .lvl-col {
@@ -514,21 +516,21 @@ form input::-webkit-input-placeholder {
     height: 2rem;
     width: 15.5ch;
     background-color: none;
-    border: var(--border-size) solid var(--contrast);
-    border-radius: var(--border-radius-squarish);
+    border: 2px solid var(--contrast);
+    border-radius: .75rem;
     color: var(--contrast);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--font-plain);
-  font-size: var(--font-basic-size);
+  font-size: 1rem;
         margin-left: .25rem;
     padding: .25rem;
 }
 
 .color-picker-btn-cont1, .color-picker-btn-cont2 {
     display: flex;
-    gap: calc(var(--gap-basic) / 2);
+    gap: .25rem;
 }
 
 .color-picker-btn-cont1 {
@@ -538,22 +540,22 @@ form input::-webkit-input-placeholder {
 }
 
 .color-picker-btn {
-    height: var(--btn-round-hw);
-    width: var(--btn-round-hw);
-    border: var(--border-size) solid var(--contrast);
-    border-radius: var(--btn-round-hw);
+    height: 2.75rem;
+    width: 2.75rem;
+    border: 2.75px solid var(--contrast);
+    border-radius: 2.75rem;
     color: var(--bkgd);
     display: flex;
         justify-content: center;
         align-items: center;
     font-family: var(--font-hand);
-    font-size: var(--title-font-size);
+    font-size: 1.5rem;
     /* margin: .25rem; */
     padding: .25rem;
 }
 
 .color-picker-btn:hover, .color-picker-btn:focus {
-    border: var(--border-size) dashed var(--bkgd);
+    border: 2.75px dashed var(--bkgd);
     transform: scale(var(--btn-scale-bg));
 }
 
@@ -602,24 +604,24 @@ form input::-webkit-input-placeholder {
 }
 
 .cancel, .submit {
-    height: var(--btn-round-hw);
-    width: calc(var(--btn-round-hw) * 2.55);
+    height: 2.75rem;
+    width: 7rem;
     background-color: inherit;
-    border: var(--border-size) solid var(--contrast);
-    border-radius: var(--border-radius-squarish);
+    border: 2px solid var(--contrast);
+    border-radius: .75rem;
     color: var(--contrast);
     display: flex;
         justify-content: center;
         align-items: center;
     font-family: var(--font-plain);
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
     outline: none;
     margin-top: .25rem;
     padding: .25rem;
 }
 
 .cancel:hover, .cancel:focus, .submit:hover, .submit:focus  {
-    border: var(--border-size) dashed var(--contrast);
+    border: 2px dashed var(--contrast);
     transform: scale(var(--btn-scale-bg));
 }
 
@@ -652,7 +654,7 @@ form input::-webkit-input-placeholder {
     height: fit-content;
     width: 27ch;
     /* border-color: var(--bkgd); */
-        border: var(--border-size) solid;
+        border: 2.75px solid;
             border-color: var(--bkgd);
     border-radius: 2rem;
     color: var(--bkgd);
@@ -660,7 +662,7 @@ form input::-webkit-input-placeholder {
     justify-content: space-between;
     align-items: center;
     font-family: var(--font-plain);
-    font-size: var(--font-size-mid);
+    font-size: 1.25rem;
     font-weight: 800;
     /* margin: .5rem; */
     /* TWEAK as needed */
@@ -672,12 +674,12 @@ form input::-webkit-input-placeholder {
     margin-left: .25rem;
 }
 .folder-task-btn, .folder-edit-btn {
-    height: var(--btn-round-hw);
-    width: var(--btn-round-hw);
+    height: 2.75rem;
+    width: 2.75rem;
     background-color: var(--bkgd);
-    border: var(--border-size) solid;
+    border: 2.75px solid;
     border-color: var(--bkgd);
-    border-radius: var(--btn-round-hw);
+    border-radius: 2.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -686,7 +688,7 @@ form input::-webkit-input-placeholder {
 
 .folder-task-btn:hover, .folder-task-btn:focus, .folder-edit-btn:hover, .folder-edit-btn:focus{
     /* background-color: var(--dark-yes); */
-    border: var(--border-size) dashed;
+    border: 2.75px dashed;
     border-color: var(--bkgd);
     transform: scale(var(--btn-scale-bg));
 }
@@ -697,7 +699,7 @@ form input::-webkit-input-placeholder {
 
 /* DELETE trash btn img ref if I do not use it */
 .folder-task-btn-img, .folder-folder-img, .folder-edit-btn-img, .folder-trash-btn-img {
-    height: var(--btn-img-basic-size);
+height: 1.5rem;
 /* background-color: var(--bkgd); */
 }
 
@@ -706,9 +708,9 @@ margin: 0 .25rem 0 .5rem;
 }
 
 .folder-task-field {
-    width: 27ch;
+    width: 30ch;
     font-family: var(--font-plain);
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
     font-weight: 800;
     margin: 0 .5rem 0 .5rem;
     /* padding: .15rem .25rem .05rem .25rem;  */
@@ -768,7 +770,7 @@ margin: 0 .25rem 0 .5rem;
 
 
 .task-name {
-    font-size: var(--title-font-size);
+    font-size: 1.5rem;
     /* font-family: var(--font-fancy); */
     /* font-style: italic; */
     font-weight: 600;
@@ -776,13 +778,13 @@ margin: 0 .25rem 0 .5rem;
     /* border:2px solid; */
     /* border-color: var(--bkgd); */
     border-color: none;
-    border-radius: var(--border-radius-squarish);
+    border-radius: 1rem;
     margin-bottom: .25rem;
     padding: .25rem .5rem .25rem .5rem;
 }
 
 .task-due-date, .task-folder {
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
     margin: 0;
     padding: .25rem .25rem .25rem .75rem;
 
@@ -793,16 +795,16 @@ margin: 0 .25rem 0 .5rem;
     height: fit-content;
     width: fit-content;
     background-color: var(--activated);
-    border-radius: var(--border-radius-squarish);
-    font-size: var(--font-basic-size);
+    border-radius: 1rem;
+    font-size: 1rem;
     /* text-indent: .75rem; */
         margin: .25rem;
     padding: .5rem;
 }
 
 .task-overdue-notice-img {
-    height: var(--priority-flag-overdue-triangle);
-
+    height: 1rem;
+    width: 1rem;
     margin-left: .75rem;
     margin-right: .15rem;
 }
@@ -810,23 +812,23 @@ margin: 0 .25rem 0 .5rem;
 .task-overdue-notice-p {
     color: var(--alert);
     font-family: var(--font-hand);
-    font-size: var(--font-basic-size);
+    font-size: 1rem;
     /* font-weight: 800; */
 }
 
 .task-priority-btn-img, .task-completed-btn-img, .task-edit-btn-img, .task-trash-btn-img {
-    height: var(--btn-img-basic-size);
+height: 1.5rem;
 }
 
 
 
 .task button {
-    height: var(--btn-round-hw);
-    width: var(--btn-round-hw);
+    height: 2.75rem;
+    width: 2.75rem;
     background-color: var(--bkgd);
-    border: var(--border-size) solid;
+    border: 2.75px solid;
     border-color: var(--contrast);
-    border-radius: var(--btn-round-hw);
+    border-radius: 2.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -836,14 +838,14 @@ margin: 0 .25rem 0 .5rem;
 
 
 .task-btn-cont {
-    gap: calc(var(--gap-basic) * 2.5);
+    gap: 1.25rem;
     /* padding-top: .5rem; */
     padding: .5rem 0 0 0;
 }
 
 .task button:hover, .task button:focus{
     /* background-color: var(--dark-yes); */
-    border: var(--border-size) dashed;
+    border: 2.75px dashed;
     /* border-color: var(--fc01); */
     transform: scale(var(--btn-scale-bg));
 }
@@ -914,7 +916,7 @@ margin: 0 .25rem 0 .5rem;
     right: 0;
     bottom: 0;
     background-color: var(--contrast);
-    border: var(--border-size) solid var(--contrast);
+    border: 2px solid var(--contrast);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -936,7 +938,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-    border: var(--border-size) dashed var(--adta);
+    border: 2px dashed var(--adta);
 }
 
 input:checked + .slider:before {

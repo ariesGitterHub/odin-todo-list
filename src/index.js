@@ -1,17 +1,13 @@
 import "./styles/styles.css";
 
 import {
-    // loadTheme,
-    // saveTheme,
     workingTheme,
-      
     workingFolders,
-
     workingTasks,    
 } from "./javascript/storageAndData.js";
 
 import { createTitle, 
-// toggleSticky 
+    // toggleSticky 
 } from "./javascript/title.js";
 
 import { createNav } from "./javascript/nav.js";
@@ -51,10 +47,8 @@ import {
 } from "./javascript/checkStatus.js";
 
 import {
-  createFolders,
-//   folderTaskBtnClicked,
-  //   colorFolderText,
-  countTasksByFolder,
+    createFolders,
+    countTasksByFolder,
 } from "./javascript/folderContent.js";
 
 import {
@@ -68,17 +62,17 @@ import {
 import { toggleDarkLiteMode } from "./javascript/toggleDarkLiteMode.js";
 
 import {
-  countTaskTypes,
-  countFolders,
-  showAllTaskView,
-  showPriorityView,
-  showOverdueView,
-  showCompletedView,
-  showFolderView,
+    countTaskTypes,
+    countFolders,
+    showAllTaskView,
+    showPriorityView,
+    showOverdueView,
+    showCompletedView,
+    showFolderView,
 } from "./javascript/statusBarBtns.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-createTitle();
+    createTitle();
 
     // function debounce(func, delay) {
     //   let timer;
@@ -95,12 +89,9 @@ createTitle();
     createStatusBar();
     createNewTaskForm();
     createNewFolderForm();
-    // loadTheme();    
-    // saveTheme();
     checkAndOrganizeByDate(workingTasks)
     checkAndOrganizeByName(workingFolders);
     createFolders(workingFolders);
-    // colorFolderText(workingFolders, workingTasks);
     createTasks(workingTasks);
     createTaskColor(workingFolders);
     checkPriorityStatus(workingTasks);
@@ -113,10 +104,6 @@ createTitle();
     submitNewFolder();
     populateNewTaskFormFolderOptions(workingFolders);
     checkIfNoTasks();
-
-    // countTaskTypes(workingTasks);
-
-    // console.log(`This is the current list of tasks: ${workingTasks}`);
 
     const statusBtn = document.querySelector("#status-btn");
     statusBtn.addEventListener("click", handleStatusBtn);
@@ -150,24 +137,11 @@ createTitle();
     const folderNumBtn = document.querySelector("#folder-num-btn");
     folderNumBtn.addEventListener("click", showFolderView);
 
-    // const folderTaskBtns = document.querySelectorAll(".folder-task-btn");
-    // folderTaskBtns.forEach((button, index) => {
-    //   button.addEventListener("click", () => {
-    //     folderTaskBtnClicked(index);
-    //     // window.location.reload();
-    //     // console.log([index]);
-    //   });
-    // });
-
-
-
-
     const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
     taskPriorityBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         priorityBtnClicked(index);
         window.location.reload();
-        // console.log([index]);
         });
     });
 
@@ -176,7 +150,6 @@ createTitle();
         button.addEventListener("click", () => {
         completedBtnClicked(index);
         window.location.reload();
-        // console.log([index]);
         });
     });
 
@@ -184,7 +157,6 @@ createTitle();
     taskTrashBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         trashBtnClicked(index);
-        // console.log([index]);
         });
     });
 
