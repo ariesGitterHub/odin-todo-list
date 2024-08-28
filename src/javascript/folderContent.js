@@ -77,10 +77,14 @@ export function createFolders(folders) {
   folders.forEach((folderItem) => {
 
     const folder = document.createElement("div");
-    folder.classList.add("folder");
+    folder.classList.add("folder", "lvl-col-folder-view");
     folder.dataset.id = `${folderItem.folderId}`;
-    folder.style.backgroundColor = `var(${folderItem.folderColor})`;
+    // folder.style.backgroundColor = `var(${folderItem.folderColor})`;
     // folder.setAttribute("role", "button");
+
+    const folderBar = document.createElement("div");
+    folderBar.classList.add("folder-bar");
+    folderBar.style.backgroundColor = `var(${folderItem.folderColor})`;
 
     const lvlRow1 = document.createElement("div");
     lvlRow1.classList.add("lvl-row-spaced");
@@ -104,6 +108,16 @@ export function createFolders(folders) {
     folderName.classList.add("folder-name");
     folderName.textContent = `${folderItem.folderName}`;
 
+
+
+    const sanitizedFolderName = folderItem.folderName.replace(/\s+/g, "-");
+
+
+
+    const folderTaskNum = document.createElement("p");
+    folderTaskNum.classList.add("folder-task-num", sanitizedFolderName);
+    folderTaskNum.textContent = ` (0 Tasks)`;
+
     const folderEditBtn = document.createElement("button");
     folderEditBtn.classList.add("folder-edit-btn");
     folderEditBtn.value = "off";
@@ -114,7 +128,7 @@ export function createFolders(folders) {
     folderEditBtnImg.src = imgUrls.edit;
     folderEditBtnImg.alt = "Edit folder icon";
 
-    const sanitizedFolderName = folderItem.folderName.replace(/\s+/g, "-");
+  
 
     const folderTaskField = document.createElement("div");
     // folderTaskField.classList.add(
@@ -169,12 +183,16 @@ export function createFolders(folders) {
     const sectionBotPad = document.createElement("div");
     sectionBotPad.classList.add("section-bot-pad");
 
-    folderContent.append(folder, folderTaskField, sectionBotPad);
-    folder.append(lvlRow1, folderEditBtn);
+    folderContent.append(folder, sectionBotPad);
+    folder.append(folderBar, folderTaskField);
+    folderBar.append(lvlRow1, folderEditBtn);
     // folderTaskBtn.append(folderTaskBtnImg);
     lvlRow1.append(
-        // folderTaskBtn,
-         folderFolderImg, folderName);
+      // folderTaskBtn,
+      folderFolderImg,
+      folderName,
+      folderTaskNum,
+    );
     folderEditBtn.append(folderEditBtnImg);
   });
 }
@@ -264,3 +282,89 @@ export function createFolders(folders) {
 //     console.warn("folderTaskBtn is null or not found in the DOM.");
 //   }
 // }
+
+// export function countTasksByFolder(folders) {
+//     const folderTaskNums = document.querySelectorAll(".folder-task-num");
+//     // const folderTaskNum = folderTaskNums[index];
+//  let totalTasksByFolder = 0;
+
+//  folderTaskNums.forEach((match)=> {
+//   folders.forEach((folderItem) => {
+//     //  console.log(folderItem.folderName);
+
+//     const matchingFolders = workingTasks.filter(
+//       (task) => task.folderLocation === folderItem.folderName
+//     );
+//     // console.log(`The Matching Folders are: ${JSON.stringify(matchingFolders)}`);
+
+//     if (match.classList.contains("folderItem.folderName")) {
+//       matchingFolders.forEach((matching) => {
+//         // console.log(matchingItem);
+//         totalTasksByFolder += 1;
+//         folderTaskNums.textContent = `(${totalTasksByFolder} tasks)`;
+//       });
+//     }
+//   });
+// })
+// }
+
+// export function countTasksByFolder() {
+//     const folderTaskFields = document.querySelectorAll(".folder-task-field");
+//     const taskFolderP = document.querySelector(".task-folder-p");
+
+
+//     folderTaskFields.forEach((count) => {
+//         console.log(
+//           `Number of elements with class 'task-folder-p': ${taskFolderP.size}`
+//         );
+        
+//     })
+// }
+
+// export function countTasksByFolder() {
+//   const folderTaskFields = document.querySelectorAll(".folder-task-field");
+//   const folderTaskNum = document.querySelector(".folder-task-num");
+//   folderTaskFields.forEach((folderTaskField) => {
+//     const taskFolderPs = folderTaskField.querySelectorAll(".task-folder-p");
+//     const count = taskFolderPs.length / 3;
+//     folderTaskNum.textContent = `(${count} tasks)`;
+//     console.log(
+//       `Number of elements with class 'task-folder-p' in folder-task-field: ${count}`
+//     );
+//   });
+// }
+// export function countTasksByField() {
+
+//     const folderTaskFields = document.querySelectorAll(".folder-task-field");
+//     // console.log(JSON.stringify(folderTiles));
+
+//     folderTaskFields.forEach((folderTaskField) => {
+//     //   console.log(folderTaskField);
+//         const taskFolderPs = folderTaskField.querySelectorAll(".task-folder-p");
+//         const count = taskFolderPs.length / 3;
+//         console.log(count);
+//     });
+    
+// }
+
+
+
+export function countTasksByFolder() {
+const folderTiles = document.querySelectorAll(".folder");
+
+    folderTiles.forEach(folderTile => {
+        const folderName = folderTile.querySelector(".folder-name");
+        const taskFolderPs = folderTile.querySelectorAll(".task-folder-p");
+        const taskCount = taskFolderPs.length / 3;
+
+        console.log(`The ${folderName} has ${taskCount} tasks in it.`);
+
+        const folderTaskNum = folderTile.querySelector(".folder-task-num");
+
+        if (taskCount === 1) {
+            folderTaskNum.textContent = `(${taskCount} task)`;
+        } else {
+            folderTaskNum.textContent = `(${taskCount} tasks)`;
+        }
+    })
+}

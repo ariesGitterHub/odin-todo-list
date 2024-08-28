@@ -52,8 +52,9 @@ import {
 
 import {
   createFolders,
-  folderTaskBtnClicked,
-//   colorFolderText,
+//   folderTaskBtnClicked,
+  //   colorFolderText,
+  countTasksByFolder,
 } from "./javascript/folderContent.js";
 
 import {
@@ -189,5 +190,6 @@ createTitle();
 
     countTaskTypes(workingTasks);  
     countFolders(workingFolders); 
+    countTasksByFolder();
     checkFolderAddClass();
 });
