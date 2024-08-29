@@ -219,6 +219,7 @@ header {
 }
 
 .sticky {
+    z-index: 9;    
     height: 75px;
     width: 100vw;
     max-width: 100%;
@@ -229,14 +230,10 @@ header {
     background: var(--life-jacket);
     border-top: var(--border-px) solid var(--white);
     border-bottom: var(--border-px) solid var(--white); 
-
- 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 110px; 
-
-     z-index: 9;
+        justify-content: center;
+        align-items: center;
+        gap: 110px; 
 }
 
 .font-fancy {
@@ -463,6 +460,10 @@ form input, form select {
 
 form #new-task-due-date {
     width: 16ch;
+}
+
+form #edit-task-due-date {
+    width: 27ch;
 }
 
 form input:hover, form input:focus, form select:hover, form select:focus {

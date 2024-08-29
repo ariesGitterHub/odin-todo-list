@@ -1,5 +1,6 @@
 import {
-  dmCrownImg, dmCoffeeImg
+  dmCrownImg,
+  //  dmCoffeeImg
 } from "./imageExporter.js";
 
 import { reformatDate } from "./checkStatus.js";

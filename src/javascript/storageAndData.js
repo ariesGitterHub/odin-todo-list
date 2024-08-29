@@ -68,58 +68,68 @@ const index = workingFolders.findIndex((folder) => folder.folderId === updatedFo
 }
 
 const defaultTasks = [
-    new Task(
+  new Task(
     "t0",
     "Take out the trash",
-    "2024-08-01",
-    "",
-    "low",
-    "incomplete",
-    "Chores",
-    "Don't forget to empty the upstairs trash cans!"
-    ),
-    new Task(
-    "t1",
-    "Grocery Store",
-    "2024-08-31",
+    "2024-09-02",
     "",
     "high",
     "incomplete",
     "Chores",
-    "Buy: apples, potatoes, carrots, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, frozen blueberries."
-    ),
-    new Task(
+    "Don't forget to empty the upstairs trash cans!"
+  ),
+  new Task(
+    "t1",
+    "Grocery Store",
+    "2024-08-31",
+    "",
+    "low",
+    "incomplete",
+    "Chores",
+    "Buy: apples, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, frozen blueberries."
+  ),
+  new Task(
     "t2",
     "Run my usual 5k course",
-    "2024-08-12",
+    "2024-08-28",
     "",
     "low",
-    "incomplete",
+    "completed",
     "Fitness",
-    "Try to go later in the evening, around sunset."
-    ),
-    new Task(
+    "Because of the heat, try to go later in the evening, like around sunset."
+  ),
+  new Task(
     "t3",
-    "Write that novel about that thing.",
+    "Get drinks at the Skeller with Mike and Rich.",
     //   "overdue",
-    "2000-11-05",
+    "1996-07-06",
     "",
     "low",
     "incomplete",
-    "*Default",
+    "Social",
     ""
-    ),
-    new Task(
+  ),
+  new Task(
     "t4",
-    "Fix the sharks with the frickin' laser beams on their heads",
+    "Fix the barb wire fence at the secret compound",
     "2054-04-01",
     "",
     "high",
     "incomplete",
     "Repair",
-    "Mind the radioactive squid, too."
-    ),
-    ];
+    "Mind the radioactive zombies, too."
+  ),
+  new Task(
+    "t4",
+    "See Guedelon castle in France",
+    "2026-07-01",
+    "",
+    "high",
+    "incomplete",
+    "Travel",
+    "Renew my passport."
+  ),
+];
 
 export function loadTasks() {
     const savedTasks = localStorage.getItem("tasks");
