@@ -806,8 +806,7 @@ input:checked + .slider:before {
 
 .task-name {
     background-color: var(--bkgd);
-    border: var(--border-size) solid;
-    /* border-color: var(--bkgd); */
+    border: 5px solid var(--bkgd);
     border-radius: var(--border-radius-squarish);
     font-size: var(--title-font-size);
     font-weight: 800;

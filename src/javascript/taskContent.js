@@ -252,17 +252,17 @@ export function createTaskColor(folders) {
 
 export function priorityBtnClicked(index) {
     const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
-    const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
+
     const taskTiles = document.querySelectorAll(".task");
     const taskNames = document.querySelectorAll(".task-name");
 
     const taskPriorityBtn = taskPriorityBtns[index];
-    const taskCompletedBtn = taskCompletedBtns[index];
+
     const taskTile = taskTiles[index];
     const taskName = taskNames[index];
 
     if (taskPriorityBtn) {
-        if (taskPriorityBtn.value === "low" && taskCompletedBtn.value === "incomplete") {
+        if (taskPriorityBtn.value === "low" ) {
             taskPriorityBtn.value = "high";
             taskPriorityBtn.style.backgroundColor = "var(--activated)";
             taskName.style.borderColor = "var(--alert)";
@@ -271,7 +271,7 @@ export function priorityBtnClicked(index) {
             if (!taskName.textContent.includes("!!!")) {
             taskName.textContent += " !!!";
             }
-        } else if (taskPriorityBtn.value === "high" && taskCompletedBtn.value === "incomplete") {
+        } else if (taskPriorityBtn.value === "high") {
             taskPriorityBtn.value = "low";
             taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
             taskName.style.borderColor = "var(--bkgd)"; // Reset to default
@@ -280,25 +280,7 @@ export function priorityBtnClicked(index) {
             if (titleText.includes("!!!")) {
             taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
             }
-        } else if (taskPriorityBtn.value === "low" && taskCompletedBtn.value === "completed") {
-            taskPriorityBtn.value = "high";
-            taskPriorityBtn.style.backgroundColor = "var(--activated)";
-            taskName.style.borderColor = "var(--alert)";
-            updatePriorityStatus(taskTile.dataset.id);
-            // Append "!!!" to the task title if not already present
-            if (!taskName.textContent.includes("!!!")) {
-            taskName.textContent += " !!!";
-            }
-        } else if (taskPriorityBtn.value === "high" && taskCompletedBtn.value === "completed") {
-            taskPriorityBtn.value = "low";
-            taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
-            taskName.style.borderColor = "var(--activated)"; // Reset to default
-            updatePriorityStatus(taskTile.dataset.id);
-            const titleText = taskName.textContent;
-            if (titleText.includes("!!!")) {
-            taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
-            }
-        }
+        }  
     } else {
     console.warn("taskPriorityBtn is null or not found in the DOM.");
     }
