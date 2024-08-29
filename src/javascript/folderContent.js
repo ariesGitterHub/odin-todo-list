@@ -73,7 +73,6 @@ export function createFolders(folders) {
 
   const imgUrls = defaultFolderBtnImgs();
 
-
   folders.forEach((folderItem) => {
 
     const folder = document.createElement("div");
@@ -108,11 +107,7 @@ export function createFolders(folders) {
     folderName.classList.add("folder-name");
     folderName.textContent = `${folderItem.folderName}`;
 
-
-
     const sanitizedFolderName = folderItem.folderName.replace(/\s+/g, "-");
-
-
 
     const folderTaskNum = document.createElement("p");
     folderTaskNum.classList.add("folder-task-num", sanitizedFolderName);
@@ -130,45 +125,58 @@ export function createFolders(folders) {
 
   
 
-    const folderTaskField = document.createElement("div");
-    // folderTaskField.classList.add(
-    //   "folder-task-field",
-    //   `${folderItem.folderName}.replace(/\s+/g, '-')`
-    // );
-    folderTaskField.classList.add("folder-task-field", sanitizedFolderName);
-    // folderTaskField.textContent = `${folderItem.folderName}`;
-    folderTaskField.dataset.color = `${folderItem.folderColor}`
+    // const folderTaskField = document.createElement("div");
+    // // folderTaskField.classList.add(
+    // //   "folder-task-field",
+    // //   `${folderItem.folderName}.replace(/\s+/g, '-')`
+    // // );
+    // folderTaskField.classList.add("folder-task-field", sanitizedFolderName);
+    // // folderTaskField.textContent = `${folderItem.folderName}`;
+    // folderTaskField.dataset.color = `${folderItem.folderColor}`
 
-    const matchingTasks = workingTasks.filter(
-      (task) => task.folderLocation === folderItem.folderName
-      );
+    // const matchingTasks = workingTasks.filter(
+    //   (task) => task.folderLocation === folderItem.folderName
+    //   );
 
+    //     matchingTasks.forEach((task) => {
 
+    //     const folderTaskField = document.createElement("div");
+    //     // folderTaskField.classList.add(
+    //     //   "folder-task-field",
+    //     //   `${folderItem.folderName}.replace(/\s+/g, '-')`
+    //     // );
+    //     folderTaskField.classList.add(
+    //       "folder-task-field",
+    //       sanitizedFolderName
+    //     );
+    //     // folderTaskField.textContent = `${folderItem.folderName}`;
+    //     folderTaskField.dataset.color = `${folderItem.folderColor}`; 
+    //     const sanitizedTaskFolderP = folderItem.folderName.replace(/\s+/g, "-");
+    //     const taskFolderPName = document.createElement("p");
+    //     const taskFolderPDate = document.createElement("p");
+    //     const taskFolderPCOP = document.createElement("p");
+    //     const taskFolderBreak = document.createElement("br");
+    //         // taskFolderP.classList.add("task-folder-p", sanitizedTaskFolderP);
+    //     taskFolderPName.classList.add("task-folder-p", sanitizedTaskFolderP);
+    //     taskFolderPDate.classList.add("task-folder-p", sanitizedTaskFolderP);
+    //     taskFolderPCOP.classList.add("task-folder-p", sanitizedTaskFolderP);
+    //     taskFolderPName.textContent = `${task.taskName.toUpperCase()}`;
+    //     taskFolderPDate.textContent = `Due by ${reformatDate(
+    //     task.dueByDate.replace(/-/g, "/")
+    //     )}; ${task.overdueFlag}`;
+    //     taskFolderPCOP.textContent = `Status: ${task.completedFlag}, ${task.priorityFlag} priority`;
 
-    matchingTasks.forEach((task) => {
-    const sanitizedTaskFolderP = folderItem.folderName.replace(/\s+/g, "-");
-    const taskFolderPName = document.createElement("p");
-    const taskFolderPDate = document.createElement("p");
-    const taskFolderPCOP = document.createElement("p");
-    const taskFolderBreak = document.createElement("br");
-        // taskFolderP.classList.add("task-folder-p", sanitizedTaskFolderP);
-    taskFolderPName.classList.add("task-folder-p", sanitizedTaskFolderP);
-    taskFolderPDate.classList.add("task-folder-p", sanitizedTaskFolderP);
-    taskFolderPCOP.classList.add("task-folder-p", sanitizedTaskFolderP);
-    taskFolderPName.textContent = `${task.taskName.toUpperCase()}`;
-    taskFolderPDate.textContent = `Due by ${reformatDate(
-    task.dueByDate.replace(/-/g, "/")
-    )}; ${task.overdueFlag}`;
-    taskFolderPCOP.textContent = `Status: ${task.completedFlag}, ${task.priorityFlag} priority`;
+    //     folder.append(folderTaskField);
+    //     folderTaskField.append(
+    //         taskFolderPName,
+    //         taskFolderPDate,
+    //         taskFolderPCOP,
+    //         taskFolderBreak
+    //     );
+    //     folderTaskField.style.color = `var(${folderTaskField.dataset.color})`;
+    //     folderTaskField.style.border = `calc(var(--border-size) *2) dashed var(${folderTaskField.dataset.color})`;
+    //     });
 
-    folderTaskField.append(
-        taskFolderPName,
-        taskFolderPDate,
-        taskFolderPCOP,
-        taskFolderBreak
-    );
-    folderTaskField.style.color = `var(${folderTaskField.dataset.color})`;
-});
 
     
 
@@ -180,11 +188,15 @@ export function createFolders(folders) {
     // folderTrashBtnImg.src = imgUrls.trash;
     // folderTrashBtnImg.alt = "Trash folder icon";
 
-    const sectionBotPad = document.createElement("div");
-    sectionBotPad.classList.add("section-bot-pad");
+    // const sectionBotPad = document.createElement("div");
+    // sectionBotPad.classList.add("section-bot-pad");
 
-    folderContent.append(folder, sectionBotPad);
-    folder.append(folderBar, folderTaskField);
+    folderContent.append(folder
+        // , sectionBotPad
+    );
+    folder.append(folderBar
+      // , folderTaskField
+    );
     folderBar.append(lvlRow1, folderEditBtn);
     // folderTaskBtn.append(folderTaskBtnImg);
     lvlRow1.append(
@@ -194,7 +206,49 @@ export function createFolders(folders) {
       folderTaskNum,
     );
     folderEditBtn.append(folderEditBtnImg);
+
+    const matchingTasks = workingTasks.filter(
+      (task) => task.folderLocation === folderItem.folderName
+    );
+
+    matchingTasks.forEach((task) => {
+      const folderTaskField = document.createElement("div");
+      // folderTaskField.classList.add(
+      //   "folder-task-field",
+      //   `${folderItem.folderName}.replace(/\s+/g, '-')`
+      // );
+      folderTaskField.classList.add("folder-task-field", sanitizedFolderName);
+      // folderTaskField.textContent = `${folderItem.folderName}`;
+      folderTaskField.dataset.color = `${folderItem.folderColor}`;
+      const sanitizedTaskFolderP = folderItem.folderName.replace(/\s+/g, "-");
+      const taskFolderPName = document.createElement("p");
+      const taskFolderPDate = document.createElement("p");
+      const taskFolderPCOP = document.createElement("p");
+      // const taskFolderBreak = document.createElement("br");
+      // taskFolderP.classList.add("task-folder-p", sanitizedTaskFolderP);
+      taskFolderPName.classList.add("task-folder-p", sanitizedTaskFolderP);
+      taskFolderPDate.classList.add("task-folder-p", sanitizedTaskFolderP);
+      taskFolderPCOP.classList.add("task-folder-p", sanitizedTaskFolderP);
+      taskFolderPName.textContent = `${task.taskName.toUpperCase()}`;
+      taskFolderPDate.textContent = `Due by ${reformatDate(
+        task.dueByDate.replace(/-/g, "/")
+      )}; ${task.overdueFlag}`;
+      taskFolderPCOP.textContent = `Status: ${task.completedFlag}, ${task.priorityFlag} priority`;
+
+      folder.append(folderTaskField);
+      folderTaskField.append(
+        taskFolderPName,
+        taskFolderPDate,
+        taskFolderPCOP,
+        // taskFolderBreak
+      );
+      folderTaskField.style.color = `var(${folderTaskField.dataset.color})`;
+      folderTaskField.style.border = `calc(var(--border-size) *2) dashed var(${folderTaskField.dataset.color})`;
+    });
   });
+
+
+
 }
 
 // export function colorFolderText(folders, tasks) {
