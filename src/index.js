@@ -7,7 +7,7 @@ import {
 } from "./javascript/storageAndData.js";
 
 import { createTitle, 
-    // toggleSticky 
+    toggleSticky 
 } from "./javascript/title.js";
 
 import { createNav } from "./javascript/nav.js";
@@ -74,16 +74,16 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
     createTitle();
 
-    // function debounce(func, delay) {
-    //   let timer;
-    //   return function () {
-    //     clearTimeout(timer);
-    //     timer = setTimeout(func, delay);
-    //   };
-    // }
+    function debounce(func, delay) {
+      let timer;
+      return function () {
+        clearTimeout(timer);
+        timer = setTimeout(func, delay);
+      };
+    }
 
     // Add event listener for scroll event with debouncing
-    // window.addEventListener("scroll", debounce(toggleSticky, 10));
+    window.addEventListener("scroll", debounce(toggleSticky, 10));
 
     createNav();
     createStatusBar();
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         trashBtnClicked(index);
         });
     });
-
+    
     countTaskTypes(workingTasks);  
     countFolders(workingFolders); 
     countTasksByFolder();

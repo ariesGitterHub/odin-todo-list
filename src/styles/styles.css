@@ -211,33 +211,33 @@ header {
 }
 
 /* ++++++++++++++++ */
-/* #header-ctrl-cont {
-    max-width: 500px;
+#header-ctrl-cont {
+    max-width: 100vw;
     display: block;
 
     margin: auto;
-} */
+}
 
-/* .sticky {
+.sticky {
+    height: 75px;
+    width: 100vw;
+    max-width: 100%;
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: 75px;
-    width: 100vw;
-    max-width: 100%;
     background: var(--life-jacket);
     border-top: var(--border-px) solid var(--white);
-    border-bottom: var(--border-px) solid var(--white); */
+    border-bottom: var(--border-px) solid var(--white); 
 
-    /* CSS below was placed in a media query */
-    /* display: flex;
+ 
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 110px; */
+    gap: 110px; 
 
-    /* z-index: 9; */
-/* } */
+     z-index: 9;
+}
 
 .font-fancy {
     font-family: var(--font-fancy);

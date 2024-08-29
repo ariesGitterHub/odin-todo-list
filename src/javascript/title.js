@@ -26,14 +26,6 @@ export function createTitle() {
     titleImg.src = dmCrownImg;
     titleImg.alt = "Crown icon";
 
-    // const coffeeImg = document.createElement("img");
-    // coffeeImg.id = "coffee-img";
-    // coffeeImg.src = dmCoffeeImg;
-    // coffeeImg.alt = "Coffee icon";
-
-    // const appDateCont = document.querySelector("div");
-    // appDateCont.id = "app-date-cont";
-
     const appMMM = document.createElement("p");
     appMMM.id = "MMM";
     appMMM.textContent = "A Mad Muffin Man Design Studio, ©2024";
@@ -54,11 +46,11 @@ export function createTitle() {
 }
 
 
-// export function toggleSticky() {
-//   const headerCtrlCont = document.querySelector("#header-ctrl-cont");
-//   const sticky = headerCtrlCont.offsetTop;
-//   const scrollPosition = window.scrollY;
+export function toggleSticky() {
+  const headerCtrlCont = document.querySelector("#header-ctrl-cont");
+  const sticky = headerCtrlCont.offsetTop;
+  const scrollPosition = window.scrollY;
 
-//   headerCtrlCont.classList.toggle("sticky", scrollPosition > sticky);
-//   }
+  headerCtrlCont.classList.toggle("sticky", scrollPosition > sticky);
+  }
 
