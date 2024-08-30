@@ -94,6 +94,7 @@ export function createTasks(tasks) {
 
         const taskName = document.createElement("p");
         taskName.classList.add("task-name");
+        taskName.dataset.name = `${taskItem.taskName}`; 
         taskName.textContent = `${taskItem.taskName}`;
 
         // const br1 = document.createElement("br");
@@ -135,6 +136,7 @@ export function createTasks(tasks) {
       
         const taskDescription = document.createElement("div");
         taskDescription.classList.add("task-description");
+        taskDescription.dataset.description = `${taskItem.descriptionText}`; 
         taskDescription.textContent = `${taskItem.descriptionText}`;
    
         const br3 = document.createElement("br");
@@ -173,6 +175,7 @@ export function createTasks(tasks) {
         const taskEditBtn = document.createElement("button");
         taskEditBtn.classList.add("task-edit-btn");
         taskEditBtn.value = "off";
+        taskEditBtn.dataset.id = `${taskItem.taskId}`;
 
         const taskEditBtnImg = document.createElement("img");
         taskEditBtnImg.classList.add("task-edit-btn-img");

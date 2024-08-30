@@ -132,6 +132,7 @@ export function toggleDarkLiteMode(theme) {
     const completedNumBtnImg = document.querySelector("#completed-num-btn-img");
     const folderNumBtnImg = document.querySelector("#folder-num-btn-img");
     const newTaskImg = document.querySelector("#new-task-img");
+    const editTaskImg = document.querySelector("#edit-task-img");
     const newFolderImg = document.querySelector("#new-folder-img");
 
     const folderTaskBtnImg = document.querySelectorAll(".folder-task-btn-img");
@@ -161,6 +162,7 @@ export function toggleDarkLiteMode(theme) {
         completedNumBtnImg.src = dmCompletedImg;
         folderNumBtnImg.src = dmFolderImg;
         newTaskImg.src = dmNewTaskImg;
+        editTaskImg.src = dmTaskImg;
         newFolderImg.src = dmNewFolderImg;
 
         folderTaskBtnImg.forEach(function (image) {
@@ -206,6 +208,7 @@ export function toggleDarkLiteMode(theme) {
         completedNumBtnImg.src = lmCompletedImg;
         folderNumBtnImg.src = lmFolderImg;
         newTaskImg.src = lmNewTaskImg;
+        editTaskImg.src = lmTaskImg;
         newFolderImg.src = lmNewFolderImg;
 
         folderTaskBtnImg.forEach(function (image) {

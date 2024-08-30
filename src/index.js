@@ -30,6 +30,17 @@ import {
 } from "./javascript/newTaskForm.js";
 
 import {
+  editBtnClicked,
+  createEditTaskForm,
+  populateEditTaskFormFolderOptions,
+//   populateEditTaskForm,
+  // populateEditTaskFormWithTaskData,
+  //   newTaskPriorityChecked,
+  //   clearNewTaskForm,
+  //   submitNewTask,
+} from "./javascript/editTaskForm.js";
+
+import {
     createNewFolderForm,
     clearNewFolderForm,
     submitNewFolder,
@@ -88,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createNav();
     createStatusBar();
     createNewTaskForm();
+    createEditTaskForm();
     createNewFolderForm();
     checkAndOrganizeByDate(workingTasks)
     checkAndOrganizeByName(workingFolders);
@@ -103,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitNewTask();
     submitNewFolder();
     populateNewTaskFormFolderOptions(workingFolders);
+    populateEditTaskFormFolderOptions(workingFolders);
     checkIfNoTasks();
 
     const statusBtn = document.querySelector("#status-btn");
@@ -153,13 +166,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const taskEditBtns = document.querySelectorAll(
+        ".task-edit-btn"
+    );
+    taskEditBtns.forEach((button, index) => {
+        button.addEventListener("click", () => {
+        editBtnClicked(index);
+        console.log(button.dataset.id);
+        // console.log(editBtnClicked(index));
+        //   populateEditTaskForm(index);
+        // window.location.reload();
+        });
+    });
+
     const taskTrashBtns = document.querySelectorAll(".task-trash-btn");
     taskTrashBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         trashBtnClicked(index);
         });
     });
-    
+
     countTaskTypes(workingTasks);  
     countFolders(workingFolders); 
     countTasksByFolder();

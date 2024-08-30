@@ -243,7 +243,8 @@ export function createFolders(folders) {
         // taskFolderBreak
       );
       folderTaskField.style.color = `var(${folderTaskField.dataset.color})`;
-      folderTaskField.style.border = `calc(var(--border-size) *2) dashed var(${folderTaskField.dataset.color})`;
+      // folderTaskField.style.border = `calc(var(--border-size) *2) dashed var(${folderTaskField.dataset.color})`;
+      folderTaskField.style.borderColor = `var(${folderTaskField.dataset.color})`;
     });
   });
 

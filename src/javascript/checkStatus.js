@@ -293,9 +293,9 @@ export function checkDescriptionStatus(tasks) {
 export function checkIfNoTasks() {
     const taskContent = document.querySelector("#task-content");
     const taskTiles = document.querySelector(".task");
-    const msg = `You have no current tasks. Click the "add task" button in the navigation bar to create a task and get started.`;
+    const msg = `You have no tasks and are currently free of meaningless burdens! Click the "add task" button in the navigation bar to create a new task and get started. You may also create new folders by clicking on the "new folder" button.`;
     if (!taskTiles) {
-        const noCurrentTaskMsg = document.createElement("h1");
+        const noCurrentTaskMsg = document.createElement("p");
         noCurrentTaskMsg.id = "no-current-task-msg";
         noCurrentTaskMsg.textContent = msg;
         taskContent.appendChild(noCurrentTaskMsg);

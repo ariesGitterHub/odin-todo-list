@@ -120,11 +120,11 @@ const defaultTasks = [
     "Mind the radioactive zombies, too."
   ),
   new Task(
-    "t4",
-    "See Guedelon castle in France",
+    "t5",
+    "See Guedelon Castle in France",
     "2026-07-01",
     "",
-    "high",
+    "low",
     "incomplete",
     "Travel",
     "Renew my passport."
