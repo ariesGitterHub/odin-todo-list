@@ -624,7 +624,7 @@ form input::-webkit-input-placeholder {
 
 .cancel, .submit {
     height: var(--btn-round-hw);
-    width: calc(var(--btn-round-hw) * 2.55);
+    width: calc(var(--btn-round-hw) * 3);
     background-color: inherit;
     border: var(--border-size) solid var(--contrast);
     border-radius: var(--border-radius-squarish);

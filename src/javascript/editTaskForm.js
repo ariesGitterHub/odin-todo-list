@@ -30,41 +30,123 @@ export function editBtnClicked(index) {
   populateEditTaskForm(index);
 }
 
+// function populateEditTaskForm(index) {
+//   const taskTiles = document.querySelectorAll(".task");
+//   const taskTile = taskTiles[index];
+//   console.log(taskTile);
+//   const editTaskForm = document.querySelector("#edit-task-form");
+//   //   console.log(`Edit clicked!`);
+//   //   editTaskForm.classList.toggle("flex");
+
+//   const editTaskName = document.querySelector("#edit-task-name");
+//   const taskTileNames = document.querySelectorAll(".task-name");
+//   const taskTileName = taskTileNames[index];
+//   //   console.log(taskTileName.innerHTML);
+//   editTaskName.value = taskTileName.dataset.name;
+//   //   console.log(editTaskName.value);
+
+//   const editTaskFolder = document.querySelector("#edit-task-folder");
+//   const taskTileFolders = document.querySelectorAll(".task-folder");
+//   const taskTileFolder = taskTileFolders[index];
+
+//   editTaskFolder.value = taskTileFolder.dataset.folder;
+
+
+//   const editTaskDueDate = document.querySelector("#edit-task-due-date");
+//   const taskTileDueDates = document.querySelectorAll(".task-due-date");
+//   const taskTileDueDate = taskTileDueDates[index];
+//   const currentDatasetFormat = taskTileDueDate.dataset.date;
+//   const newDatasetFormat =  currentDatasetFormat.replace(/\//g, '-');
+//   editTaskDueDate.value = newDatasetFormat;
+
+
+//     const editTaskDescription = document.querySelector("#edit-task-description");
+//     const taskTileDescriptions = document.querySelectorAll(".task-description");
+//     const taskTileDescription = taskTileDescriptions[index];
+//     editTaskDescription.value = taskTileDescription.dataset.description;
+// }
+
+// function populateEditTaskForm(index) {
+//     const taskTiles = document.querySelectorAll(".task");
+//     const taskTile = taskTiles[index];
+//     console.log(taskTile.dataset.id);
+
+//     const targetId = taskTile.dataset.id;
+
+//     const matchingTaskId = workingTasks.filter(
+//       (task) => targetId.includes(task.taskId));
+
+//     console.log(matchingTaskId);
+    
+//     const extractedTaskValues = matchingTaskId.map((task) => ({
+//       // taskId: task.taskId,
+//       taskName: task.taskName,
+//       folderLocation: task.folderLocation,
+//       taskDueByDate: task.dueByDate,
+//       taskDescription: task.descriptionText
+//     }));
+
+//       const editTaskName = document.querySelector("#edit-task-name");
+//       editTaskName.value = extractedTaskValues.taskName;
+
+//       const editTaskFolder = document.querySelector("#edit-task-folder");
+//       editTaskFolder.value = extractedTaskValues.taskDueByDate;
+
+//       const editTaskDueDate = document.querySelector("#edit-task-due-date");
+//       const currentDateFormat = extractedTaskValues.taskDueByDate;
+//       const newDateFormat = currentDateFormat.replace(/\//g, "-");
+//       editTaskDueDate.value = newDateFormat;
+
+//       const editTaskDescription = document.querySelector(
+//         "#edit-task-description"
+//       );
+//       editTaskDescription.value = extractedTaskValues.descriptionText;
+// }
+
 function populateEditTaskForm(index) {
   const taskTiles = document.querySelectorAll(".task");
   const taskTile = taskTiles[index];
-  console.log(taskTile);
-  const editTaskForm = document.querySelector("#edit-task-form");
-  //   console.log(`Edit clicked!`);
-  //   editTaskForm.classList.toggle("flex");
+  console.log(taskTile.dataset.id);
 
+  const targetId = taskTile.dataset.id;
+
+  // Filter tasks to find the one with matching taskId
+  const matchingTasks = workingTasks.filter((task) => task.taskId === targetId);
+
+  // Check if any tasks were found
+  if (matchingTasks.length === 0) {
+    console.error("No matching task found");
+    return;
+  }
+
+  // Assumes there is only one matching task
+  const task = matchingTasks[0];
+
+  // pulls values from the task
+  const extractedTaskValues = {
+    taskName: task.taskName,
+    folderLocation: task.folderLocation,
+    taskDueByDate: task.dueByDate,
+    taskDescription: task.descriptionText,
+  };
+
+  // populates fields with pulled array values
   const editTaskName = document.querySelector("#edit-task-name");
-  const taskTileNames = document.querySelectorAll(".task-name");
-  const taskTileName = taskTileNames[index];
-  //   console.log(taskTileName.innerHTML);
-  editTaskName.value = taskTileName.dataset.name;
-  //   console.log(editTaskName.value);
+  editTaskName.value = extractedTaskValues.taskName;
 
   const editTaskFolder = document.querySelector("#edit-task-folder");
-  const taskTileFolders = document.querySelectorAll(".task-folder");
-  const taskTileFolder = taskTileFolders[index];
-
-  editTaskFolder.value = taskTileFolder.dataset.folder;
-
+  editTaskFolder.value = extractedTaskValues.folderLocation;
 
   const editTaskDueDate = document.querySelector("#edit-task-due-date");
-  const taskTileDueDates = document.querySelectorAll(".task-due-date");
-  const taskTileDueDate = taskTileDueDates[index];
-  const currentDatasetFormat = taskTileDueDate.dataset.date;
-  const newDatasetFormat =  currentDatasetFormat.replace(/\//g, '-');
-  editTaskDueDate.value = newDatasetFormat;
+  const currentDateFormat = extractedTaskValues.taskDueByDate;
+  const newDateFormat = currentDateFormat.replace(/\//g, "-");
+  editTaskDueDate.value = newDateFormat;
 
-
-    const editTaskDescription = document.querySelector("#edit-task-description");
-    const taskTileDescriptions = document.querySelectorAll(".task-description");
-    const taskTileDescription = taskTileDescriptions[index];
-    editTaskDescription.value = taskTileDescription.dataset.description;
+  const editTaskDescription = document.querySelector("#edit-task-description");
+  editTaskDescription.value = extractedTaskValues.taskDescription;
 }
+
+
 
 export function createEditTaskForm() {
     const header = document.querySelector("header");
