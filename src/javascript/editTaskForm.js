@@ -4,25 +4,14 @@ import {
 
 import { Task } from "./classes.js";
 
-import { workingTheme, updateTask, workingTasks } from "./storageAndData.js";
+import {
+  workingTheme,
+  workingTasks,
+  loadTasks,
+  saveTasks,
+  updateEditedTasks,
+} from "./storageAndData.js";
 
-// export function editBtnClicked(index) {
-//     const taskTiles = document.querySelectorAll(".task");
-//     const taskTile = taskTiles[index];
-//     console.log(taskTile);
-    
-//     const editTaskForm = document.querySelector("#edit-task-form");
-//     console.log(`Edit clicked!`);
-//     editTaskForm.classList.toggle("flex");
-
-//     const editTaskName = document.querySelector("#edit-task-name");
-//     const taskTileNames = document.querySelectorAll(".task-name");
-//     const taskTileName = taskTileNames[index];
-//     console.log(taskTileName.innerHTML);
-//     editTaskName.value = taskTileName.innerHTML;
-//     console.log(editTaskName.value);
-    
-// }
 
 export function editBtnClicked(index) {
   const editTaskForm = document.querySelector("#edit-task-form");
@@ -30,90 +19,17 @@ export function editBtnClicked(index) {
   populateEditTaskForm(index);
 }
 
-// function populateEditTaskForm(index) {
-//   const taskTiles = document.querySelectorAll(".task");
-//   const taskTile = taskTiles[index];
-//   console.log(taskTile);
-//   const editTaskForm = document.querySelector("#edit-task-form");
-//   //   console.log(`Edit clicked!`);
-//   //   editTaskForm.classList.toggle("flex");
-
-//   const editTaskName = document.querySelector("#edit-task-name");
-//   const taskTileNames = document.querySelectorAll(".task-name");
-//   const taskTileName = taskTileNames[index];
-//   //   console.log(taskTileName.innerHTML);
-//   editTaskName.value = taskTileName.dataset.name;
-//   //   console.log(editTaskName.value);
-
-//   const editTaskFolder = document.querySelector("#edit-task-folder");
-//   const taskTileFolders = document.querySelectorAll(".task-folder");
-//   const taskTileFolder = taskTileFolders[index];
-
-//   editTaskFolder.value = taskTileFolder.dataset.folder;
-
-
-//   const editTaskDueDate = document.querySelector("#edit-task-due-date");
-//   const taskTileDueDates = document.querySelectorAll(".task-due-date");
-//   const taskTileDueDate = taskTileDueDates[index];
-//   const currentDatasetFormat = taskTileDueDate.dataset.date;
-//   const newDatasetFormat =  currentDatasetFormat.replace(/\//g, '-');
-//   editTaskDueDate.value = newDatasetFormat;
-
-
-//     const editTaskDescription = document.querySelector("#edit-task-description");
-//     const taskTileDescriptions = document.querySelectorAll(".task-description");
-//     const taskTileDescription = taskTileDescriptions[index];
-//     editTaskDescription.value = taskTileDescription.dataset.description;
-// }
-
-// function populateEditTaskForm(index) {
-//     const taskTiles = document.querySelectorAll(".task");
-//     const taskTile = taskTiles[index];
-//     console.log(taskTile.dataset.id);
-
-//     const targetId = taskTile.dataset.id;
-
-//     const matchingTaskId = workingTasks.filter(
-//       (task) => targetId.includes(task.taskId));
-
-//     console.log(matchingTaskId);
-    
-//     const extractedTaskValues = matchingTaskId.map((task) => ({
-//       // taskId: task.taskId,
-//       taskName: task.taskName,
-//       folderLocation: task.folderLocation,
-//       taskDueByDate: task.dueByDate,
-//       taskDescription: task.descriptionText
-//     }));
-
-//       const editTaskName = document.querySelector("#edit-task-name");
-//       editTaskName.value = extractedTaskValues.taskName;
-
-//       const editTaskFolder = document.querySelector("#edit-task-folder");
-//       editTaskFolder.value = extractedTaskValues.taskDueByDate;
-
-//       const editTaskDueDate = document.querySelector("#edit-task-due-date");
-//       const currentDateFormat = extractedTaskValues.taskDueByDate;
-//       const newDateFormat = currentDateFormat.replace(/\//g, "-");
-//       editTaskDueDate.value = newDateFormat;
-
-//       const editTaskDescription = document.querySelector(
-//         "#edit-task-description"
-//       );
-//       editTaskDescription.value = extractedTaskValues.descriptionText;
-// }
+let targetId = "";
 
 function populateEditTaskForm(index) {
   const taskTiles = document.querySelectorAll(".task");
   const taskTile = taskTiles[index];
-  console.log(taskTile.dataset.id);
-
-  const targetId = taskTile.dataset.id;
-
-  // Filter tasks to find the one with matching taskId
+//   console.log(taskTile.dataset.id);
+  targetId = taskTile.dataset.id;
+  console.log(targetId);
+  
   const matchingTasks = workingTasks.filter((task) => task.taskId === targetId);
 
-  // Check if any tasks were found
   if (matchingTasks.length === 0) {
     console.error("No matching task found");
     return;
@@ -144,9 +60,9 @@ function populateEditTaskForm(index) {
 
   const editTaskDescription = document.querySelector("#edit-task-description");
   editTaskDescription.value = extractedTaskValues.taskDescription;
+
+  return targetId;
 }
-
-
 
 export function createEditTaskForm() {
     const header = document.querySelector("header");
@@ -277,89 +193,14 @@ export function populateEditTaskFormFolderOptions(folders) {
   });
 }
 
-export function populateEditTaskFormWithTaskData(tasks, index) {
-  // const taskTiles = document.querySelectorAll(".task");
-  // const taskTile = taskTiles[index];
-  // const editTaskName = document.querySelector("#edit-task-name");
-  // const editTaskFolder = document.querySelector("#edit-task-folder");
-  // const editTaskDueDate = document.querySelector("#edit-task-due-date");
-  // const editTaskDescription = document.querySelector("#edit-task-description");
-  // const editTaskFolderSelect = document.querySelector("#edit-task-folder");
-  // const matchingTasks = tasks.filter(
-  //   (task) => task[index] === editBtnClicked(index)
-  //   );
-  // matchingTasks.forEach((tasks, index) => {
-  //     editTaskName.value = tasks[index].taskName;
-  //     editTaskFolder.value = tasks[index].folderLocation;
-  //     editTaskDueDate.value = tasks[index].dueByDate;
-  //     editTaskDescription.value = tasks[index].descriptionText;
-  // })
-}
-
-// export function newTaskPriorityChecked() {
-// 	const darkLiteBtn = document.querySelector("#dark-lite-btn");		
-//   	const newTaskPriorityToggle = document.querySelector("#new-task-priority-toggle");
-//   	const newTaskPriorityFlagImg = document.querySelector("#new-task-priority-flag-img");
-//     if (newTaskPriorityToggle) {
-//         if (newTaskPriorityToggle.checked && darkLiteBtn.value === "dark") {
-//             newTaskPriorityToggle.dataset.value = "high";
-//             newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImg;
-//         } else if (!newTaskPriorityToggle.checked && darkLiteBtn.value === "dark") {
-//             newTaskPriorityToggle.dataset.value = "low";
-//             newTaskPriorityFlagImg.src = dmNewTaskPriorityFlagImgBG;
-//         } else if (newTaskPriorityToggle.checked && darkLiteBtn.value === "lite") {
-//             newTaskPriorityToggle.dataset.value = "high";
-//             newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImg;
-//         } else if (!newTaskPriorityToggle.checked && darkLiteBtn.value === "lite") {
-//             newTaskPriorityToggle.dataset.value = "low";
-//             newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImgBG;
-//         }
-        
-        
-        
-        
-//         // else {
-//         //     newTaskPriorityToggle.dataset.value = "low";
-//         //     newTaskPriorityFlagImg.src = "";
-//         // }     
-//     } else {
-//         console.warn("newTaskPriorityToggle is null or not found in the DOM.");
-//     }
-// };
-
-/***************** */
-
-// export function clearNewTaskForm() {
-// const newTaskForm = document.querySelector("#new-task-form");
-// const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
-
-//     if (newTaskCancelBtn && newTaskForm) {
-//         newTaskSubmitBtn.addEventListener("click", function () {
-
-//         // Reset form fields
-//         newTaskForm.reset();
-        
-//         // Optionally, remove validation messages or states
-//         document.querySelectorAll("`${newTaskForm}` input select").forEach(input => {
-//         input.setCustomValidity('');});
-//     }) 
-//     } else {
-//         console.warn("newTaskCancelBtn or newTaskForm is null or not found in the DOM.");
-//     }
-// }
-
 export function clearEditTaskForm() {
   const editTaskForm = document.querySelector("#edit-task-form");
   const editTaskCancelBtn = document.querySelector("#edit-task-cancel-btn");
-  	// const newTaskPriorityToggle = document.querySelector(
-    //   "#new-task-priority-toggle"
-    // );
-      	const editTaskPriorityFlagImg = document.querySelector(
-          "#edit-task-priority-flag-img"
-        );
+
   if (editTaskCancelBtn && editTaskForm) {
     editTaskCancelBtn.addEventListener("click", function () {
-      window.location.reload();
+          editTaskForm.classList.toggle("flex");
+    //   window.location.reload();
     });
   } else {
     console.warn(
@@ -368,66 +209,63 @@ export function clearEditTaskForm() {
   }
 }
 
+// export function updateEditedTasks(dataId) {
+//   let tasks = loadTasks();
+//   tasks = tasks.map((task) => {
+//     if (task.taskId === dataId) {
+//       // Toggle the status
+//       task.taskName = editTaskName.value;
+//       task.folderLocation = editTaskFolder.value;
+//       task.dueByDate = editTaskDueDate.value;
+//       task.descriptionText = editTaskDescription.value;
+//     }
+//     return task;
+//   });
 
-// function getTaskFormData() {
-//   return {
-//     taskName: document.querySelector("#new-task-name").value,
-//     folderLocation: document.querySelector("#new-task-folder").value,
-//     priorityFlag: document.querySelector("#new-task-priority-toggle").dataset
-//       .value,
-//     dueByDate: document.querySelector("#new-task-due-date").value,
-//     descriptionText: document.querySelector("#new-task-description").value,
-//     // taskId: Date.now(),
-//     taskId:`t${workingTasks.length + 1}`,
-//     completedFlag: "incomplete",
-//   };
+//   workingTasks = tasks;
+//   saveTasks();
+//   // window.location.reload();
 // }
 
-// function createEditTask(formData) {
-//   return edit Task(
-//     formData.taskId,
-//     formData.taskName,
-//     formData.dueByDate,
-//     formData.overdueFlag,
-//     formData.priorityFlag,
-//     formData.completedFlag,
-//     formData.folderLocation,
-//     formData.descriptionText
-//   );
-// }
+export function submitEditedTask(index) {
+    const editTaskSubmitBtn = document.querySelector("#edit-task-submit-btn");
+    const editTaskForm = document.querySelector("#edit-task-form");
+            
+  if (editTaskSubmitBtn && editTaskForm) {
+    editTaskForm.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-// export function updateEditTask() {
-//   const editTaskSubmitBtn = document.querySelector("#edit-task-submit-btn");
-//   const editTaskForm = document.querySelector("#edit-task-form");
-// //   const newTaskNameInput = document.querySelector("#new-task-name");
-// //   const newTaskDueDateInput = document.querySelector("#new-task-due-date");
+    const editTaskName = document.querySelector("#edit-task-name");
+    console.log(editTaskName.value);
 
-//   if (
-//     editTaskSubmitBtn &&
-//     editTaskForm 
-//     // &&
-//     // newTaskNameInput.value &&
-//     // newTaskDueDateInput.value
-//   ) {
-//     // newTaskSubmitBtn.addEventListener("submit", function (event) {
-//     //   event.preventDefault();
+    const editTaskFolder = document.querySelector("#edit-task-folder");
+    console.log(editTaskFolder.value);
 
-//         editTaskForm.addEventListener("submit", function (event) {
-//           event.preventDefault();
+    const editTaskDueDate = document.querySelector("#edit-task-due-date");
+    console.log(editTaskDueDate.value);
 
-//           // Extract data from form...
-//           const formData = getTaskFormData();
+    const editTaskDescription = document.querySelector("#edit-task-description");
+    console.log(editTaskDescription.value);
+   
 
-//           // Create new task
-//           const editTask = createEditTask(formData);
+    console.log(`TID = ${targetId}`);
 
-//           // Add task
-//           updateTask(editTask);
-//           window.location.reload();
-//         });
-//   } else {
-//     console.warn(
-//       "editTaskSubmitBtn or editTaskForm is null or not found in the DOM."
-//     );
-//   }
-// }
+    updateEditedTasks(targetId);  
+
+      // Extract data from form...
+    //   const formData = getTaskFormData();
+
+      // Create new task
+    //   const newTask = createNewTask(formData);
+
+      // Add task
+    //   addTask(newTask);
+    //   window.location.reload();
+    });
+  } else {
+    console.warn(
+      "newTaskSubmitBtn or newTaskForm is null or not found in the DOM."
+    );
+  }
+}
+

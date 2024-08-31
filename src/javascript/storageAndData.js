@@ -188,3 +188,40 @@ export function updateCompleteStatus(dataId) {
     workingTasks = tasks;
     saveTasks();
 }
+
+// export function updateTasks(updatedTask) {
+//   const index = workingTasks.findIndex(
+//     (task) => task.taskId === updatedTask.taskId
+//   );
+//   if (index !== -1) {
+//     workingTasks[index] = updatedTask;
+//     saveTasks();
+//   }
+// }
+
+export function updateEditedTasks(dataId) {
+  let tasks = loadTasks();
+    tasks = tasks.map((task) => {
+      if (task.taskId === dataId) {
+
+    const editTaskName = document.querySelector("#edit-task-name");
+    const editTaskFolder = document.querySelector("#edit-task-folder");
+    const editTaskDueDate = document.querySelector("#edit-task-due-date");
+    const editTaskDescription = document.querySelector(
+      "#edit-task-description"
+    );
+
+        // Toggle the status
+        task.taskName = editTaskName.value;
+        task.folderLocation = editTaskFolder.value;
+        task.dueByDate = editTaskDueDate.value;
+        task.descriptionText = editTaskDescription.value;
+      }
+      return task;
+    });
+
+    workingTasks = tasks;
+    saveTasks();
+window.location.reload();
+
+}

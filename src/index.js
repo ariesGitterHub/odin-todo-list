@@ -33,7 +33,9 @@ import {
   editBtnClicked,
   createEditTaskForm,
   populateEditTaskFormFolderOptions,
-//   populateEditTaskForm,
+  clearEditTaskForm,
+  submitEditedTask,
+  //   populateEditTaskForm,
   // populateEditTaskFormWithTaskData,
   //   newTaskPriorityChecked,
   //   clearNewTaskForm,
@@ -100,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createStatusBar();
     createNewTaskForm();
     createEditTaskForm();
+    clearEditTaskForm();
     createNewFolderForm();
     checkAndOrganizeByDate(workingTasks)
     checkAndOrganizeByName(workingFolders);
@@ -113,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     clearNewTaskForm();
     clearNewFolderForm();
     submitNewTask();
+    submitEditedTask();
     submitNewFolder();
     populateNewTaskFormFolderOptions(workingFolders);
     populateEditTaskFormFolderOptions(workingFolders);
