@@ -28,8 +28,8 @@ const defaultFolders = [
     new Folder("f0", "*Default", "--fc00"),
     new Folder("f1", "Chores", "--fc09"),
     new Folder("f2", "Fitness", "--fc01"),
-    new Folder("f3", "Repair", "--fc03"),
-    new Folder("f4", "Social", "--fc04"),
+    new Folder("f3", "Repair", "--fc07"),
+    new Folder("f4", "Social", "--fc03"),
     new Folder("f5", "Travel", "--fc06"),
 ];
 
@@ -93,15 +93,15 @@ const defaultTasks = [
     "low",
     "incomplete",
     "Chores",
-    "Buy: apples, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, frozen blueberries."
+    "Buy: apples, oranges, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, and frozen blueberries."
   ),
   new Task(
     "t2",
     "Run my usual 5k course",
-    "2024-08-28",
+    "2024-09-02",
     "",
     "low",
-    "completed",
+    "incomplete",
     "Fitness",
     "Because of the heat, try to go later in the evening, like around sunset."
   ),
@@ -109,7 +109,7 @@ const defaultTasks = [
     "t3",
     "Get drinks at the Skeller with Mike and Rich.",
     //   "overdue",
-    "1996-07-06",
+    "1996-07-11",
     "",
     "low",
     "incomplete",
@@ -128,7 +128,7 @@ const defaultTasks = [
   ),
   new Task(
     "t5",
-    "See Guedelon Castle in France",
+    "Visit Guedelon Castle in France",
     "2026-07-01",
     "",
     "low",
