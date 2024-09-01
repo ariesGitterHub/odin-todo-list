@@ -27,10 +27,11 @@ import {
     newTaskPriorityChecked,
     clearNewTaskForm,
     submitNewTask,
+    validateFolderName
 } from "./javascript/newTaskForm.js";
 
 import {
-  editBtnClicked,
+  taskEditBtnClicked,
   createEditTaskForm,
   populateEditTaskFormFolderOptions,
   clearEditTaskForm,
@@ -49,6 +50,22 @@ import {
 } from "./javascript/newFolderForm.js";
 
 import {
+  folderEditBtnClicked,
+  createEditFolderForm,
+  populateEditFolderFormFolderOptions,
+  clearEditFolderForm,
+  submitEditedFolder,
+
+  // checkForAsterix
+
+  //   populateEditTaskForm,
+  // populateEditTaskFormWithTaskData,
+  //   newTaskPriorityChecked,
+  //   clearNewTaskForm,
+  //   submitNewTask,
+} from "./javascript/editFolderForm.js";
+
+import {
     checkAndOrganizeByDate,
     checkAndOrganizeByName,
     checkPriorityStatus,
@@ -60,8 +77,9 @@ import {
 } from "./javascript/checkStatus.js";
 
 import {
-    createFolders,
-    countTasksByFolder,
+  createFolders,
+  countTasksByFolder,
+  folderTrashBtnClicked,
 } from "./javascript/folderContent.js";
 
 import {
@@ -69,7 +87,7 @@ import {
     createTaskColor,
     priorityBtnClicked,
     completedBtnClicked,
-    trashBtnClicked,
+    taskTrashBtnClicked,
 } from "./javascript/taskContent.js";
 
 import { toggleDarkLiteMode } from "./javascript/toggleDarkLiteMode.js";
@@ -104,6 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
     createEditTaskForm();
     clearEditTaskForm();
     createNewFolderForm();
+    createEditFolderForm();
+    clearEditFolderForm();
     checkAndOrganizeByDate(workingTasks)
     checkAndOrganizeByName(workingFolders);
     createFolders(workingFolders);
@@ -118,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitNewTask();
     submitEditedTask();
     submitNewFolder();
+    submitEditedFolder();
     populateNewTaskFormFolderOptions(workingFolders);
     populateEditTaskFormFolderOptions(workingFolders);
     checkIfNoTasks();
@@ -130,6 +151,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newFolderBtn = document.querySelector("#new-folder-btn");
     newFolderBtn.addEventListener("click", handleNewFolderBtn);
+
+    // const newFolderNameInput = document.querySelector("#new-folder-name");
+    // function validateFolderName(name) {
+    //   // Regular expression to check if the folder name contains an asterisk
+    //   const invalidPattern = /\*/;
+    //   return !invalidPattern.test(name);
+    // }
+    // newFolderNameInput.addEventListener("input", function () {
+    //   if (!validateFolderName(newFolderNameInput.value)) {
+    //     // If the input is invalid, you can show an error message or handle it as needed
+    //     newFolderNameInput.setCustomValidity(
+    //       "Folder name cannot contain an asterisk (*)"
+    //     );
+    //   } else {
+    //     // Clear the custom validity message if input is valid
+    //     newFolderNameInput.setCustomValidity("");
+    //   }
+    // });
 
     const darkLiteBtn = document.querySelector("#dark-lite-btn");
     darkLiteBtn.addEventListener("click", handleDarkLiteBtn);
@@ -154,6 +193,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const folderNumBtn = document.querySelector("#folder-num-btn");
     folderNumBtn.addEventListener("click", showFolderView);
 
+    // const editFolderTrashBtn = document.querySelector("#edit-folder-trash-btn");
+    // editFolderTrashBtn.addEventListener("click", folderTrashBtnClicked);
+
+
+
     const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
     taskPriorityBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
@@ -175,10 +219,9 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     taskEditBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
-        editBtnClicked(index);
+        taskEditBtnClicked(index);
         console.log(button.dataset.id);
-        // console.log(editBtnClicked(index));
-        //   populateEditTaskForm(index);
+
         // window.location.reload();
         });
     });
@@ -186,12 +229,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskTrashBtns = document.querySelectorAll(".task-trash-btn");
     taskTrashBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
-        trashBtnClicked(index);
+        taskTrashBtnClicked(index);
         });
     });
+
+    const folderEditBtns = document.querySelectorAll(".folder-edit-btn");
+    folderEditBtns.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        folderEditBtnClicked(index);
+        console.log(button.dataset.id);
+
+        // window.location.reload();
+      });
+    });
+
+        const folderTrashBtns = document.querySelectorAll(".folder-trash-btn");
+        folderTrashBtns.forEach((button, index) => {
+          button.addEventListener("click", () => {
+            folderTrashBtnClicked(index);
+            window.location.reload();
+          });
+        });
+
+        // const taskTrashBtns = document.querySelectorAll(".task-trash-btn");
+        // taskTrashBtns.forEach((button, index) => {
+        //     button.addEventListener("click", () => {
+        //     taskTrashBtnClicked(index);
+        //     });
+        // });
 
     countTaskTypes(workingTasks);  
     countFolders(workingFolders); 
     countTasksByFolder();
     checkFolderAddClass();
+    // checkForAsterix();
 });

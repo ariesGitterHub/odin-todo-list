@@ -31,7 +31,8 @@
 --dark-btn-active: #353540; /* btn activated*/
 
 /* Dark Mode Folder Colors */
---dmfc00: var(--dark-contrast);
+/* --dmfc00: var(--dark-contrast); */
+--dmfc00: #e7e6e1;
 --dmfc01: #bc6a6a;
 --dmfc02: #ce9a8b;
 --dmfc03: #d8b949;
@@ -54,10 +55,11 @@
 --lite-btn-active: #a6a67d; /* btn activated*/
 
 /* Lite Mode Folder Colors */
---lmfc00: var(--lite-contrast);
+/* --lmfc00: var(--lite-contrast); */
+--lmfc00: #181819;
 --lmfc01: #6b1919;
 --lmfc02: #8f5e51;
---lmfc03: #59533c;
+--lmfc03: #59533c;          
 --lmfc04: #445d37;
 --lmfc05: #1f6251;
 --lmfc06: #306165;
@@ -71,6 +73,7 @@
 --font-hand: "Indie Flower", cursive;
 --font-plain:  "Questrial", sans-serif;
 
+/* --font-size-spsm: .25rem; */
 --font-size-sm: 1rem;
 --font-size-md: 1.2rem;
 --font-size-lg: 1.4rem;
@@ -171,10 +174,17 @@ body {
         align-items: center;
     }
 
-.lvl-row-spaced {
+.lvl-row-start {
     display: flex;
         justify-content: start;
         align-items: center;
+}
+
+.lvl-row-end {
+    display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 3px;
 }
 
 .lvl-row-width {
@@ -199,7 +209,7 @@ body {
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!add edit-form stuff here... */
-#status-bar.flex, #new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex {
+#status-bar.flex, #new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex, #edit-folder-form.flex {
     display: flex;
 }
 
@@ -408,17 +418,15 @@ nav button img {
     background-color: var(--adta);
 }
 
-#edit-task-form {
-    background-color: var(--bkgd);
-}
-
 #new-folder-form {
     background-color: var(--adfo);
 }
 
-#new-task-form, #new-folder-form
-/* , #edit-task-form */
- {
+#edit-task-form, #edit-folder-form {
+    background-color: var(--activated);
+}
+
+#new-task-form, #new-folder-form, #edit-task-form, #edit-folder-form {
     height: fit-content;
     border: var(--border-size) solid var(--bkgd); 
     display: none;
@@ -432,7 +440,7 @@ nav button img {
 }
 
 /* TEMP!!!! */
-#edit-task-form {
+/* #edit-task-form {
     height: fit-content;
     border: var(--border-size) solid var(--bkgd); 
     display: none;
@@ -443,19 +451,19 @@ nav button img {
     font-family: var(--font-plain);
     font-size: var(--font-size-sm);
     padding: 1rem;
-}
+} */
 
-#new-task-img, #new-folder-img, #edit-task-img {
+#new-task-img, #new-folder-img, #edit-task-img, #edit-folder-img {
     height: var(--btn-round-hw);
     width: auto;
     margin-right: .5rem;
 }
 
-#new-task-form p, #new-folder-form p, #edit-task-form p {
+#new-task-form p, #new-folder-form p, #edit-task-form p, #edit-folder-form p  {
     font-size: var(--title-font-size);
 }
 
-#new-task-form .form-field-title, #new-folder-form .form-field-title, #edit-task-form .form-field-title {
+#new-task-form .form-field-title, #new-folder-form .form-field-title, #edit-task-form .form-field-title, #edit-folder-form .form-field-title {
     font-family: var(--font-hand);
     font-size: var(--font-size-md);
     margin-bottom: -.25rem;
@@ -532,13 +540,13 @@ form input::-webkit-input-placeholder {
     margin-bottom: .5rem;
 }
 
-#new-folder-color-picked {
+#new-folder-color-picked, #edit-folder-color-picked {
     height: 2rem;
-    width: 15.5ch;
+
     background-color: none;
     border: var(--border-size) solid var(--contrast);
     border-radius: var(--border-radius-squarish);
-    color: var(--contrast);
+
     display: flex;
         justify-content: center;
         align-items: center;
@@ -546,6 +554,16 @@ form input::-webkit-input-placeholder {
     font-size: var(--font-size-sm);
     margin-left: .25rem;
     padding: .25rem;
+}
+
+#new-folder-color-picked {
+        width: 16.25ch;
+    color: var(--contrast);
+}
+
+#edit-folder-color-picked {
+        width: 18.25ch;
+    color: var(--bkgd);
 }
 
 .color-picker-btn-cont1, .color-picker-btn-cont2 {
@@ -756,7 +774,7 @@ input:checked + .slider:before {
     margin-left: .25rem;
 }
 
-.folder-task-btn, .folder-edit-btn {
+.folder-task-btn, .folder-edit-btn, .folder-trash-btn {
     height: var(--btn-round-hw);
     width: var(--btn-round-hw);
     background-color: var(--bkgd);
@@ -768,18 +786,28 @@ input:checked + .slider:before {
         align-items: center;
 }
 
-.folder-task-btn:hover, .folder-task-btn:focus, .folder-edit-btn:hover, .folder-edit-btn:focus{
+.folder-task-btn:hover, .folder-task-btn:focus, .folder-edit-btn:hover, .folder-edit-btn:focus, .folder-trash-btn:hover, .folder-trash-btn:focus {
     border: var(--border-size) dashed;
     border-color: var(--bkgd);
     transform: scale(var(--btn-scale-bg));
 }
 
-.folder-task-btn:active, .folder-edit-btn:active {
+/* #folder-trash-btn:hover {
+    border: var(--border-size) dashed;
+    border-color: var(--contrast);
+    transform: scale(var(--btn-scale-bg));
+} */
+
+.folder-task-btn:active, .folder-edit-btn:active, .folder-trash-btn:active
+/* #folder-trash-btn:active */
+ {
     transform: scale(var(--btn-scale-sm));
 }
 
 /* DELETE trash btn img ref if I do not use it */
-.folder-task-btn-img, .folder-folder-img, .folder-edit-btn-img, .folder-trash-btn-img {
+.folder-task-btn-img, .folder-folder-img, .folder-edit-btn-img, .folder-trash-btn-img
+ /* #folder-trash-btn-img  */
+  {
     height: var(--btn-img-basic-size);
 }
 
@@ -882,6 +910,18 @@ input:checked + .slider:before {
         justify-content: center;
         align-items: center;
 }
+
+/* #folder-trash-btn {
+    height: var(--btn-round-hw);
+    width: var(--btn-round-hw);
+    background-color: var(--activated);
+    border: var(--border-size) solid;
+    border-color: var(--contrast);
+    border-radius: var(--btn-round-hw);
+    display: flex;
+        justify-content: center;
+        align-items: center;
+} */
 
 .task-btn-cont {
     gap: calc(var(--gap-basic) * 2.5);

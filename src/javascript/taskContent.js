@@ -322,7 +322,7 @@ export function completedBtnClicked(index) {
     }
 }
 
-export function trashBtnClicked(index) {
+export function taskTrashBtnClicked(index) {
     const taskTrashBtns = document.querySelectorAll(".task-trash-btn");
     const taskTiles = document.querySelectorAll(".task");
     const taskTrashBtn = taskTrashBtns[index];

@@ -27,7 +27,7 @@ import {
     workingFolders,
     workingTasks,
     workingTheme,
-    // removeFolder,
+    removeFolder,
     // workingFolder,
 } from "./storageAndData.js";
 
@@ -52,14 +52,14 @@ function defaultFolderBtnImgs() {
         task: lmTaskImg,
         folder: lmFolderImg,
         edit: lmEditImg,
-        //   trash: dmTrashImg,
+          trash: dmTrashImg,
     };
   } else if (workingTheme[0].mode === "lite") {
     return {
         task: dmTaskImg,
         folder: dmFolderImg,
         edit: dmEditImg,
-        //   trash: lmTrashImg,
+          trash: lmTrashImg,
     };
   }
 }
@@ -86,7 +86,7 @@ export function createFolders(folders) {
     folderBar.style.backgroundColor = `var(${folderItem.folderColor})`;
 
     const lvlRow1 = document.createElement("div");
-    lvlRow1.classList.add("lvl-row-spaced");
+    lvlRow1.classList.add("lvl-row-start");
 
     // const folderTaskBtn = document.createElement("button");
     // folderTaskBtn.classList.add("folder-task-btn");
@@ -111,17 +111,30 @@ export function createFolders(folders) {
 
     const folderTaskNum = document.createElement("p");
     folderTaskNum.classList.add("folder-task-num", sanitizedFolderName);
-    folderTaskNum.textContent = ` (0 Tasks)`;
+    // folderTaskNum.textContent = ` (0 Tasks)`;
+        folderTaskNum.textContent = ` (0)`;
+
+        const lvlRow2 = document.createElement("div");
+        lvlRow2.classList.add("lvl-row-end");
 
     const folderEditBtn = document.createElement("button");
     folderEditBtn.classList.add("folder-edit-btn");
-    folderEditBtn.value = "off";
+    // folderEditBtn.value = "off";
     folderEditBtn.style.backgroundColor = `var(${folderItem.folderColor})`;
 
     const folderEditBtnImg = document.createElement("img");
     folderEditBtnImg.classList.add("folder-edit-btn-img");
     folderEditBtnImg.src = imgUrls.edit;
     folderEditBtnImg.alt = "Edit folder icon";
+
+    const folderTrashBtn = document.createElement("button");
+    folderTrashBtn.classList.add("folder-trash-btn");
+    folderTrashBtn.style.backgroundColor = `var(${folderItem.folderColor})`;
+
+    const folderTrashBtnImg = document.createElement("img");
+    folderTrashBtnImg.classList.add("folder-trash-btn-img");
+    folderTrashBtnImg.src = imgUrls.trash;
+    folderTrashBtnImg.alt = "Trash folder icon";
 
   
 
@@ -197,7 +210,9 @@ export function createFolders(folders) {
     folder.append(folderBar
       // , folderTaskField
     );
-    folderBar.append(lvlRow1, folderEditBtn);
+    folderBar.append(lvlRow1, lvlRow2
+      // folderEditBtn, folderTrashBtn
+    );
     // folderTaskBtn.append(folderTaskBtnImg);
     lvlRow1.append(
       // folderTaskBtn,
@@ -205,7 +220,12 @@ export function createFolders(folders) {
       folderName,
       folderTaskNum,
     );
+
+        lvlRow2.append(folderEditBtn, folderTrashBtn);
+
+
     folderEditBtn.append(folderEditBtnImg);
+ folderTrashBtn.append(folderTrashBtnImg);
 
     const matchingTasks = workingTasks.filter(
       (task) => task.folderLocation === folderItem.folderName
@@ -412,10 +432,28 @@ const folderTiles = document.querySelectorAll(".folder");
         const taskCount = taskFolderPs.length / 3;
         const folderTaskNum = folderTile.querySelector(".folder-task-num");
 
-        if (taskCount === 1) {
-            folderTaskNum.textContent = `(${taskCount} task)`;
-        } else {
-            folderTaskNum.textContent = `(${taskCount} tasks)`;
-        }
+        if (taskCount) {
+          folderTaskNum.textContent = `(${taskCount})`;
+        } 
+
+        // if (taskCount === 1) {
+        //     folderTaskNum.textContent = `(${taskCount} task)`;
+        // } else {
+        //     folderTaskNum.textContent = `(${taskCount} tasks)`;
+        // }
     })
+}
+
+export function folderTrashBtnClicked(index) {
+  const folderTrashBtns = document.querySelectorAll(".folder-trash-btn");
+    const folderTrashBtn = folderTrashBtns[index];
+  const folderTiles = document.querySelectorAll(".folder");
+  const folderTile = folderTiles[index];
+  if (folderTrashBtn) {
+    console.log(folderTile.dataset.id);
+
+    removeFolder(folderTile.dataset.id);
+  } else {
+    console.warn("folderTrashBtn is null or not found in the DOM.");
+  }
 }

@@ -188,6 +188,12 @@ export function createNewFolderForm() {
     colorBtnClicked();
 }
 
+// export function validateFolderName(name) {
+//   // Regular expression to check if the folder name contains an asterisk
+//   const invalidPattern = /\*/;
+//   return !invalidPattern.test(name);
+// }
+
 function colorBtnClicked() {
 const colorPickerBtns = document.querySelectorAll(".color-picker-btn");
 const newFolderColorPicked = document.querySelector("#new-folder-color-picked");

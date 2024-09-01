@@ -2,18 +2,14 @@ import {
   dmTaskImg
 } from "./imageExporter.js";
 
-import { Task } from "./classes.js";
+// import { Task } from "./classes.js";
 
 import {
-  workingTheme,
   workingTasks,
-  loadTasks,
-  saveTasks,
   updateEditedTasks,
 } from "./storageAndData.js";
 
-
-export function editBtnClicked(index) {
+export function taskEditBtnClicked(index) {
   const editTaskForm = document.querySelector("#edit-task-form");
   editTaskForm.classList.toggle("flex");
   populateEditTaskForm(index);
@@ -96,7 +92,7 @@ export function createEditTaskForm() {
     editTaskNameInput.type = "text";
     editTaskNameInput.id = "edit-task-name";
     editTaskNameInput.name = "edit-task-name";
-    editTaskNameInput.placeholder = "Enter edit task name...";
+    editTaskNameInput.placeholder = "";
     editTaskNameInput.autocomplete = "off";
     editTaskNameInput.required = "true";
 

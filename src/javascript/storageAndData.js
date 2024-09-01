@@ -57,15 +57,22 @@ export function addFolder(folder) {
 export function removeFolder(dataId) {
     workingFolders = workingFolders.filter((folder) => folder.folderId !== dataId);
     saveFolders();
+    //   window.location.reload();
 }
 
-export function updateFolder(updatedFolder) {
-const index = workingFolders.findIndex((folder) => folder.folderId === updatedFolder.folderId);
-    if (index !== -1) {
-    workingFolders[index] = updatedFolder;
-    saveFolders();
-    }
-}
+// export function removeTask(dataId) {
+//   workingTasks = workingTasks.filter((task) => task.taskId !== dataId);
+//   saveTasks();
+//   window.location.reload();
+// }
+
+// export function updateFolder(updatedFolder) {
+// const index = workingFolders.findIndex((folder) => folder.folderId === updatedFolder.folderId);
+//     if (index !== -1) {
+//     workingFolders[index] = updatedFolder;
+//     saveFolders();
+//     }
+// }
 
 const defaultTasks = [
   new Task(
@@ -223,5 +230,23 @@ export function updateEditedTasks(dataId) {
     workingTasks = tasks;
     saveTasks();
 window.location.reload();
+}
 
+export function updateEditedFolders(dataId) {
+  let folders = loadFolders();
+  folders = folders.map((folder) => {
+    if (folder.folderId === dataId) {
+      const editFolderName = document.querySelector("#edit-folder-name");
+      const editFolderColorPicked = document.querySelector("#edit-folder-color-picked");
+
+      // Toggle the status
+      folder.folderName = editFolderName.value;
+      folder.folderColor = editFolderColorPicked.dataset.value;
+    }
+    return folder;
+  });
+
+  workingFolders = folders;
+      saveFolders();
+  window.location.reload();
 }

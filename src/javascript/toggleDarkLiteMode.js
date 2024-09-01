@@ -134,10 +134,14 @@ export function toggleDarkLiteMode(theme) {
     const newTaskImg = document.querySelector("#new-task-img");
     const editTaskImg = document.querySelector("#edit-task-img");
     const newFolderImg = document.querySelector("#new-folder-img");
+    const editFolderImg = document.querySelector("#edit-folder-img");
+    // const editFolderTrashImg = document.querySelector("#edit-folder-trash-btn-img");
+
 
     const folderTaskBtnImg = document.querySelectorAll(".folder-task-btn-img");
     const folderFolderImg = document.querySelectorAll(".folder-folder-img")
     const folderEditBtnImg = document.querySelectorAll(".folder-edit-btn-img");
+    const folderTrashBtnImg = document.querySelectorAll(".folder-trash-btn-img");
 
     const taskPriorityBtnImg = document.querySelectorAll(".task-priority-btn-img");
     const taskCompletedBtnImg = document.querySelectorAll(".task-completed-btn-img");
@@ -164,6 +168,8 @@ export function toggleDarkLiteMode(theme) {
         newTaskImg.src = dmNewTaskImg;
         editTaskImg.src = dmTaskImg;
         newFolderImg.src = dmNewFolderImg;
+        editFolderImg.src = dmFolderImg;
+        // editFolderTrashImg.src = dmTrashImg;
 
         folderTaskBtnImg.forEach(function (image) {
             image.src = lmTaskImg;
@@ -175,6 +181,10 @@ export function toggleDarkLiteMode(theme) {
 
         folderEditBtnImg.forEach(function (image) {
           image.src = lmEditImg;
+        });
+
+        folderTrashBtnImg.forEach(function (image) {
+            image.src = lmTrashImg;
         });
 
 
@@ -210,6 +220,8 @@ export function toggleDarkLiteMode(theme) {
         newTaskImg.src = lmNewTaskImg;
         editTaskImg.src = lmTaskImg;
         newFolderImg.src = lmNewFolderImg;
+        editFolderImg.src = lmFolderImg;
+        // editFolderTrashImg.src = lmTrashImg;
 
         folderTaskBtnImg.forEach(function (image) {
             image.src = dmTaskImg;
@@ -220,6 +232,9 @@ export function toggleDarkLiteMode(theme) {
 
         folderEditBtnImg.forEach(function (image) {
           image.src = dmEditImg;
+        });
+        folderTrashBtnImg.forEach(function (image) {
+            image.src = dmTrashImg;
         });
 
 
