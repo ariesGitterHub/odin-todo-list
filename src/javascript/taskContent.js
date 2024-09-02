@@ -211,7 +211,9 @@ export function priorityBtnClicked(index) {
         if (taskPriorityBtn.value === "low" ) {
             taskPriorityBtn.value = "high";
             taskPriorityBtn.style.backgroundColor = "var(--activated)";
-            taskName.style.borderColor = "var(--alert)";
+            // taskName.style.borderColor = "var(--alert)";
+            taskName.style.color = "var(--alert)";
+            taskName.style.textDecoration = "underline";
             updatePriorityStatus(taskTile.dataset.id);
             // Append "!!!" to the task title if not already present
 
@@ -221,7 +223,9 @@ export function priorityBtnClicked(index) {
         } else if (taskPriorityBtn.value === "high") {
             taskPriorityBtn.value = "low";
             taskPriorityBtn.style.backgroundColor = "var(--bkgd)"; // Reset to default
-            taskName.style.borderColor = "var(--bkgd)"; // Reset to default
+            // taskName.style.borderColor = "var(--bkgd)"; // Reset to default
+            taskName.style.color = "inherit";
+            taskName.style.textDecoration = "none";
             updatePriorityStatus(taskTile.dataset.id);
             const titleText = taskName.textContent;
             if (titleText.includes("!!!")) {

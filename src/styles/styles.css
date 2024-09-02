@@ -74,12 +74,13 @@
 --font-plain:  "Questrial", sans-serif;
 
 /* --font-size-spsm: .25rem; */
+--font-size-ti: .85rem;
 --font-size-sm: 1rem;
 --font-size-md: 1.2rem;
 --font-size-lg: 1.4rem;
 /* --subtitle-font-size: 1.6rem; */
---title-font-size: 1.75rem;
---title-img-size: 2.75rem;
+--title-font-size: 1.6rem;
+--title-img-size: 2.25rem;
 --btn-img-basic-size: 1.5rem;
 --status-btn-img-size: 1.25rem;
 --priority-flag-overdue-triangle: 1rem;
@@ -282,8 +283,8 @@ header {
         justify-content: center;
         align-items: center;
     font-family: var(--font-hand);
-    font-size: var(--font-size-sm);
-    margin: -0.25rem 0 0.25rem 0;
+    font-size: var(--font-size-ti);
+    margin: -.5rem 0 .25rem 0;
     padding: 0;
 }
 
@@ -304,6 +305,7 @@ header {
 #header-content {
     border-top: var(--border-size) solid var(--contrast);
     border-bottom: var(--border-size) solid var(--contrast);
+
 }
 
 nav {

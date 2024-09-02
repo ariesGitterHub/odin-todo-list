@@ -97,12 +97,14 @@ export function checkIfOverdue(tasks) {
     const taskDueDates = document.querySelectorAll(".task-due-date");
 
     const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
 
     tasks.forEach((task) => {
     // Reminder: this ensures that dueByDate is a Date object
     const dueDate = new Date(task.dueByDate);
 
-    if (dueDate < today) {
+    if (dueDate < yesterday) {
         task.overdueFlag = "overdue";
     } else {
         task.overdueFlag = "on-time";
@@ -167,17 +169,17 @@ export function checkIfNoTasks() {
 }
 
 export function checkFolderAddClass() {
-  const taskTiles = document.querySelectorAll(".task");
+    const taskTiles = document.querySelectorAll(".task");
 
-  taskTiles.forEach((taskTile) => {
-    const taskFolder = taskTile.querySelector(".task-folder");
+    taskTiles.forEach((taskTile) => {
+        const taskFolder = taskTile.querySelector(".task-folder");
 
-    if (taskFolder) {
-      const folderNameData = taskFolder.dataset.folder;
-      // Sanitizes folder name to avoid spacing issue in class
-      const sanitizedClassName = folderNameData.replace(/\s+/g, "-");
+        if (taskFolder) {
+        const folderNameData = taskFolder.dataset.folder;
+        // Sanitizes folder name to avoid spacing issue in class
+        const sanitizedClassName = folderNameData.replace(/\s+/g, "-");
 
-      taskTile.classList.add(sanitizedClassName);
-    }
-  });
+        taskTile.classList.add(sanitizedClassName);
+        }
+    });
 }

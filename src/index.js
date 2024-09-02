@@ -3,7 +3,8 @@ import "./styles/styles.css";
 import {
     workingTheme,
     workingFolders,
-    workingTasks,    
+    workingTasks,
+    loadFolders,    
 } from "./javascript/storageAndData.js";
 
 import { createTitle, toggleSticky } from "./javascript/title.js";
@@ -85,6 +86,12 @@ import {
     showFolderView,
 } from "./javascript/statusBarBtns.js";
 
+// function updateDOM() {
+//     const newElement = document.createElement("div");
+//     newElement.textContent = "!";
+//     document.getElementById("header-content").appendChild(newElement);
+// }
+
 document.addEventListener("DOMContentLoaded", () => {
     createTitle();
 
@@ -162,7 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
     taskPriorityBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         priorityBtnClicked(index);
-        window.location.reload();
+        // updateDOM();
+        // window.location.reload();
         });
     });
 
@@ -170,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     taskCompletedBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         completedBtnClicked(index);
+        // updateDOM();
         window.location.reload();
         });
     });
@@ -205,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     folderTrashBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         folderTrashBtnClicked(index);
+        // updateDOM();
         window.location.reload();
         });
     });
