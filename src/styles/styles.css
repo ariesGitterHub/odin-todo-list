@@ -28,7 +28,7 @@
 --dark-dklt: #784618; /* dark-lite btn */
 --dark-alert: #a9fe00; /*alert color, contrasts  background*/
 --dark-contrast: #e0daa1; /* contrast against background */
---dark-btn-active: #353540; /* btn activated*/
+--dark-btn-active: #444457; /* btn activated*/
 
 /* Dark Mode Folder Colors */
 /* --dmfc00: var(--dark-contrast); */
@@ -858,13 +858,15 @@ input:checked + .slider:before {
 
 .task-name {
     background-color: var(--bkgd);
-    border: var(--border-size) solid var(--bkgd);
-    border-radius: var(--border-radius-squarish);
+    /* border: var(--border-size) solid var(--bkgd);
+    border-radius: var(--border-radius-squarish); */
+    border-bottom: calc(var(--border-size) * 1.5) dotted var(--bkgd);
+    /* border-radius: var(--border-radius-squarish); */
     font-size: var(--font-size-lg);
     font-weight: 800;
-    /* margin-bottom: .25rem; */
-    padding: .35rem;
-    /* padding-bottom: .5rem; */
+    margin-bottom: .25rem;
+    /* padding-left: .35rem; */
+    padding: 0 .25rem 0 .25rem;
 }
 
 .task-due-date, .task-folder {
