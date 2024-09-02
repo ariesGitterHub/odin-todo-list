@@ -1,29 +1,32 @@
 import {
-  dmNewTaskImg,
-  dmNewTaskPriorityFlagImg,
-  dmNewTaskPriorityFlagImgBG,
-  lmNewTaskPriorityFlagImg,
-  lmNewTaskPriorityFlagImgBG,
+    dmNewTaskImg,
+    dmNewTaskPriorityFlagImg,
+    dmNewTaskPriorityFlagImgBG,
+    lmNewTaskPriorityFlagImg,
+    lmNewTaskPriorityFlagImgBG,
 } from "./imageExporter.js";
 
 import { Task } from "./classes.js";
 
-import { workingTheme, addTask, workingTasks } from "./storageAndData.js";
+import { 
+    workingTheme,
+    addTask, 
+    workingTasks 
+} from "./storageAndData.js";
 
 function defaultNewFormFlagImgs() {
-  if (workingTheme[0].mode === "dark") {
-    return {
-      priorityFlag: dmNewTaskPriorityFlagImgBG,
-    };
-  } else if (workingTheme[0].mode === "lite") {
-    return {
-      priorityFlag: lmNewTaskPriorityFlagImgBG,
-    };
-  }
+    if (workingTheme[0].mode === "dark") {
+        return {
+        priorityFlag: dmNewTaskPriorityFlagImgBG,
+        };
+    } else if (workingTheme[0].mode === "lite") {
+        return {
+        priorityFlag: lmNewTaskPriorityFlagImgBG,
+        };
+    }
 }
 
 export function createNewTaskForm() {
-
     const header = document.querySelector("header");
     const headerContent = document.querySelector("#header-content");
 
@@ -75,13 +78,8 @@ export function createNewTaskForm() {
     newTaskFolderSelect.value = "";
     newTaskFolderSelect.required = "true";
 
-    // ADD OPTIONS?
-    // const newTaskFolderOption = document.createElement("option");
-    // newTaskFolderOption.classList.add("new-task-form-options")
-    // newTaskFolderOption.value = "";
-    // newTaskFolderOption.textContent = "";
-
-    // TOGGLE SWITCH    
+    // Toggle switch start
+    
     const lvlRowWidth1 = document.createElement("div");
     lvlRowWidth1.classList.add("lvl-row-width");
 
@@ -94,7 +92,7 @@ export function createNewTaskForm() {
 
     const taskToggleLabel = document.createElement("label");
     taskToggleLabel.classList.add("switch");
-    taskToggleLabel.setAttribute("for","new-task-priority-toggle");
+    taskToggleLabel.setAttribute("for", "new-task-priority-toggle");
 
     const taskToggleInput = document.createElement("input");
     taskToggleInput.type = "checkbox";
@@ -124,6 +122,8 @@ export function createNewTaskForm() {
     newTaskDueDateInput.id = "new-task-due-date";
     newTaskDueDateInput.name = "new-task-due-date";
     newTaskDueDateInput.required = "true";
+
+    // Toggle switch end
 
     const lvlCol5 = document.createElement("div");
     lvlCol5.classList.add("lvl-col");
@@ -158,22 +158,18 @@ export function createNewTaskForm() {
     header.appendChild(headerContent);
     headerContent.appendChild(newTaskForm);
     newTaskForm.append(
-    lvlRow1,
-    lvlCol1,
-    lvlCol2,
-    lvlRowWidth1,
-    lvlCol5,
-    lvlRowWidth2,
+        lvlRow1,
+        lvlCol1,
+        lvlCol2,
+        lvlRowWidth1,
+        lvlCol5,
+        lvlRowWidth2
     );
     lvlRow1.append(newTaskImg, newTaskFormTitle);
     lvlCol1.append(newTaskNameLabel, newTaskNameInput);
     lvlCol2.append(newTaskFolderLabel, newTaskFolderSelect);
     // newTaskFolderSelect.append(newTaskFolderOption);
-    lvlRowWidth1.append(
-    lvlCol3,
-    newTaskPriorityFlagImg,
-    lvlCol4,       
-    );
+    lvlRowWidth1.append(lvlCol3, newTaskPriorityFlagImg, lvlCol4);
     lvlCol3.append(taskToggleP, taskToggleLabel);
     lvlCol4.append(newTaskDueDateLabel, newTaskDueDateInput);
     lvlCol5.append(newTaskDescriptionLabel, textArea);
@@ -182,15 +178,16 @@ export function createNewTaskForm() {
 }
 
 export function populateNewTaskFormFolderOptions(folders) {
-  const newTaskFolderSelect = document.querySelector("#new-task-folder");
-  folders.forEach(folderItem => {
-    const folderOption = document.createElement("option");
-    folderOption.classList.add(".new-task-folder-option");
-    folderOption.value = `${folderItem.folderName}`
-    folderOption.textContent = `${folderItem.folderName}`;
+    const newTaskFolderSelect = document.querySelector("#new-task-folder");
 
-    newTaskFolderSelect.appendChild(folderOption);
-  })
+    folders.forEach(folderItem => {
+        const folderOption = document.createElement("option");
+        folderOption.classList.add(".new-task-folder-option");
+        folderOption.value = `${folderItem.folderName}`
+        folderOption.textContent = `${folderItem.folderName}`;
+
+        newTaskFolderSelect.appendChild(folderOption);
+    })
 }
 
 export function newTaskPriorityChecked() {
@@ -210,122 +207,71 @@ export function newTaskPriorityChecked() {
         } else if (!newTaskPriorityToggle.checked && darkLiteBtn.value === "lite") {
             newTaskPriorityToggle.dataset.value = "low";
             newTaskPriorityFlagImg.src = lmNewTaskPriorityFlagImgBG;
-        }
-        
-        
-        
-        
-        // else {
-        //     newTaskPriorityToggle.dataset.value = "low";
-        //     newTaskPriorityFlagImg.src = "";
-        // }     
+        }    
     } else {
         console.warn("newTaskPriorityToggle is null or not found in the DOM.");
     }
 };
 
-/***************** */
-
-// export function clearNewTaskForm() {
-// const newTaskForm = document.querySelector("#new-task-form");
-// const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
-
-//     if (newTaskCancelBtn && newTaskForm) {
-//         newTaskSubmitBtn.addEventListener("click", function () {
-
-//         // Reset form fields
-//         newTaskForm.reset();
-        
-//         // Optionally, remove validation messages or states
-//         document.querySelectorAll("`${newTaskForm}` input select").forEach(input => {
-//         input.setCustomValidity('');});
-//     }) 
-//     } else {
-//         console.warn("newTaskCancelBtn or newTaskForm is null or not found in the DOM.");
-//     }
-// }
-
 export function clearNewTaskForm() {
-  const newTaskForm = document.querySelector("#new-task-form");
-  const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
-  	// const newTaskPriorityToggle = document.querySelector(
-    //   "#new-task-priority-toggle"
-    // );
-      	const newTaskPriorityFlagImg = document.querySelector(
-          "#new-task-priority-flag-img"
-        );
-  if (newTaskCancelBtn && newTaskForm) {
-    newTaskCancelBtn.addEventListener("click", function () {
-window.location.reload();
-
+    const newTaskForm = document.querySelector("#new-task-form");
+    const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
+    // const newTaskPriorityFlagImg = document.querySelector("#new-task-priority-flag-img");
+    if (newTaskCancelBtn && newTaskForm) {
+        newTaskCancelBtn.addEventListener("click", function () {
+        window.location.reload();
     });
-  } else {
-    console.warn(
-      "newTaskCancelBtn or newTaskForm is null or not found in the DOM."
-    );
-  }
+    } else {
+        console.warn("newTaskCancelBtn or newTaskForm is null or not found in the DOM.");
+    }
 }
 
-
 function getTaskFormData() {
-  return {
-    taskName: document.querySelector("#new-task-name").value,
-    folderLocation: document.querySelector("#new-task-folder").value,
-    priorityFlag: document.querySelector("#new-task-priority-toggle").dataset
-      .value,
-    dueByDate: document.querySelector("#new-task-due-date").value,
-    descriptionText: document.querySelector("#new-task-description").value,
-    // taskId: Date.now(),
-    taskId:`t${workingTasks.length + 1}`,
-    completedFlag: "incomplete",
-  };
+    return {
+        taskName: document.querySelector("#new-task-name").value,
+        folderLocation: document.querySelector("#new-task-folder").value,
+        priorityFlag: document.querySelector("#new-task-priority-toggle").dataset.value,
+        dueByDate: document.querySelector("#new-task-due-date").value,
+        descriptionText: document.querySelector("#new-task-description").value,
+        taskId:`t${workingTasks.length + 1}`,
+        completedFlag: "incomplete",
+    };
 }
 
 function createNewTask(formData) {
-  return new Task(
-    formData.taskId,
-    formData.taskName,
-    formData.dueByDate,
-    formData.overdueFlag,
-    formData.priorityFlag,
-    formData.completedFlag,
-    formData.folderLocation,
-    formData.descriptionText
-  );
+    return new Task(
+        formData.taskId,
+        formData.taskName,
+        formData.dueByDate,
+        formData.overdueFlag,
+        formData.priorityFlag,
+        formData.completedFlag,
+        formData.folderLocation,
+        formData.descriptionText
+    );
 }
 
 export function submitNewTask() {
-  const newTaskSubmitBtn = document.querySelector("#new-task-submit-btn");
-  const newTaskForm = document.querySelector("#new-task-form");
-//   const newTaskNameInput = document.querySelector("#new-task-name");
-//   const newTaskDueDateInput = document.querySelector("#new-task-due-date");
+    const newTaskSubmitBtn = document.querySelector("#new-task-submit-btn");
+    const newTaskForm = document.querySelector("#new-task-form");
 
-  if (
-    newTaskSubmitBtn &&
-    newTaskForm 
-    // &&
-    // newTaskNameInput.value &&
-    // newTaskDueDateInput.value
-  ) {
-    // newTaskSubmitBtn.addEventListener("submit", function (event) {
-    //   event.preventDefault();
-
+    if (newTaskSubmitBtn && newTaskForm) {
         newTaskForm.addEventListener("submit", function (event) {
-          event.preventDefault();
+            event.preventDefault();
 
-          // Extract data from form...
-          const formData = getTaskFormData();
+            // Extract data from form...
+            const formData = getTaskFormData();
 
-          // Create new task
-          const newTask = createNewTask(formData);
+            // Create new task
+            const newTask = createNewTask(formData);
 
-          // Add task
-          addTask(newTask);
-          window.location.reload();
-        });
-  } else {
-    console.warn(
-      "newTaskSubmitBtn or newTaskForm is null or not found in the DOM."
-    );
-  }
+            // Add task
+            addTask(newTask);
+            window.location.reload();
+            });
+    } else {
+        console.warn(
+        "newTaskSubmitBtn or newTaskForm is null or not found in the DOM."
+        );
+    }
 }

@@ -4,16 +4,19 @@ import {
     Task 
 } from "./classes.js";
 
+// THEME
+
 const defaultTheme = [
     new Theme("dark")
 ];
 
 export function loadTheme() {
     const savedTheme = localStorage.getItem("theme");
+
     if (savedTheme) {
-    return JSON.parse(savedTheme);
+        return JSON.parse(savedTheme);
     } else {
-    return [...defaultTheme]; // Clone the initial array
+        return [...defaultTheme]; // Clone the initial array
     }
 }
 
@@ -21,24 +24,26 @@ export let workingTheme = loadTheme();
 console.log(workingTheme);
 
 export function saveTheme() {
-localStorage.setItem("theme", JSON.stringify(workingTheme));
+    localStorage.setItem("theme", JSON.stringify(workingTheme));
 }
+
+// FOLDER
 
 const defaultFolders = [
     new Folder("f0", "*Default", "--fc00"),
-    new Folder("f1", "Chores", "--fc09"),
+    new Folder("f1", "Chores", "--fc05"),
     new Folder("f2", "Fitness", "--fc01"),
-    new Folder("f3", "Repair", "--fc07"),
+    new Folder("f3", "Repair", "--fc10"),
     new Folder("f4", "Social", "--fc03"),
-    new Folder("f5", "Travel", "--fc06"),
+    new Folder("f5", "Travel", "--fc07"),
 ];
 
 export function loadFolders() {
     const savedFolders = localStorage.getItem("folders");
     if (savedFolders) {
-    return JSON.parse(savedFolders);
+        return JSON.parse(savedFolders);
     } else {
-    return [...defaultFolders]; // Clone the initial array
+        return [...defaultFolders]; // Clone the initial array
     }
 }
 
@@ -60,90 +65,141 @@ export function removeFolder(dataId) {
     //   window.location.reload();
 }
 
-// export function removeTask(dataId) {
-//   workingTasks = workingTasks.filter((task) => task.taskId !== dataId);
-//   saveTasks();
-//   window.location.reload();
-// }
+export function updateEditedFolders(dataId) {
+    let folders = loadFolders();
+    folders = folders.map((folder) => {
+        if (folder.folderId === dataId) {
+            const editFolderName = document.querySelector("#edit-folder-name");
+            const editFolderColorPicked = document.querySelector("#edit-folder-color-picked");
 
-// export function updateFolder(updatedFolder) {
-// const index = workingFolders.findIndex((folder) => folder.folderId === updatedFolder.folderId);
-//     if (index !== -1) {
-//     workingFolders[index] = updatedFolder;
-//     saveFolders();
-//     }
-// }
+            folder.folderName = editFolderName.value;
+            folder.folderColor = editFolderColorPicked.dataset.value;
+        }
+        return folder;
+    });
+
+    workingFolders = folders;
+    saveFolders();
+    window.location.reload();
+}
+
+// TASK
+
+function getTodayDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, "0");
+    const day = today.getDate().toString().padStart(2, "0");
+    return `${year}-${month}-${day}`;
+}
+
+function getTomorrowDate() {
+    const today = new Date(); 
+    today.setDate(today.getDate() + 1); 
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, "0");
+    const day = today.getDate().toString().padStart(2, "0");
+    return `${year}-${month}-${day}`; 
+}
+
+function getDayAfterTomorrowDate() {
+    const today = new Date(); 
+    today.setDate(today.getDate() + 2); 
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, "0");
+    const day = today.getDate().toString().padStart(2, "0");
+    return `${year}-${month}-${day}`; 
+}
+
+function getRandomFutureDate(daysAhead = 5000) { // Reminder that 5000 is a default parameter and that I can pass in anything below. E.g., const randomFutureDate = getRandomFutureDate(30); 
+    const today = new Date();              
+    const randomDays = Math.floor(Math.random() * daysAhead) + 1;
+    const futureDate = new Date(today);
+    futureDate.setDate(today.getDate() + randomDays);  
+
+    const year = futureDate.getFullYear();
+    const month = (futureDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = futureDate.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;    
+}
+
+const today = getTodayDate();
+const tomorrow = getTomorrowDate();
+const dayAfterTomorrow = getDayAfterTomorrowDate(); 
+const randomFutureDate = getRandomFutureDate(); 
+
+// console.log("Today's date: ", today);
+// console.log("Random date: ", randomFutureDate);
 
 const defaultTasks = [
-  new Task(
-    "t0",
-    "Take out the trash",
-    "2024-09-02",
-    "",
-    "high",
-    "incomplete",
-    "Chores",
-    "Don't forget to empty the upstairs trash cans!"
-  ),
-  new Task(
-    "t1",
-    "Grocery Store",
-    "2024-08-31",
-    "",
-    "low",
-    "incomplete",
-    "Chores",
-    "Buy: apples, oranges, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, and frozen blueberries."
-  ),
-  new Task(
-    "t2",
-    "Run my usual 5k course",
-    "2024-09-02",
-    "",
-    "low",
-    "incomplete",
-    "Fitness",
-    "Because of the heat, try to go later in the evening, like around sunset."
-  ),
-  new Task(
-    "t3",
-    "Get drinks at the Skeller with Mike and Rich.",
-    //   "overdue",
-    "1996-07-11",
-    "",
-    "low",
-    "incomplete",
-    "Social",
-    ""
-  ),
-  new Task(
-    "t4",
-    "Fix the barb wire fence at the secret compound",
-    "2054-04-01",
-    "",
-    "high",
-    "incomplete",
-    "Repair",
-    "Mind the radioactive zombies, too."
-  ),
-  new Task(
-    "t5",
-    "Visit Guedelon Castle in France",
-    "2026-07-01",
-    "",
-    "low",
-    "incomplete",
-    "Travel",
-    "Renew my passport."
-  ),
+    new Task(
+        "t0",
+        "Take out the trash",
+        today,
+        "",
+        "high",
+        "incomplete",
+        "Chores",
+        "Don't forget to empty the upstairs trash cans!"
+    ),
+    new Task(
+        "t1",
+        "Grocery Store",
+        tomorrow,
+        "",
+        "high",
+        "incomplete",
+        "Chores",
+        "Buy: apples, oranges, garlic, oatmeal, coffee, pasta, pasta sauce, soy milk, cheese, bread, peanut butter, and frozen blueberries."
+    ),
+    new Task(
+        "t2",
+        "Run my usual 5k course",
+        dayAfterTomorrow,
+        "",
+        "low",
+        "incomplete",
+        "Fitness",
+        "Try to go in the evening, like around sunset, to avoid too many cars and people."
+    ),
+    new Task(
+        "t3",
+        "Art's Fest Weekend Starts",
+        "1996-07-12",
+        "",
+        "low",
+        "completed",
+        "Social",
+        ""
+    ),
+    new Task(
+        "t4",
+        "Fix the barb wire fence at the secret lair",
+        "2086-04-20",
+        "",
+        "high",
+        "incomplete",
+        "Repair",
+        "Mind the radioactive zombies, too."
+    ),
+    new Task(
+        "t5",
+        "Visit Guedelon Castle",
+        randomFutureDate,
+        "",
+        "low",
+        "incomplete",
+        "Travel",
+        "Make sure to renew my passport in advance."
+    ),
 ];
 
 export function loadTasks() {
     const savedTasks = localStorage.getItem("tasks");
     if (savedTasks) {
-    return JSON.parse(savedTasks);
+        return JSON.parse(savedTasks);
     } else {
-    return [...defaultTasks];
+        return [...defaultTasks];
     }
 }
 
@@ -170,8 +226,7 @@ export function updatePriorityStatus(dataId) {
 
     tasks = tasks.map((task) => {
         if (task.taskId === dataId) {
-        // Toggle the status
-        task.priorityFlag = task.priorityFlag === "low" ? "high" : "low";
+            task.priorityFlag = task.priorityFlag === "low" ? "high" : "low";
         }
         return task;
     });
@@ -186,8 +241,7 @@ export function updateCompleteStatus(dataId) {
 
     tasks = tasks.map(task => {
         if (task.taskId === dataId) {
-        // Toggle the status
-        task.completedFlag = task.completedFlag === 'incomplete' ? 'completed' : 'incomplete';
+            task.completedFlag = task.completedFlag === 'incomplete' ? 'completed' : 'incomplete';
         }
         return task;
     });
@@ -196,57 +250,25 @@ export function updateCompleteStatus(dataId) {
     saveTasks();
 }
 
-// export function updateTasks(updatedTask) {
-//   const index = workingTasks.findIndex(
-//     (task) => task.taskId === updatedTask.taskId
-//   );
-//   if (index !== -1) {
-//     workingTasks[index] = updatedTask;
-//     saveTasks();
-//   }
-// }
-
 export function updateEditedTasks(dataId) {
-  let tasks = loadTasks();
+    let tasks = loadTasks();
+
     tasks = tasks.map((task) => {
-      if (task.taskId === dataId) {
+        if (task.taskId === dataId) {
+            const editTaskName = document.querySelector("#edit-task-name");
+            const editTaskFolder = document.querySelector("#edit-task-folder");
+            const editTaskDueDate = document.querySelector("#edit-task-due-date");
+            const editTaskDescription = document.querySelector("#edit-task-description");
 
-    const editTaskName = document.querySelector("#edit-task-name");
-    const editTaskFolder = document.querySelector("#edit-task-folder");
-    const editTaskDueDate = document.querySelector("#edit-task-due-date");
-    const editTaskDescription = document.querySelector(
-      "#edit-task-description"
-    );
-
-        // Toggle the status
-        task.taskName = editTaskName.value;
-        task.folderLocation = editTaskFolder.value;
-        task.dueByDate = editTaskDueDate.value;
-        task.descriptionText = editTaskDescription.value;
-      }
-      return task;
+            task.taskName = editTaskName.value;
+            task.folderLocation = editTaskFolder.value;
+            task.dueByDate = editTaskDueDate.value;
+            task.descriptionText = editTaskDescription.value;
+        }
+        return task;
     });
 
     workingTasks = tasks;
     saveTasks();
-window.location.reload();
-}
-
-export function updateEditedFolders(dataId) {
-  let folders = loadFolders();
-  folders = folders.map((folder) => {
-    if (folder.folderId === dataId) {
-      const editFolderName = document.querySelector("#edit-folder-name");
-      const editFolderColorPicked = document.querySelector("#edit-folder-color-picked");
-
-      // Toggle the status
-      folder.folderName = editFolderName.value;
-      folder.folderColor = editFolderColorPicked.dataset.value;
-    }
-    return folder;
-  });
-
-  workingFolders = folders;
-      saveFolders();
-  window.location.reload();
+    window.location.reload();
 }

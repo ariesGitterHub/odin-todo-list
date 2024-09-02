@@ -79,11 +79,23 @@ export function createStatusBar() {
     header.appendChild(headerContent)
     headerContent.appendChild(statusBar);
     statusBar.appendChild(statusBarBtns);
-    statusBarBtns.append(taskNumBtn, priorityNumBtn, overdueNumBtn, completedNumBtn, folderNumBtn);
+    statusBarBtns.append(
+        taskNumBtn, 
+        priorityNumBtn, 
+        overdueNumBtn, 
+        completedNumBtn, 
+        folderNumBtn
+    );
     taskNumBtn.append(taskNumBtnImg, taskNumBtnP);
     priorityNumBtn.append(priorityNumBtnImg, priorityNumBtnP);
     overdueNumBtn.append(overdueNumBtnImg, overdueNumBtnP);
     completedNumBtn.append(completedNumBtnImg, completedNumBtnP);
     folderNumBtn.append(folderNumBtnImg, folderNumBtnP);
-    statusBarBtns.append(taskNumBtn, priorityNumBtn, overdueNumBtn, completedNumBtn, folderNumBtn)   
+    statusBarBtns.append(
+        taskNumBtn, 
+        priorityNumBtn, 
+        overdueNumBtn, 
+        completedNumBtn, 
+        folderNumBtn
+    )   
 }

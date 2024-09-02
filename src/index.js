@@ -6,9 +6,7 @@ import {
     workingTasks,    
 } from "./javascript/storageAndData.js";
 
-import { createTitle, 
-    toggleSticky 
-} from "./javascript/title.js";
+import { createTitle, toggleSticky } from "./javascript/title.js";
 
 import { createNav } from "./javascript/nav.js";
 
@@ -27,20 +25,14 @@ import {
     newTaskPriorityChecked,
     clearNewTaskForm,
     submitNewTask,
-    validateFolderName
 } from "./javascript/newTaskForm.js";
 
 import {
-  taskEditBtnClicked,
-  createEditTaskForm,
-  populateEditTaskFormFolderOptions,
-  clearEditTaskForm,
-  submitEditedTask,
-  //   populateEditTaskForm,
-  // populateEditTaskFormWithTaskData,
-  //   newTaskPriorityChecked,
-  //   clearNewTaskForm,
-  //   submitNewTask,
+    taskEditBtnClicked,
+    createEditTaskForm,
+    populateEditTaskFormFolderOptions,
+    clearEditTaskForm,
+    submitEditedTask,
 } from "./javascript/editTaskForm.js";
 
 import {
@@ -50,19 +42,10 @@ import {
 } from "./javascript/newFolderForm.js";
 
 import {
-  folderEditBtnClicked,
-  createEditFolderForm,
-  populateEditFolderFormFolderOptions,
-  clearEditFolderForm,
-  submitEditedFolder,
-
-  // checkForAsterix
-
-  //   populateEditTaskForm,
-  // populateEditTaskFormWithTaskData,
-  //   newTaskPriorityChecked,
-  //   clearNewTaskForm,
-  //   submitNewTask,
+    folderEditBtnClicked,
+    createEditFolderForm,
+    clearEditFolderForm,
+    submitEditedFolder,
 } from "./javascript/editFolderForm.js";
 
 import {
@@ -77,9 +60,9 @@ import {
 } from "./javascript/checkStatus.js";
 
 import {
-  createFolders,
-  countTasksByFolder,
-  folderTrashBtnClicked,
+    createFolders,
+    countTasksByFolder,
+    folderTrashBtnClicked,
 } from "./javascript/folderContent.js";
 
 import {
@@ -106,11 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
     createTitle();
 
     function debounce(func, delay) {
-      let timer;
-      return function () {
-        clearTimeout(timer);
-        timer = setTimeout(func, delay);
-      };
+        let timer;
+        return function () {
+            clearTimeout(timer);
+            timer = setTimeout(func, delay);
+        };
     }
 
     // Add event listener for scroll event with debouncing
@@ -152,24 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const newFolderBtn = document.querySelector("#new-folder-btn");
     newFolderBtn.addEventListener("click", handleNewFolderBtn);
 
-    // const newFolderNameInput = document.querySelector("#new-folder-name");
-    // function validateFolderName(name) {
-    //   // Regular expression to check if the folder name contains an asterisk
-    //   const invalidPattern = /\*/;
-    //   return !invalidPattern.test(name);
-    // }
-    // newFolderNameInput.addEventListener("input", function () {
-    //   if (!validateFolderName(newFolderNameInput.value)) {
-    //     // If the input is invalid, you can show an error message or handle it as needed
-    //     newFolderNameInput.setCustomValidity(
-    //       "Folder name cannot contain an asterisk (*)"
-    //     );
-    //   } else {
-    //     // Clear the custom validity message if input is valid
-    //     newFolderNameInput.setCustomValidity("");
-    //   }
-    // });
-
     const darkLiteBtn = document.querySelector("#dark-lite-btn");
     darkLiteBtn.addEventListener("click", handleDarkLiteBtn);
     darkLiteBtn.addEventListener("click", toggleDarkLiteMode(workingTheme));
@@ -192,11 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const folderNumBtn = document.querySelector("#folder-num-btn");
     folderNumBtn.addEventListener("click", showFolderView);
-
-    // const editFolderTrashBtn = document.querySelector("#edit-folder-trash-btn");
-    // editFolderTrashBtn.addEventListener("click", folderTrashBtnClicked);
-
-
 
     const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
     taskPriorityBtns.forEach((button, index) => {
@@ -221,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
         taskEditBtnClicked(index);
         console.log(button.dataset.id);
-
         // window.location.reload();
         });
     });
@@ -238,29 +197,20 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => {
         folderEditBtnClicked(index);
         console.log(button.dataset.id);
-
         // window.location.reload();
       });
     });
 
-        const folderTrashBtns = document.querySelectorAll(".folder-trash-btn");
-        folderTrashBtns.forEach((button, index) => {
-          button.addEventListener("click", () => {
-            folderTrashBtnClicked(index);
-            window.location.reload();
-          });
+    const folderTrashBtns = document.querySelectorAll(".folder-trash-btn");
+    folderTrashBtns.forEach((button, index) => {
+        button.addEventListener("click", () => {
+        folderTrashBtnClicked(index);
+        window.location.reload();
         });
-
-        // const taskTrashBtns = document.querySelectorAll(".task-trash-btn");
-        // taskTrashBtns.forEach((button, index) => {
-        //     button.addEventListener("click", () => {
-        //     taskTrashBtnClicked(index);
-        //     });
-        // });
+    });
 
     countTaskTypes(workingTasks);  
     countFolders(workingFolders); 
     countTasksByFolder();
     checkFolderAddClass();
-    // checkForAsterix();
 });

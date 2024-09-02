@@ -52,17 +52,3 @@ export function createNav() {
     newFolderBtn.append(newFolderBtnImg);
     darkLiteBtn.append(darkLiteBtnImg);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

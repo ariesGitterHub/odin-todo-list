@@ -20,43 +20,6 @@ import {
     workingTheme,
 } from "./storageAndData.js";
 
-// import { toggleDarkLiteMode } from "./toggleDarkLiteMode.js";
-
-// function defaultTaskBtnImgs() {
-//   if (workingTheme[0].mode === "dark") {
-//         taskOverdueNoticeImg.src: dmTaskOverdueNoticeImg,
-//         taskPriorityBtnImg.src: dmPriorityImg,
-//         taskCompletedBtnImg.src: dmCompletedImg,
-//         taskEditBtnImg.src: dmEditImg,
-//         taskTrashBtnImg.src: dmTrashImg
-//   } else if (workingTheme[0].mode === "lite") {
-//         taskOverdueNoticeImg.src: lmTaskOverdueNoticeImg,
-//         taskPriorityBtnImg.src: lmPriorityImg,
-//         taskCompletedBtnImg.src: lmCompletedImg,
-//         taskEditBtnImg.src: lmEditImg,
-//         taskTrashBtnImg.src: lmTrashImg
-//   }
-// }
-
-// function defaultTaskBtnImgs() {
-//   // Check the current theme
-//   if (workingTheme[0].mode === "dark") {
-//     // Update image sources for dark mode
-//     taskOverdueNoticeImg.src = dmTaskOverdueNoticeImg;
-//     taskPriorityBtnImg.src = dmPriorityImg;
-//     taskCompletedBtnImg.src = dmCompletedImg;
-//     taskEditBtnImg.src = dmEditImg;
-//     taskTrashBtnImg.src = dmTrashImg;
-//   } else if (workingTheme[0].mode === "lite") {
-//     // Update image sources for lite mode
-//     taskOverdueNoticeImg.src = lmTaskOverdueNoticeImg;
-//     taskPriorityBtnImg.src = lmPriorityImg;
-//     taskCompletedBtnImg.src = lmCompletedImg;
-//     taskEditBtnImg.src = lmEditImg;
-//     taskTrashBtnImg.src = lmTrashImg;
-//   }
-// }
-
 export function defaultTaskBtnImgs() {
     if (workingTheme[0].mode === "dark") {
         return {
@@ -79,9 +42,6 @@ export function defaultTaskBtnImgs() {
 
 export function createTasks(tasks) { 
     const taskContent = document.querySelector("#task-content");
-    // taskContent.classList.add("flex");
-    // taskContent.innerHTML = "";
-
     const imgUrls = defaultTaskBtnImgs();
     
     tasks.forEach(taskItem => {
@@ -97,23 +57,13 @@ export function createTasks(tasks) {
         taskName.dataset.name = `${taskItem.taskName}`; 
         taskName.textContent = `${taskItem.taskName}`;
 
-        // const br1 = document.createElement("br");
-
         const taskDueDate = document.createElement("div");
         taskDueDate.classList.add("task-due-date");
         taskDueDate.dataset.date = `${taskItem.dueByDate.replace(/-/g, "/")}`;
-        taskDueDate.textContent = `Due: ${reformatDate(
-          taskItem.dueByDate.replace(/-/g, "/")
-        )}`; 
+        taskDueDate.textContent = `Due: ${reformatDate(taskItem.dueByDate.replace(/-/g, "/"))}`; 
 
         const lvlRow1 = document.createElement("div");
-        lvlRow1.classList.add("lvl-row");
-
-        // const taskDueDate = document.createElement("div");
-        // taskDueDate.classList.add("task-due-date");
-        // taskDueDate.textContent = `Due: ${reformatDate(
-        //   taskItem.dueByDate
-        // )}`;              
+        lvlRow1.classList.add("lvl-row");        
 
         const taskOverdueNoticeImg = document.createElement("img");
         taskOverdueNoticeImg.classList.add("task-overdue-notice-img");
@@ -124,23 +74,21 @@ export function createTasks(tasks) {
         taskOverdueNoticeP.classList.add("task-overdue-notice-p");
         taskOverdueNoticeP.textContent = "";
 
-        // const sanitizedTaskFolderDataset = folderItem.folderName.replace(/\s+/g, "-");
-
         const taskFolder = document.createElement("div");
         taskFolder.classList.add("task-folder");
         taskFolder.dataset.folder = `${taskItem.folderLocation}`;
         taskFolder.textContent = `Folder: ${taskItem.folderLocation}`;
 
-        const br2 = document.createElement("br");
-        br2.classList.add("task-description-remove2");
+        const br1 = document.createElement("br");
+        br1.classList.add("task-description-removeBR1");
       
         const taskDescription = document.createElement("div");
         taskDescription.classList.add("task-description");
         taskDescription.dataset.description = `${taskItem.descriptionText}`; 
         taskDescription.textContent = `${taskItem.descriptionText}`;
    
-        const br3 = document.createElement("br");
-        br3.classList.add("task-description-remove3");
+        const br2 = document.createElement("br");
+        br2.classList.add("task-description-removeBR2");
 
         const taskBtnCont = document.createElement("div");
         taskBtnCont.classList.add("lvl-row", "task-btn-cont");
@@ -167,14 +115,14 @@ export function createTasks(tasks) {
         const taskCompletedBtnImg = document.createElement("img");
         taskCompletedBtnImg.classList.add("task-completed-btn-img");
         taskCompletedBtnImg.src = imgUrls.completed;
-          taskCompletedBtnImg.alt = "Completed task icon";
+        taskCompletedBtnImg.alt = "Completed task icon";
    
         const taskBtnCol3 = document.createElement("div");
         taskBtnCol3.classList.add("lvl-col");
 
         const taskEditBtn = document.createElement("button");
         taskEditBtn.classList.add("task-edit-btn");
-        taskEditBtn.value = "off";
+        // taskEditBtn.value = "off";
         taskEditBtn.dataset.id = `${taskItem.taskId}`;
 
         const taskEditBtnImg = document.createElement("img");
@@ -197,18 +145,16 @@ export function createTasks(tasks) {
         sectionBotPad.classList.add("section-bot-pad");
 
         taskContent.append(task, sectionBotPad);
-        task.append(mainCol, br3, taskBtnCont);
+        task.append(mainCol, br2, taskBtnCont);
         mainCol.append(
             taskName,
-            // br1,
             taskDueDate,
             lvlRow1,
             taskFolder,
-            br2,
+            br1,
             taskDescription
         );
         lvlRow1.append(
-            // taskDueDate,
             taskOverdueNoticeImg,
             taskOverdueNoticeP
         );
@@ -255,12 +201,9 @@ export function createTaskColor(folders) {
 
 export function priorityBtnClicked(index) {
     const taskPriorityBtns = document.querySelectorAll(".task-priority-btn");
-
     const taskTiles = document.querySelectorAll(".task");
     const taskNames = document.querySelectorAll(".task-name");
-
     const taskPriorityBtn = taskPriorityBtns[index];
-
     const taskTile = taskTiles[index];
     const taskName = taskNames[index];
 
@@ -271,8 +214,9 @@ export function priorityBtnClicked(index) {
             taskName.style.borderColor = "var(--alert)";
             updatePriorityStatus(taskTile.dataset.id);
             // Append "!!!" to the task title if not already present
+
             if (!taskName.textContent.includes("!!!")) {
-            taskName.textContent += " !!!";
+                taskName.textContent += " !!!";
             }
         } else if (taskPriorityBtn.value === "high") {
             taskPriorityBtn.value = "low";
@@ -281,7 +225,7 @@ export function priorityBtnClicked(index) {
             updatePriorityStatus(taskTile.dataset.id);
             const titleText = taskName.textContent;
             if (titleText.includes("!!!")) {
-            taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
+                taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"
             }
         }  
     } else {
@@ -292,30 +236,32 @@ export function priorityBtnClicked(index) {
 export function completedBtnClicked(index) {
     const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
     const taskTiles = document.querySelectorAll(".task");
-    const taskNames = document.querySelectorAll(".task-name");
+    // const taskNames = document.querySelectorAll(".task-name");
     const taskCompletedBtn = taskCompletedBtns[index];
     const taskTile = taskTiles[index];
-    const taskName = taskNames[index];
+    // const taskName = taskNames[index];
+    
     if (taskCompletedBtn) {
         if (taskCompletedBtn.value === "incomplete") {
             taskCompletedBtn.value = "completed";
             taskCompletedBtn.style.backgroundColor = "var(--activated)";
             taskTile.style.textDecoration = "line-through";
             taskTile.style.textDecorationThickness = "3px";
-            taskTile.style.backgroundColor = "var(--activated)";
-            taskName.style.backgroundColor = "var(--activated)";
+            // taskTile.style.backgroundColor = "var(--activated)";
+            // taskName.style.backgroundColor = "var(--activated)";
             // taskName.style.borderColor = "var(--activated)";
+
             updateCompleteStatus(taskTile.dataset.id);
-            console.log(`taskTiles ID = ${taskTile.dataset.id}`);
+            // console.log(`taskTiles ID = ${taskTile.dataset.id}`);
             
         } else if (taskCompletedBtn.value === "completed") {
             taskCompletedBtn.value = "incomplete";
             taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
             taskTile.style.textDecoration = "none";
-            taskTile.style.backgroundColor = "var(--bkgd)";
-            taskName.style.backgroundColor = "var(--bkgd)";
+            // taskTile.style.backgroundColor = "var(--bkgd)";
+            // taskName.style.backgroundColor = "var(--bkgd)";
             // taskName.style.borderColor = "inherit";
-                updateCompleteStatus(taskTile.dataset.id);
+            updateCompleteStatus(taskTile.dataset.id);
         }
     } else {
     console.warn("taskCompletedBtn is null or not found in the DOM.");
@@ -327,6 +273,7 @@ export function taskTrashBtnClicked(index) {
     const taskTiles = document.querySelectorAll(".task");
     const taskTrashBtn = taskTrashBtns[index];
     const taskTile = taskTiles[index];
+
     if (taskTrashBtn) {
         removeTask(taskTile.dataset.id);
     } else {

@@ -5,19 +5,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 
-/* ************ TABLE OF CONTENTS ********** */
-/* ROOT/SHARED                               */
-/* --> LVL-COLS/LVL-ROWS/SECTION-BOT-PAD     */
-/* --> .NONE/.FLEX                           */
-/* HEADER AND NAV                            */
-/* --> STATUS BANNER                         */
-/* --> NEW TASK FORM/NEW FOLDER FORM         */
-/* --> NEW TASK FORM TOGGLE SWITCH           */
-/* FOLDER CONTENT/TASK CONTENT               */
-/* ************ TABLE OF CONTENTS ********** */
+/* *********************** TABLE OF CONTENTS ********************* */
+/* ROOT/SHARED                                                     */
+/* --> LVL-COLS/LVL-ROWS/SECTION-BOT-PAD                           */
+/* --> .NONE/.FLEX                                                 */
+/* HEADER AND NAV                                                  */
+/* --> STATUS BANNER                                               */
+/* --> NEW TASK FORM/NEW FOLDER FORM  & UPDATE TASK/UPDATE FOLDER  */
+/* --> NEW TASK FORM PRIORITY FLAG SWITCH                          */
+/* FOLDER CONTENT/TASK CONTENT                                     */
+/* *********************** TABLE OF CONTENTS ********************* */
 
 
-/* ROOT/SHARED                               */
+/* ROOT/SHARED                                                     */
 
 :root {
 /* Dark Mode Palette */
@@ -78,8 +78,8 @@
 --font-size-md: 1.2rem;
 --font-size-lg: 1.4rem;
 /* --subtitle-font-size: 1.6rem; */
---title-font-size: 1.8rem;
---title-img-size: 2.35rem;
+--title-font-size: 1.75rem;
+--title-img-size: 2.75rem;
 --btn-img-basic-size: 1.5rem;
 --status-btn-img-size: 1.25rem;
 --priority-flag-overdue-triangle: 1rem;
@@ -152,7 +152,8 @@ body {
 }
 
 
-/* --> LVL-COLS/LVL-ROWS/SECTION-BOT-PAD     */
+/* --> LVL-COLS/LVL-ROWS/SECTION-BOT-PAD                           */
+
 
 .lvl-col {
     display: flex;
@@ -202,18 +203,20 @@ body {
 }
 
 
-/* --> .NONE/.FLEX                           */
+/* --> .NONE/.FLEX                                                 */
+
 
 #folder-content.none, .task-folder-p.none, #task-content.none, .task.none {
     display: none;
 }
 
-/* !!!!!!!!!!!!!!!!!!!!!!!!!add edit-form stuff here... */
 #status-bar.flex, #new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex, #edit-folder-form.flex {
     display: flex;
 }
 
-/* HEADER AND NAV                            */
+
+/* HEADER AND NAV                                                  */
+
 
 header {
     height: fit-content;
@@ -223,7 +226,6 @@ header {
         flex-direction: column;
 }
 
-/* ++++++++++++++++ */
 #header-ctrl-cont {
     max-width: 100vw;
     display: block;
@@ -357,7 +359,8 @@ nav button img {
 }
 
 
-/* --> STATUS BANNER                         */
+/* --> STATUS BANNER                                               */
+
 
 #status-bar {
     height: fit-content;
@@ -412,7 +415,8 @@ nav button img {
 }
 
 
-/* --> NEW TASK FORM/NEW FOLDER FORM         */
+/* --> NEW TASK FORM/NEW FOLDER FORM  & UPDATE TASK/UPDATE FOLDER  */
+
 
 #new-task-form {
     background-color: var(--adta);
@@ -438,20 +442,6 @@ nav button img {
     font-size: var(--font-size-sm);
     padding: 1rem;
 }
-
-/* TEMP!!!! */
-/* #edit-task-form {
-    height: fit-content;
-    border: var(--border-size) solid var(--bkgd); 
-    display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: var(--gap-basic);
-    font-family: var(--font-plain);
-    font-size: var(--font-size-sm);
-    padding: 1rem;
-} */
 
 #new-task-img, #new-folder-img, #edit-task-img, #edit-folder-img {
     height: var(--btn-round-hw);
@@ -667,7 +657,8 @@ form input::-webkit-input-placeholder {
 }
 
 
-/* --> NEW TASK FORM TOGGLE SWITCH           */
+/* --> NEW TASK FORM PRIORITY FLAG SWITCH                          */
+
 
 /* The switch, i.e., the box around the slider */
 .switch {
@@ -736,8 +727,8 @@ input:checked + .slider:before {
 }
 
 
+/* FOLDER CONTENT/TASK CONTENT                                     */
 
-/* FOLDER CONTENT/TASK CONTENT               */
 
 #task-content, #folder-content {
     background-color: var(--bkgd);
@@ -857,10 +848,12 @@ input:checked + .slider:before {
 }
 
 .task-name {
-    background-color: var(--bkgd);
+    /* background-color: var(--bkgd); */
+        /* background-color: red; */
     /* border: var(--border-size) solid var(--bkgd);
     border-radius: var(--border-radius-squarish); */
-    border-bottom: calc(var(--border-size) * 1.5) dotted var(--bkgd);
+    /* border-bottom: calc(var(--border-size) * 1.5) dotted;
+    border-color: var(--bkgd); */
     /* border-radius: var(--border-radius-squarish); */
     font-size: var(--font-size-lg);
     font-weight: 800;

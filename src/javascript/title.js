@@ -1,11 +1,6 @@
-import {
-  dmCrownImg,
-  //  dmCoffeeImg
-} from "./imageExporter.js";
-
+import { dmCrownImg } from "./imageExporter.js";
 import { reformatDate } from "./checkStatus.js";
 
-// Get the current date
 const today = new Date();
 
 export function createTitle() { 
@@ -16,9 +11,7 @@ export function createTitle() {
     appTitleCont.id = "app-title-cont";
 
     const appTitle = document.createElement("h1");
-    appTitle.classList.add(
-      // "lvl-row",
-       "font-fancy");
+    appTitle.classList.add("font-fancy");
     appTitle.textContent = "Task";
 
     const titleImg = document.createElement("img");
@@ -35,23 +28,19 @@ export function createTitle() {
     appDate.id = "app-date";
     appDate.textContent = `Today is ${reformatDate(today)}`;
 
-    // header.appendChild(appTitleCont);
     header.appendChild(appTitleCont);
     appTitleCont.appendChild(appTitle);
     appTitleCont.appendChild(appMMM);
     appTitleCont.appendChild(appDate);
 
-    appTitle.append(titleImg, 
-      // coffeeImg,
-       "King");
+    appTitle.append(titleImg, "King");
 }
 
-
+// This code is from a prior project
 export function toggleSticky() {
-  const headerCtrlCont = document.querySelector("#header-ctrl-cont");
-  const sticky = headerCtrlCont.offsetTop;
-  const scrollPosition = window.scrollY;
+    const headerCtrlCont = document.querySelector("#header-ctrl-cont");
+    const sticky = headerCtrlCont.offsetTop;
+    const scrollPosition = window.scrollY;
 
-  headerCtrlCont.classList.toggle("sticky", scrollPosition > sticky);
-  }
-
+    headerCtrlCont.classList.toggle("sticky", scrollPosition > sticky);
+}

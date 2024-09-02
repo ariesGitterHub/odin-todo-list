@@ -1,63 +1,61 @@
 import {
-  dmTaskImg
+    dmTaskImg
 } from "./imageExporter.js";
 
-// import { Task } from "./classes.js";
-
 import {
-  workingTasks,
-  updateEditedTasks,
+    workingTasks,
+    updateEditedTasks,
 } from "./storageAndData.js";
 
 export function taskEditBtnClicked(index) {
-  const editTaskForm = document.querySelector("#edit-task-form");
-  editTaskForm.classList.toggle("flex");
-  populateEditTaskForm(index);
+    const editTaskForm = document.querySelector("#edit-task-form");
+    editTaskForm.classList.toggle("flex");
+
+    populateEditTaskForm(index);
 }
 
 let targetId = "";
 
 function populateEditTaskForm(index) {
-  const taskTiles = document.querySelectorAll(".task");
-  const taskTile = taskTiles[index];
-//   console.log(taskTile.dataset.id);
-  targetId = taskTile.dataset.id;
-  console.log(targetId);
-  
-  const matchingTasks = workingTasks.filter((task) => task.taskId === targetId);
+    const taskTiles = document.querySelectorAll(".task");
+    const taskTile = taskTiles[index];
 
-  if (matchingTasks.length === 0) {
-    console.error("No matching task found");
-    return;
-  }
+    targetId = taskTile.dataset.id;
+    
+    const matchingTasks = workingTasks.filter((task) => task.taskId === targetId);
 
-  // Assumes there is only one matching task
-  const task = matchingTasks[0];
+    if (matchingTasks.length === 0) {
+        console.error("No matching task found");
+        return;
+    }
 
-  // pulls values from the task
-  const extractedTaskValues = {
-    taskName: task.taskName,
-    folderLocation: task.folderLocation,
-    taskDueByDate: task.dueByDate,
-    taskDescription: task.descriptionText,
-  };
+    // Assumes there is only one matching task
+    const task = matchingTasks[0];
 
-  // populates fields with pulled array values
-  const editTaskName = document.querySelector("#edit-task-name");
-  editTaskName.value = extractedTaskValues.taskName;
+    // pulls values from the task
+    const extractedTaskValues = {
+        taskName: task.taskName,
+        folderLocation: task.folderLocation,
+        taskDueByDate: task.dueByDate,
+        taskDescription: task.descriptionText,
+    };
 
-  const editTaskFolder = document.querySelector("#edit-task-folder");
-  editTaskFolder.value = extractedTaskValues.folderLocation;
+    // populates fields with pulled array values
+    const editTaskName = document.querySelector("#edit-task-name");
+    editTaskName.value = extractedTaskValues.taskName;
 
-  const editTaskDueDate = document.querySelector("#edit-task-due-date");
-  const currentDateFormat = extractedTaskValues.taskDueByDate;
-  const newDateFormat = currentDateFormat.replace(/\//g, "-");
-  editTaskDueDate.value = newDateFormat;
+    const editTaskFolder = document.querySelector("#edit-task-folder");
+    editTaskFolder.value = extractedTaskValues.folderLocation;
 
-  const editTaskDescription = document.querySelector("#edit-task-description");
-  editTaskDescription.value = extractedTaskValues.taskDescription;
+    const editTaskDueDate = document.querySelector("#edit-task-due-date");
+    const currentDateFormat = extractedTaskValues.taskDueByDate;
+    const newDateFormat = currentDateFormat.replace(/\//g, "-");
+    editTaskDueDate.value = newDateFormat;
 
-  return targetId;
+    const editTaskDescription = document.querySelector("#edit-task-description");
+    editTaskDescription.value = extractedTaskValues.taskDescription;
+
+    return targetId;
 }
 
 export function createEditTaskForm() {
@@ -110,9 +108,6 @@ export function createEditTaskForm() {
     editTaskFolderSelect.value = "";
     editTaskFolderSelect.required = "true";
   
-    // const lvlRowWidth1 = document.createElement("div");
-    // lvlRowWidth1.classList.add("lvl-row-width");
-
     const lvlCol3 = document.createElement("div");
     lvlCol3.classList.add("lvl-col");
 
@@ -163,7 +158,6 @@ export function createEditTaskForm() {
     lvlRow1,
     lvlCol1,
     lvlCol2,
-    //   lvlRowWidth1,
     lvlCol3,
     lvlCol4,
     lvlRowWidth2
@@ -171,97 +165,55 @@ export function createEditTaskForm() {
     lvlRow1.append(editTaskImg, editTaskFormTitle);
     lvlCol1.append(editTaskNameLabel, editTaskNameInput);
     lvlCol2.append(editTaskFolderLabel, editTaskFolderSelect);
-    // lvlRowWidth1.append(lvlCol3);
     lvlCol3.append(editTaskDueDateLabel, editTaskDueDateInput);
     lvlCol4.append(editTaskDescriptionLabel, textArea);
     lvlRowWidth2.append(editTaskCancelBtn, editTaskSubmitBtn);
 }
 
 export function populateEditTaskFormFolderOptions(folders) {
-  const editTaskFolderSelect = document.querySelector("#edit-task-folder");
-  folders.forEach((folderItem) => {
-    const folderOption = document.createElement("option");
-    folderOption.classList.add(".edit-task-folder-option");
-    folderOption.value = `${folderItem.folderName}`;
-    folderOption.textContent = `${folderItem.folderName}`;
+    const editTaskFolderSelect = document.querySelector("#edit-task-folder");
+    folders.forEach((folderItem) => {
+        const folderOption = document.createElement("option");
+        folderOption.classList.add(".edit-task-folder-option");
+        folderOption.value = `${folderItem.folderName}`;
+        folderOption.textContent = `${folderItem.folderName}`;
 
-    editTaskFolderSelect.appendChild(folderOption);
-  });
+        editTaskFolderSelect.appendChild(folderOption);
+    });
 }
 
 export function clearEditTaskForm() {
-  const editTaskForm = document.querySelector("#edit-task-form");
-  const editTaskCancelBtn = document.querySelector("#edit-task-cancel-btn");
+    const editTaskForm = document.querySelector("#edit-task-form");
+    const editTaskCancelBtn = document.querySelector("#edit-task-cancel-btn");
 
-  if (editTaskCancelBtn && editTaskForm) {
-    editTaskCancelBtn.addEventListener("click", function () {
-          editTaskForm.classList.toggle("flex");
-    //   window.location.reload();
-    });
-  } else {
-    console.warn(
-      "editTaskCancelBtn or editTaskForm is null or not found in the DOM."
-    );
-  }
+    if (editTaskCancelBtn && editTaskForm) {
+        editTaskCancelBtn.addEventListener("click", function () {
+            editTaskForm.classList.toggle("flex");
+        //   window.location.reload();
+        });
+    } else {
+        console.warn(
+        "editTaskCancelBtn or editTaskForm is null or not found in the DOM."
+        );
+    }
 }
 
-// export function updateEditedTasks(dataId) {
-//   let tasks = loadTasks();
-//   tasks = tasks.map((task) => {
-//     if (task.taskId === dataId) {
-//       // Toggle the status
-//       task.taskName = editTaskName.value;
-//       task.folderLocation = editTaskFolder.value;
-//       task.dueByDate = editTaskDueDate.value;
-//       task.descriptionText = editTaskDescription.value;
-//     }
-//     return task;
-//   });
-
-//   workingTasks = tasks;
-//   saveTasks();
-//   // window.location.reload();
-// }
-
-export function submitEditedTask(index) {
+export function submitEditedTask() {
     const editTaskSubmitBtn = document.querySelector("#edit-task-submit-btn");
     const editTaskForm = document.querySelector("#edit-task-form");
             
-  if (editTaskSubmitBtn && editTaskForm) {
-    editTaskForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+    if (editTaskSubmitBtn && editTaskForm) {
+            editTaskForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-    const editTaskName = document.querySelector("#edit-task-name");
-    console.log(editTaskName.value);
-
-    const editTaskFolder = document.querySelector("#edit-task-folder");
-    console.log(editTaskFolder.value);
-
-    const editTaskDueDate = document.querySelector("#edit-task-due-date");
-    console.log(editTaskDueDate.value);
-
-    const editTaskDescription = document.querySelector("#edit-task-description");
-    console.log(editTaskDescription.value);
-   
-
-    console.log(`TID = ${targetId}`);
-
-    updateEditedTasks(targetId);  
-
-      // Extract data from form...
-    //   const formData = getTaskFormData();
-
-      // Create new task
-    //   const newTask = createNewTask(formData);
-
-      // Add task
-    //   addTask(newTask);
-    //   window.location.reload();
-    });
-  } else {
-    console.warn(
-      "newTaskSubmitBtn or newTaskForm is null or not found in the DOM."
-    );
-  }
+        // const editTaskName = document.querySelector("#edit-task-name");
+        // const editTaskFolder = document.querySelector("#edit-task-folder");
+        // const editTaskDueDate = document.querySelector("#edit-task-due-date");
+        // const editTaskDescription = document.querySelector("#edit-task-description");
+    
+        updateEditedTasks(targetId);  
+        });
+    } else {
+        console.warn("newTaskSubmitBtn or newTaskForm is null or not found in the DOM.");
+    }
 }
-
