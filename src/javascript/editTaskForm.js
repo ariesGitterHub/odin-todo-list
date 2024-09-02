@@ -72,7 +72,7 @@ export function createEditTaskForm() {
     const editTaskImg = document.createElement("img");
     editTaskImg.id = "edit-task-img";
     editTaskImg.src = dmTaskImg;
-    editTaskImg.alt = "";
+    editTaskImg.alt = "Task icon";
 
     const editTaskFormTitle = document.createElement("p");
     editTaskFormTitle.classList.add("font-fancy");

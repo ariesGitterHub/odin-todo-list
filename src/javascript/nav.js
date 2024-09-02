@@ -18,7 +18,7 @@ export function createNav() {
     const statusBtnImg = document.createElement("img");
     statusBtnImg.id = "status-btn-img";
     statusBtnImg.src = dmStatusImg;
-    statusBtnImg.alt = "";
+    statusBtnImg.alt = "Status select icon";
 
     const newTaskBtn = document.createElement("button");
     newTaskBtn.id = "new-task-btn";
@@ -26,7 +26,7 @@ export function createNav() {
     const newTaskBtnImg = document.createElement("img");
     newTaskBtnImg.id = "new-task-btn-img";
     newTaskBtnImg.src = dmNewTaskImg;
-    newTaskBtnImg.alt = "";
+    newTaskBtnImg.alt = "New task icon";
 
     const newFolderBtn = document.createElement("button");
     newFolderBtn.id = "new-folder-btn";
@@ -34,7 +34,7 @@ export function createNav() {
     const newFolderBtnImg = document.createElement("img");
     newFolderBtnImg.id = "new-folder-btn-img";
     newFolderBtnImg.src = dmNewFolderImg;
-    newFolderBtnImg.alt = "";
+    newFolderBtnImg.alt = "New folder icon";
 
     const darkLiteBtn = document.createElement("button");
     darkLiteBtn.id = "dark-lite-btn";
@@ -43,7 +43,7 @@ export function createNav() {
     darkLiteBtnImg.id = "dark-lite-btn-img";
     darkLiteBtn.value = `${workingTheme[0].mode}`;
     darkLiteBtnImg.src = dmDarkLiteImg;
-    darkLiteBtnImg.alt = "";
+    darkLiteBtnImg.alt = "Light bulb icon to change between dark and lite modes";
 
     header.appendChild(nav);
     nav.append(statusBtn, newTaskBtn, newFolderBtn, darkLiteBtn);

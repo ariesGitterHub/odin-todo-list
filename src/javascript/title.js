@@ -18,7 +18,7 @@ export function createTitle() {
     titleImg.id = "title-img";
     titleImg.classList.add("flipImg")
     titleImg.src = dmCrownImg;
-    titleImg.alt = "Crown icon";
+    titleImg.alt = "Crown icon or coffee mug icon";
 
     const appMMM = document.createElement("p");
     appMMM.id = "MMM";

@@ -97,7 +97,7 @@ export function createEditFolderForm() {
     const editFolderImg = document.createElement("img");
     editFolderImg.id = "edit-folder-img";
     editFolderImg.src = dmFolderImg;
-    editFolderImg.alt = "";
+    editFolderImg.alt = "Folder icon";
 
     const editFolderFormTitle = document.createElement("p");
     editFolderFormTitle.classList.add("font-fancy");

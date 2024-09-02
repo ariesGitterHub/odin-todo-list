@@ -42,7 +42,7 @@ export function createNewTaskForm() {
     const newTaskImg = document.createElement("img");
     newTaskImg.id = "new-task-img";
     newTaskImg.src = dmNewTaskImg;
-    newTaskImg.alt = "";
+    newTaskImg.alt = "New task icon";
 
     const newTaskFormTitle = document.createElement("p");
     newTaskFormTitle.classList.add("font-fancy");
@@ -107,7 +107,7 @@ export function createNewTaskForm() {
     const newTaskPriorityFlagImg = document.createElement("img");
     newTaskPriorityFlagImg.id = "new-task-priority-flag-img";
     newTaskPriorityFlagImg.src = imgUrls.priorityFlag;
-    newTaskPriorityFlagImg.alt = "";
+    newTaskPriorityFlagImg.alt = "Priority flag icon";
 
     const lvlCol4 = document.createElement("div");
     lvlCol4.classList.add("lvl-col");

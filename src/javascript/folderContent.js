@@ -80,7 +80,7 @@ export function createFolders(folders) {
         const folderEditBtnImg = document.createElement("img");
         folderEditBtnImg.classList.add("folder-edit-btn-img");
         folderEditBtnImg.src = imgUrls.edit;
-        folderEditBtnImg.alt = "Edit folder icon";
+        folderEditBtnImg.alt = "Edit icon";
 
         const folderTrashBtn = document.createElement("button");
         folderTrashBtn.classList.add("folder-trash-btn");
@@ -89,7 +89,7 @@ export function createFolders(folders) {
         const folderTrashBtnImg = document.createElement("img");
         folderTrashBtnImg.classList.add("folder-trash-btn-img");
         folderTrashBtnImg.src = imgUrls.trash;
-        folderTrashBtnImg.alt = "Trash folder icon";
+        folderTrashBtnImg.alt = "Trash can icon";
 
         folderContent.append(folder);
         folder.append(folderBar);

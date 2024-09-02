@@ -68,7 +68,7 @@ export function createTasks(tasks) {
         const taskOverdueNoticeImg = document.createElement("img");
         taskOverdueNoticeImg.classList.add("task-overdue-notice-img");
         taskOverdueNoticeImg.src = imgUrls.overdueNotice;
-        taskOverdueNoticeImg.alt = "Date is overdue icon";
+        taskOverdueNoticeImg.alt = "Overdue warning icon";
 
         const taskOverdueNoticeP = document.createElement("p");
         taskOverdueNoticeP.classList.add("task-overdue-notice-p");
@@ -103,7 +103,7 @@ export function createTasks(tasks) {
         const taskPriorityBtnImg = document.createElement("img");
         taskPriorityBtnImg.classList.add("task-priority-btn-img");
         taskPriorityBtnImg.src = imgUrls.priority;
-        taskPriorityBtnImg.alt = "Priority task icon";
+        taskPriorityBtnImg.alt = "Priority flag icon";
 
         const taskBtnCol2 = document.createElement("div");
         taskBtnCol2.classList.add("lvl-col");
@@ -115,7 +115,7 @@ export function createTasks(tasks) {
         const taskCompletedBtnImg = document.createElement("img");
         taskCompletedBtnImg.classList.add("task-completed-btn-img");
         taskCompletedBtnImg.src = imgUrls.completed;
-        taskCompletedBtnImg.alt = "Completed task icon";
+        taskCompletedBtnImg.alt = "Completed check mark icon";
    
         const taskBtnCol3 = document.createElement("div");
         taskBtnCol3.classList.add("lvl-col");
@@ -139,7 +139,7 @@ export function createTasks(tasks) {
         const taskTrashBtnImg = document.createElement("img");
         taskTrashBtnImg.classList.add("task-trash-btn-img");
         taskTrashBtnImg.src = imgUrls.trash;
-        taskTrashBtnImg.alt = "Trash task icon";
+        taskTrashBtnImg.alt = "Trash can icon";
     
         const sectionBotPad = document.createElement("div");
         sectionBotPad.classList.add("section-bot-pad");

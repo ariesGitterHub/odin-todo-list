@@ -47,7 +47,7 @@ export function createNewFolderForm() {
     const newFolderImg = document.createElement("img");
     newFolderImg.id = "new-folder-img";
     newFolderImg.src = dmNewFolderImg;
-    newFolderImg.alt = "";
+    newFolderImg.alt = "New folder icon";
 
     const newFolderFormTitle = document.createElement("p");
     newFolderFormTitle.classList.add("font-fancy");
