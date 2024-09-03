@@ -164,7 +164,7 @@ const defaultTasks = [
     ),
     new Task(
         "t3",
-        "Art's Fest Weekend Starts",
+        "Art's Fest Weekend",
         "1996-07-12",
         "",
         "low",
@@ -174,13 +174,13 @@ const defaultTasks = [
     ),
     new Task(
         "t4",
-        "Fix the barb wire fence at the secret lair",
+        "Fix the barb wire fence at the compound",
         "2086-04-20",
         "",
         "high",
         "incomplete",
         "Repair",
-        "Mind the radioactive zombies, too."
+        "Watch out for the radioactive zombies."
     ),
     new Task(
         "t5",
