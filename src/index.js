@@ -135,14 +135,19 @@ document.addEventListener("DOMContentLoaded", () => {
     populateNewTaskFormFolderOptions(workingFolders);
     populateEditTaskFormFolderOptions(workingFolders);
     checkIfNoTasks();
-
+    
+    // Issue with no sound from only one btn, the taskCompletedBtn, error check:
     const btnSound = document.querySelectorAll(".btn-sound");
     btnSound.forEach((button) => {
         button.addEventListener("click", (event) => {
-            playClickSound(event);
-            // handleButtonClick(event);
+          console.log("Button clicked:", event.target); // Ensure the event is triggered
+          playClickSound(event);
+          // handleButtonClick(event);
         });
         });
+
+
+
 
     const statusBtn = document.querySelector("#status-btn");
     statusBtn.addEventListener("click", handleStatusBtn);
@@ -190,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
         completedBtnClicked(index);
         // updateDOM();
-        window.location.reload();
+        // window.location.reload();
         });
     });
 
@@ -226,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
         folderTrashBtnClicked(index);
         // updateDOM();
-        window.location.reload();
+        // window.location.reload();
         });
     });
 

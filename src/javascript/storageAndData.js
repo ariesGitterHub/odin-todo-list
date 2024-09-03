@@ -62,7 +62,7 @@ export function addFolder(folder) {
 export function removeFolder(dataId) {
     workingFolders = workingFolders.filter((folder) => folder.folderId !== dataId);
     saveFolders();
-    //   window.location.reload();
+    window.location.reload();
 }
 
 export function updateEditedFolders(dataId) {
@@ -165,7 +165,7 @@ const defaultTasks = [
     new Task(
         "t3",
         "Art's Fest Weekend",
-        "1996-07-12",
+        "2024-07-12",
         "",
         "low",
         "completed",

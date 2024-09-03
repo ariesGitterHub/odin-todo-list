@@ -28,7 +28,7 @@
 --dark-dklt: #784618; /* dark-lite btn */
 --dark-alert: #a9fe00; /*alert color, contrasts  background*/
 --dark-contrast: #e0daa1; /* contrast against background */
---dark-btn-active: #444457; /* btn activated*/
+--dark-btn-active: #474759; /* btn activated*/
 
 /* Dark Mode Folder Colors */
 /* --dmfc00: var(--dark-contrast); */
@@ -207,7 +207,9 @@ body {
 /* --> .NONE/.FLEX                                                 */
 
 
-#folder-content.none, .task-folder-p.none, #task-content.none, .task.none {
+#folder-content.none,
+ /* .task-overdue-notice-img.none, .task-overdue-notice-p.none, */
+  .task-folder-p.none, #task-content.none, .task.none {
     display: none;
 }
 
@@ -289,7 +291,7 @@ header {
 }
 
 #app-date {
-    height: calc(var(--font-size-md) * 1.25);
+    height: calc(var(--font-size-md) * 1.5);
     width: 100vw;
     background-color: var(--contrast);
     color: var(--bkgd);
@@ -883,12 +885,14 @@ input:checked + .slider:before {
 
 .task-overdue-notice-img {
     height: var(--priority-flag-overdue-triangle);
+    display: flex;
     margin-left: .75rem;
     margin-right: .15rem;
 }
 
 .task-overdue-notice-p {
     color: var(--alert);
+    display: flex;
     font-family: var(--font-hand);
     font-size: var(--font-size-sm);
 }
