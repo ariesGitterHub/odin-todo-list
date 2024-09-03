@@ -253,7 +253,7 @@ export function completedBtnClicked(index) {
             taskCompletedBtn.style.backgroundColor = "var(--activated)";
             taskTile.style.textDecoration = "line-through";
             taskTile.style.textDecorationThickness = "3px";
-            // taskTile.style.backgroundColor = "var(--activated)";
+            taskTile.style.backgroundColor = "var(--activated)";
             // taskName.style.backgroundColor = "var(--activated)";
             // taskName.style.borderColor = "var(--activated)";
 
@@ -264,7 +264,7 @@ export function completedBtnClicked(index) {
             taskCompletedBtn.value = "incomplete";
             taskCompletedBtn.style.backgroundColor = "var(--bkgd)";
             taskTile.style.textDecoration = "none";
-            // taskTile.style.backgroundColor = "var(--bkgd)";
+            taskTile.style.backgroundColor = "var(--bkgd)";
             // taskName.style.backgroundColor = "var(--bkgd)";
             // taskName.style.borderColor = "inherit";
             updateCompleteStatus(taskTile.dataset.id);

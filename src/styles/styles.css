@@ -850,6 +850,7 @@ input:checked + .slider:before {
     font-weight: 800;
     margin: 0;
     padding: 1rem; 
+    transition: background-color 1s ease, text-decoration 1s ease;
 }
 
 .task-name {
@@ -865,6 +866,7 @@ input:checked + .slider:before {
     margin-bottom: .25rem;
     /* padding-left: .35rem; */
     padding: 0 .25rem 0 .25rem;
+    transition: color 1s ease, text-decoration 1s ease;
 }
 
 .task-due-date, .task-folder {
