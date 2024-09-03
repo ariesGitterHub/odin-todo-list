@@ -145,14 +145,16 @@ export function createTasks(tasks) {
         sectionBotPad.classList.add("section-bot-pad");
 
         taskContent.append(task, sectionBotPad);
-        task.append(mainCol, br2, taskBtnCont);
+        // task.append(mainCol, br2, taskBtnCont);
+        task.append(mainCol, taskBtnCont);
         mainCol.append(
             taskName,
             taskDueDate,
             lvlRow1,
             taskFolder,
             br1,
-            taskDescription
+            taskDescription,
+            br2,
         );
         lvlRow1.append(
             taskOverdueNoticeImg,

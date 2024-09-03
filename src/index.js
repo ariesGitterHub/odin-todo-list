@@ -1,6 +1,6 @@
 import "./styles/styles.css";
 
-// import { playClickSound } from "./javascript/sound.js";
+import { playClickSound } from "./javascript/sound.js";
 
 import {
     workingTheme,
@@ -88,11 +88,11 @@ import {
     showFolderView,
 } from "./javascript/statusBarBtns.js";
 
-// function updateDOM() {
-//     const newElement = document.createElement("div");
-//     newElement.textContent = "!";
-//     document.getElementById("header-content").appendChild(newElement);
-// }
+function updateDOM() {
+    const newElement = document.createElement("div");
+    newElement.textContent = "!";
+    document.getElementById("header-content").appendChild(newElement);
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {

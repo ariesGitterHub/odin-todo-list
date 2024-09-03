@@ -840,8 +840,9 @@ input:checked + .slider:before {
 }
 
 .task {
-    border-top: calc(var(--border-size) * 1.5) dashed;
-    border-bottom: calc(var(--border-size) * 1.5) dashed;
+    /* border-top: calc(var(--border-size) * 1.5) dashed;
+    border-bottom: calc(var(--border-size) * 1.5) dashed; */
+    border: calc(var(--border-size) * 2) dashed;
     display: block;
     font-family: var(--font-plain);
     font-weight: 800;
@@ -876,7 +877,7 @@ input:checked + .slider:before {
     background-color: var(--activated);
     border-radius: var(--border-radius-squarish);
     font-size: var(--font-size-sm);
-    margin: .1rem;
+    margin-bottom: -.5rem;
     padding: .5rem;
 }
 
