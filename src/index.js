@@ -88,11 +88,11 @@ import {
     showFolderView,
 } from "./javascript/statusBarBtns.js";
 
-function updateDOM() {
-    const newElement = document.createElement("div");
-    newElement.textContent = "!";
-    document.getElementById("header-content").appendChild(newElement);
-}
+// function updateDOM() {
+//     const newElement = document.createElement("div");
+//     newElement.textContent = "!";
+//     document.getElementById("header-content").appendChild(newElement);
+// }
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -136,13 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
     populateEditTaskFormFolderOptions(workingFolders);
     checkIfNoTasks();
 
-    // const btnSound = document.querySelectorAll(".btn-sound");
-    // btnSound.forEach((button) => {
-    //     button.addEventListener("click", (event) => {
-    //         playClickSound(event);
-    //         // handleButtonClick(event);
-    //     });
-    //     });
+    const btnSound = document.querySelectorAll(".btn-sound");
+    btnSound.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            playClickSound(event);
+            // handleButtonClick(event);
+        });
+        });
 
     const statusBtn = document.querySelector("#status-btn");
     statusBtn.addEventListener("click", handleStatusBtn);
