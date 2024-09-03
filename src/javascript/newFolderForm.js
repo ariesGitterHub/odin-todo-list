@@ -23,7 +23,7 @@ function createButtons(configs) {
     const colorPickerBtn = document.createElement("button");
     colorPickerBtn.id = config.id;
     colorPickerBtn.type = "button";
-    colorPickerBtn.classList.add("color-picker-btn");
+    colorPickerBtn.classList.add("color-picker-btn", "btn-sound");
     colorPickerBtn.textContent = config.text;
     return colorPickerBtn;
     });
@@ -95,13 +95,13 @@ export function createNewFolderForm() {
 
     const newFolderCancelBtn = document.createElement("button");
     newFolderCancelBtn.type = "button";
-    newFolderCancelBtn.classList.add("cancel");
+    newFolderCancelBtn.classList.add("cancel", "btn-sound");
     newFolderCancelBtn.id = "new-folder-cancel-btn";
     newFolderCancelBtn.textContent = "Cancel";
 
     const newFolderSubmitBtn = document.createElement("button");
     newFolderSubmitBtn.type = "submit";
-    newFolderSubmitBtn.classList.add("submit");
+    newFolderSubmitBtn.classList.add("submit", "btn-sound");
     newFolderSubmitBtn.id = "new-folder-submit-btn";
     newFolderSubmitBtn.textContent = "Submit";
 

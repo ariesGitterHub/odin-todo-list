@@ -74,7 +74,7 @@ export function createFolders(folders) {
         lvlRow2.classList.add("lvl-row-end");
 
         const folderEditBtn = document.createElement("button");
-        folderEditBtn.classList.add("folder-edit-btn");
+        folderEditBtn.classList.add("folder-edit-btn", "btn-sound");
         folderEditBtn.style.backgroundColor = `var(${folderItem.folderColor})`;
 
         const folderEditBtnImg = document.createElement("img");
@@ -83,7 +83,7 @@ export function createFolders(folders) {
         folderEditBtnImg.alt = "Edit icon";
 
         const folderTrashBtn = document.createElement("button");
-        folderTrashBtn.classList.add("folder-trash-btn");
+        folderTrashBtn.classList.add("folder-trash-btn", "btn-sound");
         folderTrashBtn.style.backgroundColor = `var(${folderItem.folderColor})`;
 
         const folderTrashBtnImg = document.createElement("img");

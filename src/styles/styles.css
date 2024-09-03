@@ -927,6 +927,7 @@ input:checked + .slider:before {
 
 .task button:hover, .task button:focus{
     border: var(--border-size) dashed;
+    border-color: var(--contrast);
     transform: scale(var(--btn-scale-bg));
 }
 

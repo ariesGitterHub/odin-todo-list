@@ -142,13 +142,13 @@ export function createEditTaskForm() {
 
     const editTaskCancelBtn = document.createElement("button");
     editTaskCancelBtn.type = "button";
-    editTaskCancelBtn.classList.add("cancel");
+    editTaskCancelBtn.classList.add("cancel", "btn-sound");
     editTaskCancelBtn.id = "edit-task-cancel-btn";
     editTaskCancelBtn.textContent = "Cancel";
 
     const editTaskSubmitBtn = document.createElement("button");
     editTaskSubmitBtn.type = "submit";
-    editTaskSubmitBtn.classList.add("submit");
+    editTaskSubmitBtn.classList.add("submit", "btn-sound");
     editTaskSubmitBtn.id = "edit-task-submit-btn";
     editTaskSubmitBtn.textContent = "Update";
 

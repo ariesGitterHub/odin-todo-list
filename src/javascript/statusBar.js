@@ -18,6 +18,7 @@ export function createStatusBar() {
 
     const taskNumBtn = document.createElement("button");
     taskNumBtn.id = "task-num-btn";
+    taskNumBtn.classList.add("btn-sound")
 
     const taskNumBtnImg = document.createElement("img");
     taskNumBtnImg.id = "task-num-btn-img";
@@ -30,6 +31,7 @@ export function createStatusBar() {
 
     const priorityNumBtn = document.createElement("button");
     priorityNumBtn.id = "priority-num-btn";
+    priorityNumBtn.classList.add("btn-sound");
 
     const priorityNumBtnImg = document.createElement("img");
     priorityNumBtnImg.id = "priority-num-btn-img";
@@ -42,6 +44,7 @@ export function createStatusBar() {
 
     const overdueNumBtn = document.createElement("button");
     overdueNumBtn.id = "overdue-num-btn"; 
+    overdueNumBtn.classList.add("btn-sound");
 
     const overdueNumBtnImg = document.createElement("img");
     overdueNumBtnImg.id = "overdue-num-btn-img";
@@ -54,6 +57,7 @@ export function createStatusBar() {
 
     const completedNumBtn = document.createElement("button");
     completedNumBtn.id = "completed-num-btn";
+    completedNumBtn.classList.add("btn-sound");
 
     const completedNumBtnImg = document.createElement("img");
     completedNumBtnImg.id = "completed-num-btn-img";
@@ -66,6 +70,7 @@ export function createStatusBar() {
 
     const folderNumBtn = document.createElement("button");
     folderNumBtn.id = "folder-num-btn";
+    folderNumBtn.classList.add("btn-sound");
 
     const folderNumBtnImg = document.createElement("img");
     folderNumBtnImg.id = "folder-num-btn-img";

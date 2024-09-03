@@ -97,7 +97,7 @@ export function createTasks(tasks) {
         taskBtnCol1.classList.add("lvl-col");
       
         const taskPriorityBtn = document.createElement("button");
-        taskPriorityBtn.classList.add("task-priority-btn");
+        taskPriorityBtn.classList.add("task-priority-btn", "btn-sound");
         taskPriorityBtn.value = "low";
 
         const taskPriorityBtnImg = document.createElement("img");
@@ -109,7 +109,7 @@ export function createTasks(tasks) {
         taskBtnCol2.classList.add("lvl-col");
      
         const taskCompletedBtn = document.createElement("button");
-        taskCompletedBtn.classList.add("task-completed-btn");
+        taskCompletedBtn.classList.add("task-completed-btn", "btn-sound");
         taskCompletedBtn.value = "incomplete";
 
         const taskCompletedBtnImg = document.createElement("img");
@@ -121,7 +121,7 @@ export function createTasks(tasks) {
         taskBtnCol3.classList.add("lvl-col");
 
         const taskEditBtn = document.createElement("button");
-        taskEditBtn.classList.add("task-edit-btn");
+        taskEditBtn.classList.add("task-edit-btn", "btn-sound");
         // taskEditBtn.value = "off";
         taskEditBtn.dataset.id = `${taskItem.taskId}`;
 
@@ -133,7 +133,7 @@ export function createTasks(tasks) {
         const taskBtnCol4 = document.createElement("div");
         taskBtnCol4.classList.add("lvl-col");
 
-        const taskTrashBtn = document.createElement("button");
+        const taskTrashBtn = document.createElement("button", "btn-sound");
         taskTrashBtn.classList.add("task-trash-btn");
    
         const taskTrashBtnImg = document.createElement("img");

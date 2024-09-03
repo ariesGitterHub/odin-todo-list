@@ -145,13 +145,13 @@ export function createNewTaskForm() {
 
     const newTaskCancelBtn = document.createElement("button");
     newTaskCancelBtn.type = "button";
-    newTaskCancelBtn.classList.add("cancel");
+    newTaskCancelBtn.classList.add("cancel", "btn-sound");
     newTaskCancelBtn.id = "new-task-cancel-btn";
     newTaskCancelBtn.textContent = "Cancel";
 
     const newTaskSubmitBtn = document.createElement("button");
     newTaskSubmitBtn.type = "submit";
-    newTaskSubmitBtn.classList.add("submit");
+    newTaskSubmitBtn.classList.add("submit", "btn-sound");
     newTaskSubmitBtn.id = "new-task-submit-btn";
     newTaskSubmitBtn.textContent = "Submit";
 
