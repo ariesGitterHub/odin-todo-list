@@ -1,12 +1,12 @@
 import "./styles/styles.css";
 
-import { playClickSound } from "./javascript/sound.js";
+// import { playClickSound } from "./javascript/sound.js";
 
 import {
     workingTheme,
     workingFolders,
     workingTasks,
-    loadFolders,    
+    // loadFolders,    
 } from "./javascript/storageAndData.js";
 
 import { createTitle, toggleSticky } from "./javascript/title.js";
@@ -136,13 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
     populateEditTaskFormFolderOptions(workingFolders);
     checkIfNoTasks();
 
-    const btnSound = document.querySelectorAll(".btn-sound");
-    btnSound.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            playClickSound(event);
-            // handleButtonClick(event);
-        });
-        });
+    // const btnSound = document.querySelectorAll(".btn-sound");
+    // btnSound.forEach((button) => {
+    //     button.addEventListener("click", (event) => {
+    //         playClickSound(event);
+    //         // handleButtonClick(event);
+    //     });
+    //     });
 
     const statusBtn = document.querySelector("#status-btn");
     statusBtn.addEventListener("click", handleStatusBtn);
