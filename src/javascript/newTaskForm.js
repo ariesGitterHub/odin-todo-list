@@ -8,6 +8,8 @@ import {
 
 import { Task } from "./classes.js";
 
+import { updateUI } from "./updateUI.js";
+
 import { 
     workingTheme,
     addTask, 
@@ -219,7 +221,7 @@ export function clearNewTaskForm() {
     // const newTaskPriorityFlagImg = document.querySelector("#new-task-priority-flag-img");
     if (newTaskCancelBtn && newTaskForm) {
         newTaskCancelBtn.addEventListener("click", function () {
-        window.location.reload();
+        updateUI();
     });
     } else {
         console.warn("newTaskCancelBtn or newTaskForm is null or not found in the DOM.");
@@ -267,7 +269,7 @@ export function submitNewTask() {
 
             // Add task
             addTask(newTask);
-            window.location.reload();
+            updateUI();
             });
     } else {
         console.warn(

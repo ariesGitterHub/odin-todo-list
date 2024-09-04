@@ -11,6 +11,10 @@ import {
     lmTrashImg,
 } from "./imageExporter.js";
 
+import { updateUI } from "./updateUI.js";
+
+import { countTaskTypes } from "./statusBarBtns.js";
+
 import { reformatDate } from "./checkStatus.js";
 
 import {
@@ -18,6 +22,7 @@ import {
     updateCompleteStatus,
     removeTask,
     workingTheme,
+    workingTasks,
 } from "./storageAndData.js";
 
 export function defaultTaskBtnImgs() {
@@ -216,7 +221,9 @@ export function priorityBtnClicked(index) {
             // taskName.style.borderColor = "var(--alert)";
             taskName.style.color = "var(--alert)";
             taskName.style.textDecoration = "underline";
+
             updatePriorityStatus(taskTile.dataset.id);
+    // updateUI();
             // Append "!!!" to the task title if not already present
 
             if (!taskName.textContent.includes("!!!")) {
@@ -228,7 +235,10 @@ export function priorityBtnClicked(index) {
             // taskName.style.borderColor = "var(--bkgd)"; // Reset to default
             taskName.style.color = "inherit";
             taskName.style.textDecoration = "none";
+
             updatePriorityStatus(taskTile.dataset.id);
+    // updateUI();
+
             const titleText = taskName.textContent;
             if (titleText.includes("!!!")) {
                 taskName.textContent = titleText.replace(" !!!", ""); // Remove the last occurrence of "!!!"

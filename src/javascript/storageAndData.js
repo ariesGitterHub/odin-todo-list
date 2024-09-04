@@ -5,6 +5,7 @@ import {
 } from "./classes.js";
 
 import { updateUI } from "./updateUI.js";
+
 // THEME
 
 const defaultTheme = [
@@ -63,7 +64,7 @@ export function addFolder(folder) {
 export function removeFolder(dataId) {
     workingFolders = workingFolders.filter((folder) => folder.folderId !== dataId);
     saveFolders();
-    // window.location.reload();
+
     updateUI();
 }
 
@@ -82,7 +83,7 @@ export function updateEditedFolders(dataId) {
 
     workingFolders = folders;
     saveFolders();
-    // window.location.reload();
+
     updateUI();
 }
 
@@ -221,7 +222,7 @@ export function addTask(task) {
 export function removeTask(dataId) {
     workingTasks = workingTasks.filter((task) => task.taskId !== dataId);
     saveTasks();
-    // window.location.reload();
+
     updateUI();
 }
 
@@ -274,6 +275,6 @@ export function updateEditedTasks(dataId) {
 
     workingTasks = tasks;
     saveTasks();
-    // window.location.reload();
+
     updateUI();
 }

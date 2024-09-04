@@ -87,6 +87,7 @@ import {
     showCompletedView,
     showFolderView,
 } from "./javascript/statusBarBtns.js";
+import { updateUI } from "./javascript/updateUI.js";
 
 // function updateDOM() {
 //     const newElement = document.createElement("div");
@@ -135,6 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
     populateNewTaskFormFolderOptions(workingFolders);
     populateEditTaskFormFolderOptions(workingFolders);
     checkIfNoTasks();
+    countTaskTypes(workingTasks);
+    countFolders(workingFolders);
+    countTasksByFolder();
+    checkFolderAddClass();
     
     // Issue with no sound from only one btn, the taskCompletedBtn, error check:
     const btnSound = document.querySelectorAll(".btn-sound");
@@ -145,9 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // handleButtonClick(event);
         });
         });
-
-
-
 
     const statusBtn = document.querySelector("#status-btn");
     statusBtn.addEventListener("click", handleStatusBtn);
@@ -185,8 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
     taskPriorityBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         priorityBtnClicked(index);
-        // updateDOM();
-        // window.location.reload();
+
+        updateUI();
         });
     });
 
@@ -194,8 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
     taskCompletedBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         completedBtnClicked(index);
-        // updateDOM();
-        // window.location.reload();
+
+        updateUI();
         });
     });
 
@@ -206,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
         taskEditBtnClicked(index);
         console.log(button.dataset.id);
-        // window.location.reload();
         });
     });
 
@@ -222,7 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => {
         folderEditBtnClicked(index);
         console.log(button.dataset.id);
-        // window.location.reload();
       });
     });
 
@@ -230,13 +230,6 @@ document.addEventListener("DOMContentLoaded", () => {
     folderTrashBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         folderTrashBtnClicked(index);
-        // updateDOM();
-        // window.location.reload();
         });
     });
-
-    countTaskTypes(workingTasks);  
-    countFolders(workingFolders); 
-    countTasksByFolder();
-    checkFolderAddClass();
 });

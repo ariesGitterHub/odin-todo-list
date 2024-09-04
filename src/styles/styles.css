@@ -210,15 +210,21 @@ body {
 /* --> .NONE/.FLEX                                                 */
 
 
+#status-bar.none, 
 #folder-content.none,
  /* .task-overdue-notice-img.none, .task-overdue-notice-p.none, */
   .task-folder-p.none, #task-content.none, .task.none {
     display: none;
 }
 
-#status-bar.flex, #new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex, #edit-folder-form.flex {
+/* #status-bar.flex, #new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex, #edit-folder-form.flex {
+    display: flex;
+} */
+
+#new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex, #edit-folder-form.flex {
     display: flex;
 }
+
 
 
 /* HEADER AND NAV                                                  */
@@ -375,7 +381,7 @@ nav button img {
     height: fit-content;
     background-color: var(--stba);
     border: var(--border-size) solid var(--bkgd); 
-    display: none;
+    display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -441,6 +447,7 @@ nav button img {
 
 #new-task-form, #new-folder-form, #edit-task-form, #edit-folder-form {
     height: fit-content;
+    
     border: var(--border-size) solid var(--bkgd); 
     display: none;
         flex-direction: column;

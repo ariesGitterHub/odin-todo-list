@@ -1,5 +1,6 @@
 import { dmNewFolderImg } from "./imageExporter.js";
 import { Folder } from "./classes.js";
+import { updateUI } from "./updateUI.js";
 import { addFolder, workingFolders } from "./storageAndData.js";
 
 const btnConfigs1 = [
@@ -142,7 +143,7 @@ export function clearNewFolderForm() {
 
     if (newFolderCancelBtn && newFolderForm) {
         newFolderCancelBtn.addEventListener("click", function () {
-        window.location.reload();
+        updateUI();
         });
     } else {
         console.warn(
@@ -181,7 +182,7 @@ export function submitNewFolder() {
         const newFolder = createNewFolder(formData);
 
         addFolder(newFolder);
-        window.location.reload();
+        updateUI();
         });
     } else {
         console.warn("newFolderSubmitBtn or newFolderForm is null or not found in the DOM.");
