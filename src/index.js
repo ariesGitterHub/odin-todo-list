@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnSound = document.querySelectorAll(".btn-sound");
     btnSound.forEach((button) => {
         button.addEventListener("click", (event) => {
-          console.log("Button clicked:", event.target); // Ensure the event is triggered
+        //   console.log("Button clicked:", event.target); // Ensure the event is triggered
           playClickSound(event);
           // handleButtonClick(event);
         });

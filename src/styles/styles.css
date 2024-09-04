@@ -102,6 +102,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: background-color 1s ease, border-color 1s ease,
+     /* color .5s ease, */
+      text-decoration 1s ease;
 }
 
 body {
@@ -226,7 +229,8 @@ header {
     background-color: var(--bkgd);
     color: var(--contrast);
     display: flex;
-        flex-direction: column;
+    flex-direction: column;
+    /* transition: background-color 1s ease, color 1s ease; */
 }
 
 #header-ctrl-cont {
@@ -302,6 +306,7 @@ header {
     font-size: var(--font-size-md);
     margin: 0;
     padding: .5rem;
+    /* transition: background-color 1s ease, color 1s ease; */
 }
 
 #header-content {
@@ -763,6 +768,7 @@ input:checked + .slider:before {
     /* margin: 0 5px 0 5px; */
     margin-top: .5rem;
     padding: .25rem; 
+    /* transition: background-color 1s ease; */
 }
 
 .folder-task-num {
@@ -838,7 +844,7 @@ input:checked + .slider:before {
     font-family: var(--font-hand);
     font-size: var(--title-font-size);
     text-align:start;
-    padding: .25rem 1.25rem 1rem 1rem;
+    margin: 0 1rem 1rem 1rem;
 }
 
 .task {
@@ -850,7 +856,7 @@ input:checked + .slider:before {
     font-weight: 800;
     margin: 0;
     padding: 1rem; 
-    transition: background-color 1s ease, text-decoration 1s ease;
+    /* transition: background-color 1s ease, text-decoration 1s ease; */
 }
 
 .task-name {
@@ -866,7 +872,7 @@ input:checked + .slider:before {
     margin-bottom: .25rem;
     /* padding-left: .35rem; */
     padding: 0 .25rem 0 .25rem;
-    transition: color 1s ease, text-decoration 1s ease;
+    /* transition: color 1s ease, text-decoration 1s ease; */
 }
 
 .task-due-date, .task-folder {
@@ -881,7 +887,7 @@ input:checked + .slider:before {
     background-color: var(--activated);
     border-radius: var(--border-radius-squarish);
     font-size: var(--font-size-sm);
-    margin-bottom: -.5rem;
+    margin-bottom: -.25rem;
     padding: .5rem;
 }
 

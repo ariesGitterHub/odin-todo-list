@@ -57,14 +57,9 @@ export function checkPriorityStatus(tasks) {
 export function checkCompletedStatus(tasks) {
     const taskCompletedBtns = document.querySelectorAll(".task-completed-btn");
     const taskTiles = document.querySelectorAll(".task");
-    // const taskOverdueNoticeImgs = document.querySelectorAll(".task-overdue-notice-img");
-    // const taskOverdueNoticePs = document.querySelectorAll(".task-overdue-notice-p");
-    // const taskNames = document.querySelectorAll(".task-name");
         tasks.forEach((task, index) => {
             const taskCompletedBtn = taskCompletedBtns[index];
             const taskTile = taskTiles[index];
-            // const taskOverdueNoticeImg = taskOverdueNoticeImgs[index];
-            // const taskOverdueNoticeP = taskOverdueNoticePs[index];
 
             if (taskCompletedBtn) {
                 if (task.completedFlag === "completed") {
