@@ -102,9 +102,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: background-color 1s ease, border-color 1s ease,
+    transition: 
+    background-color 1s ease,
+    border-color 1s ease,
      /* color .5s ease, */
-      text-decoration 1s ease;
+    /* text-decoration 1s ease; */
 }
 
 body {
@@ -277,6 +279,7 @@ header {
 
 #app-title-cont img {
     height: var(--title-img-size);
+    width: auto;
     margin-left: .25rem;
     margin-right: .25rem;
 }
@@ -370,7 +373,7 @@ nav button:active {
 
 nav button img {
     height: var(--btn-img-basic-size);
-
+    width: auto;
 }
 
 
@@ -489,6 +492,7 @@ form input, form select {
 
 #new-task-priority-flag-img {
     height: var(--priority-flag-overdue-triangle);
+    width: auto;
     align-self: center;
     margin-bottom: -1.5rem;
 }
@@ -817,6 +821,7 @@ input:checked + .slider:before {
  /* #folder-trash-btn-img  */
   {
     height: var(--btn-img-basic-size);
+    width: auto;
 }
 
 .folder-folder-img {
@@ -900,6 +905,7 @@ input:checked + .slider:before {
 
 .task-overdue-notice-img {
     height: var(--priority-flag-overdue-triangle);
+    width: auto;
     display: flex;
     margin-left: .75rem;
     margin-right: .15rem;
@@ -914,6 +920,7 @@ input:checked + .slider:before {
 
 .task-priority-btn-img, .task-completed-btn-img, .task-edit-btn-img, .task-trash-btn-img {
     height: var(--btn-img-basic-size);
+    width: auto;
 }
 
 .task button {

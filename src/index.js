@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Add event listener for scroll event with debouncing
-    window.addEventListener("scroll", debounce(toggleSticky, 10));
+    window.addEventListener("scroll", debounce(toggleSticky, 100));
 
     createNav();
     createStatusBar();
