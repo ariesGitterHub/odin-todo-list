@@ -1,5 +1,7 @@
 import "./styles/styles.css";
 
+// import { resizeViewport } from "./javascript/resizeViewport.js";
+
 import { playClickSound } from "./javascript/sound.js";
 
 import {
@@ -108,6 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add event listener for scroll event with debouncing
     window.addEventListener("scroll", debounce(toggleSticky, 100));
+    
+
+    // window.addEventListener("resize", debounce(resizeViewport(workingTasks), 100));
+
+    // window.addEventListener("resize", resizeViewport(workingTasks));
 
     createNav();
     createStatusBar();
@@ -240,4 +247,5 @@ document.addEventListener("DOMContentLoaded", () => {
         folderTrashBtnClicked(index);
         });
     });
+
 });

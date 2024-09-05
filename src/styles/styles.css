@@ -207,6 +207,13 @@ body {
         gap: var(--gap-basic);
 }
 
+.lvl-row-wrap {
+    display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
 .section-bot-pad {
     height: .5rem;
     background-color: var(--bkgd);
@@ -934,7 +941,7 @@ input:checked + .slider:before {
     color: var(--alert);
     display: flex;
     font-family: var(--font-hand);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
 }
 
 .task-priority-btn-img, .task-completed-btn-img, .task-edit-btn-img, .task-trash-btn-img {
