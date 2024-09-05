@@ -192,7 +192,6 @@ export function clearEditFolderForm() {
     if (editFolderCancelBtn && editFolderForm) {
         editFolderCancelBtn.addEventListener("click", function () {
             editFolderForm.classList.toggle("flex");
-        //   window.location.reload();
         });
     } else {
         console.warn(

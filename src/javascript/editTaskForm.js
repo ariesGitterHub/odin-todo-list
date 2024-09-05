@@ -189,7 +189,6 @@ export function clearEditTaskForm() {
     if (editTaskCancelBtn && editTaskForm) {
         editTaskCancelBtn.addEventListener("click", function () {
             editTaskForm.classList.toggle("flex");
-        //   window.location.reload();
         });
     } else {
         console.warn(

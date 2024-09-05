@@ -68,6 +68,22 @@ export function removeFolder(dataId) {
     updateUI();
 }
 
+// export function removeFolder(dataId) {
+//   // Remove the task from the workingTasks array
+//   workingFolders = workingFolders.filter((folder) => folder.taskId !== dataId);
+//   saveFolders();
+
+//   // Find and remove the task element from the DOM
+//   const folderElement = document.querySelector(`.folder[data-id="${dataId}"]`);
+//   if (folderElement) {
+//     folderElement.remove();
+//   }
+
+//   // Update other UI elements if needed
+//   //checkIfNoTasks(); // Example: Update the UI if there are no tasks left
+//   //countTaskTypes(workingTasks); // Update task counts if needed
+// }
+
 export function updateEditedFolders(dataId) {
     let folders = loadFolders();
     folders = folders.map((folder) => {
@@ -222,9 +238,24 @@ export function addTask(task) {
 export function removeTask(dataId) {
     workingTasks = workingTasks.filter((task) => task.taskId !== dataId);
     saveTasks();
-
     updateUI();
 }
+
+// export function removeTask(dataId) {
+//   // Remove the task from the workingTasks array
+//   workingTasks = workingTasks.filter((task) => task.taskId !== dataId);
+//   saveTasks();
+
+//   // Find and remove the task element from the DOM
+//   const taskElement = document.querySelector(`.task[data-id="${dataId}"]`);
+//   if (taskElement) {
+//     taskElement.remove();
+//   }
+
+//   // Update other UI elements if needed
+//   //checkIfNoTasks(); // Example: Update the UI if there are no tasks left
+//   //countTaskTypes(workingTasks); // Update task counts if needed
+// }
 
 export function updatePriorityStatus(dataId) {
     let tasks = loadTasks(); // THIS WAS THE ISSUE: YOU HAVE TO...Load the current tasks from localStorage..FIRST

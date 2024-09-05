@@ -6,7 +6,6 @@ import {
     workingTheme,
     workingFolders,
     workingTasks,
-    // loadFolders,    
 } from "./javascript/storageAndData.js";
 
 import { createTitle, toggleSticky } from "./javascript/title.js";
@@ -217,6 +216,15 @@ document.addEventListener("DOMContentLoaded", () => {
         taskTrashBtnClicked(index);
         });
     });
+
+        // Event delegation for task trash button clicks
+    // document.querySelector("#task-content").addEventListener("click", (event) => {
+    //     const trashBtn = event.target.closest(".task-trash-btn");
+    //     if (trashBtn) {
+    //         const taskId = trashBtn.closest(".task").dataset.id;
+    //         taskTrashBtnClicked(taskId);
+    //     }
+    // });
 
     const folderEditBtns = document.querySelectorAll(".folder-edit-btn");
     folderEditBtns.forEach((button, index) => {

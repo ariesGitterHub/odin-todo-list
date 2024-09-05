@@ -14,6 +14,7 @@
 /* --> NEW TASK FORM/NEW FOLDER FORM  & UPDATE TASK/UPDATE FOLDER  */
 /* --> NEW TASK FORM PRIORITY FLAG SWITCH                          */
 /* FOLDER CONTENT/TASK CONTENT                                     */
+/* MEDIA QUERIES                                                   */
 /* *********************** TABLE OF CONTENTS ********************* */
 
 
@@ -96,6 +97,9 @@
 --btn-scale-sm: .9;
 
 --gap-basic: .5rem;
+
+/* --task-folder-h: 100vh; */
+--task-folder-w: 90vw;
 }
 
 * {
@@ -103,10 +107,11 @@
     margin: 0;
     padding: 0;
     transition: 
-    background-color 1s ease,
-    border-color 1s ease,
-     /* color .5s ease, */
-    /* text-decoration 1s ease; */
+    background-color 2s ease, 
+    border-color 2s ease,
+    /* color .5s ease, */
+    text-decoration 2s ease
+    ;
 }
 
 body {
@@ -753,18 +758,20 @@ input:checked + .slider:before {
 #task-content, #folder-content {
     background-color: var(--bkgd);
     color: var(--contrast);
+    margin: 0rem;
 }
 
 .folder {
     display: flex;
-    justify-content: center;
-    align-items: center;
+        justify-content: center;
+        align-items: center;
     margin: 0;
 }
 
 .folder-bar {
     height: fit-content;
-    width: 27ch; 
+    /* width: 27ch;  */
+    width: var(--task-folder-w);
     /* width: auto; */
     border: var(--border-size) solid;
     border-color: var(--bkgd);
@@ -830,7 +837,8 @@ input:checked + .slider:before {
 
 .folder-task-field {
     height: fit-content;
-    width: 32ch;
+    /* width: 32ch; */
+    width: var(--task-folder-w);
     /* width: auto; */
     border: calc(var(--border-size) * 1.5) dashed;
     border-color: none;
@@ -859,11 +867,22 @@ input:checked + .slider:before {
     margin: 0 1rem 1rem 1rem;
 }
 
+#task-content {
+    display: flex;
+    flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
 .task {
+    height: fit-content;
+    width: var(--task-folder-w);
     /* border-top: calc(var(--border-size) * 1.5) dashed;
     border-bottom: calc(var(--border-size) * 1.5) dashed; */
     border: calc(var(--border-size) * 2) dashed;
     display: block;
+        /* justify-content: center;
+        align-items: center; */
     font-family: var(--font-plain);
     font-weight: 800;
     margin: 0;
@@ -960,4 +979,13 @@ input:checked + .slider:before {
 
 .task button:active {
     transform: scale(var(--btn-scale-sm));
+}
+
+
+/* MEDIA QUERIES                                                   */
+
+
+@media only screen and (min-width > 440px) {
+
+
 }

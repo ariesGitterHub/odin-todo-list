@@ -18,7 +18,6 @@ import {
     updateCompleteStatus,
     removeTask,
     workingTheme,
-    workingTasks,
 } from "./storageAndData.js";
 
 export function defaultTaskBtnImgs() {
@@ -262,7 +261,6 @@ export function completedBtnClicked(index) {
             taskTile.style.backgroundColor = "var(--activated)";
             // taskName.style.backgroundColor = "var(--activated)";
             // taskName.style.borderColor = "var(--activated)";
-
             updateCompleteStatus(taskTile.dataset.id);
             // console.log(`taskTiles ID = ${taskTile.dataset.id}`);
             
