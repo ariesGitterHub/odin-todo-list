@@ -99,7 +99,10 @@
 --gap-basic: .5rem;
 
 /* --task-folder-h: 100vh; */
---task-folder-w: 90vw;
+--task-w: 96vw;
+--folder-w: 90vw;
+
+--switch-w: 3.75rem;
 }
 
 * {
@@ -491,7 +494,7 @@ nav button img {
 }
 
 form input, form select {
-    height: 2rem;
+    height: calc(var(--font-size-sm) * 2);
     width: 27ch;
     background-color: var(--contrast);
     border: var(--border-size) solid var(--contrast);
@@ -694,8 +697,9 @@ form input::-webkit-input-placeholder {
 
 /* The switch, i.e., the box around the slider */
 .switch {
-    height: 2rem;
-    width: 3.75rem;
+    height: calc(var(--font-size-sm) * 2);
+    /* width: 3.75rem; */
+    width: var(--switch-w);
     position: relative;
     display: flex;
         justify-content: center;
@@ -778,11 +782,12 @@ input:checked + .slider:before {
 .folder-bar {
     height: fit-content;
     /* width: 27ch;  */
-    width: var(--task-folder-w);
+    width: var(--task-w);
     /* width: auto; */
     border: var(--border-size) solid;
     border-color: var(--bkgd);
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
+    border-radius: calc(var(--font-size-sm) * 2);
     color: var(--bkgd);
     display: flex;
         justify-content: space-between;
@@ -792,7 +797,7 @@ input:checked + .slider:before {
     font-weight: 800;
     /* margin: 0 5px 0 5px; */
     margin-top: .5rem;
-    padding: .25rem; 
+    padding: .5rem; 
     /* transition: background-color 1s ease; */
 }
 
@@ -831,7 +836,7 @@ input:checked + .slider:before {
 }
 
 /* DELETE trash btn img ref if I do not use it */
-.folder-task-btn-img, .folder-folder-img, .folder-edit-btn-img, .folder-trash-btn-img
+.folder-task-btn-img, .folder-folder-img, .folder-task-img, .folder-edit-btn-img, .folder-trash-btn-img
  /* #folder-trash-btn-img  */
   {
     height: var(--btn-img-basic-size);
@@ -842,17 +847,22 @@ input:checked + .slider:before {
     margin: 0 .25rem 0 .5rem;
 }
 
+.folder-task-img {
+    margin: .25rem 0 0 .5rem;
+}
+
 .folder-task-field {
     height: fit-content;
     /* width: 32ch; */
-    width: var(--task-folder-w);
+    width: var(--folder-w);
     /* width: auto; */
     border: calc(var(--border-size) * 1.5) dashed;
     border-color: none;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
     font-family: var(--font-plain);
     font-size: var(--font-size-sm);
     font-weight: 800;
@@ -865,6 +875,18 @@ input:checked + .slider:before {
 
 .task-folder-p {
     padding: .5rem;
+}
+
+.task-folder-p-date, .task-folder-p-cop {
+    height: fit-content;
+    width: fit-content;
+    background-color: var(--activated);
+    border-radius: var(--border-radius-squarish);
+    font-size: var(--font-size-sm);
+    /* margin-bottom: -.25rem; */
+    margin: .5rem;
+    padding: .255rem;
+
 }
 
 #no-current-task-msg {
@@ -883,13 +905,11 @@ input:checked + .slider:before {
 
 .task {
     height: fit-content;
-    width: var(--task-folder-w);
+    width: var(--task-w);
     /* border-top: calc(var(--border-size) * 1.5) dashed;
     border-bottom: calc(var(--border-size) * 1.5) dashed; */
     border: calc(var(--border-size) * 2) dashed;
     display: block;
-        /* justify-content: center;
-        align-items: center; */
     font-family: var(--font-plain);
     font-weight: 800;
     margin: 0;
@@ -992,7 +1012,118 @@ input:checked + .slider:before {
 /* MEDIA QUERIES                                                   */
 
 
-@media only screen and (min-width > 440px) {
+@media only screen and (width >= 600px) {
 
+:root {
+--viewport-scale-up: 1.25;
+--font-size-ti: calc(.85rem * var(--viewport-scale-up));
+--font-size-sm: calc(1rem * var(--viewport-scale-up));
+--font-size-md: calc(1.2rem * var(--viewport-scale-up));
+--font-size-lg: calc(1.4rem * var(--viewport-scale-up));
+--title-font-size: calc(1.6rem * var(--viewport-scale-up));
+--title-img-size: calc(2.25rem * var(--viewport-scale-up));
+--btn-img-basic-size: calc(1.5rem * var(--viewport-scale-up));
+--status-btn-img-size: calc(1.25rem * var(--viewport-scale-up));
+--priority-flag-overdue-triangle: calc(1rem * var(--viewport-scale-up));
+--btn-round-hw: calc(2.75rem * var(--viewport-scale-up)); 
+--btn-status-bar-h: calc(2.25rem  * var(--viewport-scale-up));
+--border-size: calc(2.75px * var(--viewport-scale-up));
+--switch-w: calc(3.75rem * var(--viewport-scale-up));
+}
+
+.slider:before {
+    height: calc(22px * var(--viewport-scale-up));
+    width: calc(22px * var(--viewport-scale-up));
+    left: 2px;
+    bottom: 3px;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(calc(29px * var(--viewport-scale-up)));
+    -ms-transform: translateX(calc(29px * var(--viewport-scale-up)));
+    transform: translateX(calc(29px * var(--viewport-scale-up)));
+}
+
+.slider.round {
+    border-radius: calc(22px * var(--viewport-scale-up));
+}
+
+.slider.round:before {
+    border-radius:calc(26px * var(--viewport-scale-up));
+}
+
+}
+
+@media only screen and (width >= 900px) {
+
+:root {
+--viewport-scale-up: 1.5;
+--font-size-ti: calc(.85rem * var(--viewport-scale-up));
+--font-size-sm: calc(1rem * var(--viewport-scale-up));
+--font-size-md: calc(1.2rem * var(--viewport-scale-up));
+--font-size-lg: calc(1.4rem * var(--viewport-scale-up));
+--title-font-size: calc(1.6rem * var(--viewport-scale-up));
+--title-img-size: calc(2.25rem * var(--viewport-scale-up));
+--btn-img-basic-size: calc(1.5rem * var(--viewport-scale-up));
+--status-btn-img-size: calc(1.25rem * var(--viewport-scale-up));
+--priority-flag-overdue-triangle: calc(1rem * var(--viewport-scale-up));
+--btn-round-hw: calc(2.75rem * var(--viewport-scale-up)); 
+--btn-status-bar-h: calc(2.25rem  * var(--viewport-scale-up));
+--border-size: calc(2.75px * var(--viewport-scale-up));
+--switch-w: calc(3.75rem * var(--viewport-scale-up))
+}
+
+
+.slider:before {
+    height: calc(22px * var(--viewport-scale-up));
+    width: calc(22px * var(--viewport-scale-up));
+    left: 2px;
+    bottom: 3px;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(calc(29px * var(--viewport-scale-up)));
+    -ms-transform: translateX(calc(29px * var(--viewport-scale-up)));
+    transform: translateX(calc(29px * var(--viewport-scale-up)));
+}
+
+.slider.round {
+    border-radius: calc(22px * var(--viewport-scale-up));
+}
+
+.slider.round:before {
+    border-radius:calc(26px * var(--viewport-scale-up));
+}
+
+}
+
+@media only screen and (width >= 1200px) {
+
+    .task {
+        display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+    }
+
+    .task-description {
+        width: 50ch;
+    }
+
+}
+
+@media only screen and (width >= 1500px) {
+
+    .task-description {
+        width: 75ch;
+    }
+
+}
+
+@media only screen and (width >= 1800px) {
+
+    .task-description {
+        width: 100ch;
+    }
 
 }

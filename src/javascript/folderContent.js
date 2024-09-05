@@ -116,24 +116,52 @@ export function createFolders(folders) {
 
             const sanitizedTaskFolderP = folderItem.folderName.replace(/\s+/g, "-");
 
+            const folderTaskNameImgRow = document.createElement("div");
+            folderTaskNameImgRow.classList.add("lvl-row");
+        
+            const folderTaskImg = document.createElement("img");
+            folderTaskImg.classList.add("folder-task-img");
+            folderTaskImg.src = imgUrls.task;
+            folderTaskImg.alt = "Task icon";
+
             const taskFolderPName = document.createElement("p");
-            taskFolderPName.classList.add("task-folder-p", sanitizedTaskFolderP);
+            taskFolderPName.classList.add(
+                "task-folder-p",
+                 "task-folder-p-name",
+                sanitizedTaskFolderP
+                );
             taskFolderPName.textContent = `${task.taskName.toUpperCase()}`;
 
+            const folderTaskDateFolderRow = document.createElement("div");
+            folderTaskDateFolderRow.classList.add("lvl-row");
+
             const taskFolderPDate = document.createElement("p");
-            taskFolderPDate.classList.add("task-folder-p", sanitizedTaskFolderP);
+            taskFolderPDate.classList.add(
+                "task-folder-p",
+                "task-folder-p-date",
+                sanitizedTaskFolderP
+                );
             taskFolderPDate.textContent = `Due by ${reformatDate(task.dueByDate.replace(/-/g, "/"))}; ${task.overdueFlag}`;
 
             const taskFolderPCOP = document.createElement("p");
-            taskFolderPCOP.classList.add("task-folder-p", sanitizedTaskFolderP);
+            taskFolderPCOP.classList.add(
+              "task-folder-p",
+              "task-folder-p-cop",
+              sanitizedTaskFolderP
+            );
             taskFolderPCOP.textContent = `Status: ${task.completedFlag}, ${task.priorityFlag} priority`;
 
             folder.append(folderTaskField);
             folderTaskField.append(
-            taskFolderPName,
-            taskFolderPDate,
-            taskFolderPCOP,
+            // folderTaskImg,
+            // taskFolderPName,
+            folderTaskNameImgRow,
+            // taskFolderPDate,
+            // taskFolderPCOP,
+            folderTaskDateFolderRow
             );
+            folderTaskNameImgRow.append(folderTaskImg, taskFolderPName);
+            folderTaskDateFolderRow.append(taskFolderPDate, taskFolderPCOP);
         });
     });
 }

@@ -48,7 +48,8 @@ export function toggleDarkLiteMode(theme) {
     const editFolderImg = document.querySelector("#edit-folder-img");
 
     const folderTaskBtnImg = document.querySelectorAll(".folder-task-btn-img");
-    const folderFolderImg = document.querySelectorAll(".folder-folder-img")
+    const folderFolderImg = document.querySelectorAll(".folder-folder-img");
+    const folderTaskImg = document.querySelectorAll(".folder-task-img");
     const folderEditBtnImg = document.querySelectorAll(".folder-edit-btn-img");
     const folderTrashBtnImg = document.querySelectorAll(".folder-trash-btn-img");
 
@@ -83,6 +84,10 @@ export function toggleDarkLiteMode(theme) {
 
             folderFolderImg.forEach(function (image) {
                 image.src = lmFolderImg;
+            });
+
+            folderTaskImg.forEach(function (image) {
+                image.src = dmTaskImg;
             });
 
             folderEditBtnImg.forEach(function (image) {
@@ -133,7 +138,9 @@ export function toggleDarkLiteMode(theme) {
             folderFolderImg.forEach(function (image) {
                 image.src = dmFolderImg;
             });
-
+            folderTaskImg.forEach(function (image) {
+                image.src = lmTaskImg;
+            });
             folderEditBtnImg.forEach(function (image) {
             image.src = dmEditImg;
             });
