@@ -38,7 +38,7 @@ export function createTitle() {
 
 // This code is from a prior project
 export function toggleSticky() {
-    const headerCtrlCont = document.querySelector("#header-ctrl-cont");
+    const headerCtrlCont = document.querySelector("#header-ctrl-container");
     const sticky = headerCtrlCont.offsetTop;
     const scrollPosition = window.scrollY;
 
