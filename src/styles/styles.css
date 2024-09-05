@@ -22,106 +22,89 @@
 
 :root {
 /* Dark Mode Palette */
---dark-bkgd: #29292d; /* background */
---dark-stba: #5c2534; /* status banner/btn */
---dark-adta: #3f385d; /* new task/btn */
---dark-adfo: #154a50; /* new folder/btn */
---dark-dklt: #784618; /* dark-lite btn */
---dark-alert: #a9fe00; /*alert color, contrasts  background*/
---dark-contrast: #e0daa1; /* contrast against background */
---dark-btn-active: #474759; /* btn activated*/
+    --dark-bkgd: #29292d; /* background */
+    --dark-stba: #5c2534; /* status banner/btn */
+    --dark-adta: #3f385d; /* new task/btn */
+    --dark-adfo: #154a50; /* new folder/btn */
+    --dark-dklt: #784618; /* dark-lite btn */
+    --dark-alert: #a9fe00; /*alert color, contrasts  background*/
+    --dark-contrast: #e0daa1; /* contrast against background */
+    --dark-btn-active: #474759; /* btn activated*/
 
 /* Dark Mode Folder Colors */
-/* --dmfc00: var(--dark-contrast); */
---dmfc00: #e7e6e1;
---dmfc01: #bc6a6a;
---dmfc02: #ce9a8b;
---dmfc03: #d8b949;
---dmfc04: #689b4f;
---dmfc05: #5ee2c1;
---dmfc06: #29a9b4;
---dmfc07: #7890d1;
---dmfc08: #ad94c4;
---dmfc09: #bc67b0;
---dmfc10: #bd929f;
+    --dmfc00: #e7e6e1;
+    --dmfc01: #bc6a6a;
+    --dmfc02: #ce9a8b;
+    --dmfc03: #d8b949;
+    --dmfc04: #689b4f;
+    --dmfc05: #5ee2c1;
+    --dmfc06: #29a9b4;
+    --dmfc07: #7890d1;
+    --dmfc08: #ad94c4;
+    --dmfc09: #bc67b0;
+    --dmfc10: #bd929f;
 
 /* Light Mode Palette */
---lite-bkgd: #e0daa1; /* background */
---lite-stba: #f1cace; /* status banner/btn */
---lite-adta: #dedbed; /* new task/btn */
---lite-adfo: #ccece5; /* new folder/btn */
---lite-dklt: #decfbb; /* dark-lite btn */
---lite-alert: #a71b90; /*alert color, contrasts background*/
---lite-contrast: #29292d; /* contrast against background */
---lite-btn-active: #a6a67d; /* btn activated*/
+    --lite-bkgd: #e0daa1; /* background */
+    --lite-stba: #f1cace; /* status banner/btn */
+    --lite-adta: #dedbed; /* new task/btn */
+    --lite-adfo: #ccece5; /* new folder/btn */
+    --lite-dklt: #decfbb; /* dark-lite btn */
+    --lite-alert: #a71b90; /*alert color, contrasts background*/
+    --lite-contrast: #29292d; /* contrast against background */
+    --lite-btn-active: #a6a67d; /* btn activated*/
 
 /* Lite Mode Folder Colors */
-/* --lmfc00: var(--lite-contrast); */
---lmfc00: #181819;
---lmfc01: #6b1919;
---lmfc02: #8f5e51;
---lmfc03: #59533c;          
---lmfc04: #445d37;
---lmfc05: #1f6251;
---lmfc06: #306165;
---lmfc07: #3e4b70;
---lmfc08: #4d3168;
---lmfc09: #5c2054;
---lmfc10: #4d3b40;
+    --lmfc00: #181819;
+    --lmfc01: #6b1919;
+    --lmfc02: #8f5e51;
+    --lmfc03: #59533c;          
+    --lmfc04: #445d37;
+    --lmfc05: #1f6251;
+    --lmfc06: #306165;
+    --lmfc07: #3e4b70;
+    --lmfc08: #4d3168;
+    --lmfc09: #5c2054;
+    --lmfc10: #4d3b40;
 
 /* Font Families */
---font-fancy: "Cabin Sketch", sans-serif;
---font-hand: "Indie Flower", cursive;
---font-plain:  "Questrial", sans-serif;
+    --font-fancy: "Cabin Sketch", sans-serif;
+    --font-hand: "Indie Flower", cursive;
+    --font-plain:  "Questrial", sans-serif;
 
-/* --font-size-spsm: .25rem; */
---font-size-ti: .85rem;
---font-size-sm: 1rem;
---font-size-md: 1.2rem;
---font-size-lg: 1.4rem;
-/* --subtitle-font-size: 1.6rem; */
---title-font-size: 1.6rem;
---title-img-size: 2.25rem;
---btn-img-basic-size: 1.5rem;
---status-btn-img-size: 1.25rem;
---priority-flag-overdue-triangle: 1rem;
-
-/* Below value is also used as the border-radius of circular btns */
---btn-round-hw: 2.75rem; 
---btn-status-bar-h: 2.25rem;
-
---border-size: 2.75px;
---border-radius-squarish: .75rem;
-
---btn-scale-bg: 1.1;
---btn-scale-sm: .9;
-
---gap-basic: .5rem;
-
-/* --task-folder-h: 100vh; */
---task-w: 96vw;
---folder-w: 90vw;
-
---switch-w: 3.75rem;
+    --font-size-ti: .85rem;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.2rem;
+    --font-size-lg: 1.4rem;
+    --title-font-size: 1.6rem;
+    --title-img-size: 2.25rem;
+    --btn-img-basic-size: 1.5rem;
+    --status-btn-img-size: 1.25rem;
+    --priority-flag-overdue-triangle: 1rem;
+    --btn-round-hw: 2.75rem; /* Below value is also used as the border-radius of circular btns */
+    --btn-status-bar-h: 2.25rem;
+    --border-size: 2.75px;
+    --border-radius-squarish: .75rem;
+    --btn-scale-bg: 1.1;
+    --btn-scale-sm: .9;
+    --gap-basic: .5rem;
+    --task-w: 96vw;
+    --folder-w: 90vw;
+    --switch-w: 3.75rem;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: 
-    background-color 2s ease, 
-    border-color 2s ease,
-    /* color .5s ease, */
-    text-decoration 2s ease
-    ;
+    transition: background-color 2s ease, border-color 2s ease, text-decoration 2s ease;    ;
 }
 
 body {
-    /* max-width: 1569px; */
     background-color: var(--bkgd);  
     margin: 0;
 
+    /* Color references */
     --bkgd: var(--dark-bkgd);
     --stba: var(--dark-stba);
     --adta: var(--dark-adta);
@@ -167,6 +150,7 @@ body {
     --fc10: var(--lmfc10);
 }
 
+
 /* --> LVL-COLS/LVL-ROWS/SECTION-BOT-PAD                           */
 
 
@@ -189,12 +173,6 @@ body {
         justify-content: center;
         align-items: center;
     }
-
-.lvl-row-space {
-    display: flex;
-        justify-content: space-between;
-        align-items: center;
-}
 
 .lvl-row-start {
     display: flex;
@@ -235,21 +213,13 @@ body {
 /* --> .NONE/.FLEX                                                 */
 
 
-#status-bar.none, 
-#folder-content.none,
- /* .task-overdue-notice-img.none, .task-overdue-notice-p.none, */
-  .task-folder-p.none, #task-content.none, .task.none {
+#status-bar.none, #folder-content.none, .task-folder-p.none, #task-content.none, .task.none {
     display: none;
 }
-
-/* #status-bar.flex, #new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex, #edit-folder-form.flex {
-    display: flex;
-} */
 
 #new-task-form.flex, #new-folder-form.flex, #edit-task-form.flex, #edit-folder-form.flex {
     display: flex;
 }
-
 
 
 /* HEADER AND NAV                                                  */
@@ -261,7 +231,6 @@ header {
     color: var(--contrast);
     display: flex;
     flex-direction: column;
-    /* transition: background-color 1s ease, color 1s ease; */
 }
 
 #header-ctrl-container {
@@ -338,13 +307,11 @@ header {
     font-size: var(--font-size-md);
     margin: 0;
     padding: .5rem;
-    /* transition: background-color 1s ease, color 1s ease; */
 }
 
 #header-content {
     border-top: var(--border-size) solid var(--contrast);
     border-bottom: var(--border-size) solid var(--contrast);
-
 }
 
 nav {
@@ -607,7 +574,6 @@ form input::-webkit-input-placeholder {
 .color-picker-btn-cont1 {
     margin-top: .5rem;
     margin-bottom: .5rem;
-
 }
 
 .color-picker-btn {
@@ -706,7 +672,6 @@ form input::-webkit-input-placeholder {
 /* The switch, i.e., the box around the slider */
 .switch {
     height: calc(var(--font-size-sm) * 2);
-    /* width: 3.75rem; */
     width: var(--switch-w);
     position: relative;
     display: flex;
@@ -789,12 +754,9 @@ input:checked + .slider:before {
 
 .folder-bar {
     height: fit-content;
-    /* width: 27ch;  */
     width: var(--task-w);
-    /* width: auto; */
     border: var(--border-size) solid;
     border-color: var(--bkgd);
-    /* border-radius: 2rem; */
     border-radius: calc(var(--font-size-sm) * 2);
     color: var(--bkgd);
     display: flex;
@@ -803,10 +765,8 @@ input:checked + .slider:before {
     font-family: var(--font-plain);
     font-size: var(--font-size-md);
     font-weight: 800;
-    /* margin: 0 5px 0 5px; */
     margin-top: .5rem;
     padding: .5rem; 
-    /* transition: background-color 1s ease; */
 }
 
 .folder-task-num {
@@ -831,22 +791,11 @@ input:checked + .slider:before {
     transform: scale(var(--btn-scale-bg));
 }
 
-/* #folder-trash-btn:hover {
-    border: var(--border-size) dashed;
-    border-color: var(--contrast);
-    transform: scale(var(--btn-scale-bg));
-} */
-
-.folder-task-btn:active, .folder-edit-btn:active, .folder-trash-btn:active
-/* #folder-trash-btn:active */
- {
+.folder-task-btn:active, .folder-edit-btn:active, .folder-trash-btn:active {
     transform: scale(var(--btn-scale-sm));
 }
 
-/* DELETE trash btn img ref if I do not use it */
-.folder-task-btn-img, .folder-folder-img, .folder-task-img, .folder-edit-btn-img, .folder-trash-btn-img
- /* #folder-trash-btn-img  */
-  {
+.folder-task-btn-img, .folder-folder-img, .folder-task-img, .folder-edit-btn-img, .folder-trash-btn-im {
     height: var(--btn-img-basic-size);
     width: auto;
 }
@@ -861,9 +810,7 @@ input:checked + .slider:before {
 
 .folder-task-field {
     height: fit-content;
-    /* width: 32ch; */
     width: var(--folder-w);
-    /* width: auto; */
     border: calc(var(--border-size) * 1.5) dashed;
     border-color: none;
     display: flex;
@@ -874,11 +821,7 @@ input:checked + .slider:before {
     font-family: var(--font-plain);
     font-size: var(--font-size-sm);
     font-weight: 800;
-    /* margin: 0 .5rem 0 .5rem; */
-    /* margin-top: -3px; */
-    /* margin-bottom: 1rem; */
     margin: .5rem;
-        /* padding: .5rem .5rem 0 .5rem; */
 }
 
 .task-folder-p {
@@ -891,10 +834,8 @@ input:checked + .slider:before {
     background-color: var(--activated);
     border-radius: var(--border-radius-squarish);
     font-size: var(--font-size-sm);
-    /* margin-bottom: -.25rem; */
     margin: .5rem;
     padding: .5rem;
-
 }
 
 #no-current-task-msg {
@@ -914,31 +855,19 @@ input:checked + .slider:before {
 .task {
     height: fit-content;
     width: var(--task-w);
-    /* border-top: calc(var(--border-size) * 1.5) dashed;
-    border-bottom: calc(var(--border-size) * 1.5) dashed; */
     border: calc(var(--border-size) * 2) dashed;
     display: block;
     font-family: var(--font-plain);
     font-weight: 800;
     margin: 0;
     padding: 1rem; 
-    /* transition: background-color 1s ease, text-decoration 1s ease; */
 }
 
 .task-name {
-    /* background-color: var(--bkgd); */
-        /* background-color: red; */
-    /* border: var(--border-size) solid var(--bkgd);
-    border-radius: var(--border-radius-squarish); */
-    /* border-bottom: calc(var(--border-size) * 1.5) dotted;
-    border-color: var(--bkgd); */
-    /* border-radius: var(--border-radius-squarish); */
     font-size: var(--font-size-lg);
     font-weight: 800;
     margin-bottom: .25rem;
-    /* padding-left: .35rem; */
     padding: 0 .25rem 0 .25rem;
-    /* transition: color 1s ease, text-decoration 1s ease; */
 }
 
 .task-due-date, .task-folder {
@@ -988,18 +917,6 @@ input:checked + .slider:before {
         justify-content: center;
         align-items: center;
 }
-
-/* #folder-trash-btn {
-    height: var(--btn-round-hw);
-    width: var(--btn-round-hw);
-    background-color: var(--activated);
-    border: var(--border-size) solid;
-    border-color: var(--contrast);
-    border-radius: var(--btn-round-hw);
-    display: flex;
-        justify-content: center;
-        align-items: center;
-} */
 
 .task-btn-cont {
     align-self: center;
@@ -1072,26 +989,25 @@ input:checked + .slider:before {
         align-items: space-around;
         flex-wrap: wrap;
     }
-
 }
 
 @media only screen and (width >= 900px) {
 
 :root {
---viewport-scale-up: 1.25;
---font-size-ti: calc(.85rem * var(--viewport-scale-up));
---font-size-sm: calc(1rem * var(--viewport-scale-up));
---font-size-md: calc(1.2rem * var(--viewport-scale-up));
---font-size-lg: calc(1.4rem * var(--viewport-scale-up));
---title-font-size: calc(1.6rem * var(--viewport-scale-up));
---title-img-size: calc(2.25rem * var(--viewport-scale-up));
---btn-img-basic-size: calc(1.5rem * var(--viewport-scale-up));
---status-btn-img-size: calc(1.25rem * var(--viewport-scale-up));
---priority-flag-overdue-triangle: calc(1rem * var(--viewport-scale-up));
---btn-round-hw: calc(2.75rem * var(--viewport-scale-up)); 
---btn-status-bar-h: calc(2.25rem  * var(--viewport-scale-up));
---border-size: calc(2.75px * var(--viewport-scale-up));
---switch-w: calc(3.75rem * var(--viewport-scale-up))
+    --viewport-scale-up: 1.25;
+    --font-size-ti: calc(.85rem * var(--viewport-scale-up));
+    --font-size-sm: calc(1rem * var(--viewport-scale-up));
+    --font-size-md: calc(1.2rem * var(--viewport-scale-up));
+    --font-size-lg: calc(1.4rem * var(--viewport-scale-up));
+    --title-font-size: calc(1.6rem * var(--viewport-scale-up));
+    --title-img-size: calc(2.25rem * var(--viewport-scale-up));
+    --btn-img-basic-size: calc(1.5rem * var(--viewport-scale-up));
+    --status-btn-img-size: calc(1.25rem * var(--viewport-scale-up));
+    --priority-flag-overdue-triangle: calc(1rem * var(--viewport-scale-up));
+    --btn-round-hw: calc(2.75rem * var(--viewport-scale-up)); 
+    --btn-status-bar-h: calc(2.25rem  * var(--viewport-scale-up));
+    --border-size: calc(2.75px * var(--viewport-scale-up));
+    --switch-w: calc(3.75rem * var(--viewport-scale-up))
 }
 
 

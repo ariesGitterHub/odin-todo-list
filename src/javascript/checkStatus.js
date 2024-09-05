@@ -41,7 +41,6 @@ export function checkPriorityStatus(tasks) {
                 taskPriorityBtn.style.backgroundColor = "var(--activated)";
                 taskName.style.color = "var(--alert)";
                 taskName.style.textDecoration = "underline";
-                // taskName.style.borderColor = "var(--alert)";
                 taskName.textContent += " !!!";
             }
         } else {
@@ -68,8 +67,6 @@ export function checkCompletedStatus(tasks) {
                     taskTile.style.textDecoration = "line-through";
                     taskTile.style.textDecorationThickness = "3px";
                     taskTile.style.backgroundColor = "var(--activated)";
-                    // taskOverdueNoticeImg.classList.add("none");
-                    // taskOverdueNoticeP.classList.add("none");
                 } else {
                     taskCompletedBtn.value = "incomplete";
                 }

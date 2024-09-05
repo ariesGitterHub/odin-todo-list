@@ -207,12 +207,7 @@ export function submitEditedFolder() {
     if (editFolderSubmitBtn && editFolderForm) {
         editFolderForm.addEventListener("submit", function (event) {
         event.preventDefault();
-
-        // const editFolderName = document.querySelector("#edit-folder-name");
-        // console.log(editFolderName.value);
-        // const editFolderColorPicked = document.querySelector("#edit-folder-color-picked");
-        // console.log(editFolderColorPicked.dataset.value);
-
+        
         updateEditedFolders(targetId);
         });
     } else {

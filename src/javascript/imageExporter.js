@@ -43,9 +43,9 @@ import lmNewTaskImg from "../assets/lm-new-task.svg";
 import lmNewFolderImg from "../assets/lm-new-folder.svg";
 import lmDarkLiteImg from "../assets/lm-light-bulb.svg";
 import lmTaskImg from "../assets/lm-task.svg";
-import lmPriorityImg from "../assets/lm-priority.svg"; // Also in taskContent
+import lmPriorityImg from "../assets/lm-priority.svg";
 import lmOverdueImg from "../assets/lm-overdue.svg";
-import lmCompletedImg from "../assets/lm-completed.svg"; // Also in taskContent
+import lmCompletedImg from "../assets/lm-completed.svg";
 import lmFolderImg from "../assets/lm-folder.svg";
 import lmNewTaskPriorityFlagImg from "../assets/lm-priority-adta.svg";
 import lmNewTaskPriorityFlagImgBG from "../assets/lm-priority-adta-bg.svg";

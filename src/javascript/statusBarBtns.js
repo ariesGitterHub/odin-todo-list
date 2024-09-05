@@ -27,7 +27,6 @@ export function countTaskTypes(tasks) {
             if (task.overdueFlag === "overdue") {
             totalOverdueCount += 1;
             overdueNumBtnP.textContent = totalOverdueCount;
-            // console.log(`Priority tasks = ${totalOverdueCount}`);
             }
         });
 
@@ -36,7 +35,6 @@ export function countTaskTypes(tasks) {
             if (task.completedFlag === "completed") {
             totalCompletedCount += 1;
             completedNumBtnP.textContent = totalCompletedCount;
-            // console.log(`Completed tasks = ${totalCompletedCount}`);
             }
         });
     } else {
@@ -66,7 +64,6 @@ export function showAllTaskView() {
         }
     });
 }
-
 
 export function showPriorityView() {
     const taskTiles = document.querySelectorAll(".task");

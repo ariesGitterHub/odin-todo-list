@@ -170,7 +170,6 @@ export function createNewTaskForm() {
     lvlRow1.append(newTaskImg, newTaskFormTitle);
     lvlCol1.append(newTaskNameLabel, newTaskNameInput);
     lvlCol2.append(newTaskFolderLabel, newTaskFolderSelect);
-    // newTaskFolderSelect.append(newTaskFolderOption);
     lvlRowWidth1.append(lvlCol3, newTaskPriorityFlagImg, lvlCol4);
     lvlCol3.append(taskToggleP, taskToggleLabel);
     lvlCol4.append(newTaskDueDateLabel, newTaskDueDateInput);
@@ -218,7 +217,7 @@ export function newTaskPriorityChecked() {
 export function clearNewTaskForm() {
     const newTaskForm = document.querySelector("#new-task-form");
     const newTaskCancelBtn = document.querySelector("#new-task-cancel-btn");
-    // const newTaskPriorityFlagImg = document.querySelector("#new-task-priority-flag-img");
+
     if (newTaskCancelBtn && newTaskForm) {
         newTaskCancelBtn.addEventListener("click", function () {
         updateUI();

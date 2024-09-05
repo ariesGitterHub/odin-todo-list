@@ -10,7 +10,6 @@ import {
 export function taskEditBtnClicked(index) {
     const editTaskForm = document.querySelector("#edit-task-form");
     editTaskForm.classList.toggle("flex");
-
     populateEditTaskForm(index);
 }
 
@@ -204,11 +203,6 @@ export function submitEditedTask() {
     if (editTaskSubmitBtn && editTaskForm) {
             editTaskForm.addEventListener("submit", function (event) {
             event.preventDefault();
-
-        // const editTaskName = document.querySelector("#edit-task-name");
-        // const editTaskFolder = document.querySelector("#edit-task-folder");
-        // const editTaskDueDate = document.querySelector("#edit-task-due-date");
-        // const editTaskDescription = document.querySelector("#edit-task-description");
     
         updateEditedTasks(targetId);  
         });

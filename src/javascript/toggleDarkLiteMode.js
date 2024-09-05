@@ -117,7 +117,6 @@ export function toggleDarkLiteMode(theme) {
             titleImg.classList.toggle("flip"); 
             body.classList.add("lite-mode");
             titleImg.src = lmCoffeeImg;
-            // titleImg.src = lmCrownImg;
             statusBtnImg.src = lmStatusImg;
             newTaskBtnImg.src = lmNewTaskImg;
             newFolderBtnImg.src = lmNewFolderImg;

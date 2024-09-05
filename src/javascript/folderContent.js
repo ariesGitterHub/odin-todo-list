@@ -133,7 +133,6 @@ export function createFolders(folders) {
             taskFolderPName.textContent = `${task.taskName.toUpperCase()}`;
 
             const folderTaskDateFolderRow = document.createElement("div");
-            // folderTaskDateFolderRow.classList.add("lvl-row-space");
             folderTaskDateFolderRow.classList.add("folder-task-date-folder-row", "lvl-row");
 
             const taskFolderPDate = document.createElement("p");
@@ -154,11 +153,7 @@ export function createFolders(folders) {
 
             folder.append(folderTaskField);
             folderTaskField.append(
-            // folderTaskImg,
-            // taskFolderPName,
             folderTaskNameImgRow,
-            // taskFolderPDate,
-            // taskFolderPCOP,
             folderTaskDateFolderRow
             );
             folderTaskNameImgRow.append(folderTaskImg, taskFolderPName);

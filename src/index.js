@@ -1,7 +1,5 @@
 import "./styles/styles.css";
 
-// import { resizeViewport } from "./javascript/resizeViewport.js";
-
 import { playClickSound } from "./javascript/sound.js";
 
 import {
@@ -88,14 +86,8 @@ import {
     showCompletedView,
     showFolderView,
 } from "./javascript/statusBarBtns.js";
+
 import { updateUI } from "./javascript/updateUI.js";
-
-// function updateDOM() {
-//     const newElement = document.createElement("div");
-//     newElement.textContent = "!";
-//     document.getElementById("header-content").appendChild(newElement);
-// }
-
 
 document.addEventListener("DOMContentLoaded", () => {
     createTitle();
@@ -108,14 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    // Add event listener for scroll event with debouncing
     window.addEventListener("scroll", debounce(toggleSticky, 100));
     
-
-    // window.addEventListener("resize", debounce(resizeViewport(workingTasks), 100));
-
-    // window.addEventListener("resize", resizeViewport(workingTasks));
-
     createNav();
     createStatusBar();
     createNewTaskForm();
@@ -146,16 +132,13 @@ document.addEventListener("DOMContentLoaded", () => {
     countFolders(workingFolders);
     countTasksByFolder();
     checkFolderAddClass();
-    
-    // Issue with no sound from only one btn, the taskCompletedBtn, error check:
+
     const btnSound = document.querySelectorAll(".btn-sound");
     btnSound.forEach((button) => {
         button.addEventListener("click", (event) => {
-        //   console.log("Button clicked:", event.target); // Ensure the event is triggered
           playClickSound(event);
-          // handleButtonClick(event);
         });
-        });
+    });
 
     const statusBtn = document.querySelector("#status-btn");
     statusBtn.addEventListener("click", handleStatusBtn);
@@ -193,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
     taskPriorityBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         priorityBtnClicked(index);
-
         updateUI();
         });
     });
@@ -202,7 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
     taskCompletedBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         completedBtnClicked(index);
-
         updateUI();
         });
     });
@@ -210,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskEditBtns = document.querySelectorAll(
         ".task-edit-btn"
     );
+
     taskEditBtns.forEach((button, index) => {
         button.addEventListener("click", () => {
         taskEditBtnClicked(index);
@@ -223,15 +205,6 @@ document.addEventListener("DOMContentLoaded", () => {
         taskTrashBtnClicked(index);
         });
     });
-
-        // Event delegation for task trash button clicks
-    // document.querySelector("#task-content").addEventListener("click", (event) => {
-    //     const trashBtn = event.target.closest(".task-trash-btn");
-    //     if (trashBtn) {
-    //         const taskId = trashBtn.closest(".task").dataset.id;
-    //         taskTrashBtnClicked(taskId);
-    //     }
-    // });
 
     const folderEditBtns = document.querySelectorAll(".folder-edit-btn");
     folderEditBtns.forEach((button, index) => {
@@ -247,5 +220,4 @@ document.addEventListener("DOMContentLoaded", () => {
         folderTrashBtnClicked(index);
         });
     });
-
 });

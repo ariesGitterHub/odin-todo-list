@@ -1,5 +1,5 @@
 export function updateUI() {
-window.location.reload();
+    window.location.reload();
 }
 
 
