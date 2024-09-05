@@ -117,7 +117,7 @@ export function createFolders(folders) {
             const sanitizedTaskFolderP = folderItem.folderName.replace(/\s+/g, "-");
 
             const folderTaskNameImgRow = document.createElement("div");
-            folderTaskNameImgRow.classList.add("lvl-row");
+            folderTaskNameImgRow.classList.add("folder-task-name-img-row", "lvl-row");
         
             const folderTaskImg = document.createElement("img");
             folderTaskImg.classList.add("folder-task-img");
@@ -133,7 +133,8 @@ export function createFolders(folders) {
             taskFolderPName.textContent = `${task.taskName.toUpperCase()}`;
 
             const folderTaskDateFolderRow = document.createElement("div");
-            folderTaskDateFolderRow.classList.add("lvl-row");
+            // folderTaskDateFolderRow.classList.add("lvl-row-space");
+            folderTaskDateFolderRow.classList.add("folder-task-date-folder-row", "lvl-row");
 
             const taskFolderPDate = document.createElement("p");
             taskFolderPDate.classList.add(
