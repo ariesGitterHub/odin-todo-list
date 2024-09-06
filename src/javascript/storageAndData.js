@@ -7,6 +7,19 @@ import {
 import { updateUI } from "./updateUI.js";
 
 
+function getLocalStorageSize() {
+    let total = 0;
+    for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+        total += localStorage.getItem(key).length * 2; // Rough estimation
+        }
+    }
+    return total;
+}
+console.log("LocalStorage Size:", getLocalStorageSize(), "bytes");
+
+
+
 // THEME
 
 
