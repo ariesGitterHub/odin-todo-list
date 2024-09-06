@@ -179,6 +179,7 @@ export function createTasks(tasks) {
     })
                   
 };
+
 // RE-EXAMINE THIS CLOSELY!!!! This was a bit beyond me to finish 100% correctly...
 export function createTaskColor(folders) {
     const taskFolderElements = document.querySelectorAll(".task-folder");

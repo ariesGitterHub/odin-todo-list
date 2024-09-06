@@ -795,7 +795,7 @@ input:checked + .slider:before {
     transform: scale(var(--btn-scale-sm));
 }
 
-.folder-task-btn-img, .folder-folder-img, .folder-task-img, .folder-edit-btn-img, .folder-trash-btn-im {
+.folder-task-btn-img, .folder-folder-img, .folder-task-img, .folder-edit-btn-img, .folder-trash-btn-img {
     height: var(--btn-img-basic-size);
     width: auto;
 }
@@ -941,20 +941,20 @@ input:checked + .slider:before {
 @media only screen and (width >= 600px) {
 
 :root {
---viewport-scale-up: 1.125;
---font-size-ti: calc(.85rem * var(--viewport-scale-up));
---font-size-sm: calc(1rem * var(--viewport-scale-up));
---font-size-md: calc(1.2rem * var(--viewport-scale-up));
---font-size-lg: calc(1.4rem * var(--viewport-scale-up));
---title-font-size: calc(1.6rem * var(--viewport-scale-up));
---title-img-size: calc(2.25rem * var(--viewport-scale-up));
---btn-img-basic-size: calc(1.5rem * var(--viewport-scale-up));
---status-btn-img-size: calc(1.25rem * var(--viewport-scale-up));
---priority-flag-overdue-triangle: calc(1rem * var(--viewport-scale-up));
---btn-round-hw: calc(2.75rem * var(--viewport-scale-up)); 
---btn-status-bar-h: calc(2.25rem  * var(--viewport-scale-up));
---border-size: calc(2.75px * var(--viewport-scale-up));
---switch-w: calc(3.75rem * var(--viewport-scale-up));
+    --viewport-scale-up: 1.125;
+    --font-size-ti: calc(.85rem * var(--viewport-scale-up));
+    --font-size-sm: calc(1rem * var(--viewport-scale-up));
+    --font-size-md: calc(1.2rem * var(--viewport-scale-up));
+    --font-size-lg: calc(1.4rem * var(--viewport-scale-up));
+    --title-font-size: calc(1.6rem * var(--viewport-scale-up));
+    --title-img-size: calc(2.25rem * var(--viewport-scale-up));
+    --btn-img-basic-size: calc(1.5rem * var(--viewport-scale-up));
+    --status-btn-img-size: calc(1.25rem * var(--viewport-scale-up));
+    --priority-flag-overdue-triangle: calc(1rem * var(--viewport-scale-up));
+    --btn-round-hw: calc(2.75rem * var(--viewport-scale-up)); 
+    --btn-status-bar-h: calc(2.25rem  * var(--viewport-scale-up));
+    --border-size: calc(2.75px * var(--viewport-scale-up));
+    --switch-w: calc(3.75rem * var(--viewport-scale-up));
 }
 
 .slider:before {
@@ -1010,7 +1010,6 @@ input:checked + .slider:before {
     --switch-w: calc(3.75rem * var(--viewport-scale-up))
 }
 
-
 .slider:before {
     height: calc(22px * var(--viewport-scale-up));
     width: calc(22px * var(--viewport-scale-up));
@@ -1033,7 +1032,6 @@ input:checked + .slider:before {
 }
 
 #folder-content {
-    /* max-width: 1500px; */
     display: block;
         justify-content: center;
         align-items: center;
@@ -1041,18 +1039,15 @@ input:checked + .slider:before {
 }
 
 .folder {
-    /* height: fit-content;
-    width: fit-content; */
     display: flex;
         flex-direction: row; 
-        justify-content: center;
+        justify-content: space-around;
         align-items: start;
         flex-wrap: wrap;
 }
 
-
 .folder-task-field {
-    width: 320px;
+    width: 450px;
 }
 
 #task-content {
@@ -1079,22 +1074,3 @@ input:checked + .slider:before {
 }
 
 }
-
-/* @media only screen and (width >= 2400px) {
-
-body {
-    height: 100vh;
-    background-color: var(--activated);  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-}
-
-#app-container {
-    max-width: 2100px;
-    margin: 10rem;
-}
-
-} */
