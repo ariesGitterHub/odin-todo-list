@@ -1059,8 +1059,8 @@ input:checked + .slider:before {
 }
 
 .task {
-    height: 360px;
-    width: 360px;
+    height: 330px;
+    width: 330px;
     display: flex;
         flex-direction: column; 
         justify-content: space-between;

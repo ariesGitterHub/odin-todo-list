@@ -187,7 +187,7 @@ const defaultTasks = [
     "low",
     "completed",
     "Social",
-    ""
+    "Be home early."
   ),
   new Task(
     "t4",
@@ -197,7 +197,7 @@ const defaultTasks = [
     "low",
     "incomplete",
     "Travel",
-    "Make sure to renew my passport in advance."
+    "Make sure to renew my passport in advance. It might help to learn some French too."
   ),
   new Task(
     "t5",
@@ -207,7 +207,7 @@ const defaultTasks = [
     "high",
     "incomplete",
     "Repair",
-    "Watch out for the radioactive zombies."
+    "Watch out for the radioactive zombies and roving bands of marauders."
   ),
   new Task(
     "t6",
@@ -227,7 +227,7 @@ const defaultTasks = [
     "low",
     "incomplete",
     "Chores",
-    ""
+    "Try to hang most of it on the drying rack in the bathroom."
   ),
   new Task(
     "t8",
@@ -237,7 +237,7 @@ const defaultTasks = [
     "low",
     "incomplete",
     "*Default",
-    "Be tenacious!"
+    "Be tenacious!!!!!!"
   ),
   new Task(
     "t9",
@@ -257,7 +257,7 @@ const defaultTasks = [
     "low",
     "incomplete",
     "Social",
-    ""
+    "It's my turn to buy."
   ),
   new Task(
     "t11",
@@ -267,7 +267,7 @@ const defaultTasks = [
     "high",
     "incomplete",
     "*Default",
-    ""
+    "Get breakfast beforehand."
   ),
   new Task(
     "t12",
@@ -277,7 +277,7 @@ const defaultTasks = [
     "low",
     "incomplete",
     "Social",
-    ""
+    "Should I make a dish?"
   ),
   new Task(
     "t13",
@@ -287,7 +287,7 @@ const defaultTasks = [
     "low",
     "completed",
     "Fitness",
-    ""
+    "Stretch afterwards..."
   ),
   new Task(
     "t14",
@@ -297,7 +297,7 @@ const defaultTasks = [
     "low",
     "completed",
     "Repair",
-    "Buy a new fuse to fix this."
+    "Buy a new fuse to fix this. Try to get the original part."
   ),
 ];
 
