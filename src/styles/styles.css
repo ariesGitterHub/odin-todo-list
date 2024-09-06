@@ -348,6 +348,25 @@ nav button img {
     width: auto;
 }
 
+#header-content {
+    width: var(--task-w);
+    display: block;
+    margin: auto;
+}
+
+.sticky {
+    z-index: 9;    
+    width: var(--task-w);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to bottom right, var(--bkgd), var(--activated));
+    display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
 
 /* --> STATUS BANNER                                               */
 
@@ -926,7 +945,7 @@ input:checked + .slider:before {
 /* MEDIA QUERIES                                                   */
 
 
-@media only screen and (width < 900px) {
+/* @media only screen and (width < 900px) {
 
     #header-content {
         width: var(--task-w);
@@ -946,7 +965,7 @@ input:checked + .slider:before {
             justify-content: center;
             align-items: center;
     }
-}
+} */
 
 @media only screen and (width >= 600px) {
 
