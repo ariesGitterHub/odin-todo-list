@@ -956,7 +956,7 @@ input:checked + .slider:before {
     /* #header-ctrl-container */
     #header-content {
         width: var(--task-w);
-background-color: orange;
+background-color: gold;
         display: block;
         margin: auto;
     }
@@ -973,7 +973,7 @@ background-color: orange;
         /* max-width: 100vw; */
         position: fixed;
         top: 0;
-        left: 52%;
+        left: 50%;
         transform: translateX(-50%);
         background: var(--bkgd);
 
