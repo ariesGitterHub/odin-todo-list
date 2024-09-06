@@ -39,8 +39,8 @@ const defaultFolders = [
     new Folder("f0", "*Default", "--fc00"),
     new Folder("f1", "Chores", "--fc06"),
     new Folder("f2", "Fitness", "--fc01"),
-    new Folder("f3", "Repair", "--fc10"),
-    new Folder("f4", "Social", "--fc09"),
+    new Folder("f3", "Repair", "--fc09"),
+    new Folder("f4", "Social", "--fc03"),
     new Folder("f5", "Travel", "--fc04"),
 ];
 
@@ -161,7 +161,7 @@ const defaultTasks = [
   ),
   new Task(
     "t1",
-    "Grocery Store",
+    "Grocery store",
     tomorrow,
     "",
     "low",
@@ -261,7 +261,7 @@ const defaultTasks = [
   ),
   new Task(
     "t11",
-    "Vote!",
+    "Vote",
     "2024-11-05",
     "",
     "high",
@@ -271,7 +271,7 @@ const defaultTasks = [
   ),
   new Task(
     "t12",
-    "Neighborhood Block Party",
+    "Neighborhood block party",
     "2024-09-21",
     "",
     "low",

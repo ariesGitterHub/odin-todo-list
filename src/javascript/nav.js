@@ -9,6 +9,7 @@ import { workingTheme } from "./storageAndData.js";
 
 export function createNav() {
     const header = document.querySelector("header");
+    const headerContent = document.querySelector("#header-content");
 
     const nav = document.createElement("nav");
 
@@ -49,7 +50,9 @@ export function createNav() {
     darkLiteBtnImg.src = dmDarkLiteImg;
     darkLiteBtnImg.alt = "Light bulb icon to change between dark and lite modes";
 
-    header.appendChild(nav);
+    // header.appendChild(nav);
+    header.appendChild(headerContent);
+    headerContent.appendChild(nav);
     nav.append(statusBtn, newTaskBtn, newFolderBtn, darkLiteBtn);
     statusBtn.append(statusBtnImg);
     newTaskBtn.append(newTaskBtnImg);
