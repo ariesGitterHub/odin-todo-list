@@ -211,7 +211,7 @@ const defaultTasks = [
   ),
   new Task(
     "t6",
-    "Clean out gutters",
+    "Clean out the gutters",
     tomorrow,
     "",
     "low",
