@@ -214,7 +214,7 @@ const defaultTasks = [
   ),
   new Task(
     "t5",
-    "Fix the barbwire fence",
+    "Fix barbwire fence",
     "2099-11-05",
     "",
     "high",
@@ -244,13 +244,13 @@ const defaultTasks = [
   ),
   new Task(
     "t8",
-    "Finish up The Odin Project",
-    randomFutureDate,
+    "Complete The Odin Project",
+    "2025-11-30",
     "",
     "low",
     "incomplete",
     "*Default",
-    "Be tenacious!!!!!!"
+    "Be tenacious!"
   ),
   new Task(
     "t9",
@@ -275,12 +275,12 @@ const defaultTasks = [
   new Task(
     "t11",
     "Vote",
-    "2024-11-05",
+    "2026-11-03",
     "",
     "high",
     "incomplete",
     "*Default",
-    "Get breakfast beforehand."
+    "Midterms! Get breakfast beforehand."
   ),
   new Task(
     "t12",
@@ -288,19 +288,19 @@ const defaultTasks = [
     "2024-09-21",
     "",
     "low",
-    "incomplete",
+    "completed",
     "Social",
     "Should I make a dish?"
   ),
   new Task(
     "t13",
-    "Do a long run",
-    "2024-09-01",
+    "Sell everything and walk the Earth",
+    randomFutureDate,
     "",
     "low",
-    "completed",
-    "Fitness",
-    "Stretch afterwards..."
+    "incomplete",
+    "Chores",
+    "Donate stuff to charity and recycle the rest."
   ),
   new Task(
     "t14",

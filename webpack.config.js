@@ -4,55 +4,62 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development", // or 'production'
+  mode: "development", // or 'production' via scripts
   entry: "./src/index.js", // Entry point of your application
   output: {
     filename: "bundle.js", // Output bundle file name
-    path: path.resolve(__dirname, "dist"), // Output directory (absolute path)
+    path: path.resolve(__dirname, "dist"), // Output directory
+    clean: true, // Optional: cleans /dist folder on build
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"), // Serve files from /dist
+    },
+    port: 8080, // Change this to 3000 or any free port if needed
+    open: true, // Opens the browser automatically
+    hot: true, // Enables hot module replacement
+    compress: true, // Optional: enables gzip compression
+    client: {
+      overlay: true, // Show errors in the browser overlay
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // Path to your HTML file in src
-      //filename: "index.html", // Output HTML file name
-      // Other options if needed
+      template: "./src/index.html", // HTML template
+      favicon: path.resolve(__dirname, "public", "favIcon.svg"),
     }),
   ],
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [
-          "style-loader", // Inject styles into DOM
-          "css-loader", // Turns CSS into CommonJS modules
-        ],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"], // Handle CSS files
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         use: [
           {
             loader: "file-loader",
-            // type: "asset/resource",
             options: {
-              // name: "[name].[contenthash].[ext]",
               name: "[contenthash].[ext]",
-              outputPath: "images/", // This is where the images will be copied
+              outputPath: "images/",
             },
           },
         ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         use: ["file-loader"],
       },
       {
-        test: /\.(mp3)$/,
+        test: /\.mp3$/i,
         use: [
           {
             loader: "file-loader",
             options: {
-              name: "[name].[ext]", // Preserves the original file name and extension
-              outputPath: "assets/", // Specifies the directory for the output files
-              publicPath: "assets/", // Specifies the public URL path for the output files
+              name: "[name].[ext]",
+              outputPath: "assets/",
+              publicPath: "assets/",
             },
           },
         ],
